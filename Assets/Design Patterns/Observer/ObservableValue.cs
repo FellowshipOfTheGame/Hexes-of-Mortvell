@@ -88,10 +88,7 @@ namespace HexCasters.DesignPatterns.Obserable
 		/// Once complete, any attempt to modify its value will throw an
 		/// ObjectDisposedException.
 		/// </summary>
-		public void Dispose()
-		{
-			this.MarkComplete();
-		}
+		public void Dispose() => this.MarkComplete();
 
 
 		/// <summary>
@@ -133,12 +130,6 @@ namespace HexCasters.DesignPatterns.Obserable
 		}
 
 
-		public static implicit operator T(ObservableValue<T> observable)
-		{
-			return observable.Value;
-		}
-
-
 		private class ObservableValueSubscription : IDisposable
 		{
 
@@ -156,10 +147,7 @@ namespace HexCasters.DesignPatterns.Obserable
 				this.RegisterHandlers(this.observable);
 			}
 
-			public void Dispose()
-			{
-				this.UnregisterHandlers(this.observable);
-			}
+			public void Dispose() => this.UnregisterHandlers(this.observable);
 
 			private void AdaptHandlers(IObserver<T> observer)
 			{

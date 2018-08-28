@@ -34,26 +34,20 @@ namespace HexCasters.DesignPatterns.Obserable
 		/// Called when the observed object changes values.
 		/// </summary>
 		/// <param name="value">The new value for the observed object.</param>
-		public void OnNext(T value)
-		{
+		public void OnNext(T value) =>
 			this.nextEventHandler?.Invoke(value);
-		}
 
 		/// <summary>
-		/// Called when the observed object is marked complete.
+		/// /// Called when the observed object is marked complete.
 		/// </summary>
-		public void OnCompleted()
-		{
+		public void OnCompleted() =>
 			this.completeEventHandler?.Invoke();
-		}
 
 		/// <summary>
 		/// Called when the observed object notifies an invalid value.
 		/// </summary>
 		/// <param name="error">The error raised by the observed object.</param>
-		public void OnError(Exception error)
-		{
+		public void OnError(Exception error) =>
 			this.errorEventHandler?.Invoke(error);
-		}
 	}
 }
