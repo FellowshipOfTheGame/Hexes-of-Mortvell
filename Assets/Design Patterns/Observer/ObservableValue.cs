@@ -34,7 +34,11 @@ namespace HexCasters.DesignPatterns.Obserable
 		/// observable's validator.</value>
 		public T Value
 		{
-			get { return _value; }
+			get
+			{
+				this.ErrorIfCompleted();
+				return _value;
+			}
 			set
 			{
 				this.ErrorIfCompleted();
@@ -78,6 +82,7 @@ namespace HexCasters.DesignPatterns.Obserable
 		/// </summary>
 		public void MarkComplete()
 		{
+			this.ErrorIfCompleted();
 			this.Completed = true;
 			this.completedEvent?.Invoke();
 		}
@@ -124,7 +129,7 @@ namespace HexCasters.DesignPatterns.Obserable
 
 		private void ErrorIfCompleted()
 		{
-			var message = "Tried to to update value of completed Observable";
+			var message = "Observable object has been marked complete";
 			if (this.Completed)
 				throw new ObjectDisposedException(message);
 		}
