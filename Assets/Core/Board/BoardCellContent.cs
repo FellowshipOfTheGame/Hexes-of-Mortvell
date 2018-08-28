@@ -16,7 +16,7 @@ namespace HexCasters.Core.Board
 			private set { SetCell(value); }
 		}
 
-		void Start()
+		void Awake()
 		{
 			this.transform = GetComponent<Transform>();
 		}

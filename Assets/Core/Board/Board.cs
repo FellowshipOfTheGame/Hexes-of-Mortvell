@@ -31,6 +31,12 @@ namespace HexCasters.Core.Board
 			private set { SetCell(position, value); }
 		}
 
+		public BoardCell this[int x, int y]
+		{
+			get { return GetCell(new BoardPosition(x, y)); }
+			private set { SetCell(new BoardPosition(x, y), value); }
+		}
+
 
 		public void LoadLayout(BoardLayout layout)
 		{
@@ -45,6 +51,7 @@ namespace HexCasters.Core.Board
 			var newCellObject = Instantiate(cellPrefab, this.transform);
 			var newCell = newCellObject.GetComponent<BoardCell>();
 			newCell.Position = MatrixIndicesToBoardPosition(row, col);
+			this.cells[row, col] = newCell;
 		}
 
 		private Tuple<int, int> BoardPositionToMatrixIndices(
@@ -76,6 +83,17 @@ namespace HexCasters.Core.Board
 		{
 			var matrixCoords = BoardPositionToMatrixIndices(position);
 			this.cells[matrixCoords.Item1, matrixCoords.Item2] = cell;
+		}
+
+		public void Spawn(GameObject prefab, BoardPosition position)
+		{
+			var cell = this[position];
+			var instance = Instantiate(prefab);
+			var cellContent = instance.GetComponent<BoardCellContent>();
+			if (cellContent == null)
+				throw new ArgumentException(
+					$"Prefab has no {nameof(BoardCellContent)} component");
+			cell.SetContent(cellContent);
 		}
 
 		public void MoveContent(BoardPosition from, BoardPosition to)

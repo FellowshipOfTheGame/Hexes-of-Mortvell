@@ -14,5 +14,10 @@ namespace HexCasters.Core.Board
 			this.y = y;
 			this.z = -(x + y);
 		}
+
+		public override string ToString()
+		{
+			return $"({this.x}, {this.y}, {this.z})";
+		}
 	}
 }

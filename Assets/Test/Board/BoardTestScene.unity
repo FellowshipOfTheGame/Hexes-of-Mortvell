@@ -155,6 +155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   board: {fileID: 832971392}
   testLayout: {fileID: 11400000, guid: 381ddd660d5e6e144aff8c95f617d012, type: 2}
+  testOrbPrefab: {fileID: 1838907777240318, guid: cba1dcdb1937ab74bbd04bb2acc413c7,
+    type: 2}
 --- !u!1 &832971390
 GameObject:
   m_ObjectHideFlags: 0

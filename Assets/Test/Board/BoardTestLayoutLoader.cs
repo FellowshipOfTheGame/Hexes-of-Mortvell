@@ -5,9 +5,11 @@ public class BoardTestLayoutLoader : MonoBehaviour
 {
 	public Board board;
 	public BoardLayout testLayout;
+	public GameObject testOrbPrefab;
 
 	void Start()
 	{
-		board.LoadLayout(testLayout);
+		this.board.LoadLayout(testLayout);
+		this.board.Spawn(testOrbPrefab, new BoardPosition(0, 0));
 	}
 }

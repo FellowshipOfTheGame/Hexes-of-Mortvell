@@ -57,6 +57,7 @@ namespace HexCasters.Core.Board
 		public void SetPosition(BoardPosition position)
 		{
 			this._position = position;
+			UpdateName();
 			UpdateTransformPosition();
 		}
 
@@ -67,16 +68,25 @@ namespace HexCasters.Core.Board
 				throw new InvalidOperationException("Cell is not empty");
 		}
 
+		public void UpdateName()
+		{
+			this.gameObject.name = this.ToString();
+		}
+
 		private void UpdateTransformPosition()
 		{
 			this.transform.localPosition = BoardPositionToWorldPosition();
 		}
-
 		private Vector2 BoardPositionToWorldPosition()
 		{
 			float x = (this.Position.x + this.Position.y/2.0f);
 			float y = this.Position.y * (1 - this.rowVerticalOverlap);
 			return new Vector2(x, y);
+		}
+
+		public override string ToString()
+		{
+			return $"Cell @ {this.Position.ToString()}";
 		}
 	}
 }
