@@ -85,7 +85,7 @@ namespace HexCasters.Core.Board
 			this.cells[matrixCoords.Item1, matrixCoords.Item2] = cell;
 		}
 
-		public void Spawn(GameObject prefab, BoardPosition position)
+		public BoardCellContent Spawn(GameObject prefab, BoardPosition position)
 		{
 			var cell = this[position];
 			var instance = Instantiate(prefab);
@@ -94,13 +94,19 @@ namespace HexCasters.Core.Board
 				throw new ArgumentException(
 					$"Prefab has no {nameof(BoardCellContent)} component");
 			cell.SetContent(cellContent);
+			return cellContent;
 		}
 
 		public void MoveContent(BoardPosition from, BoardPosition to)
 		{
-			var content = this[from].GetContent();
-			this[from].SetContent(null);
-			this[to].SetContent(content);
+			MoveContent(this[from], this[to]);
+		}
+
+		public void MoveContent(BoardCell from, BoardCell to)
+		{
+			var content = from.GetContent();
+			from.SetContent(null);
+			to.SetContent(content);
 		}
 	}
 }

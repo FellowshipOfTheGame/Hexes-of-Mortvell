@@ -157,6 +157,9 @@ MonoBehaviour:
   testLayout: {fileID: 11400000, guid: 381ddd660d5e6e144aff8c95f617d012, type: 2}
   testOrbPrefab: {fileID: 1838907777240318, guid: cba1dcdb1937ab74bbd04bb2acc413c7,
     type: 2}
+  testObstaclePrefab: {fileID: 1101165836753034, guid: 72b7b60bc020d5946963aaeb22eec9bd,
+    type: 2}
+  testOrbInstance: {fileID: 0}
 --- !u!1 &832971390
 GameObject:
   m_ObjectHideFlags: 0

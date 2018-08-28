@@ -30,6 +30,11 @@ namespace HexCasters.Core.Board
 			set { SetContent(value); }
 		}
 
+		public bool Empty
+		{
+			get { return this.Content == null; }
+		}
+
 
 		void Awake()
 		{
@@ -44,9 +49,10 @@ namespace HexCasters.Core.Board
 
 		public void SetContent(BoardCellContent content)
 		{
-			ErrorIfOccupied();
+			if (content != null)
+				ErrorIfOccupied();
 			this._content = content;
-			this.Content.SetCell(this);
+			this.Content?.SetCell(this);
 		}
 
 		public BoardPosition GetPosition()
@@ -71,6 +77,19 @@ namespace HexCasters.Core.Board
 		public void UpdateName()
 		{
 			this.gameObject.name = this.ToString();
+		}
+
+		public BoardCell FindAdjacentCell(Direction direction)
+		{
+			var adjacentPosition = this.Position + direction;
+			try
+			{
+				return this.board[adjacentPosition];
+			}
+			catch (IndexOutOfRangeException)
+			{
+				return null;
+			}
 		}
 
 		private void UpdateTransformPosition()
