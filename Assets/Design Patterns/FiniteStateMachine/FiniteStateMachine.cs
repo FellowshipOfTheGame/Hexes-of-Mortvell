@@ -35,7 +35,7 @@ namespace HexCasters.DesignPatterns.FSM
 		{
 			ErrorIfNullArgument(nextState, nameof(nextState));
 			this.State = nextState;
-			nextState.enterEvent?.Invoke(this);
+			this.State.enterEvent?.Invoke(this);
 		}
 
 		private void ExitState()
