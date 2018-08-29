@@ -7,6 +7,8 @@ namespace HexCasters.Core.Units
 	public class HP : MonoBehaviour
 	{
 		public int max;
+		[SerializeField]
+		private int uncommitedValue;
 		public ObservableValue<int> _current;
 
 		public int Current
@@ -23,6 +25,7 @@ namespace HexCasters.Core.Units
 		void Awake()
 		{
 			this._current = new ObservableValue<int>(this.max);
+			this.uncommitedValue = this.Current;
 		}
 
 		public int Get()
@@ -30,36 +33,46 @@ namespace HexCasters.Core.Units
 			return this._current.Value;
 		}
 
-		public void Set(int newValue, bool clamp=false)
+		public int GetUncommited()
 		{
-			if (clamp)
-				ClampValueToRange(ref newValue);
-			this._current.Value = newValue;
+			return this.uncommitedValue;
 		}
 
-		public void Increase(int amount, bool clamp=false)
+		public void Set(int newValue, bool clamp=false, bool commit=false)
 		{
-			ErrorIfNegative(amount, nameof(amount));
-			var newValue = this.Current + amount;
 			if (clamp)
 				ClampValueToRange(ref newValue);
-			this.Current = newValue;
+			this.uncommitedValue = newValue;
+			if (commit)
+				Commit();
 		}
 
-		public void Decrease(int amount, bool clamp=false)
+		public void Increase(int amount, bool clamp=false, bool commit=false)
 		{
 			ErrorIfNegative(amount, nameof(amount));
-			var newValue = this.Current - amount;
-			if (clamp)
-				ClampValueToRange(ref newValue);
-			this.Current = newValue;
+			this.Set(
+				this.uncommitedValue + amount,
+				clamp: clamp,
+				commit: commit);
+		}
+
+		public void Decrease(int amount, bool clamp=false, bool commit=false)
+		{
+			ErrorIfNegative(amount, nameof(amount));
+			this.Set(this.uncommitedValue - amount, clamp, commit);
 		}
 
 		public void Clamp()
 		{
-			int currentValue = this.Current;
+			int currentValue = this.uncommitedValue;
 			ClampValueToRange(ref currentValue);
-			this.Current = currentValue;
+			this.uncommitedValue = currentValue;
+		}
+
+		public void Commit()
+		{
+			Clamp();
+			this._current.Value = this.uncommitedValue;
 		}
 
 		private void ClampValueToRange(ref int value)
