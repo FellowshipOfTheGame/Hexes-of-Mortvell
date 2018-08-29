@@ -88,7 +88,7 @@ namespace HexCasters.DesignPatterns.FSM
 		/// Calls Exit() on the current state, and Enter() on the next state,
 		/// in that order.
 		/// </summary>
-		/// <typeparam name="T"></typeparam>
+		/// <typeparam name="T">The type of the state to transition to.</typeparam>
 		public void Transition<T>() where T : FsmState
 		{
 			Transition(GetComponent<T>());
