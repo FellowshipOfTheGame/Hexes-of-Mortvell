@@ -21,6 +21,7 @@ namespace HexCasters.Core.Units
 		void Start()
 		{
 			this.subscription = hp.CurrentAsObservable.Subscribe(handler);
+			UpdateBarLength(hp.Current);
 		}
 
 		void Destroy()
