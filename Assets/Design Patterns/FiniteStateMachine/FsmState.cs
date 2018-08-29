@@ -3,15 +3,16 @@ using UnityEngine.Events;
 
 namespace HexCasters.DesignPatterns.FSM
 {
-	[CreateAssetMenu(
-		fileName="New FSM State",
-		menuName="HexCasters/FSM/State")]
-	public class FsmState : ScriptableObject
+	public class FsmState : MonoBehaviour
 	{
-		[System.Serializable]
-		public class FsmEvent : UnityEvent<FiniteStateMachine> {}
+		protected FiniteStateMachine fsm;
 
-		public FsmEvent enterEvent;
-		public FsmEvent exitEvent;
+		void Awake()
+		{
+			fsm = GetComponent<FiniteStateMachine>();
+		}
+
+		public virtual void Enter() {}
+		public virtual void Exit() {}
 	}
 }

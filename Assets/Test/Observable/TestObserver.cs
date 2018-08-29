@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
-using HexCasters.DesignPatterns.Obserable;
+using HexCasters.DesignPatterns.Observable;
 
 public class TestObserver : MonoBehaviour
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HexCasters.DesignPatterns.Obserable
+namespace HexCasters.DesignPatterns.Observable
 {
 	/// <summary>
 	/// Keeps track of and notifies registered observers when its wrapped value
@@ -97,6 +97,18 @@ namespace HexCasters.DesignPatterns.Obserable
 
 
 		/// <summary>
+		/// Invokes value changed event with the current value
+		/// of the observable.
+		/// Intended to be used for values which can mutate without a
+		/// direct attribution, such as Lists or Dictionaries.
+		/// </summary>
+		public void NotifyValueChange()
+		{
+			this.valueChangedEvent?.Invoke(_value);
+		}
+
+
+		/// <summary>
 		/// Registers a new observer to be notified.
 		/// </summary>
 		/// <param name="observer">
@@ -113,7 +125,7 @@ namespace HexCasters.DesignPatterns.Obserable
 		private void UpdateValue(T validatedValue)
 		{
 			this._value = validatedValue;
-			this.valueChangedEvent?.Invoke(_value);
+			this.NotifyValueChange();
 		}
 
 

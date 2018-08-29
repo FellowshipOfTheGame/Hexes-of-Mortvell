@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using HexCasters.DesignPatterns.Obserable;
 
 namespace HexCasters.DesignPatterns.FSM
 {
@@ -10,13 +9,17 @@ namespace HexCasters.DesignPatterns.FSM
 		private FsmState _state;
 		public FsmState State
 		{
-			get { return _state; }
+			get
+			{
+				ErrorIfNotInitialized();
+				return _state;
+			}
 			private set { this._state = value; }
 		}
 
 		public bool Started
 		{
-			get { return this.State != null; }
+			get { return this._state != null; }
 		}
 
 		public void StartMachine(FsmState initialState)
@@ -35,12 +38,12 @@ namespace HexCasters.DesignPatterns.FSM
 		{
 			ErrorIfNullArgument(nextState, nameof(nextState));
 			this.State = nextState;
-			this.State.enterEvent?.Invoke(this);
+			this.State.Enter();
 		}
 
 		private void ExitState()
 		{
-			this.State?.exitEvent?.Invoke(this);
+			this.State?.Exit();
 			this.State = null;
 		}
 

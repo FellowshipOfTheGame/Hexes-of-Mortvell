@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System;
-using HexCasters.DesignPatterns.Obserable;
+using HexCasters.DesignPatterns.Observable;
 
 public class TestObservable : MonoBehaviour
 {
