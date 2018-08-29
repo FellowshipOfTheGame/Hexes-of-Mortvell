@@ -3,6 +3,8 @@ using HexCasters.DesignPatterns.FSM;
 
 public class FsmTestStateGravity : FsmState {
 	public Rigidbody sphereRigidbody;
+	public float jumpSpeed = 4;
+	public FsmTestInputReader input;
 
 	void Update()
 	{
@@ -13,10 +15,33 @@ public class FsmTestStateGravity : FsmState {
 	public override void Enter()
 	{
 		sphereRigidbody.useGravity = true;
+		ObserveJumpButton();
 	}
 
 	public override void Exit()
 	{
 		sphereRigidbody.useGravity = false;
+		IgnoreJumpButton();
+	}
+
+	void ObserveJumpButton()
+	{
+		input.jumpButtonPressed.valueChangedEvent += SpaceBarStateChange;
+	}
+
+	void IgnoreJumpButton()
+	{
+		input.jumpButtonPressed.valueChangedEvent -= SpaceBarStateChange;
+	}
+
+	void SpaceBarStateChange(bool value)
+	{
+		if (value)
+			Jump();
+	}
+
+	void Jump()
+	{
+		sphereRigidbody.AddForce(Vector2.up * jumpSpeed, ForceMode.Impulse);
 	}
 }

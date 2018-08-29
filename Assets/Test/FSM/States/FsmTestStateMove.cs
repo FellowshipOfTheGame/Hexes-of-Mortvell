@@ -12,14 +12,12 @@ public class FsmTestStateMove : FsmState
 
 	public override void Enter()
 	{
-		enabled = true;
 		ObserveDirection();
 	}
 
 	public override void Exit()
 	{
 		IgnoreDirection();
-		enabled = false;
 	}
 
 	void UpdateObservedDirection(Vector2 newDirection)

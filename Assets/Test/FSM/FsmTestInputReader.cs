@@ -4,14 +4,14 @@ using HexCasters.DesignPatterns.Observable;
 public class FsmTestInputReader : MonoBehaviour
 {
 	public ObservableValue<Vector2> direction;
-	public ObservableValue<bool> printButtonPressed;
+	public ObservableValue<bool> jumpButtonPressed;
 
-	public KeyCode printButtonKeyCode;
+	public KeyCode jumpButtonKeyCode;
 
 	void Awake()
 	{
 		direction = new ObservableValue<Vector2>(Vector2.zero);
-		printButtonPressed = new ObservableValue<bool>(false);
+		jumpButtonPressed = new ObservableValue<bool>(false);
 	}
 
 	void Update()
@@ -29,8 +29,8 @@ public class FsmTestInputReader : MonoBehaviour
 
 	void UpdatePrintButton()
 	{
-		var button = Input.GetKeyDown(printButtonKeyCode);
-		if (this.printButtonPressed.Value != button)
-			this.printButtonPressed.Value = button;
+		var button = Input.GetKeyDown(jumpButtonKeyCode);
+		if (this.jumpButtonPressed.Value != button)
+			this.jumpButtonPressed.Value = button;
 	}
 }

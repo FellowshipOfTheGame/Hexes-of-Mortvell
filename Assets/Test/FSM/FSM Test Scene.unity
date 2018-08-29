@@ -183,6 +183,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sphereRigidbody: {fileID: 520473102}
+  jumpSpeed: 4
+  input: {fileID: 1949852867}
 --- !u!1 &520473097
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99da39377b110cb4eaade9101c9dcd59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  printButtonKeyCode: 0
+  jumpButtonKeyCode: 32
 --- !u!4 &1949852868
 Transform:
   m_ObjectHideFlags: 0
