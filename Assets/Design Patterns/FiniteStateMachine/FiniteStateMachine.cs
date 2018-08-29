@@ -28,12 +28,12 @@ namespace HexCasters.DesignPatterns.FSM
 		{
 			this.knownStates = new HashSet<FsmState>();
 			foreach (var state in GetComponents<FsmState>())
-				RegisterKnownState(state);
+				AcknowledgeState(state);
 			ErrorIfUnknownState(initialState);
 			EnterState(initialState);
 		}
 
-		void RegisterKnownState(FsmState state)
+		void AcknowledgeState(FsmState state)
 		{
 			this.knownStates.Add(state);
 			state.enabled = false;
