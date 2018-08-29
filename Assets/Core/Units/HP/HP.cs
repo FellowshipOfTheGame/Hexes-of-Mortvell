@@ -28,6 +28,11 @@ namespace HexCasters.Core.Units
 			this.uncommitedValue = this.Current;
 		}
 
+		void OnDestroy()
+		{
+			this.commitedValue.MarkComplete();
+		}
+
 		public int Get()
 		{
 			return this.commitedValue.Value;
