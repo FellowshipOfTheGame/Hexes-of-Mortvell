@@ -17,7 +17,7 @@ public class HPBarTestDeathChecker : MonoBehaviour
 
 	void Start()
 	{
-		hpSubscription = hp.CurrentAsObservable.Subscribe(hpObserver);
+		hpSubscription = hp.AsObservable.Subscribe(hpObserver);
 	}
 
 	void OnDestroy()

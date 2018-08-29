@@ -19,7 +19,7 @@ public class HPBar : MonoBehaviour
 
 	void Start()
 	{
-		this.subscription = hp.CurrentAsObservable.Subscribe(handler);
+		this.subscription = hp.AsObservable.Subscribe(handler);
 		UpdateBarLength(hp.Current);
 	}
 

@@ -9,7 +9,7 @@ namespace HexCasters.Core.Units
 		public int max;
 		[SerializeField]
 		private int uncommitedValue;
-		public ObservableValue<int> _current;
+		public ObservableValue<int> commitedValue;
 
 		public int Current
 		{
@@ -17,20 +17,20 @@ namespace HexCasters.Core.Units
 			set { Set(value); }
 		}
 
-		public IObservable<int> CurrentAsObservable
+		public IObservable<int> AsObservable
 		{
-			get { return this._current; }
+			get { return this.commitedValue; }
 		}
 
 		void Awake()
 		{
-			this._current = new ObservableValue<int>(this.max);
+			this.commitedValue = new ObservableValue<int>(this.max);
 			this.uncommitedValue = this.Current;
 		}
 
 		public int Get()
 		{
-			return this._current.Value;
+			return this.commitedValue.Value;
 		}
 
 		public int GetUncommited()
@@ -72,7 +72,7 @@ namespace HexCasters.Core.Units
 		public void Commit()
 		{
 			Clamp();
-			this._current.Value = this.uncommitedValue;
+			this.commitedValue.Value = this.uncommitedValue;
 		}
 
 		private void ClampValueToRange(ref int value)
