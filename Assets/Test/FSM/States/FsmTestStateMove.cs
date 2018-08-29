@@ -31,7 +31,7 @@ public class FsmTestStateMove : FsmState
 	{
 		movedObjectTransform.Translate(moveSpeed * observedDirection);
 		if (Input.GetKeyDown(KeyCode.Alpha2))
-			fsm.Transition<FsmTestDummyState>();
+			fsm.Transition<FsmTestStateGravity>();
 	}
 
 
