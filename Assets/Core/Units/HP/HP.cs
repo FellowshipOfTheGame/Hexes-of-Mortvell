@@ -1,6 +1,6 @@
 using UnityEngine;
 using System;
-using HexCasters.DesignPatterns.Observable;
+using HexCasters.DesignPatterns.Observer;
 
 namespace HexCasters.Core.Units
 {

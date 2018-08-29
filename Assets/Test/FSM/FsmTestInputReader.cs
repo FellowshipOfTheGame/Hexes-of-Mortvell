@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using HexCasters.DesignPatterns.Observable;
+using HexCasters.DesignPatterns.Observer;
 
 public class FsmTestInputReader : MonoBehaviour
 {

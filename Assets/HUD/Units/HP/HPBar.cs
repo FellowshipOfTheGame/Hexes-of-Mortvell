@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System;
-using HexCasters.DesignPatterns.Observable;
+using HexCasters.DesignPatterns.Observer;
 using HexCasters.Core.Units;
 
 public class HPBar : MonoBehaviour
