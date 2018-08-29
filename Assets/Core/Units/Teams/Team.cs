@@ -7,15 +7,16 @@ namespace HexCasters.Core.Units.Teams
 {
 	public class Team : MonoBehaviour
 	{
-		private ISet<TeamMember> members;
-		public IEnumerator<TeamMember> Members
+		[SerializeField]
+		private List<TeamMember> members;
+		public IReadOnlyList<TeamMember> Members
 		{
-			get { return members.GetEnumerator(); }
+			get { return new ReadOnlyCollection<TeamMember>(members); }
 		}
 
 		void Awake()
 		{
-			this.members = new HashSet<TeamMember>();
+			this.members = new List<TeamMember>();
 		}
 
 		public void Add(GameObject gameObject)

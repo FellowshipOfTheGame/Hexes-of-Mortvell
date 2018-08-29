@@ -1,49 +1,41 @@
 using System;
-using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
+using HexCasters.DesignPatterns.Observer;
 
 namespace HexCasters.Core.Units.Teams
 {
 	public class TeamColored : MonoBehaviour
 	{
 		public Team team;
-		public List<UnityEngine.Object> coloredObjects;
-
 		private TeamColor teamColor;
+		private ObservableValue<Color> observableTeamColor;
+		public IObservable<Color> Color
+		{
+			get { return observableTeamColor; }
+		}
 
 		void Awake()
 		{
-			teamColor = this.team.GetComponent<TeamColor>();
+			this.teamColor = this.team.GetComponent<TeamColor>();
+			this.observableTeamColor = new ObservableValue<Color>();
 			ErrorIfNoColorComponent();
 		}
 
-		public void UpdateColor()
+		void Start()
 		{
-			foreach (var obj in coloredObjects)
-				UpdateColor(obj);
+			NotifyColorUpdate();
 		}
 
-		void UpdateColor(UnityEngine.Object obj)
+		public void NotifyColorUpdate()
 		{
-			var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
-			bindingFlags |= BindingFlags.IgnoreCase;
-			var field = obj.GetType().GetField("color", bindingFlags);
-			ErrorIfFieldNotFound(field, obj.name);
+			this.observableTeamColor.Value = teamColor.color;
 		}
 
 		void ErrorIfNoColorComponent()
 		{
-			if (teamColor == null)
+			if (this.teamColor == null)
 				throw new ArgumentException(
 					$"Team has no {nameof(TeamColor)} component");
-		}
-
-		void ErrorIfFieldNotFound(FieldInfo field, string objName)
-		{
-			if (field == null)
-				throw new ArgumentException(
-					$"Object \"{objName}\" has no \"color\" field");
 		}
 	}
 }
