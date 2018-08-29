@@ -570,6 +570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max: 20
+  uncommitedValue: 0
 --- !u!4 &2052026291
 Transform:
   m_ObjectHideFlags: 0
