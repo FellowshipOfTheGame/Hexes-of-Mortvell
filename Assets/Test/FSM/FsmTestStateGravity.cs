@@ -2,7 +2,7 @@
 using HexCasters.DesignPatterns.FSM;
 
 public class FsmTestStateGravity : FsmState {
-	public Rigidbody sphereRigidBody;
+	public Rigidbody sphereRigidbody;
 
 	void Update()
 	{
@@ -12,11 +12,11 @@ public class FsmTestStateGravity : FsmState {
 
 	public override void Enter()
 	{
-		sphereRigidBody.useGravity = true;
+		sphereRigidbody.useGravity = true;
 	}
 
 	public override void Exit()
 	{
-		sphereRigidBody.useGravity = false;
+		sphereRigidbody.useGravity = false;
 	}
 }

@@ -4,7 +4,7 @@ using HexCasters.DesignPatterns.FSM;
 public class FsmTestStateMove : FsmState
 {
 	public FsmTestInputReader input;
-	public Transform movedObjectTransform;
+	public Rigidbody movedObjectRigidbody;
 	public float moveSpeed = 0.2f;
 
 	[SerializeField]
@@ -29,7 +29,7 @@ public class FsmTestStateMove : FsmState
 
 	void Update()
 	{
-		movedObjectTransform.Translate(moveSpeed * observedDirection);
+		movedObjectRigidbody.AddForce(moveSpeed * observedDirection);
 		if (Input.GetKeyDown(KeyCode.Alpha2))
 			fsm.Transition<FsmTestStateGravity>();
 	}
