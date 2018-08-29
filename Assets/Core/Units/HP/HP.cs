@@ -30,27 +30,29 @@ namespace HexCasters.Core.Units
 			return this._current.Value;
 		}
 
-		public void Set(int newValue)
+		public void Set(int newValue, bool clamp=false)
 		{
+			if (clamp)
+				ClampValueToRange(ref newValue);
 			this._current.Value = newValue;
 		}
 
-		public void ClampedSet(int newValue)
-		{
-			ClampValueToRange(ref newValue);
-			Set(newValue);
-		}
-
-		public void Increase(int amount)
+		public void Increase(int amount, bool clamp=false)
 		{
 			ErrorIfNegative(amount, nameof(amount));
-			this.Current += amount;
+			var newValue = this.Current + amount;
+			if (clamp)
+				ClampValueToRange(ref newValue);
+			this.Current = newValue;
 		}
 
-		public void Decrease(int amount)
+		public void Decrease(int amount, bool clamp=false)
 		{
 			ErrorIfNegative(amount, nameof(amount));
-			this.Current -= amount;
+			var newValue = this.Current - amount;
+			if (clamp)
+				ClampValueToRange(ref newValue);
+			this.Current = newValue;
 		}
 
 		public void Clamp()

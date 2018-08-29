@@ -23,13 +23,15 @@ public class HPBar : MonoBehaviour
 		UpdateBarLength(hp.Current);
 	}
 
-	void Destroy()
+	void OnDestroy()
 	{
 		subscription.Dispose();
 	}
 
 	void UpdateBarLength(int newValue)
 	{
-		barTransform.localScale = (float) newValue / hp.max * Vector2.right;
+		var scale = barTransform.localScale;
+		scale.x = (float) newValue / hp.max;
+		barTransform.localScale = scale;
 	}
 }
