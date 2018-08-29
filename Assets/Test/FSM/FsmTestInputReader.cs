@@ -30,7 +30,7 @@ public class FsmTestInputReader : MonoBehaviour
 	void UpdatePrintButton()
 	{
 		var button = Input.GetKeyDown(printButtonKeyCode);
-		if (printButtonPressed.Value != button)
-			printButtonPressed.Value = button;
+		if (this.printButtonPressed.Value != button)
+			this.printButtonPressed.Value = button;
 	}
 }

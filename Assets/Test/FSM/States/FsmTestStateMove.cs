@@ -30,6 +30,8 @@ public class FsmTestStateMove : FsmState
 	void Update()
 	{
 		movedObjectTransform.Translate(moveSpeed * observedDirection);
+		if (Input.GetKeyDown(KeyCode.Alpha2))
+			fsm.Transition<FsmTestDummyState>();
 	}
 
 

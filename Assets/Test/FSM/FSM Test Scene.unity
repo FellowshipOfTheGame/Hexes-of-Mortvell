@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 451342760}
   - component: {fileID: 451342761}
   - component: {fileID: 451342762}
+  - component: {fileID: 451342763}
   m_Layer: 0
   m_Name: FSM
   m_TagString: Untagged
@@ -161,14 +162,26 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 451342759}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ccfd7e1631eca10408ef554c0c872199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 1949852867}
   movedObjectTransform: {fileID: 520473100}
+  moveSpeed: 0.2
   observedDirection: {x: 0, y: 0}
+--- !u!114 &451342763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 451342759}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5de8c4c04b8df845ac17e93c491a589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &520473097
 GameObject:
   m_ObjectHideFlags: 0

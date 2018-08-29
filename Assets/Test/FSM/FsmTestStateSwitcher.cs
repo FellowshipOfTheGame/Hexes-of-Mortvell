@@ -6,6 +6,6 @@ public class FsmTestStateSwitcher : MonoBehaviour {
 
 	void Start()
 	{
-		fsm.StartMachine(fsm.GetComponent<FsmTestStateMove>());
+		fsm.StartMachine<FsmTestDummyState>();
 	}
 }
