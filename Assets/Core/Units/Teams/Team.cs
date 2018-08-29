@@ -15,7 +15,7 @@ namespace HexCasters.Core.Units.Teams
 
 		void Awake()
 		{
-			members = new HashSet<TeamMember>();
+			this.members = new HashSet<TeamMember>();
 		}
 
 		public void Add(GameObject gameObject)
@@ -23,7 +23,7 @@ namespace HexCasters.Core.Units.Teams
 			var teamMembership = gameObject.GetComponent<TeamMember>();
 			ErrorIfMemberOfOtherTeam(teamMembership);
 			teamMembership.team = this;
-			members.Add(teamMembership);
+			this.members.Add(teamMembership);
 		}
 
 		TeamMember GetOrCreateTeamMembership(GameObject gameObject)
