@@ -13,6 +13,11 @@ public class TeamColorRandomizer : MonoBehaviour
 		Color.green
 	};
 
+	void Start()
+	{
+		Randomize();
+	}
+
 	public void Randomize()
 	{
 		int randomIdx;
