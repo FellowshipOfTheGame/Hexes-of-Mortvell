@@ -1,0 +1,12 @@
+﻿using UnityEngine;
+
+namespace HexCasters.Core.Board
+{
+	[CreateAssetMenu(
+		fileName="New Terrain Type",
+		menuName="HexCasters/Terrain")]
+	public class BoardCellTerrain : ScriptableObject
+	{
+		public int movementCost;
+	}
+}

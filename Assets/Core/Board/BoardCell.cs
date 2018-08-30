@@ -32,6 +32,8 @@ namespace HexCasters.Core.Board
 			set { SetContent(value); }
 		}
 
+		public BoardCellTerrain terrain;
+
 		public bool Empty
 		{
 			get { return this.Content == null; }
