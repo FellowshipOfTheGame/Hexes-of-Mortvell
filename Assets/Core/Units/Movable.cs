@@ -14,10 +14,10 @@ namespace HexCasters.Core.Units
 		{
 			return currentCell.Neighborhood(
 				this.movementPoints,
-				MovementCost);
+				DestinationMovementCost);
 		}
 
-		private static int MovementCost(BoardCell from, BoardCell to)
+		private static int DestinationMovementCost(BoardCell from, BoardCell to)
 		{
 			return to.terrain.movementCost;
 		}
