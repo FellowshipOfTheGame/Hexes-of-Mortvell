@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeamsTestRandomizeOnClick : MonoBehaviour
+namespace HexCasters.Testing.TeamsTest
 {
-	public TeamsTestTeamColorRandomizer randomizer;
-	public int mouseButton;
-
-	void Update()
+	public class TeamsTestRandomizeOnClick : MonoBehaviour
 	{
-		if (Input.GetMouseButtonDown(mouseButton))
-			randomizer.Randomize();
+		public TeamsTestTeamColorRandomizer randomizer;
+		public int mouseButton;
+
+		void Update()
+		{
+			if (Input.GetMouseButtonDown(mouseButton))
+				randomizer.Randomize();
+		}
 	}
 }

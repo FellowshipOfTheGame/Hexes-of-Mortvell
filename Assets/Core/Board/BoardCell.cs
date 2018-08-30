@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace HexCasters.Core.Board
+namespace HexCasters.Core.Grid
 {
 	public class BoardCell : MonoBehaviour
 	{

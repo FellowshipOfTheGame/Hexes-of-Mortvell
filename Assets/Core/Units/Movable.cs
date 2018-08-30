@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
-using HexCasters.Core.Board;
-using HexCasters.Core.Board.Regions;
+using HexCasters.Core.Grid;
+using HexCasters.Core.Grid.Regions;
 
 namespace HexCasters.Core.Units
 {

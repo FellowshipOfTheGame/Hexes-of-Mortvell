@@ -1,50 +1,54 @@
 ﻿using UnityEngine;
-using HexCasters.Core.Board;
+using HexCasters.Core.Grid;
 
-public class BoardTestLayoutLoader : MonoBehaviour
+namespace HexCasters.Testing.BoardTest
 {
-	public Board board;
-	public BoardLayout testLayout;
-	public GameObject testOrbPrefab;
-	public GameObject testObstaclePrefab;
-	public BoardCellContent testOrbInstance;
-
-	void Start()
+	public class BoardTestLayoutLoader : MonoBehaviour
 	{
-		this.board.LoadLayout(testLayout);
-		this.testOrbInstance = this.board.Spawn(
-			testOrbPrefab, new BoardPosition(-2, -2));
-		this.board.Spawn(testObstaclePrefab, new BoardPosition(0, 0));
+		public Board board;
+		public BoardLayout testLayout;
+		public GameObject testOrbPrefab;
+		public GameObject testObstaclePrefab;
+		public BoardCellContent testOrbInstance;
+
+		void Start()
+		{
+			this.board.LoadLayout(testLayout);
+			this.testOrbInstance = this.board.Spawn(
+				testOrbPrefab, new BoardPosition(-2, -2));
+			this.board.Spawn(testObstaclePrefab, new BoardPosition(0, 0));
+		}
+
+		void Update()
+		{
+			MoveOrbIfKeyPressed(KeyCode.E, Direction.UpRight);
+			MoveOrbIfKeyPressed(KeyCode.D, Direction.Right);
+			MoveOrbIfKeyPressed(KeyCode.X, Direction.DownRight);
+			MoveOrbIfKeyPressed(KeyCode.Z, Direction.DownLeft);
+			MoveOrbIfKeyPressed(KeyCode.A, Direction.Left);
+			MoveOrbIfKeyPressed(KeyCode.W, Direction.UpLeft);
+			PrintOrbCoordsIfKeyPressed(KeyCode.S);
+		}
+
+		void PrintOrbCoordsIfKeyPressed(KeyCode keyCode)
+		{
+			if (Input.GetKeyDown(keyCode))
+				Debug.Log(testOrbInstance.Cell);
+		}
+
+		void MoveOrbIfKeyPressed(KeyCode keyCode, Direction direction)
+		{
+			if (Input.GetKeyDown(keyCode))
+				MoveTestOrbInstance(direction);
+		}
+
+		void MoveTestOrbInstance(Direction direction)
+		{
+			var currentCell = this.testOrbInstance.Cell;
+			var adjacentCell = currentCell.FindAdjacentCell(direction);
+			if (adjacentCell != null && adjacentCell.Empty)
+				this.board.MoveContent(currentCell, adjacentCell);
+		}
 	}
 
-	void Update()
-	{
-		MoveOrbIfKeyPressed(KeyCode.E, Direction.UpRight);
-		MoveOrbIfKeyPressed(KeyCode.D, Direction.Right);
-		MoveOrbIfKeyPressed(KeyCode.X, Direction.DownRight);
-		MoveOrbIfKeyPressed(KeyCode.Z, Direction.DownLeft);
-		MoveOrbIfKeyPressed(KeyCode.A, Direction.Left);
-		MoveOrbIfKeyPressed(KeyCode.W, Direction.UpLeft);
-		PrintOrbCoordsIfKeyPressed(KeyCode.S);
-	}
-
-	void PrintOrbCoordsIfKeyPressed(KeyCode keyCode)
-	{
-		if (Input.GetKeyDown(keyCode))
-			Debug.Log(testOrbInstance.Cell);
-	}
-
-	void MoveOrbIfKeyPressed(KeyCode keyCode, Direction direction)
-	{
-		if (Input.GetKeyDown(keyCode))
-			MoveTestOrbInstance(direction);
-	}
-
-	void MoveTestOrbInstance(Direction direction)
-	{
-		var currentCell = this.testOrbInstance.Cell;
-		var adjacentCell = currentCell.FindAdjacentCell(direction);
-		if (adjacentCell != null && adjacentCell.Empty)
-			this.board.MoveContent(currentCell, adjacentCell);
-	}
 }

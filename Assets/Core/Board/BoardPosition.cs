@@ -1,4 +1,4 @@
-namespace HexCasters.Core.Board
+namespace HexCasters.Core.Grid
 {
 
 	[System.Serializable]

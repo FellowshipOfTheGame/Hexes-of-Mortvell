@@ -1,45 +1,48 @@
 ﻿using UnityEngine;
-using HexCasters.DesignPatterns.FSM;
+using HexCasters.DesignPatterns.Fsm;
 
-public class FsmTestStateMove : FsmState
+namespace HexCasters.Testing.FsmTest
 {
-	public FsmTestInputReader input;
-	public Rigidbody movedObjectRigidbody;
-	public float moveSpeed = 0.2f;
-
-	[SerializeField]
-	private Vector2 observedDirection;
-
-	public override void Enter()
+	public class FsmTestStateMove : FsmState
 	{
-		ObserveDirection();
-	}
+		public FsmTestInputReader input;
+		public Rigidbody movedObjectRigidbody;
+		public float moveSpeed = 0.2f;
 
-	public override void Exit()
-	{
-		IgnoreDirection();
-	}
+		[SerializeField]
+		private Vector2 observedDirection;
 
-	void UpdateObservedDirection(Vector2 newDirection)
-	{
-		observedDirection = newDirection;
-	}
+		public override void Enter()
+		{
+			ObserveDirection();
+		}
 
-	void Update()
-	{
-		movedObjectRigidbody.AddForce(moveSpeed * observedDirection);
-		if (Input.GetKeyDown(KeyCode.Alpha2))
-			fsm.Transition<FsmTestStateGravity>();
-	}
+		public override void Exit()
+		{
+			IgnoreDirection();
+		}
+
+		void UpdateObservedDirection(Vector2 newDirection)
+		{
+			observedDirection = newDirection;
+		}
+
+		void Update()
+		{
+			movedObjectRigidbody.AddForce(moveSpeed * observedDirection);
+			if (Input.GetKeyDown(KeyCode.Alpha2))
+				fsm.Transition<FsmTestStateGravity>();
+		}
 
 
-	void ObserveDirection()
-	{
-		input.direction.valueChangedEvent += UpdateObservedDirection;
-	}
+		void ObserveDirection()
+		{
+			input.direction.valueChangedEvent += UpdateObservedDirection;
+		}
 
-	void IgnoreDirection()
-	{
-		input.direction.valueChangedEvent -= UpdateObservedDirection;
+		void IgnoreDirection()
+		{
+			input.direction.valueChangedEvent -= UpdateObservedDirection;
+		}
 	}
 }

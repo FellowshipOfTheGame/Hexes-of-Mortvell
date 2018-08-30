@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace HexCasters.Core.Board
+namespace HexCasters.Core.Grid
 {
 	public class Board : MonoBehaviour
 	{

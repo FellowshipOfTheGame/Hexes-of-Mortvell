@@ -1,36 +1,39 @@
 ﻿using UnityEngine;
 using HexCasters.DesignPatterns.Observer;
 
-public class FsmTestInputReader : MonoBehaviour
+namespace HexCasters.Testing.FsmTest
 {
-	public ObservableValue<Vector2> direction;
-	public ObservableValue<bool> jumpButtonPressed;
-
-	public KeyCode jumpButtonKeyCode;
-
-	void Awake()
+	public class FsmTestInputReader : MonoBehaviour
 	{
-		direction = new ObservableValue<Vector2>(Vector2.zero);
-		jumpButtonPressed = new ObservableValue<bool>(false);
-	}
+		public ObservableValue<Vector2> direction;
+		public ObservableValue<bool> jumpButtonPressed;
 
-	void Update()
-	{
-		UpdateDirection();
-		UpdatePrintButton();
-	}
+		public KeyCode jumpButtonKeyCode;
 
-	void UpdateDirection()
-	{
-		var horizontal = Input.GetAxisRaw("Horizontal");
-		var vertical = Input.GetAxisRaw("Vertical");
-		direction.Value = new Vector2(horizontal, vertical).normalized;
-	}
+		void Awake()
+		{
+			direction = new ObservableValue<Vector2>(Vector2.zero);
+			jumpButtonPressed = new ObservableValue<bool>(false);
+		}
 
-	void UpdatePrintButton()
-	{
-		var button = Input.GetKeyDown(jumpButtonKeyCode);
-		if (this.jumpButtonPressed.Value != button)
-			this.jumpButtonPressed.Value = button;
+		void Update()
+		{
+			UpdateDirection();
+			UpdatePrintButton();
+		}
+
+		void UpdateDirection()
+		{
+			var horizontal = Input.GetAxisRaw("Horizontal");
+			var vertical = Input.GetAxisRaw("Vertical");
+			direction.Value = new Vector2(horizontal, vertical).normalized;
+		}
+
+		void UpdatePrintButton()
+		{
+			var button = Input.GetKeyDown(jumpButtonKeyCode);
+			if (this.jumpButtonPressed.Value != button)
+				this.jumpButtonPressed.Value = button;
+		}
 	}
 }

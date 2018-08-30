@@ -3,31 +3,34 @@ using UnityEngine;
 using HexCasters.Core.Units;
 using HexCasters.DesignPatterns.Observer;
 
-public class HPBarTestDeathChecker : MonoBehaviour
+namespace HexCasters.Testing.HPTest
 {
-	public HP hp;
-	private ValueObserver<int> hpObserver;
-	private IDisposable hpSubscription;
-
-	void Awake()
+	public class HPBarTestDeathChecker : MonoBehaviour
 	{
-		hpObserver = new ValueObserver<int>(
-			nextEventHandler: PrintIfDead);
-	}
+		public HP hp;
+		private ValueObserver<int> hpObserver;
+		private IDisposable hpSubscription;
 
-	void Start()
-	{
-		hpSubscription = hp.AsObservable.Subscribe(hpObserver);
-	}
+		void Awake()
+		{
+			hpObserver = new ValueObserver<int>(
+				nextEventHandler: PrintIfDead);
+		}
 
-	void OnDestroy()
-	{
-		hpSubscription.Dispose();
-	}
+		void Start()
+		{
+			hpSubscription = hp.AsObservable.Subscribe(hpObserver);
+		}
 
-	void PrintIfDead(int hp)
-	{
-		if (hp == 0)
-			Debug.Log("Dead");
+		void OnDestroy()
+		{
+			hpSubscription.Dispose();
+		}
+
+		void PrintIfDead(int hp)
+		{
+			if (hp == 0)
+				Debug.Log("Dead");
+		}
 	}
 }

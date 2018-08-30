@@ -1,32 +1,35 @@
 ﻿using UnityEngine;
 
-public class TeamsTestTeamColorRandomizer : MonoBehaviour
+namespace HexCasters.Testing.TeamsTest
 {
-	public TeamColor teamColor;
-
-	private int? curIdx;
-
-	private static Color[] Colors = new Color[]
+	public class TeamsTestTeamColorRandomizer : MonoBehaviour
 	{
-		Color.red,
-		Color.blue,
-		Color.green
-	};
+		public TeamColor teamColor;
 
-	void Start()
-	{
-		Randomize();
-	}
+		private int? curIdx;
 
-	public void Randomize()
-	{
-		int randomIdx;
-		do
+		private static Color[] Colors = new Color[]
 		{
-			randomIdx = (int) (Random.value * Colors.Length);
+			Color.red,
+			Color.blue,
+			Color.green
+		};
+
+		void Start()
+		{
+			Randomize();
 		}
-		while (randomIdx == curIdx);
-		teamColor.Color = Colors[randomIdx];
-		curIdx = randomIdx;
+
+		public void Randomize()
+		{
+			int randomIdx;
+			do
+			{
+				randomIdx = (int) (Random.value * Colors.Length);
+			}
+			while (randomIdx == curIdx);
+			teamColor.Color = Colors[randomIdx];
+			curIdx = randomIdx;
+		}
 	}
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace HexCasters.DesignPatterns.FSM
+namespace HexCasters.DesignPatterns.Fsm
 {
 	/// <summary>
 	/// Automatically starts an FSM on Start().

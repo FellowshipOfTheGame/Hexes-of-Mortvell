@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace HexCasters.Core.Board
+namespace HexCasters.Core.Grid
 {
 	public struct Direction
 	{

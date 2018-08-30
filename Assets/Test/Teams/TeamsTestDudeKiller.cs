@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 
-public class TeamsTestDudeKiller : MonoBehaviour
+namespace HexCasters.Testing.TeamsTest
 {
-	void OnMouseDown()
+	public class TeamsTestDudeKiller : MonoBehaviour
 	{
-		Destroy(gameObject);
+		void OnMouseDown()
+		{
+			Destroy(gameObject);
+		}
 	}
 }

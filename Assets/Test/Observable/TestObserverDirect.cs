@@ -2,57 +2,60 @@
 using UnityEngine;
 using System;
 
-public class TestObserverDirect : MonoBehaviour
+namespace HexCasters.Testing.ObserverTest
 {
-	public string observerName;
-	public KeyCode unsubscriptionKeycode;
-	public TestObservable observableObject;
-
-	private Action<int> valueChangedEventHandler;
-	private Action<Exception> errorEventHandler;
-	private Action completedEventHandler;
-
-	void Start()
+	public class TestObserverDirect : MonoBehaviour
 	{
-		valueChangedEventHandler = (int value) =>
-			Debug.Log($"{observerName}: {value}");
-		errorEventHandler = (Exception e) => Debug.LogError(e);
-		completedEventHandler = () => Debug.Log($"{observerName}: Completed");
-		RegisterObserver();
-	}
+		public string observerName;
+		public KeyCode unsubscriptionKeycode;
+		public TestObservable observableObject;
 
-	void RegisterObserver()
-	{
-		StartCoroutine(WaitForObservable());
-	}
+		private Action<int> valueChangedEventHandler;
+		private Action<Exception> errorEventHandler;
+		private Action completedEventHandler;
 
-	IEnumerator WaitForObservable()
-	{
-		while (observableObject.observable == null)
-			yield return null;
-		Register();
-	}
+		void Start()
+		{
+			valueChangedEventHandler = (int value) =>
+				Debug.Log($"{observerName}: {value}");
+			errorEventHandler = (Exception e) => Debug.LogError(e);
+			completedEventHandler = () => Debug.Log($"{observerName}: Completed");
+			RegisterObserver();
+		}
 
-	void Update()
-	{
-		if (Input.GetKeyDown(unsubscriptionKeycode))
-			Unregister();
-	}
+		void RegisterObserver()
+		{
+			StartCoroutine(WaitForObservable());
+		}
 
-	void Register()
-	{
-		observableObject.observable.valueChangedEvent +=
-			valueChangedEventHandler;
-		observableObject.observable.errorEvent +=
-			errorEventHandler;
-		observableObject.observable.completedEvent +=
-			completedEventHandler;
-	}
+		IEnumerator WaitForObservable()
+		{
+			while (observableObject.observable == null)
+				yield return null;
+			Register();
+		}
 
-	void Unregister()
-	{
-		observableObject.observable.valueChangedEvent -= valueChangedEventHandler;
-		observableObject.observable.errorEvent -= errorEventHandler;
-		observableObject.observable.completedEvent -= completedEventHandler;
+		void Update()
+		{
+			if (Input.GetKeyDown(unsubscriptionKeycode))
+				Unregister();
+		}
+
+		void Register()
+		{
+			observableObject.observable.valueChangedEvent +=
+				valueChangedEventHandler;
+			observableObject.observable.errorEvent +=
+				errorEventHandler;
+			observableObject.observable.completedEvent +=
+				completedEventHandler;
+		}
+
+		void Unregister()
+		{
+			observableObject.observable.valueChangedEvent -= valueChangedEventHandler;
+			observableObject.observable.errorEvent -= errorEventHandler;
+			observableObject.observable.completedEvent -= completedEventHandler;
+		}
 	}
 }

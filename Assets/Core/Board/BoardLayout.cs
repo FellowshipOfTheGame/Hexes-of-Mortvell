@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace HexCasters.Core.Board
+namespace HexCasters.Core.Grid
 {
 	[CreateAssetMenu(
 		fileName="New Board Layout",

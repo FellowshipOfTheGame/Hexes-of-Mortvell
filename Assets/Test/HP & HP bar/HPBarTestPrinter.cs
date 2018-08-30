@@ -3,30 +3,33 @@ using UnityEngine;
 using HexCasters.Core.Units;
 using HexCasters.DesignPatterns.Observer;
 
-public class HPBarTestPrinter : MonoBehaviour
+namespace HexCasters.Testing.HPTest
 {
-	public HP hp;
-	private ValueObserver<int> hpObserver;
-	private IDisposable hpSubscription;
-
-	void Awake()
+	public class HPBarTestPrinter : MonoBehaviour
 	{
-		hpObserver = new ValueObserver<int>(
-			nextEventHandler: PrintValue);
-	}
+		public HP hp;
+		private ValueObserver<int> hpObserver;
+		private IDisposable hpSubscription;
 
-	void Start()
-	{
-		hpSubscription = hp.AsObservable.Subscribe(hpObserver);
-	}
+		void Awake()
+		{
+			hpObserver = new ValueObserver<int>(
+				nextEventHandler: PrintValue);
+		}
 
-	void OnDestroy()
-	{
-		hpSubscription.Dispose();
-	}
+		void Start()
+		{
+			hpSubscription = hp.AsObservable.Subscribe(hpObserver);
+		}
 
-	void PrintValue(int value)
-	{
-		Debug.Log($"HP: {value}");
+		void OnDestroy()
+		{
+			hpSubscription.Dispose();
+		}
+
+		void PrintValue(int value)
+		{
+			Debug.Log($"HP: {value}");
+		}
 	}
 }

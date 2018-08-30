@@ -1,47 +1,51 @@
 ﻿using UnityEngine;
-using HexCasters.DesignPatterns.FSM;
+using HexCasters.DesignPatterns.Fsm;
 
-public class FsmTestStateGravity : FsmState {
-	public Rigidbody sphereRigidbody;
-	public float jumpSpeed = 4;
-	public FsmTestInputReader input;
 
-	void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Alpha1))
-			fsm.Transition<FsmTestStateMove>();
-	}
+namespace HexCasters.Testing.FsmTest
+{
+	public class FsmTestStateGravity : FsmState {
+		public Rigidbody sphereRigidbody;
+		public float jumpSpeed = 4;
+		public FsmTestInputReader input;
 
-	public override void Enter()
-	{
-		sphereRigidbody.useGravity = true;
-		ObserveJumpButton();
-	}
+		void Update()
+		{
+			if (Input.GetKeyDown(KeyCode.Alpha1))
+				fsm.Transition<FsmTestStateMove>();
+		}
 
-	public override void Exit()
-	{
-		sphereRigidbody.useGravity = false;
-		IgnoreJumpButton();
-	}
+		public override void Enter()
+		{
+			sphereRigidbody.useGravity = true;
+			ObserveJumpButton();
+		}
 
-	void ObserveJumpButton()
-	{
-		input.jumpButtonPressed.valueChangedEvent += SpaceBarStateChange;
-	}
+		public override void Exit()
+		{
+			sphereRigidbody.useGravity = false;
+			IgnoreJumpButton();
+		}
 
-	void IgnoreJumpButton()
-	{
-		input.jumpButtonPressed.valueChangedEvent -= SpaceBarStateChange;
-	}
+		void ObserveJumpButton()
+		{
+			input.jumpButtonPressed.valueChangedEvent += SpaceBarStateChange;
+		}
 
-	void SpaceBarStateChange(bool value)
-	{
-		if (value)
-			Jump();
-	}
+		void IgnoreJumpButton()
+		{
+			input.jumpButtonPressed.valueChangedEvent -= SpaceBarStateChange;
+		}
 
-	void Jump()
-	{
-		sphereRigidbody.AddForce(Vector2.up * jumpSpeed, ForceMode.Impulse);
+		void SpaceBarStateChange(bool value)
+		{
+			if (value)
+				Jump();
+		}
+
+		void Jump()
+		{
+			sphereRigidbody.AddForce(Vector2.up * jumpSpeed, ForceMode.Impulse);
+		}
 	}
 }

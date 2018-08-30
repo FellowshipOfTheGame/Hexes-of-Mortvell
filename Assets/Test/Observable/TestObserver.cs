@@ -3,41 +3,44 @@ using System;
 using System.Collections;
 using HexCasters.DesignPatterns.Observer;
 
-public class TestObserver : MonoBehaviour
+namespace HexCasters.Testing.ObserverTest
 {
-	public string observerName;
-	public KeyCode unsubscriptionKeycode;
-
-	private IObserver<int> observer;
-	public TestObservable observableObject;
-	IDisposable observerSubscription;
-
-	void Start()
+	public class TestObserver : MonoBehaviour
 	{
-		observer = new ValueObserver<int>(
-			nextEventHandler: (int value) =>
-				Debug.Log($"{observerName}: {value}"),
-			completeEventHandler: () => Debug.Log($"{observerName}: Completed"),
-			errorEventHandler: (Exception e) =>
-				Debug.LogError(e));
-		RegisterObserver();
-	}
+		public string observerName;
+		public KeyCode unsubscriptionKeycode;
 
-	void RegisterObserver()
-	{
-		StartCoroutine(WaitForObservable());
-	}
+		private IObserver<int> observer;
+		public TestObservable observableObject;
+		IDisposable observerSubscription;
 
-	IEnumerator WaitForObservable()
-	{
-		while (observableObject.observable == null)
-			yield return null;
-		observerSubscription = observableObject.observable.Subscribe(observer);
-	}
+		void Start()
+		{
+			observer = new ValueObserver<int>(
+				nextEventHandler: (int value) =>
+					Debug.Log($"{observerName}: {value}"),
+				completeEventHandler: () => Debug.Log($"{observerName}: Completed"),
+				errorEventHandler: (Exception e) =>
+					Debug.LogError(e));
+			RegisterObserver();
+		}
 
-	void Update()
-	{
-		if (Input.GetKeyDown(unsubscriptionKeycode))
-			observerSubscription.Dispose();
+		void RegisterObserver()
+		{
+			StartCoroutine(WaitForObservable());
+		}
+
+		IEnumerator WaitForObservable()
+		{
+			while (observableObject.observable == null)
+				yield return null;
+			observerSubscription = observableObject.observable.Subscribe(observer);
+		}
+
+		void Update()
+		{
+			if (Input.GetKeyDown(unsubscriptionKeycode))
+				observerSubscription.Dispose();
+		}
 	}
 }
