@@ -19,7 +19,7 @@ namespace HexCasters.Core.Units
 
 		private static int DestinationMovementCost(BoardCell from, BoardCell to)
 		{
-			return to.terrain.movementCost;
+			return to.Terrain.movementCost;
 		}
 	}
 }

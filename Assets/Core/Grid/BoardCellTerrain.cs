@@ -8,5 +8,6 @@ namespace HexCasters.Core.Grid
 	public class BoardCellTerrain : ScriptableObject
 	{
 		public int movementCost;
+		public Sprite sprite;
 	}
 }

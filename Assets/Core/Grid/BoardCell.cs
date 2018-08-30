@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace HexCasters.Core.Grid
 {
+	[RequireComponent(typeof(SpriteRenderer))]
 	public class BoardCell : MonoBehaviour
 	{
 		public float spriteWidth;
@@ -23,6 +24,7 @@ namespace HexCasters.Core.Grid
 
 		[HideInInspector]
 		public new Transform transform;
+		private SpriteRenderer spriteRenderer;
 
 		[SerializeField]
 		private BoardCellContent _content;
@@ -32,7 +34,13 @@ namespace HexCasters.Core.Grid
 			set { SetContent(value); }
 		}
 
-		public BoardCellTerrain terrain;
+		[SerializeField]
+		private BoardCellTerrain _terrain;
+		public BoardCellTerrain Terrain
+		{
+			get { return GetTerrain(); }
+			set { SetTerrain(value); }
+		}
 
 		public bool Empty
 		{
@@ -44,6 +52,12 @@ namespace HexCasters.Core.Grid
 		{
 			this.transform = GetComponent<Transform>();
 			this.board = this.transform.parent.GetComponent<Board>();
+			this.spriteRenderer = GetComponent<SpriteRenderer>();
+		}
+
+		void Start()
+		{
+			UpdateTerrainSprite();
 		}
 
 		public BoardCellContent GetContent()
@@ -71,6 +85,17 @@ namespace HexCasters.Core.Grid
 			UpdateTransformPosition();
 		}
 
+		public BoardCellTerrain GetTerrain()
+		{
+			return this._terrain;
+		}
+
+		public void SetTerrain(BoardCellTerrain terrain)
+		{
+			this._terrain = terrain;
+			UpdateTerrainSprite();
+		}
+
 
 		private void ErrorIfOccupied()
 		{
@@ -78,9 +103,14 @@ namespace HexCasters.Core.Grid
 				throw new InvalidOperationException("Cell is not empty");
 		}
 
-		public void UpdateName()
+		void UpdateName()
 		{
 			this.gameObject.name = this.ToString();
+		}
+
+		void UpdateTerrainSprite()
+		{
+			this.spriteRenderer.sprite = this.Terrain.sprite;
 		}
 
 		public BoardCell FindAdjacentCell(Direction direction)
