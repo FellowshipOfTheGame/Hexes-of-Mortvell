@@ -21,9 +21,6 @@ namespace HexCasters.Core.Board.Regions
 			openNodes.Add(center);
 			distances[center] = 0;
 
-			visited.Add(center);
-			yield return center;
-
 			while (openNodes.Count > 0)
 			{
 				openNodes.Sort(distanceComparer);
@@ -34,16 +31,17 @@ namespace HexCasters.Core.Board.Regions
 				if (currentDist > maxDistance)
 					continue;
 
+
+				if (!visited.Contains(currentNode))
+				{
+					visited.Add(currentNode);
+					yield return currentNode;
+				}
+
 				foreach (var neighbor in currentNode.FindAdjacentCells())
 				{
 					var distanceFromCurrentNode
 						= currentDist + distanceFunction(currentNode, neighbor);
-
-					if (!visited.Contains(neighbor))
-					{
-						visited.Add(neighbor);
-						yield return neighbor;
-					}
 
 					SetInfiniteDistanceIfAbsent(distances, neighbor);
 					if (distanceFromCurrentNode < distances[neighbor])
