@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomizeOnClick : MonoBehaviour
+public class TeamsTestRandomizeOnClick : MonoBehaviour
 {
-	public TeamColorRandomizer randomizer;
+	public TeamsTestTeamColorRandomizer randomizer;
 	public int mouseButton;
 
 	void Update()

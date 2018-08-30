@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class TeamColorRandomizer : MonoBehaviour
+public class TeamsTestTeamColorRandomizer : MonoBehaviour
 {
 	public TeamColor teamColor;
 

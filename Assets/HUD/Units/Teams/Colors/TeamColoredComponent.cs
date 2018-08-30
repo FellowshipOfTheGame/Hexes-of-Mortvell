@@ -12,11 +12,13 @@ public abstract class TeamColoredComponent : MonoBehaviour
 
 	protected void Start()
 	{
+		if (this.team == null)
+			this.team = GetComponent<TeamMember>().team;
 		this.teamColor = team.GetComponent<TeamColor>();
 		ErrorIfNoTeamColor();
 		var handler = new ValueObserver<Color>(
 			nextEventHandler: UpdateColor);
-		subscription = teamColor.AsObservable.Subscribe(handler);
+		this.subscription = teamColor.AsObservable.Subscribe(handler);
 		UpdateColor(teamColor.Color);
 	}
 
