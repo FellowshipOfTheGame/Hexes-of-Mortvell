@@ -8,19 +8,21 @@ public abstract class TeamColoredComponent : MonoBehaviour
 
 	public Team team;
 	private TeamColor teamColor;
-
-	protected void Awake()
-	{
-		this.teamColor = team.GetComponent<TeamColor>();
-		ErrorIfNoTeamColor();
-	}
+	private IDisposable subscription;
 
 	protected void Start()
 	{
+		this.teamColor = team.GetComponent<TeamColor>();
+		ErrorIfNoTeamColor();
 		var handler = new ValueObserver<Color>(
 			nextEventHandler: UpdateColor);
 		teamColor.AsObservable.Subscribe(handler);
 		UpdateColor(teamColor.Color);
+	}
+
+	protected void OnDestroy()
+	{
+		subscription?.Dispose();
 	}
 
 	void ErrorIfNoTeamColor()

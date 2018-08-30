@@ -10,5 +10,10 @@ namespace HexCasters.Core.Units.Teams
 		{
 			this.team.Add(this.gameObject);
 		}
+
+		public void ExitTeam()
+		{
+			this.team.Remove(this);
+		}
 	}
 }

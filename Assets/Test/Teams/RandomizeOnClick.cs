@@ -5,10 +5,11 @@ using UnityEngine;
 public class RandomizeOnClick : MonoBehaviour
 {
 	public TeamColorRandomizer randomizer;
+	public int mouseButton;
 
 	void Update()
 	{
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonDown(mouseButton))
 			randomizer.Randomize();
 	}
 }

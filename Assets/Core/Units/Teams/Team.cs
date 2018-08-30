@@ -21,10 +21,17 @@ namespace HexCasters.Core.Units.Teams
 
 		public void Add(GameObject gameObject)
 		{
-			var teamMembership = gameObject.GetComponent<TeamMember>();
+			var teamMembership = GetOrCreateTeamMembership(gameObject);
 			ErrorIfMemberOfOtherTeam(teamMembership);
 			teamMembership.team = this;
 			this.members.Add(teamMembership);
+		}
+
+		public void Remove(TeamMember teamMembership)
+		{
+			ErrorIfMemberOfOtherTeam(teamMembership);
+			this.members.Remove(teamMembership);
+			teamMembership.team = null;
 		}
 
 		TeamMember GetOrCreateTeamMembership(GameObject gameObject)

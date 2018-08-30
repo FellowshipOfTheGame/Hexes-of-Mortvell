@@ -9,7 +9,7 @@ public class TeamsTestHoverable : MonoBehaviour
 	public Image image;
 	private TeamColor teamColor;
 
-	void Awake()
+	void Start()
 	{
 		var team = GetComponent<TeamMember>().team;
 		this.teamColor = team.GetComponent<TeamColor>();
