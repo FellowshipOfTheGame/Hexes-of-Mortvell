@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace HexCasters.Core.Board
@@ -90,6 +92,15 @@ namespace HexCasters.Core.Board
 			{
 				return null;
 			}
+		}
+
+		public IEnumerable<BoardCell> FindAdjacentCells()
+		{
+			return Direction.List
+				.Select(
+					(Direction direction) => FindAdjacentCell(direction))
+				.Where(
+					(BoardCell cell) => cell != null);
 		}
 
 		private void UpdateTransformPosition()
