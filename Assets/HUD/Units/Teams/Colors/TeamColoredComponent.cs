@@ -16,13 +16,13 @@ public abstract class TeamColoredComponent : MonoBehaviour
 		ErrorIfNoTeamColor();
 		var handler = new ValueObserver<Color>(
 			nextEventHandler: UpdateColor);
-		teamColor.AsObservable.Subscribe(handler);
+		subscription = teamColor.AsObservable.Subscribe(handler);
 		UpdateColor(teamColor.Color);
 	}
 
 	protected void OnDestroy()
 	{
-		subscription?.Dispose();
+		subscription.Dispose();
 	}
 
 	void ErrorIfNoTeamColor()

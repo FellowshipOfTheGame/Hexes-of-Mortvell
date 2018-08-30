@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 339520598}
   - component: {fileID: 339520601}
   - component: {fileID: 339520602}
+  - component: {fileID: 339520603}
   m_Layer: 0
   m_Name: Blue Dude 0
   m_TagString: Untagged
@@ -443,6 +444,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &339520603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 339520596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf5f65444e7e604f9c6d384e3e8bbae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &444512502
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +468,7 @@ GameObject:
   - component: {fileID: 444512506}
   - component: {fileID: 444512507}
   - component: {fileID: 444512508}
+  - component: {fileID: 444512509}
   m_Layer: 0
   m_Name: Random Dude 1
   m_TagString: Untagged
@@ -574,6 +587,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &444512509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 444512502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf5f65444e7e604f9c6d384e3e8bbae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &567553520
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +611,7 @@ GameObject:
   - component: {fileID: 567553522}
   - component: {fileID: 567553525}
   - component: {fileID: 567553526}
+  - component: {fileID: 567553527}
   m_Layer: 0
   m_Name: Red Dude 1
   m_TagString: Untagged
@@ -705,6 +730,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &567553527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 567553520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf5f65444e7e604f9c6d384e3e8bbae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &700759905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1089,6 +1125,7 @@ GameObject:
   - component: {fileID: 1459220049}
   - component: {fileID: 1459220052}
   - component: {fileID: 1459220053}
+  - component: {fileID: 1459220054}
   m_Layer: 0
   m_Name: Green Dude 0
   m_TagString: Untagged
@@ -1207,6 +1244,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &1459220054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1459220047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf5f65444e7e604f9c6d384e3e8bbae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1527175475
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,6 +1322,7 @@ GameObject:
   - component: {fileID: 1729691476}
   - component: {fileID: 1729691479}
   - component: {fileID: 1729691480}
+  - component: {fileID: 1729691481}
   m_Layer: 0
   m_Name: Red Dude 0
   m_TagString: Untagged
@@ -1392,6 +1441,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &1729691481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1729691474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf5f65444e7e604f9c6d384e3e8bbae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1749818424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,6 +1519,7 @@ GameObject:
   - component: {fileID: 1835187359}
   - component: {fileID: 1835187360}
   - component: {fileID: 1835187361}
+  - component: {fileID: 1835187362}
   m_Layer: 0
   m_Name: Random Dude 0
   m_TagString: Untagged
@@ -1577,6 +1638,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &1835187362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1835187355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf5f65444e7e604f9c6d384e3e8bbae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1886315653
 GameObject:
   m_ObjectHideFlags: 0
