@@ -3,36 +3,39 @@ using UnityEngine;
 using HexCasters.DesignPatterns.Observer;
 using HexCasters.Core.Units.Teams;
 
-public abstract class TeamColoredComponent : MonoBehaviour
+namespace HexCasters.Hud.Teams
 {
-
-	public Team team;
-	private TeamColor teamColor;
-	private IDisposable subscription;
-
-	protected void Start()
+	public abstract class TeamColoredComponent : MonoBehaviour
 	{
-		if (this.team == null)
-			this.team = GetComponent<TeamMember>().team;
-		this.teamColor = team.GetComponent<TeamColor>();
-		ErrorIfNoTeamColor();
-		var handler = new ValueObserver<Color>(
-			nextEventHandler: UpdateColor);
-		this.subscription = teamColor.AsObservable.Subscribe(handler);
-		UpdateColor(teamColor.Color);
-	}
 
-	protected void OnDestroy()
-	{
-		subscription.Dispose();
-	}
+		public Team team;
+		private TeamColor teamColor;
+		private IDisposable subscription;
 
-	void ErrorIfNoTeamColor()
-	{
-		if (this.teamColor == null)
-			throw new ArgumentException(
-				$"Team has no {nameof(TeamColor)} component");
-	}
+		protected void Start()
+		{
+			if (this.team == null)
+				this.team = GetComponent<TeamMember>().team;
+			this.teamColor = team.GetComponent<TeamColor>();
+			ErrorIfNoTeamColor();
+			var handler = new ValueObserver<Color>(
+				nextEventHandler: UpdateColor);
+			this.subscription = teamColor.AsObservable.Subscribe(handler);
+			UpdateColor(teamColor.Color);
+		}
 
-	public abstract void UpdateColor(Color color);
+		protected void OnDestroy()
+		{
+			subscription.Dispose();
+		}
+
+		void ErrorIfNoTeamColor()
+		{
+			if (this.teamColor == null)
+				throw new ArgumentException(
+					$"Team has no {nameof(TeamColor)} component");
+		}
+
+		public abstract void UpdateColor(Color color);
+	}
 }

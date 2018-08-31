@@ -1,12 +1,15 @@
 using UnityEngine;
 using HexCasters.Core.Units.Teams;
 
-public class TeamColoredSpriteRenderer : TeamColoredComponent
+namespace HexCasters.Hud.Teams
 {
-	public SpriteRenderer component;
-
-	public override void UpdateColor(Color color)
+	public class TeamColoredSpriteRenderer : TeamColoredComponent
 	{
-		this.component.color = color;
+		public SpriteRenderer component;
+
+		public override void UpdateColor(Color color)
+		{
+			this.component.color = color;
+		}
 	}
 }

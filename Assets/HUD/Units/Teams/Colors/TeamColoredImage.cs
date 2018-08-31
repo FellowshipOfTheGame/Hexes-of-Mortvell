@@ -2,12 +2,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using HexCasters.Core.Units.Teams;
 
-public class TeamColoredImage : TeamColoredComponent
+namespace HexCasters.Hud.Teams
 {
-	public Image component;
-
-	public override void UpdateColor(Color color)
+	public class TeamColoredImage : TeamColoredComponent
 	{
-		this.component.color = color;
+		public Image component;
+
+		public override void UpdateColor(Color color)
+		{
+			this.component.color = color;
+		}
 	}
 }

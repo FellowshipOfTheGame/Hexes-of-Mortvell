@@ -3,35 +3,38 @@ using System;
 using HexCasters.DesignPatterns.Observer;
 using HexCasters.Core.Units;
 
-public class HPBar : MonoBehaviour
+namespace HexCasters.Hud
 {
-	public HP hp;
-	public Transform barTransform;
-
-	private IObserver<int> handler;
-	private IDisposable subscription;
-
-	void Awake()
+	public class HPBar : MonoBehaviour
 	{
-		handler = new ValueObserver<int>(
-			nextEventHandler: UpdateBarLength);
-	}
+		public HP hp;
+		public Transform barTransform;
 
-	void Start()
-	{
-		this.subscription = hp.AsObservable.Subscribe(handler);
-		UpdateBarLength(hp.Current);
-	}
+		private IObserver<int> handler;
+		private IDisposable subscription;
 
-	void OnDestroy()
-	{
-		subscription.Dispose();
-	}
+		void Awake()
+		{
+			handler = new ValueObserver<int>(
+				nextEventHandler: UpdateBarLength);
+		}
 
-	void UpdateBarLength(int newValue)
-	{
-		var scale = barTransform.localScale;
-		scale.x = (float) newValue / hp.max;
-		barTransform.localScale = scale;
+		void Start()
+		{
+			this.subscription = hp.AsObservable.Subscribe(handler);
+			UpdateBarLength(hp.Current);
+		}
+
+		void OnDestroy()
+		{
+			subscription.Dispose();
+		}
+
+		void UpdateBarLength(int newValue)
+		{
+			var scale = barTransform.localScale;
+			scale.x = (float) newValue / hp.max;
+			barTransform.localScale = scale;
+		}
 	}
 }

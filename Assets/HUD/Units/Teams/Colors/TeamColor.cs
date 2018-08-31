@@ -3,42 +3,45 @@ using UnityEngine;
 using HexCasters.DesignPatterns.Observer;
 using HexCasters.Core.Units.Teams;
 
-[RequireComponent(typeof(Team))]
-public class TeamColor : MonoBehaviour
+namespace HexCasters.Hud.Teams
 {
-	[SerializeField]
-	private Color _color;
-	private ObservableValue<Color> observableColor;
-
-	public Color Color
+	[RequireComponent(typeof(Team))]
+	public class TeamColor : MonoBehaviour
 	{
-		get { return GetColor(); }
-		set { SetColor(value); }
-	}
+		[SerializeField]
+		private Color _color;
+		private ObservableValue<Color> observableColor;
 
-	public IObservable<Color> AsObservable
-	{
-		get { return observableColor; }
-	}
+		public Color Color
+		{
+			get { return GetColor(); }
+			set { SetColor(value); }
+		}
 
-	void Awake()
-	{
-		observableColor = new ObservableValue<Color>();
-	}
+		public IObservable<Color> AsObservable
+		{
+			get { return observableColor; }
+		}
 
-	void Start()
-	{
-		SetColor(_color);
-	}
+		void Awake()
+		{
+			observableColor = new ObservableValue<Color>();
+		}
 
-	public Color GetColor()
-	{
-		return this._color;
-	}
+		void Start()
+		{
+			SetColor(_color);
+		}
 
-	public void SetColor(Color color)
-	{
-		this._color = color;
-		observableColor.Value = color;
+		public Color GetColor()
+		{
+			return this._color;
+		}
+
+		public void SetColor(Color color)
+		{
+			this._color = color;
+			observableColor.Value = color;
+		}
 	}
 }

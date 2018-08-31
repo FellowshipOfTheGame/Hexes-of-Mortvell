@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using HexCasters.Core.Units.Teams;
+using HexCasters.Hud.Teams;
 
 namespace HexCasters.Testing.TeamsTest
 {
