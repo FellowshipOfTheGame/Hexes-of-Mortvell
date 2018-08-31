@@ -8,13 +8,13 @@ namespace HexCasters.Core.Actions
 {
 	public class Actor : MonoBehaviour
 	{
-		List<MethodInfo> actions;
+		IDictionary<string, MethodInfo> actions;
 
-		public void ExampleAction(Actor actor) {}
+		public void ExampleAction() {}
 
 		void Awake()
 		{
-			this.actions = new List<MethodInfo>();
+			this.actions = new Dictionary<string, MethodInfo>();
 			var actionExample = typeof(Actor)
 				.GetMethod("ExampleAction");
 			foreach (var method in FindActionMethods())
@@ -23,9 +23,8 @@ namespace HexCasters.Core.Actions
 					throw new ArgumentException(
 						$"Method {method} does not match Action " +
 						$"signature: {actionExample}");
-				this.actions.Add(method);
+				this.actions[method.Name] = method;
 			}
-			Debug.Log(string.Join(", ", this.actions));
 		}
 
 		IEnumerable<MethodInfo> FindActionMethods()
@@ -47,13 +46,29 @@ namespace HexCasters.Core.Actions
 				return false;
 
 			var parameterTypes = method.GetParameters()
-				.Select(param => param.ParameterType);
+				.Select(param => param.ParameterType).ToList();
 			var expectedParameterTypes = expectedMethod.GetParameters()
-				.Select(param => param.ParameterType);
+				.Select(param => param.ParameterType).ToList();
+			if (parameterTypes.Count != expectedParameterTypes.Count)
+				return false;
+
 			var matches = parameterTypes.Zip(
 				expectedParameterTypes,
 				(pType, expectedType) => pType == expectedType);
 			return matches.All(x => x);
+		}
+
+
+		public void Perform(string actionName)
+		{
+			ErrorIfUnknownAction(actionName);
+			this.actions[actionName].Invoke(this, null);
+		}
+
+		void ErrorIfUnknownAction(string actionName)
+		{
+			if (!this.actions.ContainsKey(actionName))
+				throw new ArgumentException($"Unknown action: {actionName}");
 		}
 	}
 }

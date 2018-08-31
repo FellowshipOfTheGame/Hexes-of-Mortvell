@@ -5,6 +5,6 @@ namespace HexCasters.Testing.ActorTest
 	public class ActorTestSubSubClass : ActorTestImplementation
 	{
 		[Action]
-		void SubClassAction(Actor actor) {}
+		void SubClassAction() {}
 	}
 }
