@@ -77,7 +77,7 @@ namespace HexCasters.Core.Units
 		public void Set(int newValue, bool clamp=false)
 		{
 			if (clamp)
-				ClampValueToRange(ref newValue);
+				newValue = ClampValueToRange(newValue);
 			this.uncommitedValue = newValue;
 		}
 
@@ -113,9 +113,7 @@ namespace HexCasters.Core.Units
 		/// </summary>
 		public void Clamp()
 		{
-			int currentValue = this.uncommitedValue;
-			ClampValueToRange(ref currentValue);
-			this.uncommitedValue = currentValue;
+			this.uncommitedValue = ClampValueToRange(this.uncommitedValue);
 		}
 
 		/// <summary>
@@ -137,12 +135,13 @@ namespace HexCasters.Core.Units
 			this.commitedValue.Value = this.uncommitedValue;
 		}
 
-		private void ClampValueToRange(ref int value)
+		private int ClampValueToRange(int value)
 		{
 			if (value < 0)
 				value = 0;
 			else if (value > this.max)
 				value = max;
+			return value;
 		}
 
 		private void ErrorIfNegative(int value, string paramName)
