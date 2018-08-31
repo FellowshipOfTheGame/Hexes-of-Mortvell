@@ -50,7 +50,9 @@ namespace HexCasters.Core.Grid
 		{
 			var newCellObject = Instantiate(cellPrefab, this.transform);
 			var newCell = newCellObject.GetComponent<BoardCell>();
-			newCell.Position = MatrixIndicesToBoardPosition(row, col);
+			var newCellPosition = MatrixIndicesToBoardPosition(row, col);
+			newCell.Position = newCellPosition;
+			newCell.Terrain = layout.FindTerrainType(newCellPosition);
 			this.cells[row, col] = newCell;
 		}
 
@@ -60,8 +62,8 @@ namespace HexCasters.Core.Grid
 			int centerRow = this.NumRows / 2;
 			int centerCol = this.NumCols / 2;
 			return Tuple.Create(
-				centerRow + position.y,
-				centerCol + position.x);
+				centerRow + position.Y,
+				centerCol + position.X);
 		}
 
 		private BoardPosition MatrixIndicesToBoardPosition(int row, int col)

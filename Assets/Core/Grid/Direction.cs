@@ -36,8 +36,8 @@ namespace HexCasters.Core.Grid
 			BoardPosition position, Direction direction)
 		{
 			return new BoardPosition(
-				position.x + direction.dx,
-				position.y + direction.dy);
+				position.X + direction.dx,
+				position.Y + direction.dy);
 		}
 
 		public static Direction operator +(

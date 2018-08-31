@@ -24,13 +24,13 @@ namespace HexCasters.Core.Grid.Regions
 			while (openNodes.Count > 0)
 			{
 				openNodes.Sort(distanceComparer);
+
 				var currentNode = openNodes[0];
 				var currentDist = distances[currentNode];
 				openNodes.RemoveAt(0);
 
 				if (currentDist > maxDistance)
 					continue;
-
 
 				if (!visited.Contains(currentNode))
 				{
@@ -40,8 +40,8 @@ namespace HexCasters.Core.Grid.Regions
 
 				foreach (var neighbor in currentNode.FindAdjacentCells())
 				{
-					var distanceFromCurrentNode
-						= currentDist + distanceFunction(currentNode, neighbor);
+					var distanceFromCurrentNode =
+						currentDist + distanceFunction(currentNode, neighbor);
 
 					SetInfiniteDistanceIfAbsent(distances, neighbor);
 					if (distanceFromCurrentNode < distances[neighbor])

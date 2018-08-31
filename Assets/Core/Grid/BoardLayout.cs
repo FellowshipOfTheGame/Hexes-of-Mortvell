@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HexCasters.Core.Grid
@@ -21,6 +23,20 @@ namespace HexCasters.Core.Grid
 		{
 			get { return _numCols; }
 			set { _numCols = value; }
+		}
+
+		[Header("Terrains")]
+		public BoardCellTerrain defaultTerrain;
+		public List<BoardPosition> nonDefaultTerrainPositions;
+		public List<BoardCellTerrain> nonDefaultTerrains;
+
+		public BoardCellTerrain FindTerrainType(BoardPosition position)
+		{
+			var positionIndex = this.nonDefaultTerrainPositions.IndexOf(
+				position);
+			if (positionIndex < 0)
+				return this.defaultTerrain;
+			return this.nonDefaultTerrains[positionIndex];
 		}
 	}
 }

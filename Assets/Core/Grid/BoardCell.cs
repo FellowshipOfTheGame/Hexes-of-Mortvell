@@ -141,8 +141,8 @@ namespace HexCasters.Core.Grid
 		}
 		private Vector2 BoardPositionToWorldPosition()
 		{
-			float x = (this.Position.x + this.Position.y/2.0f);
-			float y = this.Position.y * (1 - this.rowVerticalOverlap);
+			float x = (this.Position.X + this.Position.Y/2.0f);
+			float y = this.Position.Y * (1 - this.rowVerticalOverlap);
 			return new Vector2(x, y);
 		}
 

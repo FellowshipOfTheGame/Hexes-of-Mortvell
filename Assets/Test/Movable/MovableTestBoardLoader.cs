@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using HexCasters.Core.Units;
 using HexCasters.Core.Grid;
 using HexCasters.Core.Grid.Regions;
@@ -25,10 +24,12 @@ public class MovableTestBoardLoader : MonoBehaviour
 	{
 		var unitCell = this.unitInstanceCellContent.Cell;
 		var unitMovable = this.unitInstanceCellContent.GetComponent<Movable>();
-		var area = unitCell.Neighborhood(unitMovable.movementPoints);
+		var area = unitCell.Neighborhood(
+			unitMovable.movementPoints,
+			(from, to) => to.Terrain.movementCost);
 		foreach (var cell in area)
 		{
-			var highlightInstance = Instantiate(
+			Instantiate(
 				highlightPrefab,
 				cell.transform,
 				false);
