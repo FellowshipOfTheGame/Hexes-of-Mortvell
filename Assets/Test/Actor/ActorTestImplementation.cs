@@ -20,7 +20,6 @@ namespace HexCasters.Testing.ActorTest
 		void Attack(Actor actor) {}
 
 
-		// [Action]
 		void Move(BoardCell dest)
 		{
 			Debug.Log($"Moving to {dest}");

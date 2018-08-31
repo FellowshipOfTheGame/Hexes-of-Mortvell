@@ -28,21 +28,6 @@ namespace HexCasters.Core.Actions
 			Debug.Log(string.Join(", ", this.actions));
 		}
 
-		bool MatchesSignature(MethodInfo method, MethodInfo expectedMethod)
-		{
-			if (method.ReturnType != expectedMethod.ReturnType)
-				return false;
-
-			var parameterTypes = method.GetParameters()
-				.Select(param => param.ParameterType);
-			var expectedParameterTypes = expectedMethod.GetParameters()
-				.Select(param => param.ParameterType);
-			var matches = parameterTypes.Zip(
-				expectedParameterTypes,
-				(pType, expectedType) => pType == expectedType);
-			return matches.All(x => x);
-		}
-
 		IEnumerable<MethodInfo> FindActionMethods()
 		{
 			var type = GetType();
@@ -56,10 +41,19 @@ namespace HexCasters.Core.Actions
 			return actionMethods;
 		}
 
-		void ErrorIfUnknownAction()
+		bool MatchesSignature(MethodInfo method, MethodInfo expectedMethod)
 		{
-			// if (!this.actions.Contains(action))
-			// 	throw new ArgumentException($"Unknown action: {action.name}");
+			if (method.ReturnType != expectedMethod.ReturnType)
+				return false;
+
+			var parameterTypes = method.GetParameters()
+				.Select(param => param.ParameterType);
+			var expectedParameterTypes = expectedMethod.GetParameters()
+				.Select(param => param.ParameterType);
+			var matches = parameterTypes.Zip(
+				expectedParameterTypes,
+				(pType, expectedType) => pType == expectedType);
+			return matches.All(x => x);
 		}
 	}
 }

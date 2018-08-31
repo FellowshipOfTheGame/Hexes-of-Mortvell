@@ -8,8 +8,5 @@ namespace HexCasters.Core.Actions
 	[AttributeUsage(
 		AttributeTargets.Method,
 		AllowMultiple=false)]
-	public class ActionAttribute : Attribute
-	{
-		public ActionAttribute() {}
-	}
+	public class ActionAttribute : Attribute {  }
 }
