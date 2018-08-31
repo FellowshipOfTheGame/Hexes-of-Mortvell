@@ -10,9 +10,15 @@ namespace HexCasters.Testing.HPTest
 		void Update()
 		{
 			if (Input.GetKeyDown(KeyCode.LeftArrow))
-				hp.Decrease(1, commit: true);
+			{
+				hp.Decrease(1);
+				hp.Commit();
+			}
 			if (Input.GetKeyDown(KeyCode.RightArrow))
-				hp.Increase(1, commit: true);
+			{
+				hp.Increase(1);
+				hp.Commit();
+			}
 			if (Input.GetKeyDown(KeyCode.X))
 				DoWeirdStuff();
 		}
