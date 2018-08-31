@@ -14,7 +14,7 @@ namespace HexCasters.Core.Grid.Regions
 			var openNodes = new List<BoardCell>();
 			var distances = new Dictionary<BoardCell, int>();
 			var visited = new HashSet<BoardCell>();
-			var distanceComparer = DistanceComparer(
+			var distanceComparer = CreateComparerFromDistanceFunction(
 				distanceFunction,
 				distances);
 
@@ -58,7 +58,7 @@ namespace HexCasters.Core.Grid.Regions
 			return 1;
 		}
 
-		private static IComparer<BoardCell> DistanceComparer(
+		private static IComparer<BoardCell> CreateComparerFromDistanceFunction(
 			Func<BoardCell, BoardCell, int> distanceFunction,
 			Dictionary<BoardCell, int> distances)
 		{
