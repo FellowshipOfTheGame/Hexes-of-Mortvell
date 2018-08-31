@@ -38,7 +38,7 @@ namespace HexCasters.DesignPatterns.Observer
 			this.nextEventHandler?.Invoke(value);
 
 		/// <summary>
-		/// /// Called when the observed object is marked complete.
+		/// Called when the observed object is marked complete.
 		/// </summary>
 		public void OnCompleted() =>
 			this.completeEventHandler?.Invoke();
