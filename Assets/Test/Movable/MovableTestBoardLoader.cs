@@ -31,7 +31,7 @@ public class MovableTestBoardLoader : MonoBehaviour
 		{
 			Instantiate(
 				highlightPrefab,
-				cell.transform,
+				cell.Transform,
 				false);
 		}
 	}

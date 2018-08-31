@@ -35,7 +35,7 @@ namespace HexCasters.Core.Grid
 		public void SetCell(BoardCell cell)
 		{
 			this._cell = cell;
-			this.transform.SetParent(cell.transform, false);
+			this.transform.SetParent(cell.Transform, false);
 		}
 	}
 }

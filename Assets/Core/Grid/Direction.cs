@@ -4,25 +4,36 @@ namespace HexCasters.Core.Grid
 {
 	public struct Direction
 	{
+		/// <summary>
+		/// Displacement along X axis.
+		/// </summary>
 		public readonly int dx;
+
+		/// <summary>
+		/// Displacement along Y axis.
+		/// </summary>
 		public readonly int dy;
+
+		/// <summary>
+		/// Displacement from the Z = 0 axis.
+		/// </summary>
 		public readonly int dz;
 
-		public static readonly Direction UpRight = new Direction(0, 1);
-		public static readonly Direction Right = new Direction(1, 0);
-		public static readonly Direction DownRight = new Direction(1, -1);
-		public static readonly Direction DownLeft = new Direction(0, -1);
-		public static readonly Direction Left = new Direction(-1, 0);
-		public static readonly Direction UpLeft = new Direction(-1, 1);
+		public static readonly Direction PositiveY = new Direction(0, 1);
+		public static readonly Direction PositiveX = new Direction(1, 0);
+		public static readonly Direction ConstantZDown = new Direction(1, -1);
+		public static readonly Direction NegativeY = new Direction(0, -1);
+		public static readonly Direction NegativeX = new Direction(-1, 0);
+		public static readonly Direction ConstantZUp = new Direction(-1, 1);
 
 		public static readonly IEnumerable<Direction> List = new List<Direction>
 		{
-			UpRight,
-			Right,
-			DownRight,
-			DownLeft,
-			Left,
-			UpLeft
+			PositiveY,
+			PositiveX,
+			ConstantZDown,
+			NegativeY,
+			NegativeX,
+			ConstantZUp
 		};
 
 		private Direction(int dx, int dy)

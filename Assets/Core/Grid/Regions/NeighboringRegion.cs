@@ -5,6 +5,13 @@ namespace HexCasters.Core.Grid.Regions
 {
 	public static class BoardNeighboringRegionExtension
 	{
+		/// <summary>
+		/// Returns a region surrounding a cell, up to a maximum distance from the center cell.
+		/// </summary>
+		/// <param name="center">The point from which to start the search.</param>
+		/// <param name="maxDistance">The maximum value of the distance to the center accepted.</param>
+		/// <param name="distanceFunction">The function to calculate the distance between two adjacent cells. Its arguments are the origin cell and the target cell, in order.</param>
+		/// <returns></returns>
 		public static IEnumerable<BoardCell> Neighborhood(
 			this BoardCell center,
 			int maxDistance,

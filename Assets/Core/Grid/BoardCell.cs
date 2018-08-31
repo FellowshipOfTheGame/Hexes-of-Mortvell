@@ -5,9 +5,13 @@ using UnityEngine;
 
 namespace HexCasters.Core.Grid
 {
+	/// <summary>
+	/// A single hexagon in the board grid.
+	/// </summary>
 	[RequireComponent(typeof(SpriteRenderer))]
 	public class BoardCell : MonoBehaviour
 	{
+		[Tooltip("Width of the sprite in units.")]
 		public float spriteWidth;
 
 		[Tooltip("Overlap in units of two adjacent rows of cells.")]
@@ -22,12 +26,23 @@ namespace HexCasters.Core.Grid
 			set { SetPosition(value); }
 		}
 
-		[HideInInspector]
-		public new Transform transform;
+		// Overrides the default behaviour to GetComponent<Transform> on
+		// every access.
+		public Transform Transform
+		{
+			get;
+			private set;
+		}
 		private SpriteRenderer spriteRenderer;
 
 		[SerializeField]
+		[Tooltip("The object this cell holds.")]
 		private BoardCellContent _content;
+
+		/// <summary>
+		/// Retrieves the object the cell is currently holding.
+		/// </summary>
+		/// <value>The BoardCellContent of the held object.</value>
 		public BoardCellContent Content
 		{
 			get { return GetContent(); }
@@ -35,13 +50,26 @@ namespace HexCasters.Core.Grid
 		}
 
 		[SerializeField]
+		[Tooltip("This cell's terrain type.")]
 		private BoardCellTerrain _terrain;
+
+		/// <summary>
+		/// Gets or sets the cell's terrain type.
+		/// </summary>
+		/// <remarks>
+		/// The cell's sprite will automatically change to the
+		/// terrain's sprite
+		/// </remarks>
 		public BoardCellTerrain Terrain
 		{
 			get { return GetTerrain(); }
 			set { SetTerrain(value); }
 		}
 
+		/// <summary>
+		/// Checks whether or not the cell is holding an object.
+		/// </summary>
+		/// <value>true if there is no object; false otherwise.</value>
 		public bool Empty
 		{
 			get { return this.Content == null; }
@@ -50,8 +78,8 @@ namespace HexCasters.Core.Grid
 
 		void Awake()
 		{
-			this.transform = GetComponent<Transform>();
-			this.board = this.transform.parent.GetComponent<Board>();
+			this.Transform = GetComponent<Transform>();
+			this.board = this.Transform.parent.GetComponent<Board>();
 			this.spriteRenderer = GetComponent<SpriteRenderer>();
 		}
 
@@ -65,12 +93,41 @@ namespace HexCasters.Core.Grid
 			return this._content;
 		}
 
+		/// <summary>
+		/// Sets the content of the cell.
+		/// </summary>
+		/// <param name="content">The new content for the cell.</param>
+		/// <remarks>
+		/// If the cell is already occupied, an InvalidOperationException will
+		/// be thrown.
+		/// </remarks>
 		public void SetContent(BoardCellContent content)
 		{
 			if (content != null)
 				ErrorIfOccupied();
 			this._content = content;
 			this.Content?.SetCell(this);
+		}
+
+		/// <summary>
+		/// Transfers the contents from this cell to another.
+		/// </summary>
+		/// <param name="to">The transfer destination.</param>
+		/// <remarks>
+		/// <para>
+		/// If this cell is empty, an InvalidOperationException will be thrown.
+		/// </para>
+		/// <para>
+		/// If the destination cell is not empty, an InvalidOperationException
+		/// will be thrown.
+		/// </para>
+		/// </remarks>
+		public void MoveContent(BoardCell to)
+		{
+			ErrorIfEmpty();
+			var content = GetContent();
+			SetContent(null);
+			to.SetContent(content);
 		}
 
 		public BoardPosition GetPosition()
@@ -99,8 +156,14 @@ namespace HexCasters.Core.Grid
 
 		private void ErrorIfOccupied()
 		{
-			if (this._content != null)
+			if (!this.Empty)
 				throw new InvalidOperationException("Cell is not empty");
+		}
+
+		private void ErrorIfEmpty()
+		{
+			if (this.Empty)
+				throw new InvalidOperationException("Cell is empty");
 		}
 
 		void UpdateName()
@@ -113,6 +176,11 @@ namespace HexCasters.Core.Grid
 			this.spriteRenderer.sprite = this.Terrain.sprite;
 		}
 
+		/// <summary>
+		/// Finds the cell adjacent to this one in a given direction.
+		/// </summary>
+		/// <param name="direction">The direction in which to look for a new cell.</param>
+		/// <returns>The adjacent cell, if it exists; null otherwise.</returns>
 		public BoardCell FindAdjacentCell(Direction direction)
 		{
 			var adjacentPosition = this.Position + direction;
@@ -126,6 +194,19 @@ namespace HexCasters.Core.Grid
 			}
 		}
 
+		/// <summary>
+		/// Enumerates over all cells adjacent to this one.
+		/// </summary>
+		/// <remarks>
+		/// <para>
+		/// Directions in which this cell has no neighbor are ignored.
+		/// </para>
+		/// <para>
+		/// The order of the cells returned is the same as the order of
+		/// the directions in Direction.List.
+		/// </para>
+		/// </remarks>
+		/// <returns>Returns an iterator over the adjacent cells.</returns>
 		public IEnumerable<BoardCell> FindAdjacentCells()
 		{
 			return Direction.List
@@ -137,7 +218,7 @@ namespace HexCasters.Core.Grid
 
 		private void UpdateTransformPosition()
 		{
-			this.transform.localPosition = BoardPositionToWorldPosition();
+			this.Transform.localPosition = BoardPositionToWorldPosition();
 		}
 		private Vector2 BoardPositionToWorldPosition()
 		{

@@ -3,6 +3,13 @@ using System;
 
 namespace HexCasters.Core.Grid
 {
+	/// <summary>
+	/// A position in the board.
+	/// </summary>
+	/// <remarks>
+	/// (0, 0) is the board center, rounded to the lower left if it has an
+	/// even number of rows and/or columns.
+	/// </remarks>
 	[System.Serializable]
 	public struct BoardPosition
 	{
@@ -12,16 +19,27 @@ namespace HexCasters.Core.Grid
 		[SerializeField]
 		private int _y;
 
+		/// <summary>
+		/// X axis displacement from the board center.
+		/// </summary>
 		public int X
 		{
 			get { return _x; }
 			private set { _x = value; }
 		}
+
+		/// <summary>
+		/// Y axis displacement from the board center.
+		/// </summary>
 		public int Y
 		{
 			get { return _y; }
 			private set { _y = value; }
 		}
+
+		/// <summary>
+		/// Displacement from the Z = 0 axis.
+		/// </summary>
 		public int Z
 		{
 			get { return -(this.X + this.Y); }

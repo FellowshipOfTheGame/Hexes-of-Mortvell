@@ -21,12 +21,12 @@ namespace HexCasters.Testing.BoardTest
 
 		void Update()
 		{
-			MoveOrbIfKeyPressed(KeyCode.E, Direction.UpRight);
-			MoveOrbIfKeyPressed(KeyCode.D, Direction.Right);
-			MoveOrbIfKeyPressed(KeyCode.X, Direction.DownRight);
-			MoveOrbIfKeyPressed(KeyCode.Z, Direction.DownLeft);
-			MoveOrbIfKeyPressed(KeyCode.A, Direction.Left);
-			MoveOrbIfKeyPressed(KeyCode.W, Direction.UpLeft);
+			MoveOrbIfKeyPressed(KeyCode.E, Direction.PositiveY);
+			MoveOrbIfKeyPressed(KeyCode.D, Direction.PositiveX);
+			MoveOrbIfKeyPressed(KeyCode.X, Direction.ConstantZDown);
+			MoveOrbIfKeyPressed(KeyCode.Z, Direction.NegativeY);
+			MoveOrbIfKeyPressed(KeyCode.A, Direction.NegativeX);
+			MoveOrbIfKeyPressed(KeyCode.W, Direction.ConstantZUp);
 			PrintOrbCoordsIfKeyPressed(KeyCode.S);
 		}
 
@@ -47,7 +47,7 @@ namespace HexCasters.Testing.BoardTest
 			var currentCell = this.testOrbInstance.Cell;
 			var adjacentCell = currentCell.FindAdjacentCell(direction);
 			if (adjacentCell != null && adjacentCell.Empty)
-				this.board.MoveContent(currentCell, adjacentCell);
+				currentCell.MoveContent(adjacentCell);
 		}
 	}
 
