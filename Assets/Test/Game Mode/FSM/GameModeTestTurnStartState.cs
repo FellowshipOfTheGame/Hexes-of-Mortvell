@@ -10,8 +10,6 @@ namespace HexCasters.Testing.GameModeTest
 			this.fsm.Transition<GameModeTestSelectDudeState>();
 		}
 
-		public override void Exit()
-		{
-		}
+		public override void Exit() {}
 	}
 }

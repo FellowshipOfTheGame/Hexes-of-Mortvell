@@ -15,6 +15,10 @@ namespace HexCasters.Testing.GameModeTest
 			get { return this.observableValue.Value; }
 			private set { this.observableValue.Value = value; }
 		}
+		public Team CurrentTeam
+		{
+			get { return this.teams[this.Turn]; }
+		}
 
 		public IObservable<int> AsObservable
 		{

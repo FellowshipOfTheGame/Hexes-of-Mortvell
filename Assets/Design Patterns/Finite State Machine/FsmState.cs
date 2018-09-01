@@ -6,25 +6,17 @@ namespace HexCasters.DesignPatterns.Fsm
 	/// <summary>
 	/// A state for a Finite State Machine.
 	/// </summary>
-	/// <typeparam name="S">(Optional) The shared storage type used for this state.</typeparam>
-	public abstract class FsmState<S> : MonoBehaviour
-		where S : FsmStateSharedMemory
+	public abstract class FsmState : MonoBehaviour
 	{
 		/// <summary>
 		/// A reference to this state's FSM.
 		/// </summary>
 		protected FiniteStateMachine fsm;
 
-		/// <summary>
-		/// An independent component used to share information between states.
-		/// </summary>
-		protected S sharedMemory;
-
 		// Protected to avoid overrides or overshadowing
 		protected void Awake()
 		{
 			this.fsm = GetComponent<FiniteStateMachine>();
-			this.sharedMemory = GetComponent<S>();
 			ErrorIfNoFsmAttached();
 			this.enabled = false;
 		}
@@ -52,9 +44,4 @@ namespace HexCasters.DesignPatterns.Fsm
 					"Added an FSM script to an object without an FSM");
 		}
 	}
-
-	/// <summary>
-	/// A state for a Finite State Machine.
-	/// </summary>
-	public abstract class FsmState : FsmState<FsmStateSharedMemory> {}
 }
