@@ -135,7 +135,7 @@ namespace HexCasters.Core.Units
 			this.commitedValue.Value = this.uncommitedValue;
 		}
 
-		private int ClampValueToRange(int value)
+		int ClampValueToRange(int value)
 		{
 			if (value < 0)
 				value = 0;
@@ -144,7 +144,7 @@ namespace HexCasters.Core.Units
 			return value;
 		}
 
-		private void ErrorIfNegative(int value, string paramName)
+		void ErrorIfNegative(int value, string paramName)
 		{
 			if (value < 0)
 				throw new ArgumentException(

@@ -9,13 +9,12 @@ namespace HexCasters.Testing.ActionsTest
 		public Board board;
 		public BoardLayout layout;
 		public GameObject playerPrefab;
-		public ActionsTestCellHoverListener cellSelector;
+		public ActionsTestCellHoverListener cellHoverListener;
 
 		void Start()
 		{
 			this.board.LoadLayout(layout);
 			this.board.Spawn(playerPrefab, new BoardPosition(-1, -1));
-			this.cellSelector.Initialize(this.board);
 		}
 	}
 }

@@ -122,14 +122,14 @@ namespace HexCasters.DesignPatterns.Observer
 		}
 
 
-		private void UpdateValue(T validatedValue)
+		void UpdateValue(T validatedValue)
 		{
 			this._value = validatedValue;
 			this.NotifyValueChange();
 		}
 
 
-		private void NotifyInvalidValue(T invalidValue)
+		void NotifyInvalidValue(T invalidValue)
 		{
 			var message = $"Invalid value: {invalidValue}";
 			var exception = new ArgumentException(message, nameof(Value));
@@ -139,7 +139,7 @@ namespace HexCasters.DesignPatterns.Observer
 				this.errorEvent(exception);
 		}
 
-		private void ErrorIfCompleted()
+		void ErrorIfCompleted()
 		{
 			var message = "Observable object has been marked complete";
 			if (this.Completed)
@@ -166,21 +166,21 @@ namespace HexCasters.DesignPatterns.Observer
 
 			public void Dispose() => this.UnregisterHandlers(this.observable);
 
-			private void AdaptHandlers(IObserver<T> observer)
+			void AdaptHandlers(IObserver<T> observer)
 			{
 				this.valueChangedEventHandler = (T t) => observer.OnNext(t);
 				this.completedEventHandler = () => observer.OnCompleted();
 				this.errorEventHandler = (Exception e) => observer.OnError(e);
 			}
 
-			private void RegisterHandlers(ObservableValue<T> observable)
+			void RegisterHandlers(ObservableValue<T> observable)
 			{
 				observable.valueChangedEvent += this.valueChangedEventHandler;
 				observable.completedEvent += this.completedEventHandler;
 				observable.errorEvent += this.errorEventHandler;
 			}
 
-			private void UnregisterHandlers(ObservableValue<T> observable)
+			void UnregisterHandlers(ObservableValue<T> observable)
 			{
 				observable.valueChangedEvent -= this.valueChangedEventHandler;
 				observable.completedEvent -= this.completedEventHandler;

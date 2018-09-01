@@ -7,8 +7,13 @@ namespace HexCasters.Testing.ActionsTest
 {
 	public class ActionsTestCellHoverListener : MonoBehaviour
 	{
-		private Board board;
+		public Board board;
 		public BoardCell hoveredCell;
+
+		void Start()
+		{
+			board.boardLoadedEvent += Initialize;
+		}
 
 		public void Initialize(Board board)
 		{

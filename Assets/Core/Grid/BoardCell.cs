@@ -155,13 +155,13 @@ namespace HexCasters.Core.Grid
 		}
 
 
-		private void ErrorIfOccupied()
+		void ErrorIfOccupied()
 		{
 			if (!this.Empty)
 				throw new InvalidOperationException("Cell is not empty");
 		}
 
-		private void ErrorIfEmpty()
+		void ErrorIfEmpty()
 		{
 			if (this.Empty)
 				throw new InvalidOperationException("Cell is empty");
@@ -217,11 +217,11 @@ namespace HexCasters.Core.Grid
 					(BoardCell cell) => cell != null);
 		}
 
-		private void UpdateTransformPosition()
+		void UpdateTransformPosition()
 		{
 			this.Transform.localPosition = BoardPositionToWorldPosition();
 		}
-		private Vector2 BoardPositionToWorldPosition()
+		Vector2 BoardPositionToWorldPosition()
 		{
 			float x = (this.Position.X + this.Position.Y/2.0f);
 			float y = this.Position.Y * (1 - this.rowVerticalOverlap);

@@ -25,7 +25,7 @@ namespace HexCasters.Testing.NeighborhoodBfs
 				DestinationMovementCostAsDistance);
 		}
 
-		private static int DestinationMovementCostAsDistance(
+		static int DestinationMovementCostAsDistance(
 			BoardCell from,
 			BoardCell to)
 		{

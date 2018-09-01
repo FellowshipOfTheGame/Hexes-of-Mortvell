@@ -100,7 +100,7 @@ namespace HexCasters.DesignPatterns.Fsm
 			Transition(GetComponent<T>());
 		}
 
-		private void EnterState(FsmState nextState)
+		void EnterState(FsmState nextState)
 		{
 			ErrorIfNullArgument(nextState, nameof(nextState));
 			this.State = nextState;
@@ -108,7 +108,7 @@ namespace HexCasters.DesignPatterns.Fsm
 			this.State.Enter();
 		}
 
-		private void ExitState()
+		void ExitState()
 		{
 			if (this.State != null)
 			{
@@ -118,13 +118,13 @@ namespace HexCasters.DesignPatterns.Fsm
 			this.State = null;
 		}
 
-		private void ErrorIfNotInitialized()
+		void ErrorIfNotInitialized()
 		{
 			if (!this.Started)
 				throw new InvalidOperationException("FSM was not initialized");
 		}
 
-		private void ErrorIfNullArgument(object value, string paramName)
+		void ErrorIfNullArgument(object value, string paramName)
 		{
 			if (value == null)
 				throw new ArgumentNullException(paramName);

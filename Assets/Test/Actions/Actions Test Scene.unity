@@ -153,7 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37786de5ecca2a242ae3b8ad9bf486ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedCell: {fileID: 0}
+  board: {fileID: 500238753}
+  hoveredCell: {fileID: 0}
 --- !u!1 &500238752
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,4 +357,4 @@ MonoBehaviour:
   layout: {fileID: 11400000, guid: 5f965eee503cc3a409f0400396983cac, type: 2}
   playerPrefab: {fileID: 1961366733143948, guid: 0abc706114a07c54b8de85f5aaf0cac0,
     type: 2}
-  cellSelector: {fileID: 453421105}
+  cellHoverListener: {fileID: 0}

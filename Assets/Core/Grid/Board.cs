@@ -39,25 +39,43 @@ namespace HexCasters.Core.Grid
 			get { return cells.GetLength(1); }
 		}
 
+		/// <summary>
+		/// Minimum X value within bounds of the grid.
+		/// </summary>
 		public int MinX
 		{
 			get { return -(this.NumCols / 2); }
 		}
 
+		/// <summary>
+		/// Maximum X value within bounds of the grid.
+		/// </summary>
 		public int MaxX
 		{
 			get { return this.NumCols / 2; }
 		}
 
+		/// <summary>
+		/// Minimum Y value within bounds of the grid.
+		/// </summary>
 		public int MinY
 		{
 			get { return -(this.NumRows / 2); }
 		}
 
+		/// <summary>
+		/// Maximum Y value within bounds of the grid.
+		/// </summary>
 		public int MaxY
 		{
 			get { return this.NumRows / 2; }
 		}
+
+		public delegate void BoardLoadedEventHandler(Board board);
+		/// <summary>
+		/// Executed once a layout has been loaded.
+		/// </summary>
+		public event BoardLoadedEventHandler boardLoadedEvent;
 
 		/// <summary>
 		/// Retrieves the cell at the specified position.
@@ -88,9 +106,11 @@ namespace HexCasters.Core.Grid
 			for (int i = 0; i < NumRows; i++)
 				for (int j = 0; j < NumCols; j++)
 					CreateCell(layout, i, j);
+			this.boardLoadedEvent?.Invoke(this);
+			this.boardLoadedEvent = null;
 		}
 
-		private void CreateCell(BoardLayout layout, int row, int col)
+		void CreateCell(BoardLayout layout, int row, int col)
 		{
 			var newCellObject = Instantiate(cellPrefab, this.Transform);
 			var newCell = newCellObject.GetComponent<BoardCell>();
@@ -100,7 +120,7 @@ namespace HexCasters.Core.Grid
 			this.cells[row, col] = newCell;
 		}
 
-		private Tuple<int, int> BoardPositionToMatrixIndices(
+		Tuple<int, int> BoardPositionToMatrixIndices(
 			BoardPosition position)
 		{
 			int centerRow = this.NumRows / 2;
@@ -110,7 +130,7 @@ namespace HexCasters.Core.Grid
 				centerCol + position.X);
 		}
 
-		private BoardPosition MatrixIndicesToBoardPosition(int row, int col)
+		BoardPosition MatrixIndicesToBoardPosition(int row, int col)
 		{
 			int centerRow = this.NumRows / 2;
 			int centerCol = this.NumCols / 2;
@@ -130,7 +150,7 @@ namespace HexCasters.Core.Grid
 			return this.cells[matrixCoords.Item1, matrixCoords.Item2];
 		}
 
-		private void SetCell(BoardPosition position, BoardCell cell)
+		void SetCell(BoardPosition position, BoardCell cell)
 		{
 			var matrixCoords = BoardPositionToMatrixIndices(position);
 			this.cells[matrixCoords.Item1, matrixCoords.Item2] = cell;

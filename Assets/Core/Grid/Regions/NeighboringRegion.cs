@@ -60,12 +60,12 @@ namespace HexCasters.Core.Grid.Regions
 			}
 		}
 
-		private static int DefaultDistanceFunction(BoardCell from, BoardCell to)
+		static int DefaultDistanceFunction(BoardCell from, BoardCell to)
 		{
 			return 1;
 		}
 
-		private static IComparer<BoardCell> CreateComparerFromDistanceFunction(
+		static IComparer<BoardCell> CreateComparerFromDistanceFunction(
 			Func<BoardCell, BoardCell, int> distanceFunction,
 			Dictionary<BoardCell, int> distances)
 		{
@@ -74,7 +74,7 @@ namespace HexCasters.Core.Grid.Regions
 			return Comparer<BoardCell>.Create(comparisonFunction);
 		}
 
-		private static void SetInfiniteDistanceIfAbsent(
+		static void SetInfiniteDistanceIfAbsent(
 			Dictionary<BoardCell, int> distances,
 			BoardCell cell)
 		{
