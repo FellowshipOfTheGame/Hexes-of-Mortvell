@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace HexCasters.Core.Grid
 {
+	[DisallowMultipleComponent]
 	public class BoardCellContent : MonoBehaviour
 	{
 		[SerializeField]

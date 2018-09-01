@@ -9,6 +9,7 @@ namespace HexCasters.Core.Grid
 	/// A single hexagon in the board grid.
 	/// </summary>
 	[RequireComponent(typeof(SpriteRenderer))]
+	[DisallowMultipleComponent]
 	public class BoardCell : MonoBehaviour
 	{
 		[Tooltip("Width of the sprite in units.")]
