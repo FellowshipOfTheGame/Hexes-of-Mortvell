@@ -121,6 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 453421104}
+  - component: {fileID: 453421105}
   m_Layer: 0
   m_Name: Cell Selector
   m_TagString: Untagged
@@ -141,6 +142,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &453421105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 453421103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37786de5ecca2a242ae3b8ad9bf486ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedCell: {fileID: 0}
 --- !u!1 &500238752
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,3 +356,4 @@ MonoBehaviour:
   layout: {fileID: 11400000, guid: 5f965eee503cc3a409f0400396983cac, type: 2}
   playerPrefab: {fileID: 1961366733143948, guid: 0abc706114a07c54b8de85f5aaf0cac0,
     type: 2}
+  cellSelector: {fileID: 453421105}

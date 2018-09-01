@@ -1,21 +1,25 @@
 using System;
 using UnityEngine;
+using HexCasters.Core.Grid;
 
 namespace HexCasters.Testing.ActionsTest
 {
+	[RequireComponent(typeof(BoardCell))]
 	public class ActionsTestCellHover : MonoBehaviour
 	{
-		public event Action MouseEnterEvent;
-		public event Action MouseExitEvent;
+		public event Action<BoardCell> MouseEnterEvent;
+		public event Action<BoardCell> MouseExitEvent;
+
+		public BoardCell cell;
 
 		void OnMouseEnter()
 		{
-			MouseEnterEvent?.Invoke();
+			MouseEnterEvent?.Invoke(this.cell);
 		}
 
 		void OnMouseExit()
 		{
-			MouseExitEvent?.Invoke();
+			MouseExitEvent?.Invoke(this.cell);
 		}
 	}
 }
