@@ -5,7 +5,7 @@ using HexCasters.Core.Grid;
 namespace HexCasters.Core.Actions
 {
 	[DisallowMultipleComponent]
-	public abstract class ActionHigihlight : MonoBehaviour
+	public abstract class ActionHighlight : MonoBehaviour
 	{
 		public abstract Color GetColor(BoardCell cell);
 	}

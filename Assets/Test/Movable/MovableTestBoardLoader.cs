@@ -3,7 +3,7 @@ using HexCasters.Core.Units;
 using HexCasters.Core.Grid;
 using HexCasters.Core.Grid.Regions;
 
-namespace HexCasters.Testing.MovableTest
+namespace HexCasters.Testing.NeighborhoodBfs
 {
 	public class MovableTestBoardLoader : MonoBehaviour
 	{
@@ -25,7 +25,8 @@ namespace HexCasters.Testing.MovableTest
 		void ShowMoveArea()
 		{
 			var unitCell = this.unitInstanceCellContent.Cell;
-			var unitMovable = this.unitInstanceCellContent.GetComponent<Movable>();
+			var unitMovable = this.unitInstanceCellContent
+				.GetComponent<MovableTestMovable>();
 			var area = unitCell.Neighborhood(
 				unitMovable.movementPoints,
 				(from, to) => to.Terrain.movementCost);

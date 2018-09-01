@@ -39,6 +39,26 @@ namespace HexCasters.Core.Grid
 			get { return cells.GetLength(1); }
 		}
 
+		public int MinX
+		{
+			get { return -(this.NumCols / 2); }
+		}
+
+		public int MaxX
+		{
+			get { return this.NumCols / 2; }
+		}
+
+		public int MinY
+		{
+			get { return -(this.NumRows / 2); }
+		}
+
+		public int MaxY
+		{
+			get { return this.NumRows / 2; }
+		}
+
 		/// <summary>
 		/// Retrieves the cell at the specified position.
 		/// </summary>
