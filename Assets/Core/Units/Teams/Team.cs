@@ -1,7 +1,8 @@
-using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using UnityEngine;
+using HexCasters.DesignPatterns.Observer;
 
 namespace HexCasters.Core.Units.Teams
 {
@@ -12,6 +13,7 @@ namespace HexCasters.Core.Units.Teams
 	{
 		[SerializeField]
 		private List<TeamMember> members;
+		private ObservableValue<List<TeamMember>> observableMembers;
 
 		/// <summary>
 		/// An IReadOnlyList of the team's current members.
@@ -22,12 +24,18 @@ namespace HexCasters.Core.Units.Teams
 		/// </remarks>
 		public IReadOnlyList<TeamMember> Members
 		{
-			get { return new ReadOnlyCollection<TeamMember>(members); }
+			get { return new ReadOnlyCollection<TeamMember>(observableMembers.Value); }
+		}
+
+		public IObservable<IList<TeamMember>> AsObservable
+		{
+			get { return this.observableMembers; }
 		}
 
 		void Awake()
 		{
-			this.members = new List<TeamMember>();
+			this.observableMembers = new ObservableValue<List<TeamMember>>();
+			this.observableMembers.Value = this.members;
 		}
 
 		/// <summary>
@@ -54,6 +62,7 @@ namespace HexCasters.Core.Units.Teams
 			ErrorIfMemberOfOtherTeam(teamMembership);
 			teamMembership.team = this;
 			this.members.Add(teamMembership);
+			this.observableMembers.NotifyValueChange();
 		}
 
 		/// <summary>
@@ -78,6 +87,7 @@ namespace HexCasters.Core.Units.Teams
 			ErrorIfNullTeam(teamMembership);
 			ErrorIfMemberOfOtherTeam(teamMembership);
 			this.members.Remove(teamMembership);
+			this.observableMembers.NotifyValueChange();
 			Destroy(teamMembership);
 		}
 
