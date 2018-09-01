@@ -9,7 +9,7 @@ namespace HexCasters.Testing.ActionsTest
 		public Board board;
 		public BoardLayout layout;
 		public GameObject playerPrefab;
-		public ActionsTestCellSelector cellSelector;
+		public ActionsTestCellHoverListener cellSelector;
 
 		void Start()
 		{

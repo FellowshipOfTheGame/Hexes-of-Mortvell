@@ -5,10 +5,10 @@ using HexCasters.Hud.Grid;
 
 namespace HexCasters.Testing.ActionsTest
 {
-	public class ActionsTestCellSelector : MonoBehaviour
+	public class ActionsTestCellHoverListener : MonoBehaviour
 	{
 		private Board board;
-		public BoardCell selectedCell;
+		public BoardCell hoveredCell;
 
 		public void Initialize(Board board)
 		{
