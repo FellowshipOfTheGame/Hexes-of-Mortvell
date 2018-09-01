@@ -5,9 +5,8 @@ using HexCasters.Core.Grid;
 namespace HexCasters.Core.Actions
 {
 	[DisallowMultipleComponent]
-	public abstract class ActionAoe : MonoBehaviour
+	public abstract class ActionHigihlight : MonoBehaviour
 	{
-		public abstract IEnumerable<BoardCell> GetAoe(
-			IEnumerable<BoardCell> targets);
+		public abstract Color GetColor(BoardCell cell);
 	}
 }

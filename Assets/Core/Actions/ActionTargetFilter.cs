@@ -9,6 +9,8 @@ namespace HexCasters.Core.Actions
 	{
 		public int targetCount;
 
-		public abstract IEnumerable<BoardCell> ValidTargets(Actor actor);
+		public abstract IEnumerable<BoardCell> ValidTargets(
+			Actor actor,
+			IEnumerable<BoardCell> partialTargets=null);
 	}
 }
