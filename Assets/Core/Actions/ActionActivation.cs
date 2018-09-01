@@ -8,7 +8,7 @@ namespace HexCasters.Core.Actions
 	public abstract class ActionActivation : MonoBehaviour
 	{
 		public abstract void Perform(
-			Actor actor,
+			BoardCellContent actor,
 			IEnumerable<BoardCell> targets,
 			IEnumerable<BoardCell> aoe);
 	}
