@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using HexCasters.Core.Grid;
 using HexCasters.Core.Units.Teams;
 using HexCasters.Hud.Grid;
@@ -12,6 +13,8 @@ namespace HexCasters.Testing.ActionsTest
 		public GameObject playerPrefab;
 		public ActionsTestCellHoverListener cellHoverListener;
 
+		public event Action DoneLoadingEvent;
+
 		public Team team1;
 		public Team team2;
 
@@ -23,6 +26,8 @@ namespace HexCasters.Testing.ActionsTest
 
 			team1.Add(p1.gameObject);
 			team2.Add(p2.gameObject);
+
+			DoneLoadingEvent?.Invoke();
 		}
 	}
 }

@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 212533871094720820}
   - component: {fileID: 114564045244367244}
   - component: {fileID: 114932690823843112}
+  - component: {fileID: 114899961015255392}
   m_Layer: 0
   m_Name: Actions Test Player
   m_TagString: Untagged
@@ -202,6 +203,19 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &114899961015255392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1961366733143948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9070e6e6c28231348b3ce8f93138deb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementPoints: 2
+  hasMoved: 0
 --- !u!114 &114932690823843112
 MonoBehaviour:
   m_ObjectHideFlags: 1

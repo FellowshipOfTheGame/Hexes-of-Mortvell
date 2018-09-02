@@ -37,9 +37,10 @@ GameObject:
   - component: {fileID: 4463066483143324}
   - component: {fileID: 114896515926544750}
   - component: {fileID: 212837079335413740}
-  - component: {fileID: 114725730840095772}
   - component: {fileID: 60763520859015082}
   - component: {fileID: 114264764136836054}
+  - component: {fileID: 114037028445865458}
+  - component: {fileID: 114753637128921680}
   m_Layer: 0
   m_Name: Test Board Cell 64px
   m_TagString: Untagged
@@ -104,6 +105,19 @@ PolygonCollider2D:
       - {x: 0.47, y: -0.225}
       - {x: 0.47, y: 0.225}
       - {x: 0, y: 0.46}
+--- !u!114 &114037028445865458
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1501810348793440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759aabd9fa0873949b7e07e4a94c8ad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightRenderer: {fileID: 212783609238506092}
+  maxAlpha: 0.3
 --- !u!114 &114264764136836054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cell: {fileID: 114896515926544750}
---- !u!114 &114725730840095772
+--- !u!114 &114753637128921680
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,11 +138,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1501810348793440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eac393f487bdbaa4e81f60e1dae402d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a0ee8bd66bc66b4d80602d002165644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightRenderer: {fileID: 212783609238506092}
-  maxAlpha: 0.3
+  cell: {fileID: 114896515926544750}
 --- !u!114 &114896515926544750
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -8,7 +8,6 @@ namespace HexCasters.Testing.ActionsTest
 	public class ActionsTestCellHoverListener : MonoBehaviour
 	{
 		public Board board;
-		public BoardCell hoveredCell;
 
 		void Start()
 		{
@@ -45,14 +44,14 @@ namespace HexCasters.Testing.ActionsTest
 
 		void HoverEnter(BoardCell cell)
 		{
-			var highlight = cell.GetComponent<Highlight>();
-			highlight.Color = Color.red;
+			var highlight = cell.GetComponent<LayeredHighlight>();
+			highlight.AddLayer(Color.red);
 		}
 
 		void HoverExit(BoardCell cell)
 		{
-			var highlight = cell.GetComponent<Highlight>();
-			highlight.Color = Color.clear;
+			var highlight = cell.GetComponent<LayeredHighlight>();
+			highlight.RemoveTopLayer();
 		}
 	}
 }

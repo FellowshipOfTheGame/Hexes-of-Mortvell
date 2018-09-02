@@ -1,12 +1,12 @@
 using System;
 using UnityEngine;
 
-namespace HexCasters.Testing.ActionsTest
+namespace HexCasters.Hud.Grid
 {
 	public class LayeredHighlight : MonoBehaviour
 	{
 		public SpriteRenderer highlightRenderer;
-		public float maxAlpha;
+		public float maxAlpha = 0.3f;
 
 		private HighlightLayer baseLayer;
 
@@ -16,10 +16,13 @@ namespace HexCasters.Testing.ActionsTest
 		void Awake()
 		{
 			this.baseLayer = new HighlightLayer(this, Color.clear);
+			UpdateRendererColor();
 		}
 
 		public IHighlightLayer AddLayer(Color color)
 		{
+			if (color.a > this.maxAlpha)
+				color.a = this.maxAlpha;
 			return new HighlightLayer(this, this.TopLayer, color);
 		}
 
@@ -68,6 +71,7 @@ namespace HexCasters.Testing.ActionsTest
 				this.layerAbove = layerBelow.layerAbove;
 				this.layerBelow.layerAbove = this;
 				this.layerAbove.layerBelow = this;
+				this.layers.UpdateRendererColor();
 			}
 
 			public HighlightLayer(LayeredHighlight layers, Color color)
@@ -76,7 +80,6 @@ namespace HexCasters.Testing.ActionsTest
 				this.layerAbove = this;
 				this.Color = color;
 				this.layers = layers;
-				this.layers.UpdateRendererColor();
 			}
 
 			public void Dispose()
