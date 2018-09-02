@@ -1,16 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using HexCasters.DesignPatterns.Fsm;
 
-public class ActionsTestSelectMoveDestState : MonoBehaviour {
+namespace HexCasters.Testing.ActionsTest
+{
+	public class ActionsTestSelectMoveDestState : FsmState
+	{
+		public ActionsTestPlayerOrder playerOrder;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		public override void Enter()
+		{
+			Debug.Log(playerOrder.selectedUnit);
+			this.fsm.Transition<ActionsTestTurnEndState>();
+		}
+
+		public override void Exit() {}
 	}
 }

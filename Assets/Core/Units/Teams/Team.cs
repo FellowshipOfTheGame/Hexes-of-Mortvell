@@ -84,7 +84,8 @@ namespace HexCasters.Core.Units.Teams
 		/// </remarks>
 		public void Remove(TeamMember teamMembership)
 		{
-			ErrorIfNullTeam(teamMembership);
+			if (teamMembership == null)
+				return;
 			ErrorIfMemberOfOtherTeam(teamMembership);
 			this.members.Remove(teamMembership);
 			this.observableMembers.NotifyValueChange();
@@ -106,12 +107,6 @@ namespace HexCasters.Core.Units.Teams
 			var objName = teamMembership.gameObject.name;
 			throw new ArgumentException(
 				$"Object \"{objName}\"is already a member of another team");
-		}
-
-		void ErrorIfNullTeam(TeamMember teamMembership)
-		{
-			if (teamMembership?.team == null)
-				throw new ArgumentException("Object has no team");
 		}
 	}
 }
