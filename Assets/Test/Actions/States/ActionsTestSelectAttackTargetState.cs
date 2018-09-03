@@ -49,7 +49,7 @@ namespace HexCasters.Testing.ActionsTest
 				this.playerOrder.aoe = aoeComponent
 					.GetAoe(this.playerOrder.selectedTargets)
 					.ToList();
-				this.aoeHighlight = this.playerOrder.aoe.Highlight(Color.cyan);
+				this.aoeHighlight = this.playerOrder.aoe.AddHighlightLayer(Color.cyan);
 			}
 		}
 
@@ -73,7 +73,7 @@ namespace HexCasters.Testing.ActionsTest
 					this.playerOrder.selectedTargets)
 				.ToList();
 			this.validNextTargetsHighlight =
-				this.validNextTargets.Highlight(Color.blue);
+				this.validNextTargets.AddHighlightLayer(Color.blue);
 		}
 	}
 }

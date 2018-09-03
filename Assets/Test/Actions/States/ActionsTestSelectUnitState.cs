@@ -45,7 +45,7 @@ namespace HexCasters.Testing.ActionsTest
 				.Where(unit => !unit.GetComponent<ActionsTestMovable>().hasMoved)
 				.Select(
 					cellContent => cellContent.Cell);
-			this.unmovedUnitsHighlight = unitCells.Highlight(Color.white);
+			this.unmovedUnitsHighlight = unitCells.AddHighlightLayer(Color.white);
 		}
 
 		void CellClicked(BoardCell cell)

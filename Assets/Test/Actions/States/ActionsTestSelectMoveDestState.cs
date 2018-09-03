@@ -36,7 +36,7 @@ namespace HexCasters.Testing.ActionsTest
 				this.fsm.Transition<ActionsTestSelectAttackTargetState>();
 				return;
 			}
-			this.moveTargetHighlightRegion = moveTargets.Highlight(Color.white);
+			this.moveTargetHighlightRegion = moveTargets.AddHighlightLayer(Color.white);
 			this.clickListener.cellClickedEvent += TryMoveToCell;
 		}
 

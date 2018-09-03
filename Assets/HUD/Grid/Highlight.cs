@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 namespace HexCasters.Hud.Grid
 {
+	[Obsolete("Use LayeredHighlight")]
 	public class Highlight : MonoBehaviour
 	{
 		public SpriteRenderer highlightRenderer;

@@ -3,9 +3,15 @@ using UnityEngine;
 
 namespace HexCasters.Hud.Grid
 {
+	/// <summary>
+	/// Layered highlight system for board cells.
+	/// </summary>
 	public class LayeredHighlight : MonoBehaviour
 	{
+		[Tooltip("The renderer whose color will match the top layer.")]
 		public SpriteRenderer highlightRenderer;
+
+		[Tooltip("Maximum alpha value. Colors are clipped to this value.")]
 		public float maxAlpha = 0.3f;
 
 		private HighlightLayer baseLayer;
@@ -19,6 +25,16 @@ namespace HexCasters.Hud.Grid
 			UpdateRendererColor();
 		}
 
+		/// <summary>
+		/// Creates a new layer of highlight.
+		/// </summary>
+		/// <param name="color">The color of the layer.</param>
+		/// <returns>The layer created.</returns>
+		/// <remarks>
+		/// <para>
+		/// The layer can be Disposed of even if it is not the top layer.
+		/// </para>
+		/// </remarks>
 		public IHighlightLayer AddLayer(Color color)
 		{
 			if (color.a > this.maxAlpha)
@@ -44,6 +60,9 @@ namespace HexCasters.Hud.Grid
 
 		public interface IHighlightLayer : IDisposable
 		{
+			/// <summary>
+			/// The color of the renderer when this layer is on top.
+			/// </summary>
 			Color Color { get; set; }
 		}
 

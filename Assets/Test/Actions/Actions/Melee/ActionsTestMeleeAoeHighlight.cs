@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using HexCasters.Core.Actions;
 using HexCasters.Core.Grid;
+using HexCasters.Hud.Actions;
 using System.Collections.Generic;
 
 namespace HexCasters.Testing.ActionsTest
