@@ -170,10 +170,10 @@ GameObject:
   - component: {fileID: 305821472}
   - component: {fileID: 305821471}
   - component: {fileID: 305821470}
-  - component: {fileID: 305821474}
   - component: {fileID: 305821473}
   - component: {fileID: 305821475}
   - component: {fileID: 305821476}
+  - component: {fileID: 305821474}
   m_Layer: 0
   m_Name: State
   m_TagString: Untagged
