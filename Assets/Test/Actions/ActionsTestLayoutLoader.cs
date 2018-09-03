@@ -21,11 +21,15 @@ namespace HexCasters.Testing.ActionsTest
 		void Start()
 		{
 			this.board.LoadLayout(layout);
-			var p1 = this.board.Spawn(playerPrefab, new BoardPosition(-1, -1));
-			var p2 = this.board.Spawn(playerPrefab, new BoardPosition(1, 1));
+			var t1p1 = this.board.Spawn(playerPrefab, new BoardPosition(0, -2));
+			var t1p2 = this.board.Spawn(playerPrefab, new BoardPosition(-2, 0));
+			var t2p1 = this.board.Spawn(playerPrefab, new BoardPosition(0, 2));
+			var t2p2 = this.board.Spawn(playerPrefab, new BoardPosition(2, 0));
 
-			team1.Add(p1.gameObject);
-			team2.Add(p2.gameObject);
+			team1.Add(t1p1.gameObject);
+			team1.Add(t1p2.gameObject);
+			team2.Add(t2p1.gameObject);
+			team2.Add(t2p2.gameObject);
 
 			DoneLoadingEvent?.Invoke();
 		}

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 using HexCasters.Core.Grid;
@@ -9,6 +10,8 @@ namespace HexCasters.Testing.ActionsTest
 	{
 		public Board board;
 
+		private IDictionary<BoardPosition, IDisposable> cellHoverHighlights;
+
 		void Start()
 		{
 			board.boardLoadedEvent += Initialize;
@@ -17,6 +20,8 @@ namespace HexCasters.Testing.ActionsTest
 		public void Initialize(Board board)
 		{
 			this.board = board;
+			this.cellHoverHighlights =
+				new Dictionary<BoardPosition, IDisposable>();
 			for (int x = board.MinX; x <= board.MaxX; x++)
 				for (int y = board.MinY; y <= board.MaxY; y++)
 				{
@@ -38,6 +43,8 @@ namespace HexCasters.Testing.ActionsTest
 						var hover = cell?.GetComponent<ActionsTestCellHover>();
 						hover.MouseEnterEvent -= HoverEnter;
 						hover.MouseExitEvent -= HoverExit;
+						if (this.cellHoverHighlights.ContainsKey(cell.Position))
+							this.cellHoverHighlights[cell.Position].Dispose();
 					}
 				}
 		}
@@ -45,13 +52,13 @@ namespace HexCasters.Testing.ActionsTest
 		void HoverEnter(BoardCell cell)
 		{
 			var highlight = cell.GetComponent<LayeredHighlight>();
-			highlight.AddLayer(Color.red);
+			var layer = highlight.AddLayer(Color.red);
+			this.cellHoverHighlights[cell.Position] = layer;
 		}
 
 		void HoverExit(BoardCell cell)
 		{
-			var highlight = cell.GetComponent<LayeredHighlight>();
-			highlight.RemoveTopLayer();
+			this.cellHoverHighlights[cell.Position].Dispose();
 		}
 	}
 }
