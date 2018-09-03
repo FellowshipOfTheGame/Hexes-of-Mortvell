@@ -4,7 +4,8 @@ using HexCasters.DesignPatterns.Fsm;
 
 namespace HexCasters.Testing.FsmTest
 {
-	public class FsmTestStateGravity : FsmState {
+	public class FsmTestStateGravity : FsmState
+	{
 		public Rigidbody sphereRigidbody;
 		public float jumpSpeed = 4;
 		public FsmTestInputReader input;
