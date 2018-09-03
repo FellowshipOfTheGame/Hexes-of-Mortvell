@@ -75,7 +75,7 @@ namespace HexCasters.Core.Grid
 		/// <summary>
 		/// Executed once a layout has been loaded.
 		/// </summary>
-		public event BoardLoadedEventHandler boardLoadedEvent;
+		public event BoardLoadedEventHandler doneLoadingEvent;
 
 		/// <summary>
 		/// Retrieves the cell at the specified position.
@@ -106,8 +106,8 @@ namespace HexCasters.Core.Grid
 			for (int i = 0; i < NumRows; i++)
 				for (int j = 0; j < NumCols; j++)
 					CreateCell(layout, i, j);
-			this.boardLoadedEvent?.Invoke(this);
-			this.boardLoadedEvent = null;
+			this.doneLoadingEvent?.Invoke(this);
+			this.doneLoadingEvent = null;
 		}
 
 		void CreateCell(BoardLayout layout, int row, int col)

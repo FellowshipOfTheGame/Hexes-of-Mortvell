@@ -12,7 +12,7 @@ namespace HexCasters.Testing.ActionsTest
 
 		void Start()
 		{
-			board.boardLoadedEvent += Initialize;
+			board.doneLoadingEvent += Initialize;
 		}
 
 		void Initialize(Board board)

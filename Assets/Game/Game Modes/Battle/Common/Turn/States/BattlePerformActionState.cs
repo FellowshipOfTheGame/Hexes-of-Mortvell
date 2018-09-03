@@ -1,6 +1,6 @@
 ﻿using HexCasters.DesignPatterns.Fsm;
 
-namespace HexCasters.GameModes.Battle
+namespace HexCasters.GameModes.Battle.Common
 {
 	public class BattlePerformActionState : FsmState
 	{

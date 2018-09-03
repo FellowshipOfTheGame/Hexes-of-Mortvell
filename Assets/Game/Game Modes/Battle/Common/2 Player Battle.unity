@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e27ca5c7735ad4c9eef4a617e5df30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _state: {fileID: 0}
+  _state: {fileID: 1725322884}
 --- !u!114 &1725322877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,6 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3209a8c5c88a14482fbd055777abfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turn: {fileID: 0}
 --- !u!114 &1725322878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,6 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bffad19bbe36394c81d2d49c9d8431f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  board: {fileID: 2088358389}
 --- !u!1 &1839319542
 GameObject:
   m_ObjectHideFlags: 0
