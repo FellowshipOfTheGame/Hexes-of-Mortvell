@@ -1,8 +1,8 @@
-using HexCasters.DesignPatterns.Fsm;
+﻿using HexCasters.DesignPatterns.Fsm;
 
 namespace HexCasters.GameModes.Battle
 {
-	public class BattleSetupTurnState : FsmState
+	public class BattlePerformActionState : FsmState
 	{
 		public override void Enter()
 		{
