@@ -18,6 +18,8 @@ namespace HexCasters.Testing.ActionsTest
 		{
 			foreach (var cell in aoe)
 			{
+				Debug.Log(cell);
+				Debug.Log(cell.Content);
 				var hp = cell.Content?.GetComponent<HP>();
 				if (hp == null)
 					continue;

@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 114564045244367244}
   - component: {fileID: 114932690823843112}
   - component: {fileID: 114899961015255392}
+  - component: {fileID: 114409939111590484}
   m_Layer: 0
   m_Name: Actions Test Player
   m_TagString: Untagged
@@ -139,6 +140,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: {fileID: 114456233473852830}
   barTransform: {fileID: 224944035486118558}
+--- !u!114 &114409939111590484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1961366733143948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a83628f449b21ee498b635f4d8d84ef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: {fileID: 1169544835171030, guid: af8d30d8c2aa4e34396bce38d17f45a8, type: 2}
 --- !u!114 &114456233473852830
 MonoBehaviour:
   m_ObjectHideFlags: 1

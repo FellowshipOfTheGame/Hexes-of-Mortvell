@@ -14,24 +14,27 @@ namespace HexCasters.Testing.ActionsTest
 		public ActionsTestPlayerOrder playerOrder;
 		public ActionsTestCellHoverListener hoverListener;
 		public ActionsTestCellClickListener clickListener;
-		private List<BoardCell> selectedTargets;
-		private GameObject action;
 		private List<BoardCell> validNextTargets;
 		private IDisposable validNextTargetsHighlight;
 		private IDisposable aoeHighlight;
 
 		public override void Enter()
 		{
-			this.action = this.playerOrder.selectedUnit
+			this.playerOrder.action = this.playerOrder.selectedUnit
 				.GetComponent<ActionsTestActor>().action;
-			this.selectedTargets = new List<BoardCell>();
+			this.playerOrder.selectedTargets = new List<BoardCell>();
 			UpdateValidTargets();
+			this.validNextTargetsHighlight = null;
+			this.aoeHighlight = null;
+
 			hoverListener.hoverEnterEvent += UpdateAoeHighlight;
 			clickListener.cellClickedEvent += AddTarget;
 		}
 
 		public override void Exit()
 		{
+			this.validNextTargetsHighlight?.Dispose();
+			this.aoeHighlight?.Dispose();
 			hoverListener.hoverEnterEvent -= UpdateAoeHighlight;
 			clickListener.cellClickedEvent -= AddTarget;
 		}
@@ -39,13 +42,14 @@ namespace HexCasters.Testing.ActionsTest
 		void UpdateAoeHighlight(BoardCell hoveredCell)
 		{
 			this.aoeHighlight?.Dispose();
+			this.aoeHighlight = null;
 			if (validNextTargets.Contains(hoveredCell))
 			{
-				var aoeComponent = this.action.GetComponent<ActionAoe>();
-				var aoe = aoeComponent
-					.GetAoe(this.selectedTargets)
+				var aoeComponent = this.playerOrder.action.GetComponent<ActionAoe>();
+				this.playerOrder.aoe = aoeComponent
+					.GetAoe(this.playerOrder.selectedTargets)
 					.ToList();
-				this.aoeHighlight = aoe.Highlight(Color.cyan);
+				this.aoeHighlight = this.playerOrder.aoe.Highlight(Color.cyan);
 			}
 		}
 
@@ -53,20 +57,20 @@ namespace HexCasters.Testing.ActionsTest
 		{
 			if (!this.validNextTargets.Contains(clickedCell))
 				return;
-			var targetFilter = this.action.GetComponent<ActionTargetFilter>();
-			this.selectedTargets.Add(clickedCell);
-			if (this.selectedTargets.Count == targetFilter.targetCount)
+			var targetFilter = this.playerOrder.action.GetComponent<ActionTargetFilter>();
+			this.playerOrder.selectedTargets.Add(clickedCell);
+			if (this.playerOrder.selectedTargets.Count == targetFilter.targetCount)
 				this.fsm.Transition<ActionsTestPerformActionState>();
 		}
 
 		void UpdateValidTargets()
 		{
 			this.validNextTargetsHighlight?.Dispose();
-			var targetFilter = this.action.GetComponent<ActionTargetFilter>();
+			var targetFilter = this.playerOrder.action.GetComponent<ActionTargetFilter>();
 			this.validNextTargets = targetFilter
 				.ValidTargets(
 					this.playerOrder.selectedUnit,
-					this.selectedTargets)
+					this.playerOrder.selectedTargets)
 				.ToList();
 			this.validNextTargetsHighlight =
 				this.validNextTargets.Highlight(Color.blue);

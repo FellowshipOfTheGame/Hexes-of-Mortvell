@@ -18,7 +18,7 @@ namespace HexCasters.Testing.ActionsTest
 
 		public override void Enter()
 		{
-			ResetPlayerOrder();
+			this.playerOrder.Clear();
 			ApplyHighlightToUnmovedUnits();
 
 			this.clickListener.cellClickedEvent += CellClicked;
@@ -30,10 +30,10 @@ namespace HexCasters.Testing.ActionsTest
 			this.unmovedUnitsHighlight.Dispose();
 		}
 
-		void ResetPlayerOrder()
+		void Update()
 		{
-			this.playerOrder.selectedUnit = null;
-			this.playerOrder.moveDest = null;
+			if (Input.GetKeyDown(KeyCode.Space))
+				this.fsm.Transition<ActionsTestTurnEndState>();
 		}
 
 		void ApplyHighlightToUnmovedUnits()

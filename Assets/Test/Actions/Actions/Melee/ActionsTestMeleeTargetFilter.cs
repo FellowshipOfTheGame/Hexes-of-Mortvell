@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace HexCasters.Testing.ActionsTest
 {
-	public class ActionstestMeleeTargetFilter : ActionTargetFilter
+	public class ActionsTestMeleeTargetFilter : ActionTargetFilter
 	{
 		public override IEnumerable<BoardCell> ValidTargets(
 			BoardCellContent actor,

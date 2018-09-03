@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using HexCasters.Core.Grid;
 
 namespace HexCasters.Testing.ActionsTest
@@ -9,6 +10,18 @@ namespace HexCasters.Testing.ActionsTest
 		// will make undo easier
 		public BoardCellContent selectedUnit;
 		public BoardCell moveDest;
+		public GameObject action;
+		public List<BoardCell> selectedTargets;
+		public IEnumerable<BoardCell> aoe;
+
+		public void Clear()
+		{
+			this.selectedUnit = null;
+			this.moveDest = null;
+			this.action = null;
+			this.selectedTargets = new List<BoardCell>();
+			this.aoe = null;
+		}
 
 	}
 }

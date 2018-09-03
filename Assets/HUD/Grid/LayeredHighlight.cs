@@ -51,6 +51,8 @@ namespace HexCasters.Hud.Grid
 		{
 			Color color;
 			LayeredHighlight layers;
+			bool disposed;
+
 
 			public Color Color
 			{
@@ -80,10 +82,14 @@ namespace HexCasters.Hud.Grid
 				this.layerAbove = this;
 				this.Color = color;
 				this.layers = layers;
+				this.disposed = false;
 			}
 
 			public void Dispose()
 			{
+				if (this.disposed)
+					throw new ObjectDisposedException("Highlight layer");
+				this.disposed = true;
 				this.layerBelow.layerAbove = this.layerAbove;
 				this.layerAbove.layerBelow = this.layerBelow;
 				this.layers.UpdateRendererColor();
