@@ -21,19 +21,19 @@ namespace HexCasters.Testing.ActionsTest
 			ResetPlayerOrder();
 			ApplyHighlightToUnmovedUnits();
 
-			this.clickListener.CellClickedEvent += CellClicked;
+			this.clickListener.cellClickedEvent += CellClicked;
 		}
 
 		public override void Exit()
 		{
-			this.clickListener.CellClickedEvent -= CellClicked;
+			this.clickListener.cellClickedEvent -= CellClicked;
 			this.unmovedUnitsHighlight.Dispose();
 		}
 
 		void ResetPlayerOrder()
 		{
 			this.playerOrder.selectedUnit = null;
-			this.playerOrder.action = null;
+			this.playerOrder.moveDest = null;
 		}
 
 		void ApplyHighlightToUnmovedUnits()
@@ -42,6 +42,7 @@ namespace HexCasters.Testing.ActionsTest
 				.Select(
 					teamMember => teamMember.GetComponent<BoardCellContent>());
 			var unitCells = units
+				.Where(unit => !unit.GetComponent<ActionsTestMovable>().hasMoved)
 				.Select(
 					cellContent => cellContent.Cell);
 			this.unmovedUnitsHighlight = unitCells.Highlight(Color.white);

@@ -11,6 +11,6 @@ namespace HexCasters.Core.Actions
 
 		public abstract IEnumerable<BoardCell> ValidTargets(
 			BoardCellContent actor,
-			IEnumerable<BoardCell> partialTargets=null);
+			IEnumerable<BoardCell> partialTargets);
 	}
 }

@@ -8,6 +8,7 @@ namespace HexCasters.Testing.ActionsTest
 		// use origin cell instead when implementing for real
 		// will make undo easier
 		public BoardCellContent selectedUnit;
-		public GameObject action;
+		public BoardCell moveDest;
+
 	}
 }

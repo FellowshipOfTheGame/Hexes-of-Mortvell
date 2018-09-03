@@ -39,6 +39,17 @@ namespace HexCasters.DesignPatterns.Fsm
 			get { return this._state != null; }
 		}
 
+		public bool Transitioning
+		{
+			get;
+			private set;
+		}
+
+		void Awake()
+		{
+			this.Transitioning = false;
+		}
+
 		void Start()
 		{
 			if (this._state != null)
@@ -83,7 +94,10 @@ namespace HexCasters.DesignPatterns.Fsm
 		public void Transition(FsmState nextState)
 		{
 			ErrorIfNotInitialized();
+			ErrorIfMidTransition();
+			this.Transitioning = true;
 			ExitState();
+			this.Transitioning = false;
 			EnterState(nextState);
 		}
 
@@ -127,7 +141,14 @@ namespace HexCasters.DesignPatterns.Fsm
 		void ErrorIfNullArgument(object value, string paramName)
 		{
 			if (value == null)
-				throw new ArgumentNullException(paramName);
+				throw new ArgumentNullException(paramName, "Unknown state");
+		}
+
+		void ErrorIfMidTransition()
+		{
+			if (this.Transitioning)
+				throw new InvalidOperationException(
+					"Cannot initiate a transition while exiting a state");
 		}
 	}
 }

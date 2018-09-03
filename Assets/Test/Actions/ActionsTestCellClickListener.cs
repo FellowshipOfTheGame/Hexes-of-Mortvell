@@ -8,7 +8,7 @@ namespace HexCasters.Testing.ActionsTest
 	{
 		public Board board;
 
-		public event Action<BoardCell> CellClickedEvent;
+		public event Action<BoardCell> cellClickedEvent;
 
 		void Start()
 		{
@@ -29,7 +29,7 @@ namespace HexCasters.Testing.ActionsTest
 
 		void MouseClick(BoardCell cell)
 		{
-			this.CellClickedEvent?.Invoke(cell);
+			this.cellClickedEvent?.Invoke(cell);
 		}
 	}
 }

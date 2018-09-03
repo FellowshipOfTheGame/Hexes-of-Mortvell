@@ -37,19 +37,23 @@ namespace HexCasters.Testing.ActionsTest
 				return;
 			}
 			this.moveTargetHighlightRegion = moveTargets.Highlight(Color.white);
-			this.clickListener.CellClickedEvent += CellClick;
+			this.clickListener.cellClickedEvent += TryMoveToCell;
 		}
 
 		public override void Exit()
 		{
 			this.moveTargetHighlightRegion?.Dispose();
+			this.clickListener.cellClickedEvent -= TryMoveToCell;
 		}
 
-		void CellClick(BoardCell cell)
+		void TryMoveToCell(BoardCell cell)
 		{
 			if (this.moveTargets.Contains(cell))
 			{
-				
+				this.playerOrder.selectedUnit.Cell.MoveContent(cell);
+				this.playerOrder.selectedUnit.GetComponent<ActionsTestMovable>().hasMoved = true;
+				this.playerOrder.moveDest = cell;
+				this.fsm.Transition<ActionsTestSelectAttackTargetState>();
 			}
 		}
 	}

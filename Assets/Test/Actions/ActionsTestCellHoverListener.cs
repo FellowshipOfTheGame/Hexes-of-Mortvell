@@ -6,11 +6,15 @@ using HexCasters.Hud.Grid;
 
 namespace HexCasters.Testing.ActionsTest
 {
+	// split this up into a hover listener and a hover highlight
 	public class ActionsTestCellHoverListener : MonoBehaviour
 	{
 		public Board board;
 
 		private IDictionary<BoardPosition, IDisposable> cellHoverHighlights;
+
+		public event Action<BoardCell> hoverEnterEvent;
+		public event Action<BoardCell> hoverExitEvent;
 
 		void Start()
 		{
@@ -51,6 +55,7 @@ namespace HexCasters.Testing.ActionsTest
 
 		void HoverEnter(BoardCell cell)
 		{
+			hoverEnterEvent?.Invoke(cell);
 			var highlight = cell.GetComponent<LayeredHighlight>();
 			var layer = highlight.AddLayer(Color.red);
 			this.cellHoverHighlights[cell.Position] = layer;
@@ -58,6 +63,7 @@ namespace HexCasters.Testing.ActionsTest
 
 		void HoverExit(BoardCell cell)
 		{
+			hoverExitEvent?.Invoke(cell);
 			this.cellHoverHighlights[cell.Position].Dispose();
 		}
 	}
