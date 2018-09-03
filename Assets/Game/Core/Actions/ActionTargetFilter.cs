@@ -4,10 +4,13 @@ using HexCasters.Core.Grid;
 
 namespace HexCasters.Core.Actions
 {
-	[DisallowMultipleComponent]
 	/// <summary>
 	/// The component of the action which dictates which cells can be targeted.
 	/// </summary>
+	/// <remarks>
+	/// If multiple filter componentss are present, the resulting targets should
+	/// be the intersection of the areas given.
+	/// </remarks>
 	public abstract class ActionTargetFilter : MonoBehaviour
 	{
 		/// <summary>
