@@ -4,9 +4,6 @@ using HexCasters.Core.Grid;
 
 namespace HexCasters.GameModes.Common
 {
-	[RequireComponent(typeof(BoardCell))]
-	[RequireComponent(typeof(EventTrigger))]
-	// [RequireComponent(typeof(CellNotifyOnHover))]
 	public class CellHoverNotifyBoard : MonoBehaviour
 	{
 		public BoardCell cell;
@@ -14,7 +11,7 @@ namespace HexCasters.GameModes.Common
 
 		void Awake()
 		{
-			var board = cell.board;
+			var board = this.cell.board;
 			this.listener = board.GetComponent<CellHoverListener>();
 		}
 
