@@ -16,8 +16,7 @@ namespace HexCasters.Core.Actions
 		/// <summary>
 		/// The number of targets for the action.
 		/// </summary>
-		[Tooltip("The number of targets for the action.")]
-		public int targetCount;
+		public abstract int TargetCount { get; }
 
 		/// <summary>
 		/// Returns which cells can be used as targets.

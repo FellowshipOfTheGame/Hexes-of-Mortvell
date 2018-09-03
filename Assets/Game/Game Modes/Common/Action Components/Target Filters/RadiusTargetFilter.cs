@@ -7,6 +7,8 @@ namespace HexCasters.GameModes.Common
 {
 	public class RadiusTargetFilter : ActionTargetFilter
 	{
+		public override int TargetCount => 1;
+
 		public int radius;
 
 		public override IEnumerable<BoardCell> ValidTargets(

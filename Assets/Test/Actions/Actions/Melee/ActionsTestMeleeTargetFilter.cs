@@ -8,6 +8,8 @@ namespace HexCasters.Testing.ActionsTest
 {
 	public class ActionsTestMeleeTargetFilter : ActionTargetFilter
 	{
+		public override int TargetCount => 1;
+
 		public override IEnumerable<BoardCell> ValidTargets(
 			BoardCellContent actor,
 			IEnumerable<BoardCell> partialTargets)
