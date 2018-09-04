@@ -19,8 +19,8 @@ namespace HexCasters.Testing.ActionsTest
 		{
 			foreach (var teamMember in turn.CurrentTeam.Members)
 			{
-				var movable = teamMember.GetComponent<ActionsTestMovable>();
-				movable.hasMoved = false;
+				var unit = teamMember.GetComponent<ActionsTestUnit>();
+				unit.hasMoved = false;
 			}
 		}
 	}

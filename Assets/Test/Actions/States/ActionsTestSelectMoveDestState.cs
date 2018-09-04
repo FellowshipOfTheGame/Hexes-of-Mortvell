@@ -20,13 +20,13 @@ namespace HexCasters.Testing.ActionsTest
 		{
 			var unit = this.playerOrder.selectedUnit;
 			var cellContent = unit.GetComponent<BoardCellContent>();
-			var unitAsMovable = unit.GetComponent<ActionsTestMovable>();
-			bool canMove = unitAsMovable != null;
-			canMove &= unitAsMovable.movementPoints > 0;
+			var unitAsUnit = unit.GetComponent<ActionsTestUnit>();
+			bool canMove = unitAsUnit != null;
+			canMove &= unitAsUnit.movementPoints > 0;
 			moveTargets = null;
 			if (canMove)
 			{
-				moveTargets = unitAsMovable
+				moveTargets = unitAsUnit
 					.GetReachableCells(cellContent.Cell)
 					.ToList();
 				canMove &= moveTargets.Count() > 1;
@@ -51,7 +51,7 @@ namespace HexCasters.Testing.ActionsTest
 			if (this.moveTargets.Contains(cell))
 			{
 				this.playerOrder.selectedUnit.Cell.MoveContentTo(cell);
-				this.playerOrder.selectedUnit.GetComponent<ActionsTestMovable>().hasMoved = true;
+				this.playerOrder.selectedUnit.GetComponent<ActionsTestUnit>().hasMoved = true;
 				this.playerOrder.moveDest = cell;
 				this.fsm.Transition<ActionsTestSelectAttackTargetState>();
 			}

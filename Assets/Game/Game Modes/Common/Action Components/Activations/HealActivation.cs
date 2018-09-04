@@ -25,5 +25,17 @@ namespace HexCasters.GameModes.Common
 				hp.Increase(this.healAmount);
 			}
 		}
+
+		public override void Cleanup(IEnumerable<BoardCell> aoe)
+		{
+			var affectedHPs = aoe
+				.Select(cell => cell.Content)
+				.Select(content => content?.GetComponent<HP>())
+				.Where(hp => hp != null);
+			foreach (var hp in affectedHPs)
+			{
+				hp.Commit();
+			}
+		}
 	}
 }

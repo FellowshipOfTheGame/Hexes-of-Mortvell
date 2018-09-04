@@ -42,7 +42,7 @@ namespace HexCasters.Testing.ActionsTest
 				.Select(
 					teamMember => teamMember.GetComponent<BoardCellContent>());
 			var unitCells = units
-				.Where(unit => !unit.GetComponent<ActionsTestMovable>().hasMoved)
+				.Where(unit => !unit.GetComponent<ActionsTestUnit>().hasMoved)
 				.Select(
 					cellContent => cellContent.Cell);
 			this.unmovedUnitsHighlight = unitCells.AddHighlightLayer(Color.white);

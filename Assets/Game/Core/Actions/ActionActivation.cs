@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using HexCasters.Core.Grid;
@@ -20,5 +21,7 @@ namespace HexCasters.Core.Actions
 			BoardCellContent actor,
 			IEnumerable<BoardCell> targets,
 			IEnumerable<BoardCell> aoe);
+
+		public abstract void Cleanup(IEnumerable<BoardCell> aoe);
 	}
 }

@@ -12,7 +12,6 @@ namespace HexCasters.Core.Grid
 		menuName="HexCasters/Board Layout")]
 	public class BoardLayout : ScriptableObject
 	{
-
 		[SerializeField]
 		private int _numRows;
 		[SerializeField]
@@ -54,6 +53,20 @@ namespace HexCasters.Core.Grid
 		/// </summary>
 		[Tooltip("Respective terrains of the positions above.")]
 		public List<BoardCellTerrain> nonDefaultTerrains;
+
+		[Tooltip("Positions of spawn points.")]
+		public List<BoardPosition> spawnPositions;
+
+		[Serializable]
+		public class SpawnInformation
+		{
+			public static int NoTeam = -1;
+			public bool HasTeam => teamIndex != NoTeam;
+
+			public GameObject prefab;
+			public int teamIndex = NoTeam;
+		}
+		public List<SpawnInformation> spawnInfo;
 
 		/// <summary>
 		/// Retrieves the terrain type for a given position.

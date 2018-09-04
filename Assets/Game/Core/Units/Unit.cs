@@ -1,25 +1,31 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using HexCasters.Core.Grid.Regions;
+using HexCasters.Core.Grid;
 
-namespace HexCasters.Core.Grid
+namespace HexCasters.Core.Units
 {
 	[RequireComponent(typeof(BoardCellContent))]
-	public class Movable : MonoBehaviour
+	public class Unit : MonoBehaviour
 	{
+		public bool hasMoved;
 		public int movementPoints;
-		private BoardCellContent asCellContent;
+		public BoardCellContent AsCellContent
+		{
+			get;
+			private set;
+		}
 
 		private int UnreachableCost => this.movementPoints + 1;
 
 		void Awake()
 		{
-			this.asCellContent = GetComponent<BoardCellContent>();
+			this.AsCellContent = GetComponent<BoardCellContent>();
 		}
 
 		public IEnumerable<BoardCell> ReachableCells()
 		{
-			return this.asCellContent.Cell
+			return this.AsCellContent.Cell
 				.Neighborhood(
 					this.movementPoints,
 					distanceFunction: MovementCost);

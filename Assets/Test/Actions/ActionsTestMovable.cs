@@ -6,7 +6,7 @@ using HexCasters.Core.Grid.Regions;
 
 namespace HexCasters.Testing.ActionsTest
 {
-	public class ActionsTestMovable : MonoBehaviour
+	public class ActionsTestUnit : MonoBehaviour
 	{
 		public int movementPoints;
 		public bool hasMoved;

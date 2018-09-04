@@ -1,25 +1,26 @@
 using UnityEngine;
 using HexCasters.DesignPatterns.Fsm;
 using HexCasters.Core.Grid;
+using HexCasters.Core.Units.Teams;
 
 namespace HexCasters.GameModes.Battle.Common
 {
 	public class BattleBoardSetupState : FsmState
 	{
-		public Board board;
+		public LayoutTeamAssigner teamAssigner;
 
 		public override void Enter()
 		{
 			Debug.Log(GetType().Name);
-			this.board.doneLoadingEvent += StartFirstTurn;
+			this.teamAssigner.doneAssigningTeams += StartFirstTurn;
 		}
 
 		public override void Exit()
 		{
-			this.board.doneLoadingEvent -= StartFirstTurn;
+			this.teamAssigner.doneAssigningTeams -= StartFirstTurn;
 		}
 
-		void StartFirstTurn(Board board)
+		void StartFirstTurn()
 		{
 			this.fsm.Transition<BattleStartTurnState>();
 		}
