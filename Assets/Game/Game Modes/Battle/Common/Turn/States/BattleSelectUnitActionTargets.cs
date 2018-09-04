@@ -26,6 +26,7 @@ namespace HexCasters.GameModes.Battle.Common
 
 		public override void Exit()
 		{
+			RemoveValidTargetHighlight();
 			UnregisterClickHandler();
 		}
 
@@ -70,6 +71,7 @@ namespace HexCasters.GameModes.Battle.Common
 		void RemoveValidTargetHighlight()
 		{
 			this.validNextTargetsHighlight?.Dispose();
+			this.validNextTargetsHighlight = null;
 		}
 
 		void FinishTargetSelection()
