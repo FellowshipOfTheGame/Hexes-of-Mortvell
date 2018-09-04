@@ -15,7 +15,7 @@ namespace HexCasters.Testing.ActionsTest
 			board.doneLoadingEvent += Initialize;
 		}
 
-		void Initialize(Board board)
+		void Initialize(Board board, BoardLayout layout)
 		{
 			this.board = board;
 			for (int x = board.MinX; x <= board.MaxX; x++)

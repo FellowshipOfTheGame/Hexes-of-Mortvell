@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using HexCasters.Core.Units.Teams;
 
 namespace HexCasters.Core.Grid
 {
@@ -9,9 +8,6 @@ namespace HexCasters.Core.Grid
 	{
 		[Header("Prefabs")]
 		public GameObject cellPrefab;
-
-		[Header("References")]
-		public List<Team> teams; // FIXME is this really supposed to be in board?
 
 		private BoardCell[,] cells;
 
@@ -76,7 +72,8 @@ namespace HexCasters.Core.Grid
 			get { return this.NumRows / 2; }
 		}
 
-		public delegate void BoardLoadedEventHandler(Board board);
+		public delegate void BoardLoadedEventHandler(
+			Board board, BoardLayout layout);
 		/// <summary>
 		/// Executed once a layout has been loaded.
 		/// </summary>
@@ -111,7 +108,7 @@ namespace HexCasters.Core.Grid
 			for (int i = 0; i < NumRows; i++)
 				for (int j = 0; j < NumCols; j++)
 					CreateCell(layout, i, j);
-			this.doneLoadingEvent?.Invoke(this);
+			this.doneLoadingEvent?.Invoke(this, layout);
 			this.doneLoadingEvent = null;
 		}
 
@@ -123,15 +120,6 @@ namespace HexCasters.Core.Grid
 			newCell.Position = newCellPosition;
 			newCell.Terrain = layout.FindTerrainType(newCellPosition);
 			this.cells[row, col] = newCell;
-
-			var spawnIndex = layout.spawnPositions.IndexOf(newCellPosition);
-			if (spawnIndex >= 0)
-			{
-				var spawnInfo = layout.spawnInfo[spawnIndex];
-				var content = Spawn(spawnInfo.prefab, newCellPosition);
-				if (spawnInfo.HasTeam)
-					this.teams[spawnInfo.teamIndex].Add(content.gameObject);
-			}
 		}
 
 		Tuple<int, int> BoardPositionToMatrixIndices(

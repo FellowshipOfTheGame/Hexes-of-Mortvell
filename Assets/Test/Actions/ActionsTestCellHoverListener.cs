@@ -21,7 +21,7 @@ namespace HexCasters.Testing.ActionsTest
 			board.doneLoadingEvent += Initialize;
 		}
 
-		public void Initialize(Board board)
+		public void Initialize(Board board, BoardLayout layout)
 		{
 			this.board = board;
 			this.cellHoverHighlights =
