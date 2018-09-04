@@ -35,7 +35,7 @@ namespace HexCasters.GameModes.Battle.Common
 		{
 			var content = cell.Content;
 			var unit = content?.GetComponent<Unit>();
-			if (unit == null)
+			if (unit == null || unit.hasMoved)
 				return;
 			var teamMember = content?.GetComponent<TeamMember>();
 			if (teamMember.team != this.turn.CurrentTeam)
