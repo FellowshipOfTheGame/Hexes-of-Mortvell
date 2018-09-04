@@ -312,13 +312,13 @@ GameObject:
   - component: {fileID: 1725322875}
   - component: {fileID: 1725322876}
   - component: {fileID: 1725322884}
-  - component: {fileID: 1725322883}
+  - component: {fileID: 1725322877}
   - component: {fileID: 1725322882}
-  - component: {fileID: 1725322881}
   - component: {fileID: 1725322880}
   - component: {fileID: 1725322879}
   - component: {fileID: 1725322878}
-  - component: {fileID: 1725322877}
+  - component: {fileID: 1725322881}
+  - component: {fileID: 1725322883}
   m_Layer: 0
   m_Name: FSM
   m_TagString: Untagged
@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3209a8c5c88a14482fbd055777abfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turn: {fileID: 0}
+  turn: {fileID: 1884063501}
 --- !u!114 &1725322878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,7 +524,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aebd9c35657e6af4e8c4596dbdd3c474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teamsWithTurns: []
+  teamsWithTurns:
+  - {fileID: 1230601746}
+  - {fileID: 89848142}
 --- !u!1 &2088358387
 GameObject:
   m_ObjectHideFlags: 0

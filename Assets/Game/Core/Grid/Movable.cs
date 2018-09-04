@@ -7,6 +7,7 @@ namespace HexCasters.Core.Grid
 	[RequireComponent(typeof(BoardCellContent))]
 	public class Movable : MonoBehaviour
 	{
+		public bool hasMoved;
 		public int movementPoints;
 		private BoardCellContent asCellContent;
 
