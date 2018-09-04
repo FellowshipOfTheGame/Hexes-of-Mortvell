@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
+  action: {fileID: 0}
   movementOrigin: {fileID: 0}
   movementDestination: {fileID: 0}
 --- !u!4 &466081788
@@ -540,6 +541,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8f2366da40d87d498a7e3b4e1cf89e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugAction: {fileID: 1934433316892104, guid: ca57691b329a50c49a7c253961eec0c5,
+    type: 2}
+  playerOrders: {fileID: 466081787}
 --- !u!114 &1725322880
 MonoBehaviour:
   m_ObjectHideFlags: 0

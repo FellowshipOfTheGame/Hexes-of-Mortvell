@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 using HexCasters.Core.Actions;
 using HexCasters.Core.Grid;
 using HexCasters.Core.Grid.Regions;
@@ -7,7 +8,9 @@ namespace HexCasters.GameModes.Common
 {
 	public class RadiusFromActorTargetFilter : ActionTargetFilter
 	{
-		public override int TargetCount => 1;
+		[SerializeField]
+		private int _targetCount = 1;
+		public override int TargetCount => this._targetCount;
 
 		public int radius;
 

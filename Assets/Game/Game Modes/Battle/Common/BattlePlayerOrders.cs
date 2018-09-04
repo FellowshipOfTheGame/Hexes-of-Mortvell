@@ -7,6 +7,7 @@ namespace HexCasters.GameModes.Battle.Common
 	public class BattlePlayerOrders : MonoBehaviour
 	{
 		public Unit unit;
+		public GameObject action;
 		public BoardCell movementOrigin;
 		public BoardCell movementDestination;
 	}
