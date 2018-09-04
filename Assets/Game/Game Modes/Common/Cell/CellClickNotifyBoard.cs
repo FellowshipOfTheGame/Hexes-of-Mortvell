@@ -15,7 +15,7 @@ namespace HexCasters.GameModes.Common
 			this.listener = board.GetComponent<CellClickListener>();
 		}
 
-		public void HoverEnter()
+		public void Click()
 		{
 			this.listener.Notify(this.cell);
 		}
