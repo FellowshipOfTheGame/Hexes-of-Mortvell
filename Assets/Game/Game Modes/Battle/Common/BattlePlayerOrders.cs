@@ -8,5 +8,6 @@ namespace HexCasters.GameModes.Battle.Common
 	{
 		public Unit unit;
 		public BoardCell movementOrigin;
+		public BoardCell movementDestination;
 	}
 }

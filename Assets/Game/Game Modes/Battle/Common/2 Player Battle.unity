@@ -194,7 +194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2408793891cc27a4881ba699cac9f097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unit: {fileID: 0}
   movementOrigin: {fileID: 0}
+  movementDestination: {fileID: 0}
 --- !u!4 &466081788
 Transform:
   m_ObjectHideFlags: 0
@@ -438,6 +440,7 @@ GameObject:
   - component: {fileID: 1725322877}
   - component: {fileID: 1725322882}
   - component: {fileID: 1725322880}
+  - component: {fileID: 1725322885}
   - component: {fileID: 1725322879}
   - component: {fileID: 1725322878}
   - component: {fileID: 1725322881}
@@ -519,6 +522,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7deaed563b0bb640ac7fec74fcb25ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerOrders: {fileID: 466081787}
+  clickListener: {fileID: 2088358391}
 --- !u!114 &1725322881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,6 +572,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 2088358389}
+--- !u!114 &1725322885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1725322874}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c1efddcb467024391929b14f14c994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerOrders: {fileID: 466081787}
 --- !u!1 &1839319542
 GameObject:
   m_ObjectHideFlags: 0

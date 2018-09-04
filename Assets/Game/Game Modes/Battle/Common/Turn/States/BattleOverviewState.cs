@@ -22,13 +22,13 @@ namespace HexCasters.GameModes.Battle.Common
 		{
 			Debug.Log(GetType());
 			ApplyUnmovedUnitsHighlight();
-			RegisterClickListener();
+			RegisterClickHandler();
 		}
 
 		public override void Exit()
 		{
 			RemoveUnmovedUnitsHighlight();
-			UnregisterClickListener();
+			UnregisterClickHandler();
 		}
 
 		void TrySelectUnit(BoardCell cell)
@@ -59,14 +59,15 @@ namespace HexCasters.GameModes.Battle.Common
 		void RemoveUnmovedUnitsHighlight()
 		{
 			this.unmovedUnitsHighlight.Dispose();
+			this.unmovedUnitsHighlight = null;
 		}
 
-		void RegisterClickListener()
+		void RegisterClickHandler()
 		{
 			this.cellClickListener.clickEvent += TrySelectUnit;
 		}
 
-		void UnregisterClickListener()
+		void UnregisterClickHandler()
 		{
 			this.cellClickListener.clickEvent -= TrySelectUnit;
 		}
