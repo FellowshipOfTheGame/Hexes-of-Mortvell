@@ -12,7 +12,15 @@ namespace HexCasters.GameModes.Common
 			IEnumerable<BoardCell> aoe)
 		{
 			var targetList = new List<BoardCell>(targets);
+			ErrorIfTargetCountNot2(targetList);
 			targetList[0].MoveContentTo(targetList[1]);
+		}
+
+		void ErrorIfTargetCountNot2(List<BoardCell> targets)
+		{
+			if (targets.Count != 2)
+				throw new System.ArgumentException(
+					$"{GetType()} requires exactly 2 targets.");
 		}
 	}
 }

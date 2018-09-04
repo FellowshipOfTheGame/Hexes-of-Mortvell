@@ -19,11 +19,11 @@ namespace HexCasters.GameModes.Common
 			var otherVertices = targetList.Skip(1);
 			foreach (var nextVertex in otherVertices)
 			{
-				aoe.AddRange(
-					currentVertex.StraightLineTowards(
-						nextVertex,
-						includeOrigin: false,
-						stopAtOccupiedCell: false));
+				var segment = currentVertex.StraightLineTowards(
+					nextVertex,
+					includeOrigin: false,
+					stopAtOccupiedCell: false);
+				aoe.AddRange(segment);
 				currentVertex = nextVertex;
 			}
 			return aoe;

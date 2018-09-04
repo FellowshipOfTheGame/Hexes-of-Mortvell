@@ -5,7 +5,7 @@ using HexCasters.Core.Grid.Regions;
 
 namespace HexCasters.GameModes.Common
 {
-	public class RadiusTargetFilter : ActionTargetFilter
+	public class RadiusFromActorTargetFilter : ActionTargetFilter
 	{
 		public override int TargetCount => 1;
 
