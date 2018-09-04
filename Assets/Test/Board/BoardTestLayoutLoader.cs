@@ -23,10 +23,10 @@ namespace HexCasters.Testing.BoardTest
 		{
 			MoveOrbIfKeyPressed(KeyCode.E, Direction.PositiveY);
 			MoveOrbIfKeyPressed(KeyCode.D, Direction.PositiveX);
-			MoveOrbIfKeyPressed(KeyCode.X, Direction.ConstantZDown);
+			MoveOrbIfKeyPressed(KeyCode.X, Direction.ConstantZNegativeY);
 			MoveOrbIfKeyPressed(KeyCode.Z, Direction.NegativeY);
 			MoveOrbIfKeyPressed(KeyCode.A, Direction.NegativeX);
-			MoveOrbIfKeyPressed(KeyCode.W, Direction.ConstantZUp);
+			MoveOrbIfKeyPressed(KeyCode.W, Direction.ConstantZPositiveY);
 			PrintOrbCoordsIfKeyPressed(KeyCode.S);
 		}
 

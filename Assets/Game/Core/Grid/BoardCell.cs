@@ -210,7 +210,7 @@ namespace HexCasters.Core.Grid
 		/// <returns>Returns an iterator over the adjacent cells.</returns>
 		public IEnumerable<BoardCell> FindAdjacentCells()
 		{
-			return Direction.List
+			return Direction.NonStayDirections
 				.Select(
 					(Direction direction) => FindAdjacentCell(direction))
 				.Where(
