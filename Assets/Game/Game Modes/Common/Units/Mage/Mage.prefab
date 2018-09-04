@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114322355921617670}
   - component: {fileID: 114656017054658672}
   - component: {fileID: 114803509760645238}
+  - component: {fileID: 114910440220545176}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Untagged
@@ -111,6 +112,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: {fileID: 0}
   component: {fileID: 212551812880614704}
+--- !u!114 &114910440220545176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1009992586163188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd04ddd7b28c6e248b081ffc068e7fb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasMoved: 0
+  movementPoints: 2
 --- !u!212 &212141106555758400
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -143,8 +157,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 38217233
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9ceaa8db87c36d4f9b6e391c293b79b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -189,9 +203,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 38217233
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b7d64083c631d9b47bbf036df668ba9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

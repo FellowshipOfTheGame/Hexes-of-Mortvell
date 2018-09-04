@@ -1,4 +1,5 @@
-﻿using HexCasters.DesignPatterns.Fsm;
+﻿using UnityEngine;
+using HexCasters.DesignPatterns.Fsm;
 
 namespace HexCasters.GameModes.Battle.Common
 {
@@ -6,6 +7,7 @@ namespace HexCasters.GameModes.Battle.Common
 	{
 		public override void Enter()
 		{
+			Debug.Log(GetType());
 		}
 
 		public override void Exit()

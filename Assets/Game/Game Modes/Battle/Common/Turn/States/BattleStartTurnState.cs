@@ -11,6 +11,7 @@ namespace HexCasters.GameModes.Battle.Common
 
 		public override void Enter()
 		{
+			Debug.Log(GetType());
 			ResetCurrentTeamMovables();
 			this.fsm.Transition<BattleOverviewState>();
 		}

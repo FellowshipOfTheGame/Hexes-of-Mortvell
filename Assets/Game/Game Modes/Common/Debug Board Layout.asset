@@ -16,3 +16,13 @@ MonoBehaviour:
   defaultTerrain: {fileID: 11400000, guid: 48dfc891188841d4586b01eabc6ff92b, type: 2}
   nonDefaultTerrainPositions: []
   nonDefaultTerrains: []
+  spawnPositions:
+  - _x: -3
+    _y: -3
+  - _x: 3
+    _y: 3
+  spawnInfo:
+  - prefab: {fileID: 1009992586163188, guid: 631f041d42a22fe4881bc85f54609738, type: 2}
+    teamIndex: 0
+  - prefab: {fileID: 1009992586163188, guid: 631f041d42a22fe4881bc85f54609738, type: 2}
+    teamIndex: 1

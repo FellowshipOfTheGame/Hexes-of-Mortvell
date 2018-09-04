@@ -15,6 +15,7 @@ namespace HexCasters.GameModes.Battle.Common
 
 		public override void Enter()
 		{
+			Debug.Log(GetType());
 			HighlightUnmovedMovables();
 			RegisterClickListener();
 		}
@@ -34,7 +35,7 @@ namespace HexCasters.GameModes.Battle.Common
 			if (teamMember.team != this.turn.CurrentTeam)
 				return;
 			this.playerOrders.movementOrigin = cell;
-			this.fsm.GetComponent<BattleSelectMovementDestinationState>();
+			this.fsm.Transition<BattleSelectMovementDestinationState>();
 		}
 
 		void HighlightUnmovedMovables()

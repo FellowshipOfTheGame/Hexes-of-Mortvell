@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using HexCasters.Core.Units.Teams;
 
 namespace HexCasters.Core.Grid
 {
@@ -7,6 +9,9 @@ namespace HexCasters.Core.Grid
 	{
 		[Header("Prefabs")]
 		public GameObject cellPrefab;
+
+		[Header("References")]
+		public List<Team> teams; // FIXME is this really supposed to be in board?
 
 		private BoardCell[,] cells;
 
@@ -118,6 +123,15 @@ namespace HexCasters.Core.Grid
 			newCell.Position = newCellPosition;
 			newCell.Terrain = layout.FindTerrainType(newCellPosition);
 			this.cells[row, col] = newCell;
+
+			var spawnIndex = layout.spawnPositions.IndexOf(newCellPosition);
+			if (spawnIndex >= 0)
+			{
+				var spawnInfo = layout.spawnInfo[spawnIndex];
+				var content = Spawn(spawnInfo.prefab, newCellPosition);
+				if (spawnInfo.HasTeam)
+					this.teams[spawnInfo.teamIndex].Add(content.gameObject);
+			}
 		}
 
 		Tuple<int, int> BoardPositionToMatrixIndices(
