@@ -123,7 +123,7 @@ namespace HexCasters.Core.Grid
 		/// will be thrown.
 		/// </para>
 		/// </remarks>
-		public void MoveContent(BoardCell to)
+		public void MoveContentTo(BoardCell to)
 		{
 			ErrorIfEmpty();
 			var content = GetContent();

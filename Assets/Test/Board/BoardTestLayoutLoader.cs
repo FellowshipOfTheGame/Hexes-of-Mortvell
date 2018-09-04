@@ -47,7 +47,7 @@ namespace HexCasters.Testing.BoardTest
 			var currentCell = this.testOrbInstance.Cell;
 			var adjacentCell = currentCell.FindAdjacentCell(direction);
 			if (adjacentCell != null && adjacentCell.Empty)
-				currentCell.MoveContent(adjacentCell);
+				currentCell.MoveContentTo(adjacentCell);
 		}
 	}
 
