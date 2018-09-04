@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HexCasters.Core.Grid.Regions
 {
@@ -42,27 +43,25 @@ namespace HexCasters.Core.Grid.Regions
 		{
 			if (includeOrigin)
 				yield return origin;
+			var line = InternalStraightLineTowards(origin, direction);
+			if (maxLength.HasValue)
+				line = line.Take(maxLength.Value);
+			if (stopAtOccupiedCell)
+				line = line.TakeWhile(cell => cell.Empty);
+			foreach (var cell in line)
+				yield return cell;
+		}
 
-			var iterCell = origin;
-			int distanceFromOrigin = 0;
+		private static IEnumerable<BoardCell> InternalStraightLineTowards(
+			BoardCell origin, Direction direction)
+		{
+			var iterCell = origin.FindAdjacentCell(direction);
 
-			do
+			while (iterCell != null)
 			{
-				iterCell = iterCell.FindAdjacentCell(direction);
-
-				// end of board
-				if (iterCell == null)
-					break;
-				if (stopAtOccupiedCell && !iterCell.Empty)
-					break;
 				yield return iterCell;
-				distanceFromOrigin++;
-
-				// skip distance check if no limit
-				if (!maxLength.HasValue)
-					continue;
+				iterCell = iterCell.FindAdjacentCell(direction);
 			}
-			while (distanceFromOrigin < maxLength.Value);
 		}
 	}
 }
