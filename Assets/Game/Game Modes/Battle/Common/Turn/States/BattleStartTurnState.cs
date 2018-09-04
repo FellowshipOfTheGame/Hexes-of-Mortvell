@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using HexCasters.Core.Grid;
 using HexCasters.DesignPatterns.Fsm;
@@ -18,14 +19,11 @@ namespace HexCasters.GameModes.Battle.Common
 
 		void ResetCurrentTeamMovables()
 		{
-			var currentTeamMembers = turn.CurrentTeam.Members;
-			foreach (var member in currentTeamMembers)
-			{
-				var movable = member.GetComponent<Movable>();
-				if (movable == null)
-					continue;
+			var currentTeamMovables = this.turn.CurrentTeam.Members
+				.Select(member => member.GetComponent<Movable>())
+				.Where(movable => movable != null);
+			foreach (var movable in currentTeamMovables)
 				movable.hasMoved = false;
-			}
 		}
 	}
 }

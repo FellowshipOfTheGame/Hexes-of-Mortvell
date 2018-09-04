@@ -9,18 +9,22 @@ namespace HexCasters.Core.Grid
 	{
 		public bool hasMoved;
 		public int movementPoints;
-		private BoardCellContent asCellContent;
+		public BoardCellContent AsCellContent
+		{
+			get;
+			private set;
+		}
 
 		private int UnreachableCost => this.movementPoints + 1;
 
 		void Awake()
 		{
-			this.asCellContent = GetComponent<BoardCellContent>();
+			this.AsCellContent = GetComponent<BoardCellContent>();
 		}
 
 		public IEnumerable<BoardCell> ReachableCells()
 		{
-			return this.asCellContent.Cell
+			return this.AsCellContent.Cell
 				.Neighborhood(
 					this.movementPoints,
 					distanceFunction: MovementCost);
