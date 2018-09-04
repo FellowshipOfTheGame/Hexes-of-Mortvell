@@ -534,6 +534,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2088358388}
   - component: {fileID: 2088358389}
+  - component: {fileID: 2088358391}
+  - component: {fileID: 2088358390}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -567,3 +569,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellPrefab: {fileID: 1066729099266296, guid: 119eb2afdcc96b94dbfaaf00914177e7, type: 2}
+--- !u!114 &2088358390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2088358387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5ffda8ab6ff09445824d1c9008d4039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2088358391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2088358387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8839c9d7eff9d4047844ca43f6d80d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
