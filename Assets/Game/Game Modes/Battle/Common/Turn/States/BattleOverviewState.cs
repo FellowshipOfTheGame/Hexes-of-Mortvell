@@ -4,6 +4,7 @@ using UnityEngine;
 using HexCasters.DesignPatterns.Fsm;
 using HexCasters.Core.Units.Teams;
 using HexCasters.Core.Grid;
+using HexCasters.Core.Units;
 using HexCasters.GameModes.Common;
 using HexCasters.Hud.Grid;
 
@@ -15,49 +16,49 @@ namespace HexCasters.GameModes.Battle.Common
 		public CellClickListener cellClickListener;
 		public BattlePlayerOrders playerOrders;
 
-		private IDisposable unmovedMovablesHighlight;
+		private IDisposable unmovedUnitsHighlight;
 
 		public override void Enter()
 		{
 			Debug.Log(GetType());
-			ApplyUnmovedMovablesHighlight();
+			ApplyUnmovedUnitsHighlight();
 			RegisterClickListener();
 		}
 
 		public override void Exit()
 		{
-			RemoveUnmovedMovablesHighlight();
+			RemoveUnmovedUnitsHighlight();
 			UnregisterClickListener();
 		}
 
 		void TrySelectUnit(BoardCell cell)
 		{
 			var content = cell.Content;
-			var movable = content?.GetComponent<Movable>();
-			if (movable == null)
+			var unit = content?.GetComponent<Unit>();
+			if (unit == null)
 				return;
 			var teamMember = content?.GetComponent<TeamMember>();
 			if (teamMember.team != this.turn.CurrentTeam)
 				return;
-			this.playerOrders.movable = movable;
+			this.playerOrders.unit = unit;
 			this.playerOrders.movementOrigin = cell;
 			this.fsm.Transition<BattleSelectMovementDestinationState>();
 		}
 
-		void ApplyUnmovedMovablesHighlight()
+		void ApplyUnmovedUnitsHighlight()
 		{
 			var toBeHighlighted = this.turn.CurrentTeam.Members
-				.Select(member => member.GetComponent<Movable>())
-				.Where(movable => movable != null)
-				.Where(movable => !movable.hasMoved)
-				.Select(movable => movable.AsCellContent.Cell);
-			this.unmovedMovablesHighlight =
+				.Select(member => member.GetComponent<Unit>())
+				.Where(unit => unit != null)
+				.Where(unit => !unit.hasMoved)
+				.Select(unit => unit.AsCellContent.Cell);
+			this.unmovedUnitsHighlight =
 				toBeHighlighted.AddHighlightLayer(Color.white);
 		}
 
-		void RemoveUnmovedMovablesHighlight()
+		void RemoveUnmovedUnitsHighlight()
 		{
-			this.unmovedMovablesHighlight.Dispose();
+			this.unmovedUnitsHighlight.Dispose();
 		}
 
 		void RegisterClickListener()

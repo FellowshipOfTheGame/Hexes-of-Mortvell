@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using HexCasters.Core.Grid.Regions;
+using HexCasters.Core.Grid;
 
-namespace HexCasters.Core.Grid
+namespace HexCasters.Core.Units
 {
 	[RequireComponent(typeof(BoardCellContent))]
-	public class Movable : MonoBehaviour
+	public class Unit : MonoBehaviour
 	{
 		public bool hasMoved;
 		public int movementPoints;

@@ -6,7 +6,7 @@ using HexCasters.Core.Grid.Regions;
 namespace HexCasters.Testing.NeighborhoodBfs
 {
 	[RequireComponent(typeof(BoardCellContent))]
-	public class MovableTestMovable : MonoBehaviour
+	public class UnitTestUnit : MonoBehaviour
 	{
 		public int movementPoints;
 

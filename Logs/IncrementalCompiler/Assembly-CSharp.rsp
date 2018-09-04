@@ -306,7 +306,7 @@
 -i:D:/Gamedev/HexCasters/Assets/Game/Core/Grid/BoardLayout.cs
 -i:D:/Gamedev/HexCasters/Assets/Game/Core/Grid/BoardPosition.cs
 -i:D:/Gamedev/HexCasters/Assets/Game/Core/Grid/Direction.cs
--i:D:/Gamedev/HexCasters/Assets/Game/Core/Grid/Movable.cs
+-i:D:/Gamedev/HexCasters/Assets/Game/Core/Grid/Unit.cs
 -i:D:/Gamedev/HexCasters/Assets/Game/Core/Grid/Regions/LineRegion.cs
 -i:D:/Gamedev/HexCasters/Assets/Game/Core/Grid/Regions/NeighboringRegion.cs
 -i:D:/Gamedev/HexCasters/Assets/Game/Core/Units/HP/HP.cs
@@ -345,7 +345,7 @@
 -i:D:/Gamedev/HexCasters/Assets/Test/Actions/ActionsTestCellHover.cs
 -i:D:/Gamedev/HexCasters/Assets/Test/Actions/ActionsTestCellHoverListener.cs
 -i:D:/Gamedev/HexCasters/Assets/Test/Actions/ActionsTestLayoutLoader.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/ActionsTestMovable.cs
+-i:D:/Gamedev/HexCasters/Assets/Test/Actions/ActionsTestUnit.cs
 -i:D:/Gamedev/HexCasters/Assets/Test/Actions/ActionsTestPlayerOrder.cs
 -i:D:/Gamedev/HexCasters/Assets/Test/Actions/ActionsTestTurn.cs
 -i:D:/Gamedev/HexCasters/Assets/Test/Actions/States/ActionsTestPerformActionState.cs
@@ -372,8 +372,8 @@
 -i:"D:/Gamedev/HexCasters/Assets/Test/HP & HP bar/HPBarTestDamageHeal.cs"
 -i:"D:/Gamedev/HexCasters/Assets/Test/HP & HP bar/HPBarTestDeathChecker.cs"
 -i:"D:/Gamedev/HexCasters/Assets/Test/HP & HP bar/HPBarTestPrinter.cs"
--i:D:/Gamedev/HexCasters/Assets/Test/Movable/MovableTestBoardLoader.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Movable/MovableTestMovable.cs
+-i:D:/Gamedev/HexCasters/Assets/Test/Unit/UnitTestBoardLoader.cs
+-i:D:/Gamedev/HexCasters/Assets/Test/Unit/UnitTestUnit.cs
 -i:D:/Gamedev/HexCasters/Assets/Test/Observable/TestObservable.cs
 -i:D:/Gamedev/HexCasters/Assets/Test/Observable/TestObserver.cs
 -i:D:/Gamedev/HexCasters/Assets/Test/Observable/TestObserverDirect.cs
