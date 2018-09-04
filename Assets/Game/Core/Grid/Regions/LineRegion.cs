@@ -8,7 +8,8 @@ namespace HexCasters.Core.Grid.Regions
 			this BoardCell origin,
 			BoardCell dest,
 			int? maxLength=null,
-			bool includeOrigin=false)
+			bool includeOrigin=false,
+			bool stopAtOccupiedCell=false)
 		{
 			var nullableDir = origin.Position
 				.StraightLineDirectionTowards(dest.Position);
@@ -28,17 +29,17 @@ namespace HexCasters.Core.Grid.Regions
 			return origin.StraightLineTowards(
 				direction,
 				maxLength: maxLength,
-				includeOrigin: includeOrigin);
+				includeOrigin: includeOrigin,
+				stopAtOccupiedCell: stopAtOccupiedCell);
 		}
 
 		public static IEnumerable<BoardCell> StraightLineTowards(
 			this BoardCell origin,
 			Direction direction,
 			int? maxLength=null,
-			bool includeOrigin=false)
+			bool includeOrigin=false,
+			bool stopAtOccupiedCell=false)
 		{
-			var line = new List<BoardCell>();
-
 			if (includeOrigin)
 				yield return origin;
 
@@ -51,6 +52,8 @@ namespace HexCasters.Core.Grid.Regions
 
 				// end of board
 				if (iterCell == null)
+					break;
+				if (stopAtOccupiedCell && !iterCell.Empty)
 					break;
 				yield return iterCell;
 				distanceFromOrigin++;

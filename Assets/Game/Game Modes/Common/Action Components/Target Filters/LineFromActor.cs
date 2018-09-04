@@ -1,6 +1,8 @@
+using System.Linq;
 using System.Collections.Generic;
 using HexCasters.Core.Actions;
 using HexCasters.Core.Grid;
+using HexCasters.Core.Grid.Regions;
 
 namespace HexCasters.GameModes.Common
 {
@@ -12,7 +14,7 @@ namespace HexCasters.GameModes.Common
 			BoardCellContent actor,
 			IEnumerable<BoardCell> partialTargets)
 		{
-			throw new System.NotImplementedException();
+			return null;
 		}
 	}
 }
