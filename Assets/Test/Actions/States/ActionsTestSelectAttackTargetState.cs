@@ -59,7 +59,7 @@ namespace HexCasters.Testing.ActionsTest
 				return;
 			var targetFilter = this.playerOrder.action.GetComponent<ActionTargetFilter>();
 			this.playerOrder.selectedTargets.Add(clickedCell);
-			if (this.playerOrder.selectedTargets.Count == targetFilter.targetCount)
+			if (this.playerOrder.selectedTargets.Count == targetFilter.TargetCount)
 				this.fsm.Transition<ActionsTestPerformActionState>();
 		}
 

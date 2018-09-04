@@ -50,7 +50,7 @@ namespace HexCasters.Testing.ActionsTest
 		{
 			if (this.moveTargets.Contains(cell))
 			{
-				this.playerOrder.selectedUnit.Cell.MoveContent(cell);
+				this.playerOrder.selectedUnit.Cell.MoveContentTo(cell);
 				this.playerOrder.selectedUnit.GetComponent<ActionsTestMovable>().hasMoved = true;
 				this.playerOrder.moveDest = cell;
 				this.fsm.Transition<ActionsTestSelectAttackTargetState>();

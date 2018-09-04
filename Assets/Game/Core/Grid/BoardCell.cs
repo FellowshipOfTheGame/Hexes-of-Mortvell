@@ -123,7 +123,7 @@ namespace HexCasters.Core.Grid
 		/// will be thrown.
 		/// </para>
 		/// </remarks>
-		public void MoveContent(BoardCell to)
+		public void MoveContentTo(BoardCell to)
 		{
 			ErrorIfEmpty();
 			var content = GetContent();
@@ -210,7 +210,7 @@ namespace HexCasters.Core.Grid
 		/// <returns>Returns an iterator over the adjacent cells.</returns>
 		public IEnumerable<BoardCell> FindAdjacentCells()
 		{
-			return Direction.List
+			return Direction.NonStayDirections
 				.Select(
 					(Direction direction) => FindAdjacentCell(direction))
 				.Where(

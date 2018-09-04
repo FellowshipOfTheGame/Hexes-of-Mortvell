@@ -51,6 +51,15 @@ namespace HexCasters.Core.Grid
 			this._y = y;
 		}
 
+		public int ManhattanDistanceTo(BoardPosition position)
+		{
+			var direction = position - this;
+			if (Math.Sign(direction.dx) == Math.Sign(direction.dy))
+				return Math.Abs(direction.dx + direction.dy);
+			else
+				return Math.Max(Math.Abs(direction.dx), Math.Abs(direction.dy));
+		}
+
 		public override bool Equals(object obj)
 		{
 			if (!(obj is BoardPosition))
@@ -59,9 +68,27 @@ namespace HexCasters.Core.Grid
 			return this.X == other.X && this.Y == other.Y;
 		}
 
+		public static Direction operator -(
+			BoardPosition pos1, BoardPosition pos2)
+		{
+			return new Direction(pos2.X - pos1.X, pos2.Y - pos1.Y);
+		}
+
+		public static bool operator ==(
+			BoardPosition pos1, BoardPosition pos2)
+		{
+			return pos1.Equals(pos2);
+		}
+
+		public static bool operator !=(
+			BoardPosition dir1, BoardPosition dir2)
+		{
+			return !(dir1 == dir2);
+		}
+
 		public override int GetHashCode()
 		{
-			return Tuple.Create(this.X, this.Y).GetHashCode();
+			return Tuple.Create(this.X, this.Y, this.Z).GetHashCode();
 		}
 
 		public override string ToString()

@@ -204,7 +204,7 @@ namespace HexCasters.Core.Grid
 		/// </remarks>
 		public void MoveContent(BoardPosition from, BoardPosition to)
 		{
-			this[from].MoveContent(this[to]);
+			this[from].MoveContentTo(this[to]);
 		}
 	}
 }
