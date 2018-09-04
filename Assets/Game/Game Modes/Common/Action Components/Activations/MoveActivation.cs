@@ -16,6 +16,8 @@ namespace HexCasters.GameModes.Common
 			targetList[0].MoveContentTo(targetList[1]);
 		}
 
+		public override void Cleanup(IEnumerable<BoardCell> aoe) {}
+
 		void ErrorIfTargetCountNot2(List<BoardCell> targets)
 		{
 			if (targets.Count != 2)

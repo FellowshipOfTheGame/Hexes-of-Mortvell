@@ -27,5 +27,7 @@ namespace HexCasters.Testing.ActionsTest
 				hp.Commit(); // don't actually do this in the real thing
 			}
 		}
+
+		public override void Cleanup(IEnumerable<BoardCell> aoe) {}
 	}
 }

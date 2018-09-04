@@ -1,4 +1,5 @@
-﻿using HexCasters.DesignPatterns.Fsm;
+﻿using UnityEngine;
+using HexCasters.DesignPatterns.Fsm;
 using HexCasters.Core.Actions;
 
 namespace HexCasters.GameModes.Battle.Common
@@ -10,7 +11,7 @@ namespace HexCasters.GameModes.Battle.Common
 		public override void Enter()
 		{
 			PerformAction();
-			this.fsm.Transition<BattleOverviewState>();
+			this.fsm.Transition<BattleFinishOrdersState>();
 		}
 
 		public override void Exit() {}
@@ -25,6 +26,7 @@ namespace HexCasters.GameModes.Battle.Common
 				this.playerOrders.unit.AsCellContent,
 				this.playerOrders.actionTargets,
 				aoe);
+			activeComponent.Cleanup(aoe);
 		}
 	}
 }
