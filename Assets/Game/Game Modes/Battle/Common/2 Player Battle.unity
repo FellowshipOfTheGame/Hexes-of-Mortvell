@@ -196,6 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   action: {fileID: 0}
+  actionTargets: []
   movementOrigin: {fileID: 0}
   movementDestination: {fileID: 0}
 --- !u!4 &466081788
@@ -530,6 +531,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e152022b9a5f548bbd3e2fbd0fea32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerOrders: {fileID: 466081787}
+  cellClickListener: {fileID: 2088358391}
 --- !u!114 &1725322879
 MonoBehaviour:
   m_ObjectHideFlags: 0

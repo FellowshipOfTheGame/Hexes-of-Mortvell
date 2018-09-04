@@ -12,12 +12,11 @@ namespace HexCasters.GameModes.Battle.Common
 
 		public override void Enter()
 		{
+			Debug.Log(GetType());
 			this.playerOrders.action = this.debugAction;
 			this.fsm.Transition<BattleSelectUnitActionTargets>();
 		}
 
-		public override void Exit()
-		{
-		}
+		public override void Exit() {}
 	}
 }
