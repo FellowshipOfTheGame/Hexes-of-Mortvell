@@ -5,6 +5,7 @@ namespace HexCasters.GameModes.Battle.Common
 {
 	public class BattlePlayerOrders : MonoBehaviour
 	{
+		public Movable movable;
 		public BoardCell movementOrigin;
 	}
 }

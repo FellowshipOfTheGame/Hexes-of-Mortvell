@@ -13,5 +13,10 @@ namespace HexCasters.GameModes.Battle.Common
 		public override void Exit()
 		{
 		}
+
+		void ApplyReachableHighlight()
+		{
+			// TOOD
+		}
 	}
 }

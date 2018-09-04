@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
 using System.Linq;
+using UnityEngine;
 using HexCasters.DesignPatterns.Fsm;
 using HexCasters.Core.Units.Teams;
 using HexCasters.Core.Grid;
 using HexCasters.GameModes.Common;
+using HexCasters.Hud.Grid;
 
 namespace HexCasters.GameModes.Battle.Common
 {
@@ -13,15 +15,18 @@ namespace HexCasters.GameModes.Battle.Common
 		public CellClickListener cellClickListener;
 		public BattlePlayerOrders playerOrders;
 
+		private IDisposable unmovedMovablesHighlight;
+
 		public override void Enter()
 		{
 			Debug.Log(GetType());
-			HighlightUnmovedMovables();
+			ApplyUnmovedMovablesHighlight();
 			RegisterClickListener();
 		}
 
 		public override void Exit()
 		{
+			RemoveUnmovedMovablesHighlight();
 			UnregisterClickListener();
 		}
 
@@ -34,24 +39,25 @@ namespace HexCasters.GameModes.Battle.Common
 			var teamMember = content?.GetComponent<TeamMember>();
 			if (teamMember.team != this.turn.CurrentTeam)
 				return;
+			this.playerOrders.movable = movable;
 			this.playerOrders.movementOrigin = cell;
 			this.fsm.Transition<BattleSelectMovementDestinationState>();
 		}
 
-		void HighlightUnmovedMovables()
+		void ApplyUnmovedMovablesHighlight()
 		{
-			var currentTeamMovables = this.turn.CurrentTeam.Members
+			var toBeHighlighted = this.turn.CurrentTeam.Members
 				.Select(member => member.GetComponent<Movable>())
 				.Where(movable => movable != null)
-				.Where(movable => !movable.hasMoved);
-			foreach (var movable in currentTeamMovables)
-				ApplyUnmovedHighlight(movable.AsCellContent.Cell);
+				.Where(movable => !movable.hasMoved)
+				.Select(movable => movable.AsCellContent.Cell);
+			this.unmovedMovablesHighlight =
+				toBeHighlighted.AddHighlightLayer(Color.white);
 		}
 
-		void ApplyUnmovedHighlight(BoardCell cell)
+		void RemoveUnmovedMovablesHighlight()
 		{
-			Debug.LogFormat("{0} has an unmoved movable", cell);
-			// TODO
+			this.unmovedMovablesHighlight.Dispose();
 		}
 
 		void RegisterClickListener()
