@@ -8,7 +8,7 @@ namespace HexCasters.GameModes.Common
 {
 	public class DamageActivation : ActionActivation
 	{
-		int damage;
+		public int damage;
 
 		public override void Perform(
 			BoardCellContent actor,

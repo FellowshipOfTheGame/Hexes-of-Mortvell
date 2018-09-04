@@ -8,7 +8,7 @@ namespace HexCasters.GameModes.Common
 {
 	public class HealActivation : ActionActivation
 	{
-		int healAmount;
+		public int healAmount;
 
 		public override void Perform(
 			BoardCellContent actor,
