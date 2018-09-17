@@ -15,26 +15,26 @@ namespace HexCasters.Hud
 
 		void Awake()
 		{
-			handler = new ValueObserver<int>(
+			this.handler = new ValueObserver<int>(
 				nextEventHandler: UpdateBarLength);
 		}
 
 		void Start()
 		{
-			this.subscription = hp.AsObservable.Subscribe(handler);
+			this.subscription = this.hp.AsObservable.Subscribe(handler);
 			UpdateBarLength(hp.Current);
 		}
 
 		void OnDestroy()
 		{
-			subscription.Dispose();
+			this.subscription.Dispose();
 		}
 
 		void UpdateBarLength(int newValue)
 		{
-			var scale = barTransform.localScale;
+			var scale = this.barTransform.localScale;
 			scale.x = (float) newValue / hp.max;
-			barTransform.localScale = scale;
+			this.barTransform.localScale = scale;
 		}
 	}
 }

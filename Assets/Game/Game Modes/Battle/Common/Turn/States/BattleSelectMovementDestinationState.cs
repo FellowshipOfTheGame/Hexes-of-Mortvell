@@ -20,6 +20,7 @@ namespace HexCasters.GameModes.Battle.Common
 		{
 			Debug.Log(GetType());
 			SkipStateIfSelectedUnitImmobile();
+			// FIXME
 			FindReachableRegion();
 			ApplyReachableHighlight();
 			RegisterClickHandler();
