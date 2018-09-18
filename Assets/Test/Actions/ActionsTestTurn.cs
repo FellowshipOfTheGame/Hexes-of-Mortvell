@@ -1,3 +1,5 @@
+#pragma warning disable
+
 using System;
 using UnityEngine;
 using HexesOfMortvell.Core.Units.Teams;

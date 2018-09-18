@@ -12,7 +12,7 @@ namespace HexesOfMortvell.Core.Units.Teams
 	public class Team : MonoBehaviour
 	{
 		[SerializeField]
-		private List<TeamMember> members;
+		private List<TeamMember> members = new List<TeamMember>();
 		private ObservableValue<List<TeamMember>> observableMembers;
 
 		/// <summary>
