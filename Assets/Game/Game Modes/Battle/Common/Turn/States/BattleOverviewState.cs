@@ -33,7 +33,6 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 
 		void TrySelectUnit(BoardCell cell)
 		{
-			Debug.Log($"Clicou aqui: {cell.Position}");
 			var content = cell.Content;
 			var unit = content?.GetComponent<Unit>();
 			if (unit == null || unit.hasMoved)

@@ -19,8 +19,11 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 		public override void Enter()
 		{
 			Debug.Log(GetType());
-			SkipStateIfSelectedUnitImmobile();
-			// FIXME
+			if (SelectedUnitIsImmobile())
+			{
+				SkipState();
+				return;
+			}
 			FindReachableRegion();
 			ApplyReachableHighlight();
 			RegisterClickHandler();
@@ -32,10 +35,14 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 			UnregisterClickHandler();
 		}
 
-		void SkipStateIfSelectedUnitImmobile()
+		void SkipState()
 		{
-			if (this.playerOrders.unit.movementPoints == 0)
-				this.fsm.Transition<BattleSelectUnitActionState>();
+			this.fsm.Transition<BattleSelectUnitActionState>();
+		}
+
+		bool SelectedUnitIsImmobile()
+		{
+			return this.playerOrders.unit.movementPoints == 0;
 		}
 
 		void FindReachableRegion()
