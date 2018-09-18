@@ -14,7 +14,7 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 		public CellClickListener clickListener;
 
 		private IDisposable reachableCellsHighlight;
-		private IEnumerable<BoardCell> reachableCells;
+		private ISet<BoardCell> reachableCells;
 
 		public override void Enter()
 		{
@@ -48,17 +48,23 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 		void FindReachableRegion()
 		{
 			var unit = this.playerOrders.unit;
-			this.reachableCells = unit.ReachableCells();
+			this.reachableCells = new HashSet<BoardCell>(unit.ReachableCells());
 		}
 
 		void RegisterClickHandler()
 		{
-			this.clickListener.clickEvent += MoveUnitTo;
+			this.clickListener.clickEvent += TrySelectMovementDest;
 		}
 
 		void UnregisterClickHandler()
 		{
-			this.clickListener.clickEvent -= MoveUnitTo;
+			this.clickListener.clickEvent -= TrySelectMovementDest;
+		}
+
+		void TrySelectMovementDest(BoardCell cell)
+		{
+			if (this.reachableCells.Contains(cell))
+				MoveUnitTo(cell);
 		}
 
 		void MoveUnitTo(BoardCell cell)
