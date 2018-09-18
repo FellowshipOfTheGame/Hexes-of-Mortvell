@@ -38,6 +38,7 @@ namespace HexesOfMortvell.Core.Grid
 		private SpriteRenderer spriteRenderer;
 
 		[Header("Values")]
+
 		[Tooltip("Added to base movement cost.")]
 		public int movementCostModifier = 0;
 
@@ -47,7 +48,7 @@ namespace HexesOfMortvell.Core.Grid
 		[Tooltip("The object this cell holds.")]
 		private BoardCellContent _content;
 
-		private GameObject _weather;
+		public GameObject eventListener;
 
 		/// <summary>
 		/// Retrieves the object the cell is currently holding.
@@ -59,6 +60,11 @@ namespace HexesOfMortvell.Core.Grid
 			set { SetContent(value); }
 		}
 
+		private GameObject _weather;
+
+		/// <summary>
+		/// Retrieves the instance of the cell's current weather.
+		/// </summary>
 		public GameObject Weather
 		{
 			get { return GetWeather(); }
