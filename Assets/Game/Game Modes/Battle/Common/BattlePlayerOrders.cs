@@ -12,5 +12,14 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 		public List<BoardCell> actionTargets;
 		public BoardCell movementOrigin;
 		public BoardCell movementDestination;
+
+		public void Clear()
+		{
+			this.unit = null;
+			this.action  = null;
+			this.actionTargets = new List<BoardCell>();
+			this.movementOrigin = null;
+			this.movementDestination = null;
+		}
 	}
 }

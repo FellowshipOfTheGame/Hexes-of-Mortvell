@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using HexesOfMortvell.DesignPatterns.Fsm;
 using HexesOfMortvell.Core.Units.Teams;
 using HexesOfMortvell.Core.Grid;
@@ -15,12 +16,15 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 		public BattleTurn turn;
 		public CellClickListener cellClickListener;
 		public BattlePlayerOrders playerOrders;
+		public Button endTurn;
 
 		private IDisposable unmovedUnitsHighlight;
 
 		public override void Enter()
 		{
 			Debug.Log(GetType());
+			ResetPlayerOrders();
+			EnableEndTurnButton();
 			ApplyUnmovedUnitsHighlight();
 			RegisterClickHandler();
 		}
@@ -29,6 +33,12 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 		{
 			RemoveUnmovedUnitsHighlight();
 			UnregisterClickHandler();
+			DisableEndTurnButton();
+		}
+
+		void ResetPlayerOrders()
+		{
+			this.playerOrders.Clear();
 		}
 
 		void TrySelectUnit(BoardCell cell)
@@ -43,6 +53,16 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 			this.playerOrders.unit = unit;
 			this.playerOrders.movementOrigin = cell;
 			this.fsm.Transition<BattleSelectMovementDestinationState>();
+		}
+
+		void EnableEndTurnButton()
+		{
+			endTurn.interactable = true;
+		}
+
+		void DisableEndTurnButton()
+		{
+			endTurn.interactable = false;
 		}
 
 		void ApplyUnmovedUnitsHighlight()
