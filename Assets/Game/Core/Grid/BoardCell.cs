@@ -184,8 +184,11 @@ namespace HexesOfMortvell.Core.Grid
 		{
 			if (this.Weather != null)
 				Destroy(this.Weather);
-			this._weather = Instantiate(
-				weatherPrefab, this.Transform, false);
+			if (weatherPrefab == null)
+				this._weather = null;
+			else
+				this._weather = Instantiate(
+					weatherPrefab, this.Transform, false);
 		}
 
 		void ErrorIfOccupied()
