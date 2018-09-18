@@ -8,6 +8,7 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 	{
 		[Tooltip("Teams which have turns to act.")]
 		public List<Team> teamsWithTurns;
+		[SerializeField]
 		private int currentTeamIndex;
 
 		public Team CurrentTeam
