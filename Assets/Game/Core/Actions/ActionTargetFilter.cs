@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
-using HexCasters.Core.Grid;
+using HexesOfMortvell.Core.Grid;
 
-namespace HexCasters.Core.Actions
+namespace HexesOfMortvell.Core.Actions
 {
 	/// <summary>
 	/// The component of the action which dictates which cells can be targeted.

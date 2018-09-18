@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace HexCasters.Testing.ActionsTest
+namespace HexesOfMortvell.Testing.ActionsTest
 {
 	public class ActionsTestActor : MonoBehaviour
 	{

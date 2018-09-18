@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
-using HexCasters.Core.Units.Teams;
-using HexCasters.DesignPatterns.Observer;
+using HexesOfMortvell.Core.Units.Teams;
+using HexesOfMortvell.DesignPatterns.Observer;
 
-namespace HexCasters.Testing.ActionsTest
+namespace HexesOfMortvell.Testing.ActionsTest
 {
 	public class ActionsTestTurn : MonoBehaviour
 	{

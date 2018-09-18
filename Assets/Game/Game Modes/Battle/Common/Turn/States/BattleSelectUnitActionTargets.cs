@@ -2,13 +2,13 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using HexCasters.DesignPatterns.Fsm;
-using HexCasters.Core.Actions;
-using HexCasters.Core.Grid;
-using HexCasters.GameModes.Common;
-using HexCasters.Hud.Grid;
+using HexesOfMortvell.DesignPatterns.Fsm;
+using HexesOfMortvell.Core.Actions;
+using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.GameModes.Common;
+using HexesOfMortvell.Hud.Grid;
 
-namespace HexCasters.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle.Common
 {
 	public class BattleSelectUnitActionTargets : FsmState
 	{

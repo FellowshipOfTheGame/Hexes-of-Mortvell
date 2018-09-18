@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace HexCasters.Core.Grid
+namespace HexesOfMortvell.Core.Grid
 {
 	public struct Direction
 	{

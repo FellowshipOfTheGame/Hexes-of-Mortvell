@@ -1,8 +1,8 @@
 using UnityEngine;
-using HexCasters.DesignPatterns.Fsm;
-using HexCasters.Core.Units.Teams;
+using HexesOfMortvell.DesignPatterns.Fsm;
+using HexesOfMortvell.Core.Units.Teams;
 
-namespace HexCasters.Testing.GameModeTest
+namespace HexesOfMortvell.Testing.GameModeTest
 {
 	public class GameModeTestSelectDudeState : FsmState
 	{

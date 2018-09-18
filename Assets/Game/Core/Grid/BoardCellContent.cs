@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace HexCasters.Core.Grid
+namespace HexesOfMortvell.Core.Grid
 {
 	[DisallowMultipleComponent]
 	public class BoardCellContent : MonoBehaviour

@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
-using HexCasters.DesignPatterns.Observer;
+using HexesOfMortvell.DesignPatterns.Observer;
 
-namespace HexCasters.Testing.ObserverTest
+namespace HexesOfMortvell.Testing.ObserverTest
 {
 	public class TestObserver : MonoBehaviour
 	{

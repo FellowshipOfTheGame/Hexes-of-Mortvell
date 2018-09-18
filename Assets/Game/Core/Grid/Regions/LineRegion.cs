@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HexCasters.Core.Grid.Regions
+namespace HexesOfMortvell.Core.Grid.Regions
 {
 	public static class BoardLineRegionExtension
 	{

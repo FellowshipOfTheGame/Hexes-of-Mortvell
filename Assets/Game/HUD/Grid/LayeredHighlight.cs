@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace HexCasters.Hud.Grid
+namespace HexesOfMortvell.Hud.Grid
 {
 	/// <summary>
 	/// Layered highlight system for board cells.

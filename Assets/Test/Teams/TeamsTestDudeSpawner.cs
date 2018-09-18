@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using HexCasters.Core.Units.Teams;
+using HexesOfMortvell.Core.Units.Teams;
 
-namespace HexCasters.Testing.TeamsTest
+namespace HexesOfMortvell.Testing.TeamsTest
 {
 	public class TeamsTestDudeSpawner : MonoBehaviour
 	{

@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
-using HexCasters.Core.Grid;
+using HexesOfMortvell.Core.Grid;
 
-namespace HexCasters.Hud.Actions
+namespace HexesOfMortvell.Hud.Actions
 {
 	[DisallowMultipleComponent]
 	/// <summary>

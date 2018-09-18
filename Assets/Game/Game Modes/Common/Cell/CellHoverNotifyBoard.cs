@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using HexCasters.Core.Grid;
+using HexesOfMortvell.Core.Grid;
 
-namespace HexCasters.GameModes.Common
+namespace HexesOfMortvell.GameModes.Common
 {
 	public class CellHoverNotifyBoard : MonoBehaviour
 	{

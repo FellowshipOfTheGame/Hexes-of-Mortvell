@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
-using HexCasters.DesignPatterns.Observer;
-using HexCasters.Core.Units.Teams;
+using HexesOfMortvell.DesignPatterns.Observer;
+using HexesOfMortvell.Core.Units.Teams;
 
-namespace HexCasters.Hud.Teams
+namespace HexesOfMortvell.Hud.Teams
 {
 	[RequireComponent(typeof(Team))]
 	public class TeamColor : MonoBehaviour

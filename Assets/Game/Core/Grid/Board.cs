@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HexCasters.Core.Grid
+namespace HexesOfMortvell.Core.Grid
 {
 	public class Board : MonoBehaviour
 	{

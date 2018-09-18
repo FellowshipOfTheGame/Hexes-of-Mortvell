@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-using HexCasters.Core.Grid;
-using HexCasters.GameModes.Common;
+using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.GameModes.Common;
 
-namespace HexCasters.GameModes.Common
+namespace HexesOfMortvell.GameModes.Common
 {
 	public class LayoutLoader : MonoBehaviour
 	{

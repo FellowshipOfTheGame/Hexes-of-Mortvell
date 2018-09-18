@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System;
-using HexCasters.DesignPatterns.Observer;
+using HexesOfMortvell.DesignPatterns.Observer;
 
-namespace HexCasters.Testing.ObserverTest
+namespace HexesOfMortvell.Testing.ObserverTest
 {
 	public class TestObservable : MonoBehaviour
 	{

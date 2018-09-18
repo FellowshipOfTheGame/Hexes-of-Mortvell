@@ -2,7 +2,7 @@
 -target:library
 -nowarn:0169
 -langversion:7
--out:D:/Gamedev/HexCasters/Temp/Unity.TextMeshPro.dll
+-out:D:/Gamedev/HexesOfMortvell/Temp/Unity.TextMeshPro.dll
 -nostdlib
 -unsafe
 -r:D:\Gamedev\tools\Unity\2018.2.6f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll

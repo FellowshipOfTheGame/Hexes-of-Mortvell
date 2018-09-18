@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-using HexCasters.DesignPatterns.Fsm;
-using HexCasters.Core.Actions;
+using HexesOfMortvell.DesignPatterns.Fsm;
+using HexesOfMortvell.Core.Actions;
 
-namespace HexCasters.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle.Common
 {
 	public class BattlePerformActionState : FsmState
 	{

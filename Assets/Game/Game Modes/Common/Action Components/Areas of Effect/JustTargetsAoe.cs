@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using HexCasters.Core.Actions;
-using HexCasters.Core.Grid;
+using HexesOfMortvell.Core.Actions;
+using HexesOfMortvell.Core.Grid;
 
-namespace HexCasters.GameModes.Common
+namespace HexesOfMortvell.GameModes.Common
 {
 	public class JustTargetsAoe : ActionAoe
 	{

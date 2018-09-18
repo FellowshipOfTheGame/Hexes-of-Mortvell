@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using HexCasters.Core.Grid;
+using HexesOfMortvell.Core.Grid;
 
-namespace HexCasters.Testing.BoardTest
+namespace HexesOfMortvell.Testing.BoardTest
 {
 	public class BoardTestLayoutLoader : MonoBehaviour
 	{

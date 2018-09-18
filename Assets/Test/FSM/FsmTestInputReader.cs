@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using HexCasters.DesignPatterns.Observer;
+using HexesOfMortvell.DesignPatterns.Observer;
 
-namespace HexCasters.Testing.FsmTest
+namespace HexesOfMortvell.Testing.FsmTest
 {
 	public class FsmTestInputReader : MonoBehaviour
 	{

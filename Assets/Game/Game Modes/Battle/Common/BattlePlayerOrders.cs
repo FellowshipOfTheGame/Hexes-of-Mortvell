@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
-using HexCasters.Core.Grid;
-using HexCasters.Core.Units;
+using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Units;
 
-namespace HexCasters.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle.Common
 {
 	public class BattlePlayerOrders : MonoBehaviour
 	{

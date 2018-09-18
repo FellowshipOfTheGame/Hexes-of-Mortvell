@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using HexCasters.Core.Grid;
-using HexCasters.Core.Grid.Regions;
+using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Grid.Regions;
 
-namespace HexCasters.Testing.ActionsTest
+namespace HexesOfMortvell.Testing.ActionsTest
 {
 	public class ActionsTestUnit : MonoBehaviour
 	{

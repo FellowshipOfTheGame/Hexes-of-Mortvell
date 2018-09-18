@@ -2,7 +2,7 @@
 using UnityEngine;
 using System;
 
-namespace HexCasters.Testing.ObserverTest
+namespace HexesOfMortvell.Testing.ObserverTest
 {
 	public class TestObserverDirect : MonoBehaviour
 	{

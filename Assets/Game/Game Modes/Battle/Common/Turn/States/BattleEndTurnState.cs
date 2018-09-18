@@ -1,6 +1,6 @@
-﻿using HexCasters.DesignPatterns.Fsm;
+﻿using HexesOfMortvell.DesignPatterns.Fsm;
 
-namespace HexCasters.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle.Common
 {
 	public class BattleEndTurnState : FsmState
 	{

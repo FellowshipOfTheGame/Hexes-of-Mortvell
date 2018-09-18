@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
-using HexCasters.Core.Units.Teams;
-using HexCasters.Hud.Teams;
+using HexesOfMortvell.Core.Units.Teams;
+using HexesOfMortvell.Hud.Teams;
 
-namespace HexCasters.Testing.TeamsTest
+namespace HexesOfMortvell.Testing.TeamsTest
 {
 	[RequireComponent(typeof(TeamMember))]
 	public class TeamsTestHoverable : MonoBehaviour

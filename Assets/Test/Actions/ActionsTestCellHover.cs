@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
-using HexCasters.Core.Grid;
+using HexesOfMortvell.Core.Grid;
 
-namespace HexCasters.Testing.ActionsTest
+namespace HexesOfMortvell.Testing.ActionsTest
 {
 	[RequireComponent(typeof(BoardCell))]
 	public class ActionsTestCellHover : MonoBehaviour

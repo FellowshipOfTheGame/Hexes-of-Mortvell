@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using HexCasters.Core.Grid;
+using HexesOfMortvell.Core.Grid;
 
-namespace HexCasters.Core.Actions
+namespace HexesOfMortvell.Core.Actions
 {
 	[DisallowMultipleComponent]
 	/// <summary>

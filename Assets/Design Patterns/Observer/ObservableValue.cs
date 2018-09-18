@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HexCasters.DesignPatterns.Observer
+namespace HexesOfMortvell.DesignPatterns.Observer
 {
 	/// <summary>
 	/// Keeps track of and notifies registered observers when its wrapped value

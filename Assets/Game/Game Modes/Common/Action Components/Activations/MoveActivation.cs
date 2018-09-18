@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using HexCasters.Core.Grid;
-using HexCasters.Core.Actions;
+using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Actions;
 
-namespace HexCasters.GameModes.Common
+namespace HexesOfMortvell.GameModes.Common
 {
 	public class MoveActivation : ActionActivation
 	{

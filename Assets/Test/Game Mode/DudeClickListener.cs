@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
-using HexCasters.DesignPatterns.Observer;
+using HexesOfMortvell.DesignPatterns.Observer;
 
-namespace HexCasters.Testing.GameModeTest
+namespace HexesOfMortvell.Testing.GameModeTest
 {
 	public class DudeClickListener : MonoBehaviour
 	{

@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
-using HexCasters.Core.Grid;
-using HexCasters.Core.Grid.Regions;
+using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Grid.Regions;
 
-namespace HexCasters.Testing.NeighborhoodBfs
+namespace HexesOfMortvell.Testing.NeighborhoodBfs
 {
 	[RequireComponent(typeof(BoardCellContent))]
 	public class UnitTestUnit : MonoBehaviour

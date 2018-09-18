@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using HexCasters.Hud.Teams;
+using HexesOfMortvell.Hud.Teams;
 
-namespace HexCasters.Testing.TeamsTest
+namespace HexesOfMortvell.Testing.TeamsTest
 {
 	public class TeamsTestTeamColorRandomizer : MonoBehaviour
 	{

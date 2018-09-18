@@ -2,14 +2,14 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HexCasters.Core.Grid
+namespace HexesOfMortvell.Core.Grid
 {
 	/// <summary>
 	/// Represents a board's initial layout, which can be loaded.
 	/// </summary>
 	[CreateAssetMenu(
 		fileName="New Board Layout",
-		menuName="HexCasters/Board Layout")]
+		menuName="HexesOfMortvell/Board Layout")]
 	public class BoardLayout : ScriptableObject
 	{
 		[SerializeField]

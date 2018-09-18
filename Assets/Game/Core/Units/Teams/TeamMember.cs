@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace HexCasters.Core.Units.Teams
+namespace HexesOfMortvell.Core.Units.Teams
 {
 	/// <summary>
 	/// Indicates this GameObject is part of a team.

@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
-using HexCasters.Core.Units.Teams;
+using HexesOfMortvell.Core.Units.Teams;
 
-namespace HexCasters.Hud.Teams
+namespace HexesOfMortvell.Hud.Teams
 {
 	public class TeamColoredImage : TeamColoredComponent
 	{

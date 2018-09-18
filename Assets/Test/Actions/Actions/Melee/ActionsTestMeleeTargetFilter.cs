@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
-using HexCasters.Core.Actions;
-using HexCasters.Core.Grid;
-using HexCasters.Core.Grid.Regions;
+using HexesOfMortvell.Core.Actions;
+using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Grid.Regions;
 using System.Collections.Generic;
 
-namespace HexCasters.Testing.ActionsTest
+namespace HexesOfMortvell.Testing.ActionsTest
 {
 	public class ActionsTestMeleeTargetFilter : ActionTargetFilter
 	{

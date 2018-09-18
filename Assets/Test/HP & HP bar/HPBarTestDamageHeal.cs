@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using HexCasters.Core.Units;
+using HexesOfMortvell.Core.Units;
 
-namespace HexCasters.Testing.HPTest
+namespace HexesOfMortvell.Testing.HPTest
 {
 	public class HPBarTestDamageHeal : MonoBehaviour
 	{

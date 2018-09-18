@@ -2,10 +2,10 @@
 -target:library
 -nowarn:0169
 -langversion:7
--out:D:/Gamedev/HexCasters/Temp/Unity.TextMeshPro.Editor.dll
+-out:D:/Gamedev/HexesOfMortvell/Temp/Unity.TextMeshPro.Editor.dll
 -nostdlib
 -unsafe
--r:D:/Gamedev/HexCasters/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+-r:D:/Gamedev/HexesOfMortvell/Library/ScriptAssemblies/Unity.TextMeshPro.dll
 -r:D:\Gamedev\tools\Unity\2018.2.6f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll
 -r:D:\Gamedev\tools\Unity\2018.2.6f1\Editor\Data\Managed/UnityEngine/UnityEngine.AIModule.dll
 -r:D:\Gamedev\tools\Unity\2018.2.6f1\Editor\Data\Managed/UnityEngine/UnityEngine.ARModule.dll

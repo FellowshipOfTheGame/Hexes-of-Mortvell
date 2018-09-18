@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
 using UnityEngine;
-using HexCasters.Core.Grid;
+using HexesOfMortvell.Core.Grid;
 
-namespace HexCasters.Core.Units.Teams
+namespace HexesOfMortvell.Core.Units.Teams
 {
 	public class LayoutTeamAssigner : MonoBehaviour
 	{

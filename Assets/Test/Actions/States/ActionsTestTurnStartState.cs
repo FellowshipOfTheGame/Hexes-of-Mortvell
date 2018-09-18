@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using HexCasters.DesignPatterns.Fsm;
+using HexesOfMortvell.DesignPatterns.Fsm;
 
-namespace HexCasters.Testing.ActionsTest
+namespace HexesOfMortvell.Testing.ActionsTest
 {
 	public class ActionsTestTurnStartState : FsmState
 	{

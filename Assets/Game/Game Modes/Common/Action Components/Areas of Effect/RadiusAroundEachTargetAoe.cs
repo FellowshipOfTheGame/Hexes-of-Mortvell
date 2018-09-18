@@ -1,10 +1,10 @@
 using System.Linq;
 using System.Collections.Generic;
-using HexCasters.Core.Actions;
-using HexCasters.Core.Grid;
-using HexCasters.Core.Grid.Regions;
+using HexesOfMortvell.Core.Actions;
+using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Grid.Regions;
 
-namespace HexCasters.GameModes.Common
+namespace HexesOfMortvell.GameModes.Common
 {
 	public class RadiusAroundEachTargetAoe : ActionAoe
 	{

@@ -1,8 +1,8 @@
 using UnityEngine;
 using System;
-using HexCasters.DesignPatterns.Observer;
+using HexesOfMortvell.DesignPatterns.Observer;
 
-namespace HexCasters.Core.Units
+namespace HexesOfMortvell.Core.Units
 {
 	/// <summary>
 	/// HP system for units and destructable objects.

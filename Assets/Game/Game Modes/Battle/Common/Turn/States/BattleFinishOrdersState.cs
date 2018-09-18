@@ -1,7 +1,7 @@
-using HexCasters.DesignPatterns.Fsm;
-using HexCasters.Core.Units;
+using HexesOfMortvell.DesignPatterns.Fsm;
+using HexesOfMortvell.Core.Units;
 
-namespace HexCasters.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle.Common
 {
 	public class BattleFinishOrdersState : FsmState
 	{

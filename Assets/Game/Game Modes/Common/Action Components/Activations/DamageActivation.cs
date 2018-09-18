@@ -1,11 +1,11 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using HexCasters.Core.Units;
-using HexCasters.Core.Actions;
-using HexCasters.Core.Grid;
+using HexesOfMortvell.Core.Units;
+using HexesOfMortvell.Core.Actions;
+using HexesOfMortvell.Core.Grid;
 
-namespace HexCasters.GameModes.Common
+namespace HexesOfMortvell.GameModes.Common
 {
 	public class DamageActivation : ActionActivation
 	{

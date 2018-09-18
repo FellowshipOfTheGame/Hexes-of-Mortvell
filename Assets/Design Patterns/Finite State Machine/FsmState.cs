@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace HexCasters.DesignPatterns.Fsm
+namespace HexesOfMortvell.DesignPatterns.Fsm
 {
 	/// <summary>
 	/// A state for a Finite State Machine.

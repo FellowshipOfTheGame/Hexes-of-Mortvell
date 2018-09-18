@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
-using HexCasters.DesignPatterns.Observer;
+using HexesOfMortvell.DesignPatterns.Observer;
 
-namespace HexCasters.Core.Units.Teams
+namespace HexesOfMortvell.Core.Units.Teams
 {
 	/// <summary>
 	/// A group of objects with the TeamMember component.

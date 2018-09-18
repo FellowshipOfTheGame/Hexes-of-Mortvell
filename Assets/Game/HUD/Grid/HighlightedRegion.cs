@@ -2,10 +2,10 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using HexCasters.Core.Grid;
-using HexCasters.Core.Grid.Regions;
+using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Grid.Regions;
 
-namespace HexCasters.Hud.Grid
+namespace HexesOfMortvell.Hud.Grid
 {
 	/// <summary>
 	/// Used for highlighting multiple cells at once.

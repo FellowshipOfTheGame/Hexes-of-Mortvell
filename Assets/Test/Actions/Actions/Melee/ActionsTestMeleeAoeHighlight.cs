@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
-using HexCasters.Core.Grid;
-using HexCasters.Hud.Actions;
+using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Hud.Actions;
 using System.Collections.Generic;
 
-namespace HexCasters.Testing.ActionsTest
+namespace HexesOfMortvell.Testing.ActionsTest
 {
 	public class ActionsTestMeleeAoeHighlight : ActionHighlight
 	{

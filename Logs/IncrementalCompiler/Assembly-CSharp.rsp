@@ -2,15 +2,15 @@
 -target:library
 -nowarn:0169
 -langversion:7
--out:D:/Gamedev/HexCasters/Temp/Assembly-CSharp.dll
+-out:D:/Gamedev/HexesOfMortvell/Temp/Assembly-CSharp.dll
 -nostdlib
 -unsafe
--r:D:/Gamedev/HexCasters/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll
--r:D:/Gamedev/HexCasters/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll
--r:D:/Gamedev/HexCasters/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
--r:D:/Gamedev/HexCasters/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll
--r:D:/Gamedev/HexCasters/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll
--r:D:/Gamedev/HexCasters/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+-r:D:/Gamedev/HexesOfMortvell/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll
+-r:D:/Gamedev/HexesOfMortvell/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll
+-r:D:/Gamedev/HexesOfMortvell/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+-r:D:/Gamedev/HexesOfMortvell/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll
+-r:D:/Gamedev/HexesOfMortvell/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll
+-r:D:/Gamedev/HexesOfMortvell/Library/ScriptAssemblies/Unity.TextMeshPro.dll
 -r:D:\Gamedev\tools\Unity\2018.2.6f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll
 -r:D:\Gamedev\tools\Unity\2018.2.6f1\Editor\Data\Managed/UnityEngine/UnityEngine.AIModule.dll
 -r:D:\Gamedev\tools\Unity\2018.2.6f1\Editor\Data\Managed/UnityEngine/UnityEngine.ARModule.dll
@@ -292,94 +292,94 @@
 -d:ENABLE_UNITY_COLLECTIONS_CHECKS
 -d:ENABLE_BURST_AOT
 -d:UNITY_TEAM_LICENSE
--i:"D:/Gamedev/HexCasters/Assets/Design Patterns/Finite State Machine/FiniteStateMachine.cs"
--i:"D:/Gamedev/HexCasters/Assets/Design Patterns/Finite State Machine/FsmState.cs"
--i:"D:/Gamedev/HexCasters/Assets/Design Patterns/Observer/ObservableValue.cs"
--i:"D:/Gamedev/HexCasters/Assets/Design Patterns/Observer/ValueObserver.cs"
--i:D:/Gamedev/HexCasters/Assets/Game/Core/Actions/ActionActivation.cs
--i:D:/Gamedev/HexCasters/Assets/Game/Core/Actions/ActionAoe.cs
--i:D:/Gamedev/HexCasters/Assets/Game/Core/Actions/ActionTargetFilter.cs
--i:D:/Gamedev/HexCasters/Assets/Game/Core/Grid/Board.cs
--i:D:/Gamedev/HexCasters/Assets/Game/Core/Grid/BoardCell.cs
--i:D:/Gamedev/HexCasters/Assets/Game/Core/Grid/BoardCellContent.cs
--i:D:/Gamedev/HexCasters/Assets/Game/Core/Grid/BoardCellTerrain.cs
--i:D:/Gamedev/HexCasters/Assets/Game/Core/Grid/BoardLayout.cs
--i:D:/Gamedev/HexCasters/Assets/Game/Core/Grid/BoardPosition.cs
--i:D:/Gamedev/HexCasters/Assets/Game/Core/Grid/Direction.cs
--i:D:/Gamedev/HexCasters/Assets/Game/Core/Grid/Unit.cs
--i:D:/Gamedev/HexCasters/Assets/Game/Core/Grid/Regions/LineRegion.cs
--i:D:/Gamedev/HexCasters/Assets/Game/Core/Grid/Regions/NeighboringRegion.cs
--i:D:/Gamedev/HexCasters/Assets/Game/Core/Units/HP/HP.cs
--i:D:/Gamedev/HexCasters/Assets/Game/Core/Units/Teams/Team.cs
--i:D:/Gamedev/HexCasters/Assets/Game/Core/Units/Teams/TeamMember.cs
--i:"D:/Gamedev/HexCasters/Assets/Game/Game Modes/Battle/Common/Turn/BattleTurn.cs"
--i:"D:/Gamedev/HexCasters/Assets/Game/Game Modes/Battle/Common/Turn/States/BattleBoardSetupState.cs"
--i:"D:/Gamedev/HexCasters/Assets/Game/Game Modes/Battle/Common/Turn/States/BattleEndTurnState.cs"
--i:"D:/Gamedev/HexCasters/Assets/Game/Game Modes/Battle/Common/Turn/States/BattleOverviewState.cs"
--i:"D:/Gamedev/HexCasters/Assets/Game/Game Modes/Battle/Common/Turn/States/BattlePerformActionState.cs"
--i:"D:/Gamedev/HexCasters/Assets/Game/Game Modes/Battle/Common/Turn/States/BattleSelectMovementDestinationState.cs"
--i:"D:/Gamedev/HexCasters/Assets/Game/Game Modes/Battle/Common/Turn/States/BattleSelectUnitActionState.cs"
--i:"D:/Gamedev/HexCasters/Assets/Game/Game Modes/Battle/Common/Turn/States/BattleSelectUnitActionTargets.cs"
--i:"D:/Gamedev/HexCasters/Assets/Game/Game Modes/Battle/Common/Turn/States/BattleStartTurnState.cs"
--i:"D:/Gamedev/HexCasters/Assets/Game/Game Modes/Common/Action Components/Target Filters/LineFromActor.cs"
--i:"D:/Gamedev/HexCasters/Assets/Game/Game Modes/Common/Action Components/Target Filters/RadiusTargetFilter.cs"
--i:"D:/Gamedev/HexCasters/Assets/Game/Game Modes/Common/Cell/CellHoverListener.cs"
--i:"D:/Gamedev/HexCasters/Assets/Game/Game Modes/Common/Cell/CellHoverNotifyBoard.cs"
--i:"D:/Gamedev/HexCasters/Assets/Game/Game Modes/Common/LayoutLoader.cs"
--i:D:/Gamedev/HexCasters/Assets/Game/HUD/Actions/ActionHighlight.cs
--i:D:/Gamedev/HexCasters/Assets/Game/HUD/Grid/Highlight.cs
--i:D:/Gamedev/HexCasters/Assets/Game/HUD/Grid/HighlightedRegion.cs
--i:D:/Gamedev/HexCasters/Assets/Game/HUD/Grid/LayeredHighlight.cs
--i:D:/Gamedev/HexCasters/Assets/Game/HUD/Units/HP/HPBar.cs
--i:D:/Gamedev/HexCasters/Assets/Game/HUD/Units/Teams/Colors/TeamColor.cs
--i:D:/Gamedev/HexCasters/Assets/Game/HUD/Units/Teams/Colors/TeamColoredComponent.cs
--i:D:/Gamedev/HexCasters/Assets/Game/HUD/Units/Teams/Colors/TeamColoredImage.cs
--i:D:/Gamedev/HexCasters/Assets/Game/HUD/Units/Teams/Colors/TeamColoredSpriteRenderer.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/Actions/Melee/ActionstestMeleeActivation.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/Actions/Melee/ActionsTestMeleeAoe.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/Actions/Melee/ActionsTestMeleeAoeHighlight.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/Actions/Melee/ActionsTestMeleeTargetFilter.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/ActionsTestActor.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/ActionsTestCellClick.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/ActionsTestCellClickListener.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/ActionsTestCellHover.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/ActionsTestCellHoverListener.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/ActionsTestLayoutLoader.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/ActionsTestUnit.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/ActionsTestPlayerOrder.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/ActionsTestTurn.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/States/ActionsTestPerformActionState.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/States/ActionsTestSelectAttackTargetState.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/States/ActionsTestSelectMoveDestState.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/States/ActionsTestSelectUnitState.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/States/ActionsTestSetupState.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/States/ActionsTestTurnEndState.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Actions/States/ActionsTestTurnStartState.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Board/BoardTestLayoutLoader.cs
--i:D:/Gamedev/HexCasters/Assets/Test/FSM/FsmTestInputReader.cs
--i:D:/Gamedev/HexCasters/Assets/Test/FSM/FsmTestStateGravity.cs
--i:D:/Gamedev/HexCasters/Assets/Test/FSM/States/FsmTestStateMove.cs
--i:"D:/Gamedev/HexCasters/Assets/Test/Game Mode/DudeClickListener.cs"
--i:"D:/Gamedev/HexCasters/Assets/Test/Game Mode/FSM/GameModeTestEndGameState.cs"
--i:"D:/Gamedev/HexCasters/Assets/Test/Game Mode/FSM/GameModeTestSelectDudeState.cs"
--i:"D:/Gamedev/HexCasters/Assets/Test/Game Mode/FSM/GameModeTestTurnEndState.cs"
--i:"D:/Gamedev/HexCasters/Assets/Test/Game Mode/FSM/GameModeTestTurnStartState.cs"
--i:"D:/Gamedev/HexCasters/Assets/Test/Game Mode/FSM/GameModeTestWaitForRightClickState.cs"
--i:"D:/Gamedev/HexCasters/Assets/Test/Game Mode/GameModeTestClickableDude.cs"
--i:"D:/Gamedev/HexCasters/Assets/Test/Game Mode/GameModeTestReferee.cs"
--i:"D:/Gamedev/HexCasters/Assets/Test/Game Mode/GameModeTestTeamSizeChangeListener.cs"
--i:"D:/Gamedev/HexCasters/Assets/Test/Game Mode/GameModeTestTurn.cs"
--i:"D:/Gamedev/HexCasters/Assets/Test/HP & HP bar/HPBarTestDamageHeal.cs"
--i:"D:/Gamedev/HexCasters/Assets/Test/HP & HP bar/HPBarTestDeathChecker.cs"
--i:"D:/Gamedev/HexCasters/Assets/Test/HP & HP bar/HPBarTestPrinter.cs"
--i:D:/Gamedev/HexCasters/Assets/Test/Unit/UnitTestBoardLoader.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Unit/UnitTestUnit.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Observable/TestObservable.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Observable/TestObserver.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Observable/TestObserverDirect.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Teams/TeamsTestDudeKiller.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Teams/TeamsTestDudeSpawner.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Teams/TeamsTestHoverable.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Teams/TeamsTestRandomizeOnClick.cs
--i:D:/Gamedev/HexCasters/Assets/Test/Teams/TeamsTestTeamColorRandomizer.cs
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Design Patterns/Finite State Machine/FiniteStateMachine.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Design Patterns/Finite State Machine/FsmState.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Design Patterns/Observer/ObservableValue.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Design Patterns/Observer/ValueObserver.cs"
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/Core/Actions/ActionActivation.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/Core/Actions/ActionAoe.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/Core/Actions/ActionTargetFilter.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/Core/Grid/Board.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/Core/Grid/BoardCell.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/Core/Grid/BoardCellContent.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/Core/Grid/BoardCellTerrain.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/Core/Grid/BoardLayout.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/Core/Grid/BoardPosition.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/Core/Grid/Direction.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/Core/Grid/Unit.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/Core/Grid/Regions/LineRegion.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/Core/Grid/Regions/NeighboringRegion.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/Core/Units/HP/HP.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/Core/Units/Teams/Team.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/Core/Units/Teams/TeamMember.cs
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Game/Game Modes/Battle/Common/Turn/BattleTurn.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Game/Game Modes/Battle/Common/Turn/States/BattleBoardSetupState.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Game/Game Modes/Battle/Common/Turn/States/BattleEndTurnState.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Game/Game Modes/Battle/Common/Turn/States/BattleOverviewState.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Game/Game Modes/Battle/Common/Turn/States/BattlePerformActionState.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Game/Game Modes/Battle/Common/Turn/States/BattleSelectMovementDestinationState.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Game/Game Modes/Battle/Common/Turn/States/BattleSelectUnitActionState.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Game/Game Modes/Battle/Common/Turn/States/BattleSelectUnitActionTargets.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Game/Game Modes/Battle/Common/Turn/States/BattleStartTurnState.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Game/Game Modes/Common/Action Components/Target Filters/LineFromActor.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Game/Game Modes/Common/Action Components/Target Filters/RadiusTargetFilter.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Game/Game Modes/Common/Cell/CellHoverListener.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Game/Game Modes/Common/Cell/CellHoverNotifyBoard.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Game/Game Modes/Common/LayoutLoader.cs"
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/HUD/Actions/ActionHighlight.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/HUD/Grid/Highlight.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/HUD/Grid/HighlightedRegion.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/HUD/Grid/LayeredHighlight.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/HUD/Units/HP/HPBar.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/HUD/Units/Teams/Colors/TeamColor.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/HUD/Units/Teams/Colors/TeamColoredComponent.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/HUD/Units/Teams/Colors/TeamColoredImage.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Game/HUD/Units/Teams/Colors/TeamColoredSpriteRenderer.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/Actions/Melee/ActionstestMeleeActivation.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/Actions/Melee/ActionsTestMeleeAoe.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/Actions/Melee/ActionsTestMeleeAoeHighlight.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/Actions/Melee/ActionsTestMeleeTargetFilter.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/ActionsTestActor.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/ActionsTestCellClick.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/ActionsTestCellClickListener.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/ActionsTestCellHover.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/ActionsTestCellHoverListener.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/ActionsTestLayoutLoader.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/ActionsTestUnit.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/ActionsTestPlayerOrder.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/ActionsTestTurn.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/States/ActionsTestPerformActionState.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/States/ActionsTestSelectAttackTargetState.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/States/ActionsTestSelectMoveDestState.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/States/ActionsTestSelectUnitState.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/States/ActionsTestSetupState.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/States/ActionsTestTurnEndState.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Actions/States/ActionsTestTurnStartState.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Board/BoardTestLayoutLoader.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/FSM/FsmTestInputReader.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/FSM/FsmTestStateGravity.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/FSM/States/FsmTestStateMove.cs
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Test/Game Mode/DudeClickListener.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Test/Game Mode/FSM/GameModeTestEndGameState.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Test/Game Mode/FSM/GameModeTestSelectDudeState.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Test/Game Mode/FSM/GameModeTestTurnEndState.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Test/Game Mode/FSM/GameModeTestTurnStartState.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Test/Game Mode/FSM/GameModeTestWaitForRightClickState.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Test/Game Mode/GameModeTestClickableDude.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Test/Game Mode/GameModeTestReferee.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Test/Game Mode/GameModeTestTeamSizeChangeListener.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Test/Game Mode/GameModeTestTurn.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Test/HP & HP bar/HPBarTestDamageHeal.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Test/HP & HP bar/HPBarTestDeathChecker.cs"
+-i:"D:/Gamedev/HexesOfMortvell/Assets/Test/HP & HP bar/HPBarTestPrinter.cs"
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Unit/UnitTestBoardLoader.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Unit/UnitTestUnit.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Observable/TestObservable.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Observable/TestObserver.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Observable/TestObserverDirect.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Teams/TeamsTestDudeKiller.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Teams/TeamsTestDudeSpawner.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Teams/TeamsTestHoverable.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Teams/TeamsTestRandomizeOnClick.cs
+-i:D:/Gamedev/HexesOfMortvell/Assets/Test/Teams/TeamsTestTeamColorRandomizer.cs
 -v:0

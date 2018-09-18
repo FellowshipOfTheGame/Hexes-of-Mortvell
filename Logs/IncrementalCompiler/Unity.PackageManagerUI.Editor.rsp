@@ -2,7 +2,7 @@
 -target:library
 -nowarn:0169
 -langversion:7
--out:D:/Gamedev/HexCasters/Temp/Unity.PackageManagerUI.Editor.dll
+-out:D:/Gamedev/HexesOfMortvell/Temp/Unity.PackageManagerUI.Editor.dll
 -nostdlib
 -unsafe
 -r:D:\Gamedev\tools\Unity\2018.2.6f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll

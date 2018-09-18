@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System;
-using HexCasters.DesignPatterns.Observer;
-using HexCasters.Core.Units;
+using HexesOfMortvell.DesignPatterns.Observer;
+using HexesOfMortvell.Core.Units;
 
-namespace HexCasters.Hud
+namespace HexesOfMortvell.Hud
 {
 	public class HPBar : MonoBehaviour
 	{

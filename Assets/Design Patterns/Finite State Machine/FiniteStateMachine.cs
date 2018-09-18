@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HexCasters.DesignPatterns.Fsm
+namespace HexesOfMortvell.DesignPatterns.Fsm
 {
 	/// <summary>
 	/// A component implementing a finite state machine.

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using HexCasters.Core.Units.Teams;
+using HexesOfMortvell.Core.Units.Teams;
 
-namespace HexCasters.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle.Common
 {
 	public class BattleTurn : MonoBehaviour
 	{

@@ -2,11 +2,11 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using HexCasters.Core.Grid;
-using HexCasters.DesignPatterns.Fsm;
-using HexCasters.Hud.Grid;
+using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.DesignPatterns.Fsm;
+using HexesOfMortvell.Hud.Grid;
 
-namespace HexCasters.Testing.ActionsTest
+namespace HexesOfMortvell.Testing.ActionsTest
 {
 	public class ActionsTestSelectMoveDestState : FsmState
 	{

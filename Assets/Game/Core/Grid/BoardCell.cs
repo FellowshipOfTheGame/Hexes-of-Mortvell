@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace HexCasters.Core.Grid
+namespace HexesOfMortvell.Core.Grid
 {
 	/// <summary>
 	/// A single hexagon in the board grid.

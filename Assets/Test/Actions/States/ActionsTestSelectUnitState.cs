@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
-using HexCasters.Core.Grid;
-using HexCasters.Core.Units.Teams;
-using HexCasters.DesignPatterns.Fsm;
-using HexCasters.Hud.Grid;
+using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Units.Teams;
+using HexesOfMortvell.DesignPatterns.Fsm;
+using HexesOfMortvell.Hud.Grid;
 
-namespace HexCasters.Testing.ActionsTest
+namespace HexesOfMortvell.Testing.ActionsTest
 {
 	public class ActionsTestSelectUnitState : FsmState
 	{

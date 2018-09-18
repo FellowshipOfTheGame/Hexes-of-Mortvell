@@ -1,10 +1,10 @@
 using System.Linq;
 using UnityEngine;
-using HexCasters.Core.Grid;
-using HexCasters.Core.Units;
-using HexCasters.DesignPatterns.Fsm;
+using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Units;
+using HexesOfMortvell.DesignPatterns.Fsm;
 
-namespace HexCasters.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle.Common
 {
 	public class BattleStartTurnState : FsmState
 	{

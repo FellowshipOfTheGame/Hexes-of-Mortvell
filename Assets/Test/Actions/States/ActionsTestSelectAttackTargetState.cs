@@ -2,12 +2,12 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using HexCasters.DesignPatterns.Fsm;
-using HexCasters.Core.Grid;
-using HexCasters.Core.Actions;
-using HexCasters.Hud.Grid;
+using HexesOfMortvell.DesignPatterns.Fsm;
+using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Actions;
+using HexesOfMortvell.Hud.Grid;
 
-namespace HexCasters.Testing.ActionsTest
+namespace HexesOfMortvell.Testing.ActionsTest
 {
 	public class ActionsTestSelectAttackTargetState : FsmState
 	{

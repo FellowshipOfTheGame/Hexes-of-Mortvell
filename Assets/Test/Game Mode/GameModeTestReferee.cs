@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace HexCasters.Testing.GameModeTest
+namespace HexesOfMortvell.Testing.GameModeTest
 {
 	public class GameModeTestReferee : MonoBehaviour
 	{

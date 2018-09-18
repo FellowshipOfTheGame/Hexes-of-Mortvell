@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
-using HexCasters.Core.Grid;
-using HexCasters.Hud.Grid;
+using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Hud.Grid;
 
-namespace HexCasters.Testing.ActionsTest
+namespace HexesOfMortvell.Testing.ActionsTest
 {
 	// split this up into a hover listener and a hover highlight
 	public class ActionsTestCellHoverListener : MonoBehaviour

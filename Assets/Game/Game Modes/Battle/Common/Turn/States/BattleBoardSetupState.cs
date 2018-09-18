@@ -1,9 +1,9 @@
 using UnityEngine;
-using HexCasters.DesignPatterns.Fsm;
-using HexCasters.Core.Grid;
-using HexCasters.Core.Units.Teams;
+using HexesOfMortvell.DesignPatterns.Fsm;
+using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Units.Teams;
 
-namespace HexCasters.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle.Common
 {
 	public class BattleBoardSetupState : FsmState
 	{

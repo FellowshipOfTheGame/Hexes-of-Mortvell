@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using HexCasters.Core.Grid.Regions;
-using HexCasters.Core.Grid;
+using HexesOfMortvell.Core.Grid.Regions;
+using HexesOfMortvell.Core.Grid;
 
-namespace HexCasters.Core.Units
+namespace HexesOfMortvell.Core.Units
 {
 	[RequireComponent(typeof(BoardCellContent))]
 	public class Unit : MonoBehaviour

@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
-using HexCasters.Core.Units;
-using HexCasters.Core.Grid;
-using HexCasters.Core.Grid.Regions;
+using HexesOfMortvell.Core.Units;
+using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Grid.Regions;
 
-namespace HexCasters.Testing.NeighborhoodBfs
+namespace HexesOfMortvell.Testing.NeighborhoodBfs
 {
 	public class UnitTestBoardLoader : MonoBehaviour
 	{

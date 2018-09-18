@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
-using HexCasters.DesignPatterns.Fsm;
-using HexCasters.Core.Units.Teams;
-using HexCasters.Core.Grid;
-using HexCasters.Core.Units;
-using HexCasters.GameModes.Common;
-using HexCasters.Hud.Grid;
+using HexesOfMortvell.DesignPatterns.Fsm;
+using HexesOfMortvell.Core.Units.Teams;
+using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Units;
+using HexesOfMortvell.GameModes.Common;
+using HexesOfMortvell.Hud.Grid;
 
-namespace HexCasters.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle.Common
 {
 	public class BattleOverviewState : FsmState
 	{
@@ -33,6 +33,7 @@ namespace HexCasters.GameModes.Battle.Common
 
 		void TrySelectUnit(BoardCell cell)
 		{
+			Debug.Log($"Clicou aqui: {cell.Position}");
 			var content = cell.Content;
 			var unit = content?.GetComponent<Unit>();
 			if (unit == null || unit.hasMoved)

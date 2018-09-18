@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using UnityEngine;
-using HexCasters.DesignPatterns.Fsm;
-using HexCasters.Core.Actions;
+using HexesOfMortvell.DesignPatterns.Fsm;
+using HexesOfMortvell.Core.Actions;
 
-namespace HexCasters.Testing.ActionsTest
+namespace HexesOfMortvell.Testing.ActionsTest
 {
 	public class ActionsTestPerformActionState : FsmState
 	{

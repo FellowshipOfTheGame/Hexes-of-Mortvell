@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace HexCasters.Hud.Grid
+namespace HexesOfMortvell.Hud.Grid
 {
 	[Obsolete("Use LayeredHighlight")]
 	public class Highlight : MonoBehaviour

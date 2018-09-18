@@ -1,9 +1,9 @@
 ﻿using System;
 using UnityEngine;
-using HexCasters.Core.Units;
-using HexCasters.DesignPatterns.Observer;
+using HexesOfMortvell.Core.Units;
+using HexesOfMortvell.DesignPatterns.Observer;
 
-namespace HexCasters.Testing.HPTest
+namespace HexesOfMortvell.Testing.HPTest
 {
 	public class HPBarTestDeathChecker : MonoBehaviour
 	{

@@ -1,7 +1,7 @@
 using UnityEngine;
-using HexCasters.DesignPatterns.Fsm;
+using HexesOfMortvell.DesignPatterns.Fsm;
 
-namespace HexCasters.Testing.GameModeTest
+namespace HexesOfMortvell.Testing.GameModeTest
 {
 	public class GameModeTestTurnEndState : FsmState
 	{

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-namespace HexCasters.Core.Grid
+namespace HexesOfMortvell.Core.Grid
 {
 	/// <summary>
 	/// A position in the board.

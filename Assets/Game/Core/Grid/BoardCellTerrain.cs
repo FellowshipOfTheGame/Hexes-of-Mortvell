@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-namespace HexCasters.Core.Grid
+namespace HexesOfMortvell.Core.Grid
 {
 	/// <summary>
 	/// A cell's terrain type.
 	/// </summary>
 	[CreateAssetMenu(
 		fileName="New Terrain Type",
-		menuName="HexCasters/Terrain")]
+		menuName="HexesOfMortvell/Terrain")]
 	public class BoardCellTerrain : ScriptableObject
 	{
 		/// <summary>

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using HexCasters.DesignPatterns.Fsm;
-using HexCasters.Core.Grid;
-using HexCasters.Hud.Grid;
-using HexCasters.GameModes.Common;
+using HexesOfMortvell.DesignPatterns.Fsm;
+using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Hud.Grid;
+using HexesOfMortvell.GameModes.Common;
 
-namespace HexCasters.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle.Common
 {
 	public class BattleSelectMovementDestinationState : FsmState
 	{

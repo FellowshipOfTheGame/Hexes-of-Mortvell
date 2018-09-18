@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace HexCasters.Testing.TeamsTest
+namespace HexesOfMortvell.Testing.TeamsTest
 {
 	public class TeamsTestDudeKiller : MonoBehaviour
 	{

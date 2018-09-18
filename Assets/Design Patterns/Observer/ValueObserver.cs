@@ -1,6 +1,6 @@
 using System;
 
-namespace HexCasters.DesignPatterns.Observer
+namespace HexesOfMortvell.DesignPatterns.Observer
 {
 	public class ValueObserver<T> : IObserver<T>
 	{
