@@ -21,8 +21,7 @@ namespace HexesOfMortvell.GameModes.Common
 
 		IEnumerable<BoardCell> FindWeatherConnectedComponentAoe(BoardCell cell)
 		{
-			return new HashSet<BoardCell>(
-				cell.Neighborhood(0, WeatherExpansionFunction));
+			return cell.Neighborhood(0, WeatherExpansionFunction);
 		}
 
 		int WeatherExpansionFunction(BoardCell from, BoardCell to)
