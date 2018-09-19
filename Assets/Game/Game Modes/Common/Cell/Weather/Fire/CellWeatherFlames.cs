@@ -9,13 +9,12 @@ namespace HexesOfMortvell.GameModes.Common
 		[Header("Values")]
 		public int damagePerTurn;
 
-		[Header("References")]
-		public BoardCell cell;
+		private BoardCell cell;
 		private EndTurnListener endTurnListener;
 
 		void Awake()
 		{
-			this.cell = this.transform.parent.GetComponent<BoardCell>();
+			this.cell = GetComponentInParent<BoardCell>();
 			var eventListener = this.cell.eventListener;
 			this.endTurnListener =
 				eventListener.GetComponent<EndTurnListener>();

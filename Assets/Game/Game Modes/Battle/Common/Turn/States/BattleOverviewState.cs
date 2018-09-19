@@ -36,6 +36,12 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 			DisableEndTurnButton();
 		}
 
+		void Update()
+		{
+			if (Input.GetKeyDown(KeyCode.Space))
+				this.endTurn.onClick?.Invoke();
+		}
+
 		void ResetPlayerOrders()
 		{
 			this.playerOrders.Clear();

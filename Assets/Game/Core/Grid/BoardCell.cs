@@ -61,6 +61,7 @@ namespace HexesOfMortvell.Core.Grid
 		}
 
 		private GameObject _weather;
+		private string weatherName;
 
 		/// <summary>
 		/// Retrieves the instance of the cell's current weather.
@@ -187,8 +188,16 @@ namespace HexesOfMortvell.Core.Grid
 			if (weatherPrefab == null)
 				this._weather = null;
 			else
+			{
 				this._weather = Instantiate(
 					weatherPrefab, this.Transform, false);
+				this.weatherName = weatherPrefab.name;
+			}
+		}
+
+		public bool HasWeather(GameObject weatherPrefab)
+		{
+			return this.weatherName == weatherPrefab?.name;
 		}
 
 		void ErrorIfOccupied()

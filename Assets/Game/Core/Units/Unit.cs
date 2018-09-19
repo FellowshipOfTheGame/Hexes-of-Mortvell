@@ -34,7 +34,7 @@ namespace HexesOfMortvell.Core.Units
 		int MovementCost(BoardCell from, BoardCell to)
 		{
 			if (to.Empty)
-				return to.Terrain.movementCost;
+				return to.Terrain.movementCost + to.movementCostModifier;
 			return this.UnreachableCost;
 		}
 	}

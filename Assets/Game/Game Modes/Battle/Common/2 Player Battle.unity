@@ -817,7 +817,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8f2366da40d87d498a7e3b4e1cf89e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugAction: {fileID: 1151377892272209751, guid: 53141c143e0a067478cab0f163211ce5, type: 3}
+  debugActions:
+  - {fileID: 1151377892272209751, guid: 53141c143e0a067478cab0f163211ce5, type: 3}
+  - {fileID: 1934433316892104, guid: ca57691b329a50c49a7c253961eec0c5, type: 3}
+  - {fileID: 4489727899847368640, guid: 436d4e464cc679a4691943b42edd9ad9, type: 3}
+  - {fileID: 410018088808004959, guid: 9da774794578e0c4caf7dc5fdf13285e, type: 3}
   playerOrders: {fileID: 466081787}
 --- !u!114 &1725322880
 MonoBehaviour:
