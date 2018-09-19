@@ -14,24 +14,8 @@ namespace HexesOfMortvell.GameModes.Common
 		public override IEnumerable<BoardCell> GetAoe(
 			IEnumerable<BoardCell> targets)
 		{
-			Debug.Log("GetAoe");
 			return targets.SelectMany(
-				target => FindWeatherConnectedComponentAoe(target));
-		}
-
-		IEnumerable<BoardCell> FindWeatherConnectedComponentAoe(BoardCell cell)
-		{
-			return cell.Neighborhood(0, WeatherExpansionFunction);
-		}
-
-		int WeatherExpansionFunction(BoardCell from, BoardCell to)
-		{
-			bool fromHasWeather = from.HasWeather(this.expandingWeather);
-			bool toHasWeather = to.HasWeather(this.expandingWeather);
-			Debug.Log($"{from} [{from.Weather?.name}]; {to} [{to.Weather?.name}]");
-			if (fromHasWeather && toHasWeather)
-				return 0;
-			return 1;
+				target => target.WeatherConnectedComponent(expandingWeather));
 		}
 	}
 }
