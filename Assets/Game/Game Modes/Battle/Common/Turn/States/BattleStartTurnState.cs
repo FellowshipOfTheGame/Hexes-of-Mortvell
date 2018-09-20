@@ -8,12 +8,15 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 {
 	public class BattleStartTurnState : FsmState
 	{
+		public Board board;
 		public BattleTurn turn;
 
 		public override void Enter()
 		{
 			Debug.Log(GetType());
 			ResetCurrentTeamUnitMovement();
+			// TODO turn start event (maybe?)
+			CommitHPValues();
 			this.fsm.Transition<BattleOverviewState>();
 		}
 
@@ -26,6 +29,13 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 				.Where(unit => unit != null);
 			foreach (var unit in currentTeamUnits)
 				unit.hasMoved = false;
+		}
+
+		void CommitHPValues()
+		{
+			for (var x = this.board.MinX; x <= this.board.MaxX; x++)
+				for (var y = this.board.MinY; y <= this.board.MaxY; y++)
+					this.board[x, y].Content?.GetComponent<HP>()?.Commit();
 		}
 	}
 }

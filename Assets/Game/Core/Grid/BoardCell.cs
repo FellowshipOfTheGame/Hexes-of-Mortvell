@@ -12,6 +12,7 @@ namespace HexesOfMortvell.Core.Grid
 	[DisallowMultipleComponent]
 	public class BoardCell : MonoBehaviour
 	{
+		[Header("Grid pixel positioning")]
 		[Tooltip("Width of the sprite in units.")]
 		public float spriteWidth;
 
@@ -36,9 +37,18 @@ namespace HexesOfMortvell.Core.Grid
 		}
 		private SpriteRenderer spriteRenderer;
 
+		[Header("Values")]
+
+		[Tooltip("Added to base movement cost.")]
+		public int movementCostModifier = 0;
+
+		[Header("References")]
+
 		[SerializeField]
 		[Tooltip("The object this cell holds.")]
 		private BoardCellContent _content;
+
+		public GameObject eventListener;
 
 		/// <summary>
 		/// Retrieves the object the cell is currently holding.
@@ -48,6 +58,18 @@ namespace HexesOfMortvell.Core.Grid
 		{
 			get { return GetContent(); }
 			set { SetContent(value); }
+		}
+
+		private GameObject _weather;
+		private string weatherName;
+
+		/// <summary>
+		/// Retrieves the instance of the cell's current weather.
+		/// </summary>
+		public GameObject Weather
+		{
+			get { return GetWeather(); }
+			private set { SetWeather(value); }
 		}
 
 		[SerializeField]
@@ -154,6 +176,29 @@ namespace HexesOfMortvell.Core.Grid
 			UpdateTerrainSprite();
 		}
 
+		public GameObject GetWeather()
+		{
+			return this._weather;
+		}
+
+		public void SetWeather(GameObject weatherPrefab)
+		{
+			if (this.Weather != null)
+				Destroy(this.Weather);
+			if (weatherPrefab == null)
+				this._weather = null;
+			else
+			{
+				this._weather = Instantiate(
+					weatherPrefab, this.Transform, false);
+				this.weatherName = weatherPrefab.name;
+			}
+		}
+
+		public bool HasWeather(GameObject weatherPrefab)
+		{
+			return this.weatherName == weatherPrefab?.name;
+		}
 
 		void ErrorIfOccupied()
 		{

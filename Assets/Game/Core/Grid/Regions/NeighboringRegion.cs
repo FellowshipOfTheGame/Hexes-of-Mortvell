@@ -20,8 +20,8 @@ namespace HexesOfMortvell.Core.Grid.Regions
 			var openNodes = new List<BoardCell>();
 			var distances = new Dictionary<BoardCell, int>();
 			var visited = new HashSet<BoardCell>();
-			var distanceComparer = CreateComparerFromDistanceFunction(
-				distanceFunction,
+			var ll = new LinkedList<BoardCell>();
+			var distanceComparer = CreateComparerFromDistanceDict(
 				distances);
 
 			openNodes.Add(center);
@@ -35,26 +35,26 @@ namespace HexesOfMortvell.Core.Grid.Regions
 				var currentDist = distances[currentNode];
 				openNodes.RemoveAt(0);
 
-				if (currentDist > maxDistance)
-					continue;
-
-				if (!visited.Contains(currentNode))
-				{
-					visited.Add(currentNode);
-					yield return currentNode;
-				}
-
 				foreach (var neighbor in currentNode.FindAdjacentCells())
 				{
 					var distanceFromCurrentNode =
 						currentDist + distanceFunction(currentNode, neighbor);
 
+					if (distanceFromCurrentNode > maxDistance)
+						continue;
+
 					SetInfiniteDistanceIfAbsent(distances, neighbor);
-					if (distanceFromCurrentNode < distances[neighbor])
-					{
-						openNodes.Add(neighbor);
-						distances[neighbor] = distanceFromCurrentNode;
-					}
+					if (distanceFromCurrentNode >= distances[neighbor])
+						continue;
+
+					openNodes.Add(neighbor);
+					distances[neighbor] = distanceFromCurrentNode;
+				}
+
+				if (!visited.Contains(currentNode))
+				{
+					visited.Add(currentNode);
+					yield return currentNode;
 				}
 			}
 		}
@@ -64,8 +64,7 @@ namespace HexesOfMortvell.Core.Grid.Regions
 			return 1;
 		}
 
-		static IComparer<BoardCell> CreateComparerFromDistanceFunction(
-			Func<BoardCell, BoardCell, int> distanceFunction,
+		static IComparer<BoardCell> CreateComparerFromDistanceDict(
 			Dictionary<BoardCell, int> distances)
 		{
 			Comparison<BoardCell> comparisonFunction = (x, y) =>

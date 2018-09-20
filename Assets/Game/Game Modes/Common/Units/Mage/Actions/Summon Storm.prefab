@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &410018088808004959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7443476529075613466}
+  - component: {fileID: 4201917954393936623}
+  - component: {fileID: 6799778700771357502}
+  - component: {fileID: 8847685874575588964}
+  m_Layer: 0
+  m_Name: Summon Storm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7443476529075613466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410018088808004959}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4201917954393936623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410018088808004959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2fcdcbf5e8aac438e08e68f34f6b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weatherApplied: {fileID: 4549708328758517992, guid: 407a9ece836a86a4db080ff908ba1121, type: 3}
+  weathersNeutralized:
+  - {fileID: 8061558596878410663, guid: a5d66689c6b09a744a87030cae4b847c, type: 3}
+  strongerWeathers:
+  - {fileID: 7326194417752092916, guid: ee1f204aca7ad734cbc6f90e930c0390, type: 3}
+--- !u!114 &6799778700771357502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410018088808004959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9d1d2ccb9b177499fcbf7317510a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetCount: 1
+  radius: 3
+--- !u!114 &8847685874575588964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410018088808004959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0884d3656a500a44e8eaaeef5810ef46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1

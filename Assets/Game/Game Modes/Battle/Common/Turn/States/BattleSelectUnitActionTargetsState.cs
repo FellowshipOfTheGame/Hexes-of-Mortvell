@@ -10,7 +10,7 @@ using HexesOfMortvell.Hud.Grid;
 
 namespace HexesOfMortvell.GameModes.Battle.Common
 {
-	public class BattleSelectUnitActionTargets : FsmState
+	public class BattleSelectUnitActionTargetsState : FsmState
 	{
 		public BattlePlayerOrders playerOrders;
 		public CellClickListener cellClickListener;
