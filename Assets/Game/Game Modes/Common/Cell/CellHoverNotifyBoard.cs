@@ -17,7 +17,7 @@ namespace HexesOfMortvell.GameModes.Common
 
 		public void HoverEnter()
 		{
-			this.listener.Notify(this.cell);
+			this.listener.NotifyHoverEnter(this.cell);
 		}
 	}
 }

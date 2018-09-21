@@ -1,5 +1,6 @@
-using UnityEngine;
+using System.Linq;
 using System.Collections.Generic;
+using UnityEngine;
 using HexesOfMortvell.Core.Grid;
 
 namespace HexesOfMortvell.Hud.Actions
@@ -22,5 +23,14 @@ namespace HexesOfMortvell.Hud.Actions
 		/// </para>
 		/// </remarks>
 		public abstract Color GetColor(BoardCell cell);
+
+		/// <summary>
+		/// Returns the corresponding colors that should be given to the cells.
+		/// </summary>
+		/// <param name="cells">The cells to be checked.</param>
+		public IEnumerable<Color> GetColors(IEnumerable<BoardCell> cells)
+		{
+			return cells.Select(GetColor);
+		}
 	}
 }

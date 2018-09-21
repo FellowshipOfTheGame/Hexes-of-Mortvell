@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4201917954393936623}
   - component: {fileID: 6799778700771357502}
   - component: {fileID: 8847685874575588964}
+  - component: {fileID: 7351358591536995309}
   m_Layer: 0
   m_Name: Summon Storm
   m_TagString: Untagged
@@ -77,3 +78,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 1
+--- !u!114 &7351358591536995309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410018088808004959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d67684104fd9a8488b24bd067371693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insideAoeColor: {r: 1, g: 0.7921569, b: 0.2784314, a: 1}
