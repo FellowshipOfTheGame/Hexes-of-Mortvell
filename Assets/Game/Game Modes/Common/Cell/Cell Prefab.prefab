@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlight: {fileID: 114308247127227400}
-  highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  highlightColor: {r: 0.48446676, g: 0, b: 0.559, a: 1}
 --- !u!1 &1428858368162736
 GameObject:
   m_ObjectHideFlags: 0

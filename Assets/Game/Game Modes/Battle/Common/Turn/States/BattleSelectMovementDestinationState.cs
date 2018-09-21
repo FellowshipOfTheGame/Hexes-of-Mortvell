@@ -12,6 +12,7 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 	{
 		public BattlePlayerOrders playerOrders;
 		public CellClickListener clickListener;
+		public Color reachableCellColor;
 
 		private IDisposable reachableCellsHighlight;
 		private ISet<BoardCell> reachableCells;
@@ -76,7 +77,7 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 		void ApplyReachableHighlight()
 		{
 			this.reachableCellsHighlight = this.reachableCells
-				.AddHighlightLayer(Color.blue);
+				.AddHighlightLayer(reachableCellColor);
 		}
 
 		void RemoveReachableHighlight()

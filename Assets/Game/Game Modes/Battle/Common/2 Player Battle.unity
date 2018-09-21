@@ -837,6 +837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerOrders: {fileID: 466081787}
   clickListener: {fileID: 2088358391}
+  reachableCellColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1725322881
 MonoBehaviour:
   m_ObjectHideFlags: 0
