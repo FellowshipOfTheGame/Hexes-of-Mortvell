@@ -12,10 +12,15 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 {
 	public class BattleSelectUnitActionTargetsState : FsmState
 	{
+		[Header("References")]
 		public BattlePlayerOrders playerOrders;
 		public CellClickListener cellClickListener;
 		private ISet<BoardCell> validNextTargets;
 		private IDisposable validNextTargetsHighlight;
+		private IDisposable selectedUnitHighlight;
+
+		[Header("Values")]
+		public Color validTargetColor;
 
 		public override void Enter()
 		{
@@ -55,17 +60,23 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 				this.FinishTargetSelection();
 				return;
 			}
+
+			FindValidTargets(targetFilter);
+			ApplyValidTargetHighlight();
+		}
+
+		void FindValidTargets(ActionTargetFilter targetFilter)
+		{
 			var filterTargets = targetFilter.ValidTargets(
 				this.playerOrders.unit.AsCellContent,
 				this.playerOrders.actionTargets);
 			this.validNextTargets = new HashSet<BoardCell>(filterTargets);
-			ApplyValidTargetHighlight();
 		}
 
 		void ApplyValidTargetHighlight()
 		{
 			this.validNextTargetsHighlight = this.validNextTargets
-				.AddHighlightLayer(Color.white);
+				.AddHighlightLayer(validTargetColor);
 		}
 
 		void RemoveValidTargetHighlight()

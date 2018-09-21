@@ -10,8 +10,11 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 {
 	public class BattleSelectMovementDestinationState : FsmState
 	{
+		[Header("References")]
 		public BattlePlayerOrders playerOrders;
 		public CellClickListener clickListener;
+
+		[Header("Values")]
 		public Color reachableCellColor;
 
 		private IDisposable reachableCellsHighlight;
