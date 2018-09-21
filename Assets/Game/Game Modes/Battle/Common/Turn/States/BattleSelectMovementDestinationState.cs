@@ -10,8 +10,12 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 {
 	public class BattleSelectMovementDestinationState : FsmState
 	{
+		[Header("References")]
 		public BattlePlayerOrders playerOrders;
 		public CellClickListener clickListener;
+
+		[Header("Values")]
+		public Color reachableCellColor;
 
 		private IDisposable reachableCellsHighlight;
 		private ISet<BoardCell> reachableCells;
@@ -76,7 +80,7 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 		void ApplyReachableHighlight()
 		{
 			this.reachableCellsHighlight = this.reachableCells
-				.AddHighlightLayer(Color.blue);
+				.AddHighlightLayer(reachableCellColor);
 		}
 
 		void RemoveReachableHighlight()

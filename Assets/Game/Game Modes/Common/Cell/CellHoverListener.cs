@@ -6,11 +6,19 @@ namespace HexesOfMortvell.GameModes.Common
 	public class CellHoverListener : MonoBehaviour
 	{
 		public delegate void HoverEnterEventHandler(BoardCell cell);
-		public event HoverEnterEventHandler hoverEnterEvent;
+		public delegate void HoverExitEventHandler(BoardCell cell);
 
-		public void Notify(BoardCell cell)
+		public event HoverEnterEventHandler hoverEnterEvent;
+		public event HoverExitEventHandler hoverExitEvent;
+
+		public void NotifyHoverEnter(BoardCell cell)
 		{
 			this.hoverEnterEvent?.Invoke(cell);
+		}
+
+		public void NotifyHoverExit(BoardCell cell)
+		{
+			this.hoverExitEvent?.Invoke(cell);
 		}
 	}
 }
