@@ -7,19 +7,20 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 	public class BattleTurn : MonoBehaviour
 	{
 		[Tooltip("Teams which have turns to act.")]
-		public List<Team> teamsWithTurns;
+		public TeamGroup teamsWithTurns;
+
 		[SerializeField]
 		private int currentTeamIndex;
 
 		public Team CurrentTeam
 		{
-			get { return this.teamsWithTurns[this.currentTeamIndex]; }
+			get { return this.teamsWithTurns.teams[this.currentTeamIndex]; }
 		}
 
 		public void NextTeam()
 		{
 			this.currentTeamIndex++;
-			this.currentTeamIndex %= this.teamsWithTurns.Count;
+			this.currentTeamIndex %= this.teamsWithTurns.teams.Count;
 		}
 	}
 }

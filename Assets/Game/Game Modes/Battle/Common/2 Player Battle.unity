@@ -434,6 +434,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 989720143}
+  - component: {fileID: 989720144}
   m_Layer: 0
   m_Name: Referee
   m_TagString: Untagged
@@ -455,6 +456,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &989720144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989720142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39833576db181a642b43a678be764354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  victoryEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: HexesOfMortvell.Core.VictoryConditions.GameModeReferee+VictoryEventHandler, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  deathListener: {fileID: 2088358393}
+  teams: {fileID: 794916448}
 --- !u!1001 &1000566766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1042,9 +1061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aebd9c35657e6af4e8c4596dbdd3c474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teamsWithTurns:
-  - {fileID: 1230601746}
-  - {fileID: 89848142}
+  teamsWithTurns: {fileID: 794916448}
   currentTeamIndex: 0
 --- !u!1 &1980378400
 GameObject:
