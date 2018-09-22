@@ -470,10 +470,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 989720144}
+        m_MethodName: TestPrint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: HexesOfMortvell.Core.VictoryConditions.GameModeReferee+VictoryEventHandler, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   deathListener: {fileID: 2088358393}
-  teams: {fileID: 794916448}
+  turn: {fileID: 1884063501}
 --- !u!1001 &1000566766
 PrefabInstance:
   m_ObjectHideFlags: 0

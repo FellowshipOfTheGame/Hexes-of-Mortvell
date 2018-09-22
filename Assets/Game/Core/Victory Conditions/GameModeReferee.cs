@@ -10,10 +10,15 @@ namespace HexesOfMortvell.Core.VictoryConditions
 		[Serializable]
 		public class VictoryEventHandler : UnityEvent<Team> {}
 		public VictoryEventHandler victoryEvent;
+		public bool matchEnded = false;
 
 		public void AwardVictoryTo(Team winner)
 		{
-			this.victoryEvent.Invoke(winner);
+			if (!this.matchEnded)
+			{
+				this.victoryEvent.Invoke(winner);
+				this.matchEnded = true;
+			}
 		}
 	}
 }
