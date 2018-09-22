@@ -13,13 +13,15 @@ namespace HexesOfMortvell.Core.Units.Teams
 		[Tooltip("The team the object belongs to.")]
 		public Team team;
 
-		void Start()
+		void Awake()
 		{
-			this.team.Add(this.gameObject);
+			if (this.team != null)
+				this.team.Add(this.gameObject);
 		}
 
 		void OnDestroy()
 		{
+			Debug.Log("Destroying");
 			ExitTeam();
 		}
 
@@ -31,7 +33,9 @@ namespace HexesOfMortvell.Core.Units.Teams
 		/// </remarks>
 		public void ExitTeam()
 		{
+			Debug.Log(string.Join(", ", this.team.Members));
 			this.team.Remove(this);
+			Debug.Log(string.Join(", ", this.team.Members));
 		}
 	}
 }

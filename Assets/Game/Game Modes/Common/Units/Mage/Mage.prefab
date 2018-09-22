@@ -1,5 +1,10 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!4 &4701602241146148 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8754168127287078289, guid: f66442b2c4b3b32418a95cb37f0b8237, type: 3}
+  m_PrefabInstance: {fileID: 8749853690611581109}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1009992586163188
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,6 +20,7 @@ GameObject:
   - component: {fileID: 114803509760645238}
   - component: {fileID: 114910440220545176}
   - component: {fileID: 114085495945686108}
+  - component: {fileID: 6023583059464658053}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Untagged
@@ -155,6 +161,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max: 10
   uncommitedValue: 0
+--- !u!114 &6023583059464658053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009992586163188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a9e0e3139bfbcd4a9448a69ccf01bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1863775885462772
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,11 +252,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &4701602241146148 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8754168127287078289, guid: f66442b2c4b3b32418a95cb37f0b8237, type: 3}
-  m_PrefabInstance: {fileID: 8749853690611581109}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8749853690611581109
 PrefabInstance:
   m_ObjectHideFlags: 0

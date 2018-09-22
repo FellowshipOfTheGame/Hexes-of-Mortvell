@@ -1157,7 +1157,9 @@ GameObject:
   - component: {fileID: 2088358389}
   - component: {fileID: 2088358391}
   - component: {fileID: 2088358390}
+  - component: {fileID: 2088358393}
   - component: {fileID: 2088358392}
+  - component: {fileID: 2088358394}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -1230,3 +1232,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 2088358389}
+--- !u!114 &2088358393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088358387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15d9bcdbfc444a47a3db5659c1ab4d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2088358394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088358387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0355186f6490bb14887b23a0583e84e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathListener: {fileID: 2088358393}

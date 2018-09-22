@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Collections;
 using UnityEngine;
 using HexesOfMortvell.Core.Grid;
 using HexesOfMortvell.Core.Units;
@@ -13,14 +14,22 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 
 		public override void Enter()
 		{
-			Debug.Log(GetType());
+			CommitHPValues();
+			foreach (var team in this.turn.teamsWithTurns)
+				Debug.Log($"{team.gameObject.name}: {string.Join(", ", team.Members)}");
 			ResetCurrentTeamUnitMovement();
 			// TODO turn start event (maybe?)
-			CommitHPValues();
-			this.fsm.Transition<BattleOverviewState>();
+			StartCoroutine(TransitionToOverviewOnNextFrame());
 		}
 
 		public override void Exit() {}
+
+		// Needed to allow the death event of units to propagate
+		IEnumerator TransitionToOverviewOnNextFrame()
+		{
+			yield return new WaitForEndOfFrame();
+			this.fsm.Transition<BattleOverviewState>();
+		}
 
 		void ResetCurrentTeamUnitMovement()
 		{
