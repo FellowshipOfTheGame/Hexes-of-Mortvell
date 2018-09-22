@@ -15,8 +15,6 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 		public override void Enter()
 		{
 			CommitHPValues();
-			foreach (var team in this.turn.teamsWithTurns)
-				Debug.Log($"{team.gameObject.name}: {string.Join(", ", team.Members)}");
 			ResetCurrentTeamUnitMovement();
 			// TODO turn start event (maybe?)
 			StartCoroutine(TransitionToOverviewOnNextFrame());

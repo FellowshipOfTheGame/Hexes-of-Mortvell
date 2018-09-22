@@ -21,7 +21,6 @@ namespace HexesOfMortvell.Core.Units.Teams
 
 		void OnDestroy()
 		{
-			Debug.Log("Destroying");
 			ExitTeam();
 		}
 
@@ -33,9 +32,7 @@ namespace HexesOfMortvell.Core.Units.Teams
 		/// </remarks>
 		public void ExitTeam()
 		{
-			Debug.Log(string.Join(", ", this.team.Members));
 			this.team.Remove(this);
-			Debug.Log(string.Join(", ", this.team.Members));
 		}
 	}
 }
