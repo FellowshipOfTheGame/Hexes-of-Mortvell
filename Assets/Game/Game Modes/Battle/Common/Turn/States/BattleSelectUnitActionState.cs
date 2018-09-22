@@ -14,10 +14,7 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 		public List<GameObject> debugActions;
 		public BattlePlayerOrders playerOrders;
 
-		public override void Enter()
-		{
-			Debug.Log(GetType());
-		}
+		public override void Enter() {}
 
 		public override void Exit() {}
 

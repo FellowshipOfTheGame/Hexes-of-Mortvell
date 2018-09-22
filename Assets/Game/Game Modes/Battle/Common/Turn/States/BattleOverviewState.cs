@@ -22,7 +22,6 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 
 		public override void Enter()
 		{
-			Debug.Log(GetType());
 			ResetPlayerOrders();
 			EnableEndTurnButton();
 			ApplyUnmovedUnitsHighlight();
@@ -63,12 +62,12 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 
 		void EnableEndTurnButton()
 		{
-			endTurn.interactable = true;
+			this.endTurn.interactable = true;
 		}
 
 		void DisableEndTurnButton()
 		{
-			endTurn.interactable = false;
+			this.endTurn.interactable = false;
 		}
 
 		void ApplyUnmovedUnitsHighlight()
