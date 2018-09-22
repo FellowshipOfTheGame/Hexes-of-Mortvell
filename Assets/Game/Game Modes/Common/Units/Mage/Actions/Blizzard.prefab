@@ -49,7 +49,7 @@ MonoBehaviour:
   weatherApplied: {fileID: 7326194417752092916, guid: ee1f204aca7ad734cbc6f90e930c0390, type: 3}
   weathersNeutralized:
   - {fileID: 8061558596878410663, guid: a5d66689c6b09a744a87030cae4b847c, type: 3}
-  - {fileID: 4549708328758517992, guid: 407a9ece836a86a4db080ff908ba1121, type: 3}
+  weathersNeutralizedComponents: []
   strongerWeathers: []
 --- !u!114 &7398678332059517954
 MonoBehaviour:
@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expandingWeather: {fileID: 4549708328758517992, guid: 407a9ece836a86a4db080ff908ba1121, type: 3}
+  alwaysIncludeTargets: 1
 --- !u!114 &841852050047799704
 MonoBehaviour:
   m_ObjectHideFlags: 0

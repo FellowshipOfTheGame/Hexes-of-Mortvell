@@ -8,9 +8,10 @@ namespace HexesOfMortvell.Core.Grid.Regions
 		// TODO documentation
 		public static IEnumerable<BoardCell> WeatherConnectedComponent(
 			this BoardCell seed,
-			GameObject weather,
+			GameObject weatherPrefab,
 			bool alwaysIncludeSeed=true)
 		{
+			var weather = weatherPrefab.GetComponent<BoardWeather>();
 			if (seed.HasWeather(weather))
 			{
 				return FindConnectedRegion(seed, weather);
@@ -26,7 +27,7 @@ namespace HexesOfMortvell.Core.Grid.Regions
 
 		private static IEnumerable<BoardCell> FindConnectedRegion(
 			BoardCell seed,
-			GameObject weather)
+			BoardWeather weather)
 		{
 			Queue<BoardCell> openNodes = new Queue<BoardCell>();
 			HashSet<BoardCell> closedNodes = new HashSet<BoardCell>();
