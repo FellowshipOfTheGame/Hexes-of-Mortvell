@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -21,8 +22,16 @@ MonoBehaviour:
     _y: -3
   - _x: 3
     _y: 3
+  - _x: -2
+    _y: -2
+  - _x: 2
+    _y: 2
   spawnInfo:
-  - prefab: {fileID: 1009992586163188, guid: 631f041d42a22fe4881bc85f54609738, type: 2}
+  - prefab: {fileID: 1009992586163188, guid: 631f041d42a22fe4881bc85f54609738, type: 3}
     teamIndex: 0
-  - prefab: {fileID: 1009992586163188, guid: 631f041d42a22fe4881bc85f54609738, type: 2}
+  - prefab: {fileID: 1009992586163188, guid: 631f041d42a22fe4881bc85f54609738, type: 3}
+    teamIndex: 1
+  - prefab: {fileID: 5465037059586018015, guid: 6248241616510c54f832f1497f7eb8e8, type: 3}
+    teamIndex: 0
+  - prefab: {fileID: 5465037059586018015, guid: 6248241616510c54f832f1497f7eb8e8, type: 3}
     teamIndex: 1
