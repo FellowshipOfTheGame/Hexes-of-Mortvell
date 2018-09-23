@@ -930,6 +930,7 @@ MonoBehaviour:
   cellClickListener: {fileID: 2088358391}
   playerOrders: {fileID: 466081787}
   endTurn: {fileID: 1415574254}
+  actionableUnitHighlightColor: {fileID: 11400000, guid: 344ec50c6db46e745a645112dc24abd7, type: 2}
 --- !u!114 &1725322883
 MonoBehaviour:
   m_ObjectHideFlags: 0

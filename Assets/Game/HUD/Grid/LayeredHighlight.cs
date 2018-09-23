@@ -26,6 +26,11 @@ namespace HexesOfMortvell.Hud.Grid
 			UpdateRendererColor();
 		}
 
+		void OnDestroy()
+		{
+			this.Clear();
+		}
+
 		/// <summary>
 		/// Creates a new layer of highlight.
 		/// </summary>

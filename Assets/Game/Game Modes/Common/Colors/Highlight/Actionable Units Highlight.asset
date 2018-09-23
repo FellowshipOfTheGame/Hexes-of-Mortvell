@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Actionable Units Highlight
   m_EditorClassIdentifier: 
   defaultValue: {r: 1, g: 1, b: 1, a: 1}
-  alternateValue: {r: 1, g: 1, b: 1, a: 1}
-  useAlternate: 0
+  alternateValue: {r: 1, g: 0.011166511, b: 0, a: 1}
+  useAlternate: 1
