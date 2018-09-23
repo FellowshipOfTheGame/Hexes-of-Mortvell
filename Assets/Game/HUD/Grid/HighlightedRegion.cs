@@ -49,6 +49,18 @@ namespace HexesOfMortvell.Hud.Grid
 			}
 		}
 
+		public HighlightedRegion(
+			IEnumerable<LayeredHighlight> cellHighlights,
+			ColorReference colorReference)
+		{
+			this.highlights = new List<IDisposable>();
+			foreach (var cellHighlight in cellHighlights)
+			{
+				var layer = cellHighlight.AddLayer(colorReference);
+				this.highlights.Add(layer);
+			}
+		}
+
 		public void Dispose()
 		{
 			foreach (var layer in this.highlights)
@@ -86,6 +98,15 @@ namespace HexesOfMortvell.Hud.Grid
 			var highlightComponents = region
 				.Select(cell => cell.GetComponent<LayeredHighlight>());
 			return new HighlightedRegion(highlightComponents, colors);
+		}
+
+		public static HighlightedRegion AddHighlightLayer(
+			this IEnumerable<BoardCell> region,
+			ColorReference colorReference)
+		{
+			var highlightComponents = region
+				.Select(cell => cell.GetComponent<LayeredHighlight>());
+			return new HighlightedRegion(highlightComponents, colorReference);
 		}
 
 		/// <summary>
