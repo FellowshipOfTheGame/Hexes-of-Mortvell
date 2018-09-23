@@ -14,11 +14,6 @@ namespace HexesOfMortvell.Core.Actions
 	public abstract class ActionTargetFilter : MonoBehaviour
 	{
 		/// <summary>
-		/// The number of targets for the action.
-		/// </summary>
-		public abstract int TargetCount { get; }
-
-		/// <summary>
 		/// Returns which cells can be used as targets.
 		/// </summary>
 		/// <param name="actor">The entity trying to perform the action.</param>

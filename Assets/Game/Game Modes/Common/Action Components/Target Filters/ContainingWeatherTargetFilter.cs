@@ -6,7 +6,7 @@ using HexesOfMortvell.Core.Grid.Regions;
 
 namespace HexesOfMortvell.GameModes.Common
 {
-	public class ContainingWeatherTargetFilter : RadiusFromActorTargetFilter
+	public class ContainingWeatherTargetFilter : RadiusFromLastClickTargetFilter
 	{
 		public override IEnumerable<BoardCell> ValidTargets(
 			BoardCellContent actor,

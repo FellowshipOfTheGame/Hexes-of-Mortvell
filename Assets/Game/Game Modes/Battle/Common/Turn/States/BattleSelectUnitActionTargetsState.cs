@@ -16,10 +16,12 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 		public CellClickListener cellClickListener;
 		private ISet<BoardCell> validNextTargets;
 		private IDisposable validNextTargetsHighlight;
+		private ActionTargetFilter[] targetFilters;
 
 		public override void Enter()
 		{
 			Debug.Log(GetType());
+			RetrieveTargetFilters();
 			RegisterClickHandler();
 			PrepareForNextTarget();
 		}
@@ -42,20 +44,25 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 			PrepareForNextTarget();
 		}
 
+		void RetrieveTargetFilters()
+		{
+			this.targetFilters = this.playerOrders.action
+				.GetComponents<ActionTargetFilter>();
+		}
+
 		void PrepareForNextTarget()
 		{
 			RemoveValidTargetHighlight();
 
-			var targetFilter = this.playerOrders.action
-				.GetComponent<ActionTargetFilter>();
 			var currentTargetCount = this.playerOrders.actionTargets.Count;
 
-			if (currentTargetCount == targetFilter.TargetCount)
+			if (currentTargetCount == targetFilters.Length)
 			{
 				this.FinishTargetSelection();
 				return;
 			}
-			var filterTargets = targetFilter.ValidTargets(
+			var currentTargetFilter = targetFilters[currentTargetCount];
+			var filterTargets = currentTargetFilter.ValidTargets(
 				this.playerOrders.unit.AsCellContent,
 				this.playerOrders.actionTargets);
 			this.validNextTargets = new HashSet<BoardCell>(filterTargets);

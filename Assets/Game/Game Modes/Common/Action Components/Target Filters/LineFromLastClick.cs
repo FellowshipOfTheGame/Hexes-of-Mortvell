@@ -6,9 +6,8 @@ using HexesOfMortvell.Core.Grid.Regions;
 
 namespace HexesOfMortvell.GameModes.Common
 {
-	public class LineFromActor : ActionTargetFilter
+	public class LineFromLastClick : ActionTargetFilter
 	{
-		public override int TargetCount => 1;
 		public int maxLength;
 		public bool includeOrigin;
 		public bool stopAtOccupiedCells;
@@ -17,9 +16,11 @@ namespace HexesOfMortvell.GameModes.Common
 			BoardCellContent actor,
 			IEnumerable<BoardCell> partialTargets)
 		{
+			var lastTarget = partialTargets.LastOrDefault();
+			var center = lastTarget ?? actor.Cell;
 			return Direction.NonStayDirections
 				.SelectMany(
-					direction => actor.Cell.StraightLineTowards(
+					direction => center.StraightLineTowards(
 						direction,
 						maxLength: this.maxLength,
 						includeOrigin: this.includeOrigin,

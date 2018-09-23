@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7a421305e40fc4ca029bd30d797e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetCount: 2
   radius: 3
 --- !u!114 &3464061324960611588
 MonoBehaviour:
@@ -61,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLength: 2
-  includeOrigin: 1
+  includeOrigin: 0
   stopAtOccupiedCells: 0
 --- !u!114 &3658193567062928046
 MonoBehaviour:
