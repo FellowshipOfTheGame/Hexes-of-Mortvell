@@ -90,4 +90,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d67684104fd9a8488b24bd067371693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  insideAoeColor: {r: 1, g: 0.7921569, b: 0.2784314, a: 1}
+  insideAoeColor: {fileID: 11400000, guid: 344ec50c6db46e745a645112dc24abd7, type: 2}

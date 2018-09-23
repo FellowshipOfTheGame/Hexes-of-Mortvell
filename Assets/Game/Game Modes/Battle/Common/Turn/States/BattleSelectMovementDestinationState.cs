@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HexesOfMortvell.DesignPatterns.Fsm;
 using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Hud;
 using HexesOfMortvell.Hud.Grid;
 using HexesOfMortvell.GameModes.Common;
 
@@ -14,8 +15,7 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 		public BattlePlayerOrders playerOrders;
 		public CellClickListener clickListener;
 
-		[Header("Values")]
-		public Color reachableCellColor;
+		public ColorReference reachableCellColor;
 
 		private IDisposable reachableCellsHighlight;
 		private ISet<BoardCell> reachableCells;

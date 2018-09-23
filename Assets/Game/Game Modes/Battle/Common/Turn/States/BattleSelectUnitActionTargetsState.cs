@@ -6,6 +6,7 @@ using HexesOfMortvell.DesignPatterns.Fsm;
 using HexesOfMortvell.Core.Actions;
 using HexesOfMortvell.Core.Grid;
 using HexesOfMortvell.GameModes.Common;
+using HexesOfMortvell.Hud;
 using HexesOfMortvell.Hud.Grid;
 using HexesOfMortvell.Hud.Actions;
 
@@ -17,9 +18,7 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 		public BattlePlayerOrders playerOrders;
 		public CellClickListener cellClickListener;
 		public CellHoverListener cellHoverListener;
-
-		[Header("Values")]
-		public Color validTargetColor;
+		public ColorReference validTargetColor;
 
 		private ISet<BoardCell> validNextTargets;
 		private IDisposable validNextTargetsHighlight;

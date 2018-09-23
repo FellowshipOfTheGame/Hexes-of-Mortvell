@@ -49,7 +49,6 @@ MonoBehaviour:
   weatherApplied: {fileID: 7326194417752092916, guid: ee1f204aca7ad734cbc6f90e930c0390, type: 3}
   weathersNeutralized:
   - {fileID: 8061558596878410663, guid: a5d66689c6b09a744a87030cae4b847c, type: 3}
-  weathersNeutralizedComponents: []
   strongerWeathers: []
 --- !u!114 &7398678332059517954
 MonoBehaviour:
@@ -91,4 +90,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d67684104fd9a8488b24bd067371693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  insideAoeColor: {r: 1, g: 0.7921569, b: 0.2784314, a: 1}
+  insideAoeColor: {fileID: 11400000, guid: 67f61ab667805a448a96f001d1c7b42f, type: 2}
