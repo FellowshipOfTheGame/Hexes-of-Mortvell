@@ -21,7 +21,7 @@ namespace HexesOfMortvell.Testing.TeamsTest
 
 		void OnMouseOver()
 		{
-			this.image.color = this.teamColor.Color;
+			this.image.color = this.teamColor.color.Value;
 		}
 
 		void ErrorIfNoTeamColor()
