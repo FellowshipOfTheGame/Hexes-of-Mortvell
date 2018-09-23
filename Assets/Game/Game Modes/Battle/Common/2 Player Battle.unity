@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bc712006969ad4f90b99f04607be20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 0.21226418, g: 0.41740435, b: 1, a: 1}
+  color: {fileID: 11400000, guid: 14d0a8c8a94da084bbe2af88d22931a7, type: 2}
 --- !u!114 &89848142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,6 +483,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: HexesOfMortvell.Core.VictoryConditions.GameModeReferee+VictoryEventHandler, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  matchEnded: 0
   deathListener: {fileID: 2088358393}
   turn: {fileID: 1884063501}
 --- !u!1001 &1000566766
@@ -578,7 +579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bc712006969ad4f90b99f04607be20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 1, g: 0.36320752, b: 0.38193673, a: 1}
+  color: {fileID: 11400000, guid: 2e10f26d5adb9ab429cb06c5287d3337, type: 2}
 --- !u!114 &1230601746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -866,7 +867,7 @@ MonoBehaviour:
   playerOrders: {fileID: 466081787}
   cellClickListener: {fileID: 2088358391}
   cellHoverListener: {fileID: 2088358390}
-  validTargetColor: {r: 1, g: 1, b: 1, a: 1}
+  validTargetColor: {fileID: 11400000, guid: 3386c93a337a68148962148fa8e1690c, type: 2}
 --- !u!114 &1725322879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -899,7 +900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerOrders: {fileID: 466081787}
   clickListener: {fileID: 2088358391}
-  reachableCellColor: {r: 1, g: 1, b: 1, a: 1}
+  reachableCellColor: {fileID: 11400000, guid: c5f753aa2c457ab47ae0aa19a7815844, type: 2}
 --- !u!114 &1725322881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -929,6 +930,7 @@ MonoBehaviour:
   cellClickListener: {fileID: 2088358391}
   playerOrders: {fileID: 466081787}
   endTurn: {fileID: 1415574254}
+  actionableUnitHighlightColor: {fileID: 11400000, guid: 344ec50c6db46e745a645112dc24abd7, type: 2}
 --- !u!114 &1725322883
 MonoBehaviour:
   m_ObjectHideFlags: 0
