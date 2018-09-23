@@ -20,7 +20,7 @@ namespace HexesOfMortvell.Hud.Teams
 			ErrorIfNoTeamColor();
 			var handler = new ValueObserver<Color>(
 				nextEventHandler: UpdateColor);
-			this.subscription = teamColor.AsObservable.Subscribe(handler);
+			this.subscription = this.teamColor.AsObservable.Subscribe(handler);
 			UpdateColor(teamColor.Color);
 		}
 
