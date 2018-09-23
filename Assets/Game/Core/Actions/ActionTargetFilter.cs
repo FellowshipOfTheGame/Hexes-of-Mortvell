@@ -8,8 +8,8 @@ namespace HexesOfMortvell.Core.Actions
 	/// The component of the action which dictates which cells can be targeted.
 	/// </summary>
 	/// <remarks>
-	/// If multiple filter componentss are present, the resulting targets should
-	/// be the intersection of the areas given.
+	/// If multiple filter components are present, they should be put
+	/// in the order of the targets to be selected.
 	/// </remarks>
 	public abstract class ActionTargetFilter : MonoBehaviour
 	{
