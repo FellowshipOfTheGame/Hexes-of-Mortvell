@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc7000fd6c627d47bd99a0409324afa, type: 3}
   m_Name: Team 1 Color
   m_EditorClassIdentifier: 
+  defaultValue: {r: 1, g: 0.4292453, b: 0.4292453, a: 1}
+  alternateValue: {r: 0.5660378, g: 0, b: 0.4822878, a: 1}
+  useAlternate: 0

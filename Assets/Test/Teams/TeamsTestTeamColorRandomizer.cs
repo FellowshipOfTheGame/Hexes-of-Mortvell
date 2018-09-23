@@ -29,7 +29,7 @@ namespace HexesOfMortvell.Testing.TeamsTest
 				randomIdx = (int) (Random.value * Colors.Length);
 			}
 			while (randomIdx == curIdx);
-			teamColor.color.Value = Colors[randomIdx];
+			// teamColor.color.Value = Colors[randomIdx];
 			curIdx = randomIdx;
 		}
 	}

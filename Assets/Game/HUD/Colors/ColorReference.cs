@@ -7,15 +7,19 @@ namespace HexesOfMortvell.Hud
 	[CreateAssetMenu(fileName="New Color", menuName="HexesOfMortvell/Color")]
 	public class ColorReference : ScriptableObject
 	{
-		// TODO accessibility
+		[SerializeField]
+		private Color defaultValue = Color.white;
+		[SerializeField]
+		private Color alternateValue = Color.white;
 
 		[SerializeField]
-		private Color _color = Color.white;
+		private bool useAlternate = false;
+
 		public Color Value
 		{
 			get { return GetValue(); }
-			set { SetValue(value); }
 		}
+
 		private ObservableValue<Color> observable
 			= new ObservableValue<Color>();
 
@@ -26,23 +30,31 @@ namespace HexesOfMortvell.Hud
 
 		void OnEnable()
 		{
-			SetValue(this._color);
+			UpdateValues();
 		}
 
 		void OnValidate()
 		{
-			SetValue(this._color);
+			UpdateValues();
+		}
+
+		public void SetMode(bool useAlternate)
+		{
+			this.useAlternate = useAlternate;
+			UpdateValues();
 		}
 
 		public Color GetValue()
 		{
-			return this._color;
+			if (this.useAlternate)
+				return this.alternateValue;
+			else
+				return this.defaultValue;
 		}
 
-		public void SetValue(Color value)
+		void UpdateValues()
 		{
-			this._color = value;
-			this.observable.Value = value;
+			this.observable.Value = GetValue();
 		}
 	}
 }
