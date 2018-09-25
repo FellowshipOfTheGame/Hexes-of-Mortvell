@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 582331701301385877}
   - component: {fileID: 3464061324960611588}
   - component: {fileID: 3658193567062928046}
-  - component: {fileID: 6341215347658720209}
+  - component: {fileID: 5882782210169270530}
   m_Layer: 0
   m_Name: Call Winds
   m_TagString: Untagged
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad37eee46a6f0b441a931faccc28f6b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6341215347658720209
+--- !u!114 &5882782210169270530
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5830832831708484679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd42bb8b18ef9714e836b65cc7aeac65, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a2fcdcbf5e8aac438e08e68f34f6b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weatherApplied: {fileID: 0}
