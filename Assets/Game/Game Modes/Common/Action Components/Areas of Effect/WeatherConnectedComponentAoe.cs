@@ -10,12 +10,15 @@ namespace HexesOfMortvell.GameModes.Common
 	public class WeatherConnectedComponentAoe : ActionAoe
 	{
 		public GameObject expandingWeather;
+		public bool alwaysIncludeTargets = true;
 
 		public override IEnumerable<BoardCell> GetAoe(
 			IEnumerable<BoardCell> targets)
 		{
 			return targets.SelectMany(
-				target => target.WeatherConnectedComponent(expandingWeather));
+				target => target.WeatherConnectedComponent(
+					expandingWeather,
+					alwaysIncludeSeed: this.alwaysIncludeTargets));
 		}
 	}
 }

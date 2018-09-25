@@ -22,6 +22,11 @@ namespace HexesOfMortvell.Core.Grid
 			this.transform = GetComponent<Transform>();
 		}
 
+		void OnDestroy()
+		{
+			this.Cell.Content = null;
+		}
+
 		public BoardCell GetCell()
 		{
 			return this._cell;

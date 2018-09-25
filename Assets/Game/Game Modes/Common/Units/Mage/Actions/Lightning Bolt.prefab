@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 114349489173112600}
   - component: {fileID: 114014469187369300}
   - component: {fileID: 5755683601821718305}
+  - component: {fileID: 6017177010687915892}
   m_Layer: 0
   m_Name: Lightning Bolt
   m_TagString: Untagged
@@ -73,3 +74,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expandingWeather: {fileID: 4549708328758517992, guid: 407a9ece836a86a4db080ff908ba1121, type: 3}
+  alwaysIncludeTargets: 1
+--- !u!114 &6017177010687915892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934433316892104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d67684104fd9a8488b24bd067371693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insideAoeColor: {fileID: 11400000, guid: 67f61ab667805a448a96f001d1c7b42f, type: 2}

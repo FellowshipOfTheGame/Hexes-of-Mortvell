@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bc712006969ad4f90b99f04607be20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 0.21226418, g: 0.41740435, b: 1, a: 1}
+  color: {fileID: 11400000, guid: 14d0a8c8a94da084bbe2af88d22931a7, type: 2}
 --- !u!114 &89848142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,8 +423,69 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &989720142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 989720143}
+  - component: {fileID: 989720144}
+  m_Layer: 0
+  m_Name: Referee
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &989720143
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989720142}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &989720144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989720142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39833576db181a642b43a678be764354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  victoryEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 989720144}
+        m_MethodName: TestPrint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: HexesOfMortvell.Core.VictoryConditions.GameModeReferee+VictoryEventHandler, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  matchEnded: 0
+  deathListener: {fileID: 2088358393}
+  turn: {fileID: 1884063501}
 --- !u!1001 &1000566766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -518,7 +579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bc712006969ad4f90b99f04607be20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 1, g: 0.36320752, b: 0.38193673, a: 1}
+  color: {fileID: 11400000, guid: 2e10f26d5adb9ab429cb06c5287d3337, type: 2}
 --- !u!114 &1230601746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -805,6 +866,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerOrders: {fileID: 466081787}
   cellClickListener: {fileID: 2088358391}
+  cellHoverListener: {fileID: 2088358390}
+  validTargetColor: {fileID: 11400000, guid: 3386c93a337a68148962148fa8e1690c, type: 2}
 --- !u!114 &1725322879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -839,6 +902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerOrders: {fileID: 466081787}
   clickListener: {fileID: 2088358391}
+  reachableCellColor: {fileID: 11400000, guid: c5f753aa2c457ab47ae0aa19a7815844, type: 2}
 --- !u!114 &1725322881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -868,6 +932,7 @@ MonoBehaviour:
   cellClickListener: {fileID: 2088358391}
   playerOrders: {fileID: 466081787}
   endTurn: {fileID: 1415574254}
+  actionableUnitHighlightColor: {fileID: 11400000, guid: 344ec50c6db46e745a645112dc24abd7, type: 2}
 --- !u!114 &1725322883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1011,9 +1076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aebd9c35657e6af4e8c4596dbdd3c474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teamsWithTurns:
-  - {fileID: 1230601746}
-  - {fileID: 89848142}
+  teamsWithTurns: {fileID: 794916448}
   currentTeamIndex: 0
 --- !u!1 &1980378400
 GameObject:
@@ -1107,7 +1170,7 @@ RectTransform:
   m_Children:
   - {fileID: 1415574253}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1126,7 +1189,9 @@ GameObject:
   - component: {fileID: 2088358389}
   - component: {fileID: 2088358391}
   - component: {fileID: 2088358390}
+  - component: {fileID: 2088358393}
   - component: {fileID: 2088358392}
+  - component: {fileID: 2088358394}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -1199,3 +1264,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 2088358389}
+--- !u!114 &2088358393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088358387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15d9bcdbfc444a47a3db5659c1ab4d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2088358394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088358387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0355186f6490bb14887b23a0583e84e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathListener: {fileID: 2088358393}

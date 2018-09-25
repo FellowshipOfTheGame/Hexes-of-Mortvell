@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HexesOfMortvell.DesignPatterns.Fsm;
 using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Hud;
 using HexesOfMortvell.Hud.Grid;
 using HexesOfMortvell.GameModes.Common;
 
@@ -10,15 +11,17 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 {
 	public class BattleSelectMovementDestinationState : FsmState
 	{
+		[Header("References")]
 		public BattlePlayerOrders playerOrders;
 		public CellClickListener clickListener;
+
+		public ColorReference reachableCellColor;
 
 		private IDisposable reachableCellsHighlight;
 		private ISet<BoardCell> reachableCells;
 
 		public override void Enter()
 		{
-			Debug.Log(GetType());
 			if (SelectedUnitIsImmobile())
 			{
 				SkipState();
@@ -76,7 +79,7 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 		void ApplyReachableHighlight()
 		{
 			this.reachableCellsHighlight = this.reachableCells
-				.AddHighlightLayer(Color.blue);
+				.AddHighlightLayer(reachableCellColor);
 		}
 
 		void RemoveReachableHighlight()

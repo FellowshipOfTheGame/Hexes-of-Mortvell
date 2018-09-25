@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8326446852521533224}
   - component: {fileID: 7398678332059517954}
   - component: {fileID: 5539703624761918381}
+  - component: {fileID: 841852050047799704}
   m_Layer: 0
   m_Name: Blizzard
   m_TagString: Untagged
@@ -48,7 +49,6 @@ MonoBehaviour:
   weatherApplied: {fileID: 7326194417752092916, guid: ee1f204aca7ad734cbc6f90e930c0390, type: 3}
   weathersNeutralized:
   - {fileID: 8061558596878410663, guid: a5d66689c6b09a744a87030cae4b847c, type: 3}
-  - {fileID: 4549708328758517992, guid: 407a9ece836a86a4db080ff908ba1121, type: 3}
   strongerWeathers: []
 --- !u!114 &7398678332059517954
 MonoBehaviour:
@@ -77,3 +77,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expandingWeather: {fileID: 4549708328758517992, guid: 407a9ece836a86a4db080ff908ba1121, type: 3}
+  alwaysIncludeTargets: 1
+--- !u!114 &841852050047799704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4489727899847368640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d67684104fd9a8488b24bd067371693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insideAoeColor: {fileID: 11400000, guid: 67f61ab667805a448a96f001d1c7b42f, type: 2}

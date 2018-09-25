@@ -24,7 +24,8 @@ namespace HexesOfMortvell.Core.Units.Teams
 		/// </remarks>
 		public IReadOnlyList<TeamMember> Members
 		{
-			get { return new ReadOnlyCollection<TeamMember>(observableMembers.Value); }
+			get { return new ReadOnlyCollection<TeamMember>(
+				observableMembers.Value); }
 		}
 
 		public IObservable<IList<TeamMember>> AsObservable

@@ -7,6 +7,7 @@ using HexesOfMortvell.Core.Units.Teams;
 using HexesOfMortvell.Core.Grid;
 using HexesOfMortvell.Core.Units;
 using HexesOfMortvell.GameModes.Common;
+using HexesOfMortvell.Hud;
 using HexesOfMortvell.Hud.Grid;
 
 namespace HexesOfMortvell.GameModes.Battle.Common
@@ -17,12 +18,12 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 		public CellClickListener cellClickListener;
 		public BattlePlayerOrders playerOrders;
 		public Button endTurn;
+		public ColorReference actionableUnitHighlightColor;
 
 		private IDisposable unmovedUnitsHighlight;
 
 		public override void Enter()
 		{
-			Debug.Log(GetType());
 			ResetPlayerOrders();
 			EnableEndTurnButton();
 			ApplyUnmovedUnitsHighlight();
@@ -63,12 +64,12 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 
 		void EnableEndTurnButton()
 		{
-			endTurn.interactable = true;
+			this.endTurn.interactable = true;
 		}
 
 		void DisableEndTurnButton()
 		{
-			endTurn.interactable = false;
+			this.endTurn.interactable = false;
 		}
 
 		void ApplyUnmovedUnitsHighlight()
@@ -79,7 +80,7 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 				.Where(unit => !unit.hasMoved)
 				.Select(unit => unit.AsCellContent.Cell);
 			this.unmovedUnitsHighlight =
-				toBeHighlighted.AddHighlightLayer(Color.white);
+				toBeHighlighted.AddHighlightLayer(actionableUnitHighlightColor);
 		}
 
 		void RemoveUnmovedUnitsHighlight()

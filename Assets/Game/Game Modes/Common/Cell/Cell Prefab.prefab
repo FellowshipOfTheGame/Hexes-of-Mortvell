@@ -126,6 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4504375549492004}
   - component: {fileID: 212142334426465286}
+  - component: {fileID: 3721833762708774060}
   m_Layer: 0
   m_Name: Highlight
   m_TagString: Untagged
@@ -195,6 +196,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3721833762708774060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294239536320486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f60e1901f48814ea83823f0097f661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlight: {fileID: 114308247127227400}
+  highlightColor: {r: 0.48446676, g: 0, b: 0.559, a: 1}
 --- !u!1 &1428858368162736
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +331,17 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 3721833762708774060}
+          m_MethodName: ApplyHighlight
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 114623241937564662}
           m_MethodName: HoverEnter
           m_Mode: 1
@@ -334,6 +360,22 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 114120602069708926}
           m_MethodName: Click
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3721833762708774060}
+          m_MethodName: DisposeHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

@@ -11,7 +11,6 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 
 		public override void Enter()
 		{
-			Debug.Log(GetType().Name);
 			this.teamAssigner.doneAssigningTeams += StartFirstTurn;
 		}
 

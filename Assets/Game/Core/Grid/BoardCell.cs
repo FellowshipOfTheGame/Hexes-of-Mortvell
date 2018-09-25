@@ -60,16 +60,15 @@ namespace HexesOfMortvell.Core.Grid
 			set { SetContent(value); }
 		}
 
-		private GameObject _weather;
 		private string weatherName;
 
 		/// <summary>
 		/// Retrieves the instance of the cell's current weather.
 		/// </summary>
-		public GameObject Weather
+		public BoardWeather Weather
 		{
-			get { return GetWeather(); }
-			private set { SetWeather(value); }
+			get;
+			private set;
 		}
 
 		[SerializeField]
@@ -176,28 +175,30 @@ namespace HexesOfMortvell.Core.Grid
 			UpdateTerrainSprite();
 		}
 
-		public GameObject GetWeather()
+		public BoardWeather GetWeather()
 		{
-			return this._weather;
+			return this.Weather;
 		}
 
-		public void SetWeather(GameObject weatherPrefab)
+		public void ReplaceWeather(GameObject weatherPrefab)
 		{
 			if (this.Weather != null)
-				Destroy(this.Weather);
+				Destroy(this.Weather.gameObject);
 			if (weatherPrefab == null)
-				this._weather = null;
+				this.Weather = null;
 			else
 			{
-				this._weather = Instantiate(
-					weatherPrefab, this.Transform, false);
-				this.weatherName = weatherPrefab.name;
+				this.Weather = Instantiate(
+					weatherPrefab, this.Transform, false)
+					.GetComponent<BoardWeather>();
 			}
 		}
 
-		public bool HasWeather(GameObject weatherPrefab)
+		public bool HasWeather(BoardWeather weather)
 		{
-			return this.weatherName == weatherPrefab?.name;
+			if (this.Weather == null)
+				return weather == null;
+			return this.Weather.Equals(weather);
 		}
 
 		void ErrorIfOccupied()
