@@ -180,7 +180,7 @@ namespace HexesOfMortvell.Core.Grid
 			return this.Weather;
 		}
 
-		public void InstantiateWeather(GameObject weatherPrefab)
+		public void ChangeWeather(GameObject weatherPrefab)
 		{
 			if (this.Weather != null)
 				Destroy(this.Weather.gameObject);
