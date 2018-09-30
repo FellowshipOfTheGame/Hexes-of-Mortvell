@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uniqueName: Rain
+  replaceableWeathers: []
+  neutralizableWeathers:
+  - {fileID: 340605988764370400, guid: a5d66689c6b09a744a87030cae4b847c, type: 3}
 --- !u!1 &5645020378207042075
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,10 +88,11 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5645020378207042075}
-  serializedVersion: 5
+  serializedVersion: 6
   lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
+  cullingMode: 1
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
@@ -4781,10 +4785,11 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5730446630581672181}
-  serializedVersion: 5
+  serializedVersion: 6
   lengthInSec: 5
   simulationSpeed: 1
   stopAction: 0
+  cullingMode: 1
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
