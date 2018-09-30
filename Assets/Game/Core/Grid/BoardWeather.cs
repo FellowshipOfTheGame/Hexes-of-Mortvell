@@ -27,11 +27,11 @@ namespace HexesOfMortvell.Core.Grid
 			if (cell.Weather == null ||
 				this.replaceableWeathers.Contains(cell.Weather))
 			{
-				cell.InstantiateWeather(this.gameObject);
+				cell.ChangeWeather(this.gameObject);
 			}
 			else if (this.neutralizableWeathers.Contains(cell.Weather))
 			{
-				cell.InstantiateWeather(null);
+				cell.ChangeWeather(null);
 			}
 		}
 	}
