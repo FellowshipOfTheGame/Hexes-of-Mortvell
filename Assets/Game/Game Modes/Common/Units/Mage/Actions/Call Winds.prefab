@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3464061324960611588}
   - component: {fileID: 3658193567062928046}
   - component: {fileID: 5882782210169270530}
+  - component: {fileID: 1821710327168080164}
   m_Layer: 0
   m_Name: Call Winds
   m_TagString: Untagged
@@ -89,3 +90,16 @@ MonoBehaviour:
   weatherApplied: {fileID: 0}
   weathersNeutralized: []
   strongerWeathers: []
+--- !u!114 &1821710327168080164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5830832831708484679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d67684104fd9a8488b24bd067371693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insideAoeColor: {fileID: 11400000, guid: 67f61ab667805a448a96f001d1c7b42f, type: 2}
