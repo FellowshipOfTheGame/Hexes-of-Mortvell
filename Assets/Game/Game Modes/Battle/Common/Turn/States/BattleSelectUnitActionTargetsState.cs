@@ -22,11 +22,14 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 
 		private ISet<BoardCell> validNextTargets;
 		private IDisposable validNextTargetsHighlight;
+
+		private ActionTargetFilter[] targetFilters;
 		private IDisposable aoeHighlight;
 		private BoardCell hoveredCell;
 
 		public override void Enter()
 		{
+			RetrieveTargetFilters();
 			RegisterClickHandler();
 			RegisterHoverHandler();
 			PrepareForNextTarget();
@@ -52,19 +55,25 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 			PrepareForNextTarget();
 		}
 
+		void RetrieveTargetFilters()
+		{
+			this.targetFilters = this.playerOrders.action
+				.GetComponents<ActionTargetFilter>();
+		}
+
 		void PrepareForNextTarget()
 		{
 			RemoveValidTargetHighlight();
 
-			var targetFilter = this.playerOrders.action
-				.GetComponent<ActionTargetFilter>();
 			var currentTargetCount = this.playerOrders.actionTargets.Count;
 
-			if (currentTargetCount == targetFilter.TargetCount)
+			if (currentTargetCount == targetFilters.Length)
 			{
 				this.FinishTargetSelection();
 				return;
 			}
+
+			var targetFilter = targetFilters[currentTargetCount];
 
 			FindValidTargets(targetFilter);
 			ApplyValidTargetHighlight();
@@ -101,9 +110,8 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 			if (!this.validNextTargets.Contains(hoveredCell))
 				return;
 			var action = this.playerOrders.action;
-			var targetFilter = action.GetComponent<ActionTargetFilter>();
 			var currentTargets = this.playerOrders.actionTargets;
-			if (currentTargets.Count < targetFilter.TargetCount - 1)
+			if (currentTargets.Count < targetFilters.Length - 1)
 				// More than 1 target left to be selected, can't highlight
 				// aoe because it can't be calculated
 				return;

@@ -57,10 +57,14 @@ namespace HexesOfMortvell.Testing.ActionsTest
 		{
 			if (!this.validNextTargets.Contains(clickedCell))
 				return;
-			var targetFilter = this.playerOrder.action.GetComponent<ActionTargetFilter>();
-			this.playerOrder.selectedTargets.Add(clickedCell);
-			if (this.playerOrder.selectedTargets.Count == targetFilter.TargetCount)
+			var targetFilters = this.playerOrder.action.GetComponents<ActionTargetFilter>();
+			if (this.playerOrder.selectedTargets.Count == targetFilters.Length)
+			{
 				this.fsm.Transition<ActionsTestPerformActionState>();
+				return;
+			}
+			var currentTargetFilter = targetFilters[this.playerOrder.selectedTargets.Count];
+			this.playerOrder.selectedTargets.Add(clickedCell);
 		}
 
 		void UpdateValidTargets()

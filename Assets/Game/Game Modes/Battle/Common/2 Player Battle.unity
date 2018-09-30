@@ -885,6 +885,8 @@ MonoBehaviour:
   - {fileID: 1934433316892104, guid: ca57691b329a50c49a7c253961eec0c5, type: 3}
   - {fileID: 4489727899847368640, guid: 436d4e464cc679a4691943b42edd9ad9, type: 3}
   - {fileID: 410018088808004959, guid: 9da774794578e0c4caf7dc5fdf13285e, type: 3}
+  - {fileID: 2589802015367938064, guid: e4157b6906801324d895d90eeec2b637, type: 3}
+  - {fileID: 5830832831708484679, guid: db192c451153e85428a1dac034b88168, type: 3}
   playerOrders: {fileID: 466081787}
 --- !u!114 &1725322880
 MonoBehaviour:
