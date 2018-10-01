@@ -8,21 +8,42 @@ namespace HexesOfMortvell.GameModes.Common
 {
 	public class ConnectTheDotsAoe : ActionAoe
 	{
+		public bool startAtActor;
+		public bool includeFirstDot;
+
 		public override IEnumerable<BoardCell> GetAoe(
+			BoardCellContent actor,
 			IEnumerable<BoardCell> targets)
 		{
 			var targetList = new List<BoardCell>(targets);
 			var aoe = new List<BoardCell>();
-			aoe.Add(targetList[0]);
 
-			var currentVertex = targetList[0];
-			var otherVertices = targetList.Skip(1);
+			BoardCell currentVertex;
+			IEnumerable<BoardCell> otherVertices;
+			if (this.startAtActor)
+			{
+				currentVertex = actor.Cell;
+				otherVertices = targetList;
+			}
+			else
+			{
+				currentVertex = targetList[0];
+				otherVertices = targetList.Skip(1);
+			}
+			if (this.includeFirstDot)
+			{
+				aoe.Add(currentVertex);
+			}
+
 			foreach (var nextVertex in otherVertices)
 			{
+				print($"{currentVertex} -> {nextVertex}");
 				var segment = currentVertex.StraightLineTowards(
 					nextVertex,
 					includeOrigin: false,
-					stopAtOccupiedCell: false);
+					stopAtOccupiedCell: false).ToList();
+				foreach (var x in segment)
+					print(x);
 				aoe.AddRange(segment);
 				currentVertex = nextVertex;
 			}

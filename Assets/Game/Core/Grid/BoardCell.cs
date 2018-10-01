@@ -185,11 +185,14 @@ namespace HexesOfMortvell.Core.Grid
 			if (this.Weather != null)
 				Destroy(this.Weather.gameObject);
 			if (weatherPrefab == null)
+			{
 				this.Weather = null;
+			}
 			else
 			{
-				this.Weather = Instantiate(
-					weatherPrefab, this.Transform, false)
+				this.Weather =
+					Instantiate(
+						weatherPrefab, this.Transform, false)
 					.GetComponent<BoardWeather>();
 			}
 		}

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7947299067663304209}
   - component: {fileID: 4380009098371166814}
+  - component: {fileID: 1662506359688575224}
   - component: {fileID: 4143003006676524071}
-  - component: {fileID: 8240599521150754314}
   - component: {fileID: 5694483495832117497}
   m_Layer: 0
   m_Name: Rock Throw
@@ -48,7 +48,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLength: 4
   includeOrigin: 0
-  stopAtOccupiedCells: 0
+  stopAtOccupiedCells: 1
+--- !u!114 &1662506359688575224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2589802015367938064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad37eee46a6f0b441a931faccc28f6b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startAtActor: 1
+  includeFirstDot: 0
 --- !u!114 &4143003006676524071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,18 +76,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
---- !u!114 &8240599521150754314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2589802015367938064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4bd14be818f3374980eb040ca8e55f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5694483495832117497
 MonoBehaviour:
   m_ObjectHideFlags: 0

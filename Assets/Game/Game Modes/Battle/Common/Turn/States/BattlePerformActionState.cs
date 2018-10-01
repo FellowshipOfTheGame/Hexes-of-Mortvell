@@ -20,7 +20,9 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 		{
 			var action = this.playerOrders.action;
 			var aoeComponent = action.GetComponent<ActionAoe>();
-			var aoe = aoeComponent.GetAoe(this.playerOrders.actionTargets);
+			var aoe = aoeComponent.GetAoe(
+				this.playerOrders.unit.AsCellContent.Cell.Content,
+				this.playerOrders.actionTargets);
 			var activeComponent= action.GetComponent<ActionActivation>();
 			activeComponent.Perform(
 				this.playerOrders.unit.AsCellContent,

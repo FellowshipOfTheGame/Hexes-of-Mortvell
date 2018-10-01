@@ -13,6 +13,7 @@ namespace HexesOfMortvell.GameModes.Common
 		public bool alwaysIncludeTargets = true;
 
 		public override IEnumerable<BoardCell> GetAoe(
+			BoardCellContent actor,
 			IEnumerable<BoardCell> targets)
 		{
 			return targets.SelectMany(

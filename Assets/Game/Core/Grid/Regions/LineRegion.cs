@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace HexesOfMortvell.Core.Grid.Regions
 {
@@ -14,6 +15,7 @@ namespace HexesOfMortvell.Core.Grid.Regions
 		{
 			var nullableDir = origin.Position
 				.StraightLineDirectionTowards(dest.Position);
+			Debug.Log($"Direction: {nullableDir}");
 			if (!nullableDir.HasValue)
 			{
 				var list = new List<BoardCell>();

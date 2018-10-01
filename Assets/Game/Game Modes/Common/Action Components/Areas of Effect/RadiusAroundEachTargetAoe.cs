@@ -11,6 +11,7 @@ namespace HexesOfMortvell.GameModes.Common
 		public int radius;
 
 		public override IEnumerable<BoardCell> GetAoe(
+			BoardCellContent actor,
 			IEnumerable<BoardCell> targets)
 		{
 			return targets

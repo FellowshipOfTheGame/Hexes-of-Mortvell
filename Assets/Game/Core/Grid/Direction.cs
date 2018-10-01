@@ -46,6 +46,11 @@ namespace HexesOfMortvell.Core.Grid
 			this.dz = -(dx + dy);
 		}
 
+		public override string ToString()
+		{
+			return $"Direction({this.dx}, {this.dy}, {this.dz})";
+		}
+
 		public override bool Equals(object other)
 		{
 			var asDirection = other as Direction?;
@@ -128,7 +133,7 @@ namespace HexesOfMortvell.Core.Grid
 			}
 			else if (self.Z == other.Z)
 			{
-				if (other.Y < self.Z)
+				if (other.Y < self.Y)
 					return Direction.ConstantZNegativeY;
 				else
 					return Direction.ConstantZPositiveY;
