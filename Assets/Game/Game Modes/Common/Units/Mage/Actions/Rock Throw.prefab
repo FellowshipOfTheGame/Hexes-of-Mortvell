@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLength: 4
   includeOrigin: 0
-  stopAtOccupiedCells: 1
+  occupiedCellBehaviour: 1
 --- !u!114 &1662506359688575224
 MonoBehaviour:
   m_ObjectHideFlags: 0

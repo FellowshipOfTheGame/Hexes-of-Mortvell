@@ -10,7 +10,14 @@ namespace HexesOfMortvell.GameModes.Common
 	{
 		public int maxLength;
 		public bool includeOrigin;
-		public bool stopAtOccupiedCells;
+
+		public enum OccupiedCellBehaviour
+		{
+			StopBefore,
+			StopButInclude,
+			Ignore
+		}
+		public OccupiedCellBehaviour occupiedCellBehaviour;
 
 		public override IEnumerable<BoardCell> ValidTargets(
 			BoardCellContent actor,
@@ -18,13 +25,33 @@ namespace HexesOfMortvell.GameModes.Common
 		{
 			var lastTarget = partialTargets.LastOrDefault();
 			var center = lastTarget ?? actor.Cell;
+			bool stopAtOccupiedCells =
+				this.occupiedCellBehaviour != OccupiedCellBehaviour.Ignore;
+			bool includeFirstOccupiedCell =
+				this.occupiedCellBehaviour != OccupiedCellBehaviour.StopBefore;
 			return Direction.NonStayDirections
 				.SelectMany(
-					direction => center.StraightLineTowards(
-						direction,
-						maxLength: this.maxLength,
-						includeOrigin: this.includeOrigin,
-						stopAtOccupiedCell: this.stopAtOccupiedCells));
+					direction => GetBranch(
+						center,
+						stopAtOccupiedCells,
+						includeFirstOccupiedCell,
+						direction));
+		}
+
+		IEnumerable<BoardCell> GetBranch(
+			BoardCell center,
+			bool stopAtOccupiedCells,
+			bool includeFirstOccupiedCell,
+			Direction direction)
+		{
+			var branch = center.StraightLineTowards(
+				direction,
+				maxLength: this.maxLength,
+				includeOrigin: this.includeOrigin,
+				stopAtOccupiedCell: stopAtOccupiedCells,
+				includeFirstOccupiedCell: includeFirstOccupiedCell);
+
+			return branch;
 		}
 	}
 }

@@ -11,11 +11,11 @@ namespace HexesOfMortvell.Core.Grid.Regions
 			BoardCell dest,
 			int? maxLength=null,
 			bool includeOrigin=false,
-			bool stopAtOccupiedCell=false)
+			bool stopAtOccupiedCell=false,
+			bool includeFirstOccupiedCell=false)
 		{
 			var nullableDir = origin.Position
 				.StraightLineDirectionTowards(dest.Position);
-			Debug.Log($"Direction: {nullableDir}");
 			if (!nullableDir.HasValue)
 			{
 				var list = new List<BoardCell>();
@@ -33,7 +33,8 @@ namespace HexesOfMortvell.Core.Grid.Regions
 				direction,
 				maxLength: maxLength,
 				includeOrigin: includeOrigin,
-				stopAtOccupiedCell: stopAtOccupiedCell);
+				stopAtOccupiedCell: stopAtOccupiedCell,
+				includeFirstOccupiedCell: includeFirstOccupiedCell);
 		}
 
 		public static IEnumerable<BoardCell> StraightLineTowards(
@@ -41,7 +42,8 @@ namespace HexesOfMortvell.Core.Grid.Regions
 			Direction direction,
 			int? maxLength=null,
 			bool includeOrigin=false,
-			bool stopAtOccupiedCell=false)
+			bool stopAtOccupiedCell=false,
+			bool includeFirstOccupiedCell=false)
 		{
 			if (includeOrigin)
 				yield return origin;
@@ -49,7 +51,13 @@ namespace HexesOfMortvell.Core.Grid.Regions
 			if (maxLength.HasValue)
 				line = line.Take(maxLength.Value);
 			if (stopAtOccupiedCell)
-				line = line.TakeWhile(cell => cell.Empty);
+				line = line.TakeWhile(cell => cell.Empty).ToList();
+			if (includeFirstOccupiedCell)
+			{
+				var neighbor = line.LastOrDefault()?.FindAdjacentCell(direction);
+				if (neighbor != null)
+					line = Enumerable.Concat(line, new[] { neighbor });
+			}
 			foreach (var cell in line)
 				yield return cell;
 		}
