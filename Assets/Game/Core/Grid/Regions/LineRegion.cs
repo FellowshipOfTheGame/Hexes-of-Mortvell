@@ -49,10 +49,13 @@ namespace HexesOfMortvell.Core.Grid.Regions
 				yield return origin;
 			var line = InternalStraightLineTowards(origin, direction);
 			if (maxLength.HasValue)
-				line = line.Take(maxLength.Value);
+				line = line.Take(maxLength.Value).ToList();
 			if (stopAtOccupiedCell)
 				line = line.TakeWhile(cell => cell.Empty).ToList();
-			if (includeFirstOccupiedCell)
+			bool stoppedEarly = maxLength.HasValue
+				&& line.Count() < maxLength.Value;
+			bool tryIncludeNext = stoppedEarly || !maxLength.HasValue;
+			if (includeFirstOccupiedCell && tryIncludeNext)
 			{
 				var neighbor = line.LastOrDefault()?.FindAdjacentCell(direction);
 				if (neighbor != null)
