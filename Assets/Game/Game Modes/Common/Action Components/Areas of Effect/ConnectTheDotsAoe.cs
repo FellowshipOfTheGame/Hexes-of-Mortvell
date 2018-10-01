@@ -42,10 +42,7 @@ namespace HexesOfMortvell.GameModes.Common
 				var segment = currentVertex
 					.StraightLineTowards(
 						nextVertex,
-						occupiedCellBehaviour: LineRegion.OccupiedCellBehaviour.Ignore)
-					.ToList();
-				foreach (var x in segment)
-					print(x);
+						occupiedCellBehaviour: LineRegion.OccupiedCellBehaviour.Ignore);
 				aoe.AddRange(segment);
 				currentVertex = nextVertex;
 			}

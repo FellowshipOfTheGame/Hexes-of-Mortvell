@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7947299067663304209}
   - component: {fileID: 4380009098371166814}
-  - component: {fileID: 1662506359688575224}
+  - component: {fileID: 1965622761098121803}
   - component: {fileID: 4143003006676524071}
   - component: {fileID: 5694483495832117497}
   m_Layer: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   maxLength: 4
   includeOrigin: 0
   occupiedCellBehaviour: 1
---- !u!114 &1662506359688575224
+--- !u!114 &1965622761098121803
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,11 +58,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2589802015367938064}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad37eee46a6f0b441a931faccc28f6b8, type: 3}
+  m_Script: {fileID: 11500000, guid: a55048b66812a2a4488021459750dfa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startAtActor: 1
-  includeFirstDot: 0
+  includeOrigin: 0
+  maxLength: 4
 --- !u!114 &4143003006676524071
 MonoBehaviour:
   m_ObjectHideFlags: 0

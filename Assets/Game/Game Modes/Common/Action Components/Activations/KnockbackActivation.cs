@@ -13,6 +13,7 @@ namespace HexesOfMortvell.GameModes.Common
 			IEnumerable<BoardCell> targets,
 			IEnumerable<BoardCell> aoe)
 		{
+			// TODO only checks target cells, not whole AOE
       var target = new List<BoardCell>(targets)[0];
 			realAoe = new List<BoardCell>(aoe);
 			if (!target.Empty) {
