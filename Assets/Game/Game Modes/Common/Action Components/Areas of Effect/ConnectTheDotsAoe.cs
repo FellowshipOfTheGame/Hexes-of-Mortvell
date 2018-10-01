@@ -4,6 +4,7 @@ using UnityEngine;
 using HexesOfMortvell.Core.Actions;
 using HexesOfMortvell.Core.Grid;
 using HexesOfMortvell.Core.Grid.Regions;
+using LineRegion = HexesOfMortvell.Core.Grid.Regions.BoardLineRegionExtension;
 
 namespace HexesOfMortvell.GameModes.Common
 {
@@ -38,11 +39,11 @@ namespace HexesOfMortvell.GameModes.Common
 
 			foreach (var nextVertex in otherVertices)
 			{
-				print($"{currentVertex} -> {nextVertex}");
-				var segment = currentVertex.StraightLineTowards(
-					nextVertex,
-					includeOrigin: false,
-					stopAtOccupiedCell: false).ToList();
+				var segment = currentVertex
+					.StraightLineTowards(
+						nextVertex,
+						occupiedCellBehaviour: LineRegion.OccupiedCellBehaviour.Ignore)
+					.ToList();
 				foreach (var x in segment)
 					print(x);
 				aoe.AddRange(segment);

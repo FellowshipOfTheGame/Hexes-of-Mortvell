@@ -6,13 +6,19 @@ namespace HexesOfMortvell.Core.Grid.Regions
 {
 	public static class BoardLineRegionExtension
 	{
+		public enum OccupiedCellBehaviour
+		{
+			StopBefore,
+			StopButInclude,
+			Ignore
+		}
+
 		public static IEnumerable<BoardCell> StraightLineTowards(
 			this BoardCell origin,
 			BoardCell dest,
 			int? maxLength=null,
 			bool includeOrigin=false,
-			bool stopAtOccupiedCell=false,
-			bool includeFirstOccupiedCell=false)
+			OccupiedCellBehaviour occupiedCellBehaviour=OccupiedCellBehaviour.Ignore)
 		{
 			var nullableDir = origin.Position
 				.StraightLineDirectionTowards(dest.Position);
@@ -33,8 +39,7 @@ namespace HexesOfMortvell.Core.Grid.Regions
 				direction,
 				maxLength: maxLength,
 				includeOrigin: includeOrigin,
-				stopAtOccupiedCell: stopAtOccupiedCell,
-				includeFirstOccupiedCell: includeFirstOccupiedCell);
+				occupiedCellBehaviour: occupiedCellBehaviour);
 		}
 
 		public static IEnumerable<BoardCell> StraightLineTowards(
@@ -42,9 +47,12 @@ namespace HexesOfMortvell.Core.Grid.Regions
 			Direction direction,
 			int? maxLength=null,
 			bool includeOrigin=false,
-			bool stopAtOccupiedCell=false,
-			bool includeFirstOccupiedCell=false)
+			OccupiedCellBehaviour occupiedCellBehaviour=OccupiedCellBehaviour.Ignore)
 		{
+			bool stopAtOccupiedCell =
+				occupiedCellBehaviour != OccupiedCellBehaviour.Ignore;
+			bool includeFirstOccupiedCell =
+				occupiedCellBehaviour != OccupiedCellBehaviour.StopBefore;
 			if (includeOrigin)
 				yield return origin;
 			var line = InternalStraightLineTowards(origin, direction);
