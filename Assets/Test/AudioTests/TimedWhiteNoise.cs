@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WhiteNoise : MonoBehaviour
+public class TimedWhiteNoise : MonoBehaviour
 {
     public float duration;
     public float upDuration;
     public float downDuration;
-    public AudioHighPassFilter filt;
+    public float HighFilterBase;
+    public float HighFilterRange;
+    public float LowFilterFrequency;
+    public AudioHighPassFilter HighFilt;
+    public AudioLowPassFilter LowFilt;
 
     private float ticksLeft;
     private float upTimeLeft;
@@ -21,19 +25,20 @@ public class WhiteNoise : MonoBehaviour
     {
         sampleRate = AudioSettings.outputSampleRate;
         rand = new System.Random();
+        LowFilt.cutoffFrequency = LowFilterFrequency;
     }
 
     private void Update()
     {
         if (upTimeLeft > 0)
         {
-            amp = upTimeLeft / upDuration;
+            amp = 1 - upTimeLeft / upDuration;
             upTimeLeft -= Time.deltaTime;
-            filt.cutoffFrequency = 600 + 100 * amp;
+            HighFilt.cutoffFrequency = HighFilterBase - HighFilterRange * amp;
         }
         else if (timeLeft > 0 && timeLeft <= downTimeLeft){
             amp = downTimeLeft / downDuration;
-            filt.cutoffFrequency = 700 - 100 * amp;
+            HighFilt.cutoffFrequency = HighFilterBase - HighFilterRange * amp;
             downTimeLeft -= Time.deltaTime;
         }
         timeLeft-= Time.deltaTime;
@@ -45,7 +50,7 @@ public class WhiteNoise : MonoBehaviour
         {
             for (int i = 0; i < data.Length; i++)
             {
-                data[i] = (float)(rand.NextDouble() * 2 - 1);
+                data[i] = (float)(rand.NextDouble() * 2 - 1)*amp;
             }
             ticksLeft -= data.Length / channels;
         }
