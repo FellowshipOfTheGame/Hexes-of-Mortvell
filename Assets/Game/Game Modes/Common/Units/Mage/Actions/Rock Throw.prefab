@@ -63,6 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   includeOrigin: 0
   maxLength: 4
+  hitExtensionLength: 1
 --- !u!114 &4143003006676524071
 MonoBehaviour:
   m_ObjectHideFlags: 0

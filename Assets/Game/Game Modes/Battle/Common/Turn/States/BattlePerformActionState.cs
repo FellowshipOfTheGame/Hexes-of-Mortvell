@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using HexesOfMortvell.DesignPatterns.Fsm;
 using HexesOfMortvell.Core.Actions;
 
@@ -23,7 +24,8 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 			var aoe = aoeComponent.GetAoe(
 				this.playerOrders.unit.AsCellContent.Cell.Content,
 				this.playerOrders.actionTargets);
-			var activeComponent= action.GetComponent<ActionActivation>();
+			aoe = aoe.ToList();
+			var activeComponent = action.GetComponent<ActionActivation>();
 			activeComponent.Perform(
 				this.playerOrders.unit.AsCellContent,
 				this.playerOrders.actionTargets,

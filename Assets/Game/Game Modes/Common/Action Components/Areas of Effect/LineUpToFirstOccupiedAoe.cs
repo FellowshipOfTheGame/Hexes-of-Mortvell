@@ -12,6 +12,8 @@ namespace HexesOfMortvell.GameModes.Common
 	{
 		public bool includeOrigin;
 		public int maxLength;
+		[Tooltip("If the line is interrupted by an occupied cell, extend the line further by this much.")]
+		public int hitExtensionLength = 0;
 
 		public override IEnumerable<BoardCell> GetAoe(
 			BoardCellContent actor,
@@ -20,10 +22,26 @@ namespace HexesOfMortvell.GameModes.Common
 			var target = targets.Single();
 			var direction = actor.Cell.Position
 				.StraightLineDirectionTowards(target.Position).Value;
-			return actor.Cell.StraightLineTowards(
-				direction,
-				maxLength: this.maxLength,
-				occupiedCellBehaviour: LineRegion.OccupiedCellBehaviour.StopButInclude);
+			var line = actor.Cell
+				.StraightLineTowards(
+					direction,
+					maxLength: this.maxLength,
+					occupiedCellBehaviour: LineRegion.OccupiedCellBehaviour.StopButInclude);
+			line = line.ToList();
+			var last = line.LastOrDefault();
+			var lastEmpty = last != null && last.Empty;
+			if (!lastEmpty && hitExtensionLength != 0)
+			{
+				var extension = last
+					.StraightLineTowards(
+						direction,
+						maxLength: hitExtensionLength,
+						includeOrigin: false,
+						occupiedCellBehaviour: LineRegion.OccupiedCellBehaviour.StopButInclude);
+				line = Enumerable.Concat(line, extension);
+			}
+
+			return line;
 		}
 	}
 }
