@@ -110,6 +110,7 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 			if (!this.validNextTargets.Contains(hoveredCell))
 				return;
 			var action = this.playerOrders.action;
+			var actor = this.playerOrders.unit.AsCellContent.Cell.Content;
 			var currentTargets = this.playerOrders.actionTargets;
 			if (currentTargets.Count < targetFilters.Length - 1)
 				// More than 1 target left to be selected, can't highlight
@@ -120,7 +121,7 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 			var targetsWithHoveredCell = currentTargets
 				.Concat(new[] {this.hoveredCell});
 			var aoe = new HashSet<BoardCell>(
-				aoeComponent.GetAoe(targetsWithHoveredCell));
+				aoeComponent.GetAoe(actor, targetsWithHoveredCell));
 			var aoeColors = actionHighlighter.GetColors(aoe);
 			this.aoeHighlight = aoe.AddHighlightLayer(aoeColors);
 		}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using HexesOfMortvell.Core.Actions;
 using HexesOfMortvell.Core.Grid;
 using HexesOfMortvell.Core.Grid.Regions;
+using LineRegion = HexesOfMortvell.Core.Grid.Regions.BoardLineRegionExtension;
 
 namespace HexesOfMortvell.GameModes.Common
 {
@@ -10,7 +11,8 @@ namespace HexesOfMortvell.GameModes.Common
 	{
 		public int maxLength;
 		public bool includeOrigin;
-		public bool stopAtOccupiedCells;
+
+		public LineRegion.OccupiedCellBehaviour occupiedCellBehaviour;
 
 		public override IEnumerable<BoardCell> ValidTargets(
 			BoardCellContent actor,
@@ -20,11 +22,22 @@ namespace HexesOfMortvell.GameModes.Common
 			var center = lastTarget ?? actor.Cell;
 			return Direction.NonStayDirections
 				.SelectMany(
-					direction => center.StraightLineTowards(
-						direction,
-						maxLength: this.maxLength,
-						includeOrigin: this.includeOrigin,
-						stopAtOccupiedCell: this.stopAtOccupiedCells));
+					direction => GetBranch(
+						center,
+						direction));
+		}
+
+		IEnumerable<BoardCell> GetBranch(
+			BoardCell center,
+			Direction direction)
+		{
+			var branch = center.StraightLineTowards(
+				direction,
+				maxLength: this.maxLength,
+				includeOrigin: this.includeOrigin,
+				occupiedCellBehaviour: this.occupiedCellBehaviour);
+
+			return branch;
 		}
 	}
 }

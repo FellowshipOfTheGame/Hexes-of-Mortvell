@@ -8,6 +8,7 @@ namespace HexesOfMortvell.Testing.ActionsTest
 	public class ActionsTestMeleeAoe : ActionAoe
 	{
 		public override IEnumerable<BoardCell> GetAoe(
+			BoardCellContent actor,
 			IEnumerable<BoardCell> targets)
 		{
 			return targets;

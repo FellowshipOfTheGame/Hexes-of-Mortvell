@@ -47,7 +47,7 @@ namespace HexesOfMortvell.Testing.ActionsTest
 			{
 				var aoeComponent = this.playerOrder.action.GetComponent<ActionAoe>();
 				this.playerOrder.aoe = aoeComponent
-					.GetAoe(this.playerOrder.selectedTargets)
+					.GetAoe(this.playerOrder.selectedUnit.GetComponent<BoardCellContent>(), this.playerOrder.selectedTargets)
 					.ToList();
 				this.aoeHighlight = this.playerOrder.aoe.AddHighlightLayer(Color.cyan);
 			}

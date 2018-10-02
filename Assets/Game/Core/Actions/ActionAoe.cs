@@ -16,6 +16,7 @@ namespace HexesOfMortvell.Core.Actions
 		/// <param name="targets">The targets for the action.</param>
 		/// <returns>The cells affected when performing the action with these targets.</returns>
 		public abstract IEnumerable<BoardCell> GetAoe(
+			BoardCellContent actor,
 			IEnumerable<BoardCell> targets);
 	}
 }
