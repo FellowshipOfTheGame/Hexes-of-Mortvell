@@ -12,6 +12,8 @@ namespace HexesOfMortvell.GameModes.Common
 	{
 		public int selfDamage;
 		public int damageToEnemies;
+		public SkeletonBinding binding;
+
 		private TeamMember asTeamMember;
 		private HP hp;
 		private BoardCellContent asCellContent;
@@ -32,6 +34,8 @@ namespace HexesOfMortvell.GameModes.Common
 
 		void OnDestroy()
 		{
+			if (this.binding != null)
+				Destroy(this.binding);
 			this.endTurnListener.turnEndedEvent -= DamageAdjacentEnemies;
 			this.endTurnListener.turnEndedEvent -= DamageSelf;
 		}

@@ -48,8 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   containUnit: 1
+  empty: 0
   containWeather: 0
-  innerRadius: 1
+  skeletonSpawnRange: 1
 --- !u!114 &1342783396807700549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,6 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2412f7c99355e4ea4a1cb2dbe14246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skeletonPrefab: {fileID: 2910280412046445512, guid: 4adcc1c71f200144fb3d4df7e2348297, type: 3}
   healAmount: 2
 --- !u!114 &8038795234191022299
 MonoBehaviour:
