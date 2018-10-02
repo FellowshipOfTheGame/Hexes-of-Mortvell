@@ -48,8 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
-  isUnit: 0
-  isWeather: 0
+  containUnit: 1
+  empty: 0
+  containWeather: 0
 --- !u!114 &5112369562030115633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,8 +64,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
-  isUnit: 0
-  isWeather: 0
+  containUnit: 0
+  empty: 1
+  containWeather: 0
 --- !u!114 &241117604647925823
 MonoBehaviour:
   m_ObjectHideFlags: 0

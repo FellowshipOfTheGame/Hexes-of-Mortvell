@@ -12,6 +12,7 @@ namespace HexesOfMortvell.GameModes.Common
 	{
 		public int radius;
 		public bool containUnit;
+		public bool empty;
 		public bool containWeather;
 
 		public override IEnumerable<BoardCell> ValidTargets(
@@ -21,14 +22,21 @@ namespace HexesOfMortvell.GameModes.Common
 			var possibleTargets =
 				GetRadiusFromLastClick(actor, partialTargets, radius);
 			var validTargets = new List<BoardCell>();
-			if (!this.containUnit && !this.containWeather) {
+			if (!this.containUnit && !this.containWeather && !this.empty)
+			{
 				return possibleTargets;
 			}
-			else {
-				foreach (var cell in possibleTargets) {
-					if ((this.containWeather && (cell.GetWeather() != null)) ||
-							(this.containUnit && (cell.GetContent() != null) &&
-							(cell.GetContent().GetComponent<Unit>() != null))) {
+			else
+			{
+				foreach (var cell in possibleTargets)
+				{
+					bool valid = true;
+					valid &= !this.containWeather || (cell.Weather != null);
+					valid &= !this.empty || cell.Empty;
+					valid &= !this.containUnit ||
+						(cell.Content?.GetComponent<Unit>() != null);
+					if (valid)
+					{
 						validTargets.Add(cell);
 					}
 				}
