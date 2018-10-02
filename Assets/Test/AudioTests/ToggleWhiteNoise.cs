@@ -33,11 +33,13 @@ public class ToggleWhiteNoise : MonoBehaviour
             upTimeLeft -= Time.deltaTime;
             HighFilter.cutoffFrequency = HighPassBase - HighPassRange * amp;
         }
-        else if (downTimeLeft > 0){
+        else if (downTimeLeft > 0)
+        {
             amp = downTimeLeft / downDuration;
             HighFilter.cutoffFrequency = HighPassBase - HighPassRange * amp;
             downTimeLeft -= Time.deltaTime;
         }
+        else if(!sounding) amp = 0;
     }
 
     void OnAudioFilterRead(float[] data, int channels)
