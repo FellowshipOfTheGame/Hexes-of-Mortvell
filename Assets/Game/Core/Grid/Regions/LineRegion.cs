@@ -53,24 +53,26 @@ namespace HexesOfMortvell.Core.Grid.Regions
 				occupiedCellBehaviour != OccupiedCellBehaviour.Ignore;
 			bool includeFirstOccupiedCell =
 				occupiedCellBehaviour != OccupiedCellBehaviour.StopBefore;
+			IEnumerable<BoardCell> line = new BoardCell[] {};
 			if (includeOrigin)
-				yield return origin;
-			var line = InternalStraightLineTowards(origin, direction);
+				line = line.Concat(new[] { origin });
+			line = line.Concat(InternalStraightLineTowards(origin, direction));
 			if (maxLength.HasValue)
-				line = line.Take(maxLength.Value).ToList();
+				line = line.Take(maxLength.Value);
 			if (stopAtOccupiedCell)
-				line = line.TakeWhile(cell => cell.Empty).ToList();
-			bool stoppedEarly = maxLength.HasValue
-				&& line.Count() < maxLength.Value;
-			bool tryIncludeNext = stoppedEarly || !maxLength.HasValue;
-			if (includeFirstOccupiedCell && tryIncludeNext)
+				line = line.TakeWhile(cell => cell.Empty);
+			line = line.ToList();
+
+			bool stoppedEarly = !maxLength.HasValue
+				|| line.Count() < maxLength.Value;
+			var farthestCell = line.LastOrDefault() ?? origin;
+			if (includeFirstOccupiedCell && stoppedEarly)
 			{
-				var neighbor = line.LastOrDefault()?.FindAdjacentCell(direction);
+				var neighbor = farthestCell.FindAdjacentCell(direction);
 				if (neighbor != null)
-					line = Enumerable.Concat(line, new[] { neighbor });
+					line = line.Concat(new[] { neighbor });
 			}
-			foreach (var cell in line)
-				yield return cell;
+			return line;
 		}
 
 		private static IEnumerable<BoardCell> InternalStraightLineTowards(
