@@ -32,6 +32,10 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 				Select(4);
 			else if (Input.GetKeyDown(KeyCode.Alpha6))
 				Select(5);
+			else if (Input.GetKeyDown(KeyCode.Alpha7))
+				Select(6);
+			else if (Input.GetKeyDown(KeyCode.Alpha8))
+				Select(7);
 		}
 
 		void Select(int actionIdx)
