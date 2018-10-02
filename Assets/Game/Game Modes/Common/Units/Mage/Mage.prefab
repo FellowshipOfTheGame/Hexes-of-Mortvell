@@ -1,10 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!4 &4701602241146148 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8754168127287078289, guid: f66442b2c4b3b32418a95cb37f0b8237, type: 3}
-  m_PrefabInstance: {fileID: 8749853690611581109}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1009992586163188
 GameObject:
   m_ObjectHideFlags: 0
@@ -21,6 +16,7 @@ GameObject:
   - component: {fileID: 114910440220545176}
   - component: {fileID: 114085495945686108}
   - component: {fileID: 6023583059464658053}
+  - component: {fileID: 6567228484933028646}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Untagged
@@ -173,6 +169,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a9e0e3139bfbcd4a9448a69ccf01bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6567228484933028646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009992586163188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a96edc03d854e64eb43f095c06a8f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 1151377892272209751, guid: 53141c143e0a067478cab0f163211ce5, type: 3}
+  - {fileID: 1934433316892104, guid: ca57691b329a50c49a7c253961eec0c5, type: 3}
+  - {fileID: 410018088808004959, guid: 9da774794578e0c4caf7dc5fdf13285e, type: 3}
+  - {fileID: 4489727899847368640, guid: 436d4e464cc679a4691943b42edd9ad9, type: 3}
+  - {fileID: 2589802015367938064, guid: e4157b6906801324d895d90eeec2b637, type: 3}
+  - {fileID: 544946155557748121, guid: 0d0f987099111674490104da2b0adb92, type: 3}
+  - {fileID: 5830832831708484679, guid: db192c451153e85428a1dac034b88168, type: 3}
+  - {fileID: 6221932117421275425, guid: b1d9ae371f66c0d4dbae25bd1e3025c9, type: 3}
 --- !u!1 &1863775885462772
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +269,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &4701602241146148 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8754168127287078289, guid: f66442b2c4b3b32418a95cb37f0b8237, type: 3}
+  m_PrefabInstance: {fileID: 8749853690611581109}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8749853690611581109
 PrefabInstance:
   m_ObjectHideFlags: 0
