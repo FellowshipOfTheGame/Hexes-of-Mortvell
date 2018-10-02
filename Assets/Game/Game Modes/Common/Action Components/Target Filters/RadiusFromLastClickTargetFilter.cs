@@ -44,7 +44,7 @@ namespace HexesOfMortvell.GameModes.Common
 			}
 		}
 
-		public IEnumerable<BoardCell> GetRadiusFromLastClick(
+		protected IEnumerable<BoardCell> GetRadiusFromLastClick(
 			BoardCellContent actor,
 			IEnumerable<BoardCell> partialTargets,
 			int radius = 0)
