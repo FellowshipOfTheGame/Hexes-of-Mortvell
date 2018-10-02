@@ -5,16 +5,23 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using HexesOfMortvell.DesignPatterns.Fsm;
+using HexesOfMortvell.Core.Actions;
 
 namespace HexesOfMortvell.GameModes.Battle.Common
 {
 	public class BattleSelectUnitActionState : FsmState
 	{
-		[Obsolete("This is only for testing the turn structure.")]
-		public List<GameObject> debugActions;
+		public ActionSet actionSet;
 		public BattlePlayerOrders playerOrders;
 
-		public override void Enter() {}
+		public override void Enter()
+		{
+			FindUnitActions();
+			if (!UnitCanAct())
+			{
+				this.fsm.Transition<BattleFinishOrdersState>();
+			}
+		}
 
 		public override void Exit() {}
 
@@ -40,8 +47,18 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 
 		void Select(int actionIdx)
 		{
-			this.playerOrders.action = this.debugActions[actionIdx];
+			this.playerOrders.action = this.actionSet.actions[actionIdx];
 			this.fsm.Transition<BattleSelectUnitActionTargetsState>();
+		}
+
+		void FindUnitActions()
+		{
+			this.actionSet = this.playerOrders.unit.GetComponent<ActionSet>();
+		}
+
+		bool UnitCanAct()
+		{
+			return this.actionSet != null && this.actionSet.actions.Count > 0;
 		}
 	}
 }
