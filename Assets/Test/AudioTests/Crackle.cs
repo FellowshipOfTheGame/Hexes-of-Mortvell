@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class hissing : MonoBehaviour
+public class Crackle : MonoBehaviour
 {
     public int chance;
 
