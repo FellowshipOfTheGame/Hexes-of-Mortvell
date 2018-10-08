@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1342783396807700549}
   - component: {fileID: 3198988432151049736}
   - component: {fileID: 8038795234191022299}
+  - component: {fileID: 5782331335907743554}
   m_Layer: 0
   m_Name: Life
   m_TagString: Untagged
@@ -75,7 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2412f7c99355e4ea4a1cb2dbe14246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonPrefab: {fileID: 2910280412046445512, guid: 4adcc1c71f200144fb3d4df7e2348297, type: 3}
+  skeletonPrefab: {fileID: 2910280412046445512, guid: 4adcc1c71f200144fb3d4df7e2348297,
+    type: 3}
   healAmount: 2
 --- !u!114 &8038795234191022299
 MonoBehaviour:
@@ -90,3 +92,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   insideAoeColor: {fileID: 11400000, guid: 67f61ab667805a448a96f001d1c7b42f, type: 2}
+--- !u!114 &5782331335907743554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544946155557748121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e662ba8e61f25b46aea26e9cd45d324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 1e387ec34686d5f42be7bfda95381ff6, type: 3}

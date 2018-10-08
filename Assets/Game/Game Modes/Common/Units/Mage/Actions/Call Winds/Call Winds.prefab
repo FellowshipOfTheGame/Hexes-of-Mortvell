@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6833601937038773964}
   - component: {fileID: 6833601937038773967}
   - component: {fileID: 313487991067929719}
+  - component: {fileID: 8332953868691116423}
   m_Layer: 0
   m_Name: Call Winds
   m_TagString: Untagged
@@ -105,3 +106,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   insideAoeColor: {fileID: 11400000, guid: 67f61ab667805a448a96f001d1c7b42f, type: 2}
+--- !u!114 &8332953868691116423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6833601937038773966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e662ba8e61f25b46aea26e9cd45d324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: d943d7ff4cde89c448398730236aff73, type: 3}

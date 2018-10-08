@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1965622761098121803}
   - component: {fileID: 4143003006676524071}
   - component: {fileID: 5694483495832117497}
+  - component: {fileID: 35948852662598114}
   m_Layer: 0
   m_Name: Rock Throw
   m_TagString: Untagged
@@ -90,3 +91,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   insideAoeColor: {fileID: 11400000, guid: 67f61ab667805a448a96f001d1c7b42f, type: 2}
+--- !u!114 &35948852662598114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2589802015367938064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e662ba8e61f25b46aea26e9cd45d324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 37cd0c159f3704c449c8da698d274ac5, type: 3}

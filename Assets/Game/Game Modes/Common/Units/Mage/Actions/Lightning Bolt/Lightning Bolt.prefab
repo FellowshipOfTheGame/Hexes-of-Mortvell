@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 114014469187369300}
   - component: {fileID: 5755683601821718305}
   - component: {fileID: 6017177010687915892}
+  - component: {fileID: 6724060180163761196}
   m_Layer: 0
   m_Name: Lightning Bolt
   m_TagString: Untagged
@@ -46,8 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9d1d2ccb9b177499fcbf7317510a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetCount: 1
   radius: 2
+  containUnit: 0
+  empty: 0
+  containWeather: 0
 --- !u!114 &114014469187369300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,7 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f8cb8a2185e4d44afeb509a1cb1cba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expandingWeather: {fileID: 4549708328758517992, guid: 407a9ece836a86a4db080ff908ba1121, type: 3}
+  expandingWeather: {fileID: 4549708328758517992, guid: 407a9ece836a86a4db080ff908ba1121,
+    type: 3}
   alwaysIncludeTargets: 1
 --- !u!114 &6017177010687915892
 MonoBehaviour:
@@ -88,3 +92,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   insideAoeColor: {fileID: 11400000, guid: 67f61ab667805a448a96f001d1c7b42f, type: 2}
+--- !u!114 &6724060180163761196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934433316892104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e662ba8e61f25b46aea26e9cd45d324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 6984b9619d4f394448fd4fda13397ea5, type: 3}
