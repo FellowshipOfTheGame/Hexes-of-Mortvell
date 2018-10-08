@@ -88,7 +88,8 @@ namespace HexesOfMortvell.Core.Units.Teams
 			if (teamMembership == null)
 				return;
 			ErrorIfMemberOfOtherTeam(teamMembership);
-			this.members.Remove(teamMembership);
+			this.members.RemoveAll(
+				member => member.gameObject == teamMembership.gameObject);
 			this.observableMembers.NotifyValueChange();
 			Destroy(teamMembership);
 		}
