@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6799778700771357502}
   - component: {fileID: 8847685874575588964}
   - component: {fileID: 7351358591536995309}
+  - component: {fileID: 3780977704568788812}
   m_Layer: 0
   m_Name: Summon Storm
   m_TagString: Untagged
@@ -46,7 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a2fcdcbf5e8aac438e08e68f34f6b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weatherApplied: {fileID: 4549708328758517992, guid: 407a9ece836a86a4db080ff908ba1121, type: 3}
+  weatherApplied: {fileID: 4549708328758517992, guid: 407a9ece836a86a4db080ff908ba1121,
+    type: 3}
 --- !u!114 &6799778700771357502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +62,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  containUnit: 0
+  empty: 0
+  containWeather: 0
 --- !u!114 &8847685874575588964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,3 +91,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   insideAoeColor: {fileID: 11400000, guid: 67f61ab667805a448a96f001d1c7b42f, type: 2}
+--- !u!114 &3780977704568788812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410018088808004959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e662ba8e61f25b46aea26e9cd45d324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: dd6db7fc5eebd264b8d8c202fee1ef16, type: 3}

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4489727899847368640
+--- !u!1 &1151377892272209751
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1412774796318383096}
-  - component: {fileID: 8326446852521533224}
-  - component: {fileID: 7398678332059517954}
-  - component: {fileID: 5539703624761918381}
-  - component: {fileID: 841852050047799704}
+  - component: {fileID: 3396348195629028190}
+  - component: {fileID: 8616634571996735658}
+  - component: {fileID: 5340824576369747433}
+  - component: {fileID: 6184747970027180778}
+  - component: {fileID: 8786711558301141060}
+  - component: {fileID: 5306162307427266928}
   m_Layer: 0
-  m_Name: Blizzard
+  m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1412774796318383096
+--- !u!4 &3396348195629028190
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4489727899847368640}
+  m_GameObject: {fileID: 1151377892272209751}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -34,60 +35,72 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8326446852521533224
+--- !u!114 &8616634571996735658
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4489727899847368640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a2fcdcbf5e8aac438e08e68f34f6b50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weatherApplied: {fileID: 7326194417752092916, guid: ee1f204aca7ad734cbc6f90e930c0390, type: 3}
-  weathersNeutralized:
-  - {fileID: 8061558596878410663, guid: a5d66689c6b09a744a87030cae4b847c, type: 3}
-  strongerWeathers: []
---- !u!114 &7398678332059517954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4489727899847368640}
+  m_GameObject: {fileID: 1151377892272209751}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e9d1d2ccb9b177499fcbf7317510a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetCount: 1
   radius: 2
---- !u!114 &5539703624761918381
+  containUnit: 0
+  empty: 0
+  containWeather: 0
+--- !u!114 &5340824576369747433
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4489727899847368640}
+  m_GameObject: {fileID: 1151377892272209751}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82f8cb8a2185e4d44afeb509a1cb1cba, type: 3}
+  m_Script: {fileID: 11500000, guid: 0884d3656a500a44e8eaaeef5810ef46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expandingWeather: {fileID: 4549708328758517992, guid: 407a9ece836a86a4db080ff908ba1121, type: 3}
-  alwaysIncludeTargets: 1
---- !u!114 &841852050047799704
+  radius: 1
+--- !u!114 &6184747970027180778
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4489727899847368640}
+  m_GameObject: {fileID: 1151377892272209751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2fcdcbf5e8aac438e08e68f34f6b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weatherApplied: {fileID: 8061558596878410663, guid: a5d66689c6b09a744a87030cae4b847c,
+    type: 3}
+--- !u!114 &8786711558301141060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151377892272209751}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d67684104fd9a8488b24bd067371693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   insideAoeColor: {fileID: 11400000, guid: 67f61ab667805a448a96f001d1c7b42f, type: 2}
+--- !u!114 &5306162307427266928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151377892272209751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e662ba8e61f25b46aea26e9cd45d324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: a705e4826c57afd4284c6399c3e4a510, type: 3}

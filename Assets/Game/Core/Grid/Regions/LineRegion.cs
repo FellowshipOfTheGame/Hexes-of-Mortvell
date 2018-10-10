@@ -53,10 +53,13 @@ namespace HexesOfMortvell.Core.Grid.Regions
 				occupiedCellBehaviour != OccupiedCellBehaviour.Ignore;
 			bool includeFirstOccupiedCell =
 				occupiedCellBehaviour != OccupiedCellBehaviour.StopBefore;
+			bool ignoreCellContent =
+				occupiedCellBehaviour == OccupiedCellBehaviour.Ignore;
 			IEnumerable<BoardCell> line = new BoardCell[] {};
 			if (includeOrigin)
 				line = line.Concat(new[] { origin });
 			line = line.Concat(InternalStraightLineTowards(origin, direction));
+			line = line.ToList();
 			if (maxLength.HasValue)
 				line = line.Take(maxLength.Value);
 			if (stopAtOccupiedCell)
@@ -66,7 +69,7 @@ namespace HexesOfMortvell.Core.Grid.Regions
 			bool stoppedEarly = !maxLength.HasValue
 				|| line.Count() < maxLength.Value;
 			var farthestCell = line.LastOrDefault() ?? origin;
-			if (includeFirstOccupiedCell && stoppedEarly)
+			if (!ignoreCellContent && includeFirstOccupiedCell && stoppedEarly)
 			{
 				var neighbor = farthestCell.FindAdjacentCell(direction);
 				if (neighbor != null)
