@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using HexesOfMortvell.Core.Units;
 using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Grid.Loading;
 using HexesOfMortvell.Core.Grid.Regions;
 
 namespace HexesOfMortvell.Testing.NeighborhoodBfs

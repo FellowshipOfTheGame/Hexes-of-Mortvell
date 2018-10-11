@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Grid.Loading;
 using HexesOfMortvell.Core.Units.Teams;
 using HexesOfMortvell.Hud.Grid;
 

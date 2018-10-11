@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using UnityEngine;
 using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Grid.Loading;
 
 namespace HexesOfMortvell.Core.Units.Teams
 {
