@@ -185,7 +185,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.71
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -599,6 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multiplier: 50
+  perc: 250
 --- !u!1 &616573711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,7 +1400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23191d26c2e5f044dbd80c639e13763c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  con: 500000
+  con: 50000
 --- !u!169 &1300457257
 AudioLowPassFilter:
   m_ObjectHideFlags: 0
@@ -1451,7 +1452,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.71
   m_Pitch: 1
   Loop: 0
   Mute: 0

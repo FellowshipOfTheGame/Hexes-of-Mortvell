@@ -24,8 +24,8 @@ public class Crackle : MonoBehaviour
         for(int i = 0; i < data.Length ; i++)
         {
             r = (float)(rand.NextDouble() * 2 - 1) * amp;
-            if(dur > chance)
-                data[i] = (float) (0.95 * data[i] + 0.05 * Mathf.Pow(r, 5));
+            if (dur > chance) ;
+//                data[i] = (float) (0.95 * data[i] + 0.05 * Mathf.Pow(r, 5));
         }
     }
 
