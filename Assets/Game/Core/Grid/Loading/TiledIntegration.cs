@@ -1,7 +1,7 @@
 using System;
 using System.Xml;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HexesOfMortvell.Core.Grid.Loading
@@ -12,21 +12,44 @@ namespace HexesOfMortvell.Core.Grid.Loading
 		{
 			var tmx = new XmlDocument();
 			tmx.LoadXml(tmxContent);
-			var layers = tmx.SelectNodes("layer").Cast<XmlNode>().ToList();
-			var terrainLayer = layers.Single(NameEquals("Terrain"));
-			var objectsLayer = layers.Single(NameEquals("Objects"));
+
+			var layers = FindLayers(tmx);
+			var terrainData = FindLayerData(layers, "Terrain");
+			var objectsData = FindLayerData(layers, "Objects");
 
 			var layout = ScriptableObject.CreateInstance<BoardLayout>();
-			FillLayout(layout, terrainLayer, objectsLayer);
+			FillLayout(layout, terrainData, objectsData);
 			return layout;
 		}
 
 		private static void FillLayout(
 			BoardLayout layout,
-			XmlNode terrainLayer,
-			XmlNode objectsLayer)
+			XmlNode terrainData,
+			XmlNode objectsData)
 		{
 			
+		}
+
+		private static Tuple<int, int> CsvPositionToBoardPosition()
+		{
+			return null;
+		}
+
+		private static IEnumerable<XmlNode> FindLayers(XmlDocument tmx)
+		{
+			return tmx.SelectNodes("layer").ToEnumerable();
+		}
+
+		private static XmlNode FindLayerData(
+			IEnumerable<XmlNode> layers,
+			string layerName)
+		{
+			var layer = layers.Single(NameEquals(layerName));
+			var data = layer
+				.SelectNodes("data")
+				.ToEnumerable()
+				.Single();
+			return data;
 		}
 
 		private static Func<XmlNode, bool> NameEquals(string name)
@@ -34,6 +57,15 @@ namespace HexesOfMortvell.Core.Grid.Loading
 			Predicate<XmlNode> hasGivenName =
 				(XmlNode node) => node.Attributes["name"].Value == name;
 			return new Func<XmlNode, bool>(hasGivenName);
+		}
+	}
+
+	public static class XmlNodeListExtensions
+	{
+		public static IEnumerable<XmlNode> ToEnumerable(
+			this XmlNodeList nodeList)
+		{
+			return nodeList.Cast<XmlNode>();
 		}
 	}
 }
