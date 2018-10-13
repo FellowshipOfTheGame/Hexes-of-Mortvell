@@ -30,9 +30,19 @@ namespace HexesOfMortvell.Core.Grid.Loading
 			
 		}
 
-		private static Tuple<int, int> CsvPositionToBoardPosition()
+		private static Vector2Int CsvPositionToBoardPosition(
+			int csvRow, int csvCol, int csvHeight, int csvWidth)
 		{
-			return null;
+			int centerRow = csvHeight / 2;
+			int centerCol = csvWidth / 2;
+			int distFromBottomEdge = csvHeight - csvRow - 1;
+
+			int actualFirstCol = distFromBottomEdge / 2;
+			int distFromLeftEdge = csvCol - actualFirstCol;
+
+			int x = distFromLeftEdge - centerCol;
+			int y = distFromBottomEdge - centerRow;
+			return new Vector2Int(x, y);
 		}
 
 		private static IEnumerable<XmlNode> FindLayers(XmlDocument tmx)
