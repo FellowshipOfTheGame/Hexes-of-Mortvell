@@ -13,7 +13,7 @@ namespace HexesOfMortvell.Core.Grid.Loading
 		public static BoardLayout TmxToBoardLayout(
 			string tmxContent,
 			Dictionary<string, BoardCellTerrain> terrainTypes,
-			Dictionary<string, GameObject> objectTypes)
+			Dictionary<string, BoardLayout.SpawnInformation> spawnTypes)
 		{
 			var tmx = new XmlDocument();
 			tmx.LoadXml(tmxContent);
@@ -28,7 +28,7 @@ namespace HexesOfMortvell.Core.Grid.Loading
 				terrainData,
 				objectsData,
 				terrainTypes,
-				objectTypes);
+				spawnTypes);
 			return layout;
 		}
 
@@ -37,7 +37,8 @@ namespace HexesOfMortvell.Core.Grid.Loading
 			XmlNode terrainData,
 			XmlNode objectsData,
 			Dictionary<string, BoardCellTerrain> terrainTypes,
-			Dictionary<string, GameObject> objectTypes)
+			Dictionary<string, BoardLayout.SpawnInformation> spawnTypes,
+			string defaultTerrainId="1")
 		{
 			var terrainCsv = terrainData.InnerText;
 			var terrainMatrix = CsvReader
@@ -53,6 +54,14 @@ namespace HexesOfMortvell.Core.Grid.Loading
 			int nRows = terrainMatrix.Count;
 			int nCols = terrainMatrix[0].Count;
 
+			layout.defaultTerrain = terrainTypes[defaultTerrainId];
+
+			layout.nonDefaultTerrainPositions = new List<BoardPosition>();
+			layout.nonDefaultTerrains = new List<BoardCellTerrain>();
+
+			layout.spawnPositions = new List<BoardPosition>();
+			layout.spawnInfo = new List<BoardLayout.SpawnInformation>();
+
 			int rowIndex = 0;
 			foreach (var terrainObjectRow in
 				terrainMatrix.Zip(objectsMatrix, Tuple.Create))
@@ -65,8 +74,11 @@ namespace HexesOfMortvell.Core.Grid.Loading
 				{
 					var terrainId = positionInfo.Item1;
 					var objectId = positionInfo.Item2;
-					var terrain = terrainTypes[terrainId];
-					var gameObject = objectTypes[objectId];
+					BoardCellTerrain terrain = null;
+					BoardLayout.SpawnInformation spawnInfo = null;
+
+					terrainTypes.TryGetValue(terrainId, out terrain);
+					spawnTypes.TryGetValue(objectId, out spawnInfo);
 
 					UpdateLayout(
 						layout,
@@ -75,7 +87,8 @@ namespace HexesOfMortvell.Core.Grid.Loading
 						nRows,
 						nCols,
 						terrain,
-						gameObject);
+						spawnInfo,
+						terrainId == defaultTerrainId);
 
 					colIndex++;
 				}
@@ -90,7 +103,8 @@ namespace HexesOfMortvell.Core.Grid.Loading
 			int nRows,
 			int nCols,
 			BoardCellTerrain terrain,
-			GameObject gameObject)
+			BoardLayout.SpawnInformation spawnInfo,
+			bool isDefaultTerrain)
 		{
 			var nullableBoardPosition = CsvPositionToBoardPosition(
 				rowIndex,
@@ -99,7 +113,18 @@ namespace HexesOfMortvell.Core.Grid.Loading
 				nCols);
 			if (!nullableBoardPosition.HasValue)
 				return;
-			layout.nonDefaultTerrainPositions = null;
+			var boardPosition = nullableBoardPosition.Value;
+			if (!isDefaultTerrain)
+			{
+				layout.nonDefaultTerrainPositions.Add(boardPosition);
+				layout.nonDefaultTerrains.Add(terrain);
+			}
+
+			if (spawnInfo != null)
+			{
+				layout.spawnPositions.Add(boardPosition);
+				layout.spawnInfo.Add(spawnInfo);
+			}
 		}
 
 		private static BoardPosition? CsvPositionToBoardPosition(
