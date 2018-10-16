@@ -3,6 +3,9 @@ using HexesOfMortvell.Util;
 
 namespace HexesOfMortvell.Core.Grid.Loading
 {
+	[CreateAssetMenu(
+		fileName="New TMX Layout",
+		menuName="HexesOfMortvell/TMX Layout")]
 	public class TmxBoardLayout : ScriptableObject
 	{
 		public TextAsset tmxFile;

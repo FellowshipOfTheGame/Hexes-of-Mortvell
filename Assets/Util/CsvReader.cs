@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace HexesOfMortvell.Util
 {
@@ -21,11 +22,15 @@ namespace HexesOfMortvell.Util
 			string text,
 			char[] separators)
 		{
-			using (var reader = new StringReader(text))
+			using (var reader = new StringReader(text.TrimStart()))
 			{
 				string row;
-				while ((row = reader.ReadLine()) != null)
-					yield return row.Split(separators);
+				while ((row = reader.ReadLine()) != null && row.Length > 0)
+				{
+					yield return row
+						.Split(separators)
+						.TakeWhile(s => s.Length > 0);
+				}
 			}
 		}
 

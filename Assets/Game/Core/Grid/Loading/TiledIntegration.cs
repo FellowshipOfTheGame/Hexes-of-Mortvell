@@ -51,8 +51,11 @@ namespace HexesOfMortvell.Core.Grid.Loading
 				.Select(row => row.ToList())
 				.ToList();
 
-			int nRows = terrainMatrix.Count;
-			int nCols = terrainMatrix[0].Count;
+			int csvNRows = terrainMatrix.Count;
+			int csvNCols = terrainMatrix[0].Count;
+
+			layout.NumRows = csvNRows;
+			layout.NumCols = csvNCols - csvNRows/2;
 
 			layout.defaultTerrain = terrainTypes[defaultTerrainId];
 
@@ -84,8 +87,8 @@ namespace HexesOfMortvell.Core.Grid.Loading
 						layout,
 						rowIndex,
 						colIndex,
-						nRows,
-						nCols,
+						csvNRows,
+						csvNCols,
 						terrain,
 						spawnInfo,
 						terrainId == defaultTerrainId);
@@ -110,7 +113,8 @@ namespace HexesOfMortvell.Core.Grid.Loading
 				rowIndex,
 				colIndex,
 				nRows,
-				nCols);
+				nCols,
+				layout.NumCols);
 			if (!nullableBoardPosition.HasValue)
 				return;
 			var boardPosition = nullableBoardPosition.Value;
@@ -128,15 +132,16 @@ namespace HexesOfMortvell.Core.Grid.Loading
 		}
 
 		private static BoardPosition? CsvPositionToBoardPosition(
-			int csvRow, int csvCol, int csvHeight, int csvWidth)
+			int csvRow, int csvCol, int csvHeight, int csvWidth,
+			int boardWidth)
 		{
 			int centerRow = csvHeight / 2;
-			int centerCol = csvWidth / 2;
+			int centerCol = boardWidth / 2;
 			int distFromBottomEdge = csvHeight - csvRow - 1;
 
 			int actualFirstCol = distFromBottomEdge / 2;
 			int distFromLeftEdge = csvCol - actualFirstCol;
-			if (distFromLeftEdge < 0)
+			if (distFromLeftEdge < 0 || distFromLeftEdge >= boardWidth)
 				return null;
 
 			int x = distFromLeftEdge - centerCol;
@@ -146,7 +151,7 @@ namespace HexesOfMortvell.Core.Grid.Loading
 
 		private static IEnumerable<XmlNode> FindLayers(XmlDocument tmx)
 		{
-			return tmx.SelectNodes("layer").ToEnumerable();
+			return tmx.SelectNodes("map/layer").ToEnumerable();
 		}
 
 		private static XmlNode FindLayerData(
@@ -164,7 +169,7 @@ namespace HexesOfMortvell.Core.Grid.Loading
 		private static Func<XmlNode, bool> NameEquals(string name)
 		{
 			Predicate<XmlNode> hasGivenName =
-				(XmlNode node) => node.Attributes["name"].Value == name;
+				(XmlNode node) => node.Attributes["name"]?.Value == name;
 			return new Func<XmlNode, bool>(hasGivenName);
 		}
 	}
