@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using HexesOfMortvell.Core.Grid.Loading;
 
 namespace HexesOfMortvell.Core.Grid
 {

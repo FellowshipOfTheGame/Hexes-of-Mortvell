@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HexesOfMortvell.Core.Grid
+namespace HexesOfMortvell.Core.Grid.Loading
 {
 	/// <summary>
 	/// Represents a board's initial layout, which can be loaded.

@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using UnityEngine;
 using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Grid.Loading;
 
 namespace HexesOfMortvell.Core.Units.Teams
 {
@@ -10,7 +11,8 @@ namespace HexesOfMortvell.Core.Units.Teams
 		public TeamGroup teamGroup;
 		public Board board;
 
-		public event Action doneAssigningTeams;
+		public event Action doneAssigningTeamsEvent;
+		public bool doneAssigningTeams = false;
 
 		void Awake()
 		{
@@ -32,7 +34,9 @@ namespace HexesOfMortvell.Core.Units.Teams
 					this.teamGroup.teams[spawnInfo.teamIndex]
 						.Add(content.gameObject);
 			}
-			this.doneAssigningTeams?.Invoke();
+			this.doneAssigningTeams = true;
+			this.doneAssigningTeamsEvent?.Invoke();
+			this.doneAssigningTeamsEvent = null;
 		}
 	}
 }

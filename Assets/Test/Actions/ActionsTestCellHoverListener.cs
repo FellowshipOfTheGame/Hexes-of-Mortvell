@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Grid.Loading;
 using HexesOfMortvell.Hud.Grid;
 
 namespace HexesOfMortvell.Testing.ActionsTest
