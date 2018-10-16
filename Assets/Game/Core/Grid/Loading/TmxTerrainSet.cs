@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace HexesOfMortvell.Core.Grid.Loading
 {
+	[CreateAssetMenu(
+		fileName="New TMX Terrain Set",
+		menuName="HexesOfMortvell/TMX Terrain Set")]
 	public class TmxTerrainSet : ScriptableObject
 	{
 		[Serializable]
@@ -17,8 +21,7 @@ namespace HexesOfMortvell.Core.Grid.Loading
 
 		public Dictionary<string, BoardCellTerrain> AsDict()
 		{
-			// TODO
-			return null;
+			return tileTypes.ToDictionary(t => t.id, t => t.terrain);
 		}
 	}
 }

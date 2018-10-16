@@ -7,6 +7,7 @@ namespace HexesOfMortvell.Core.Grid.Loading
 	{
 		public TextAsset tmxFile;
 		public TmxTerrainSet terrainSet;
+		public TmxSpawnSet spawnSet;
 
 		public BoardLayout ToBoardLayout()
 		{
