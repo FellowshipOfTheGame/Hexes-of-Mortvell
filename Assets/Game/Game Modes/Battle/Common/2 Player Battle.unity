@@ -394,6 +394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teamGroup: {fileID: 794916448}
   board: {fileID: 2088358389}
+  doneAssigningTeams: 0
 --- !u!1 &965383902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,7 +1082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 2088358389}
-  tmxLayout: {fileID: 11400000, guid: a6783b997e5d31a4895c1b22c54fcba7, type: 2}
+  tmxLayout: {fileID: 11400000, guid: 5059f02c116101e41a1e20dbf609754c, type: 2}
 --- !u!1 &1884063499
 GameObject:
   m_ObjectHideFlags: 0
