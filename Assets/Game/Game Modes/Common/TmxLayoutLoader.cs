@@ -11,7 +11,7 @@ namespace HexesOfMortvell.GameModes.Common
 
 		void Start()
 		{
-			this.board.LoadLayout(tmxLayout.ToBoardLayout());
+			this.board.LoadLayout(this.tmxLayout.ToBoardLayout());
 		}
 	}
 }

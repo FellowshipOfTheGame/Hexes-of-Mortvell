@@ -37,8 +37,7 @@ namespace HexesOfMortvell.Core.Grid.Loading
 			XmlNode terrainData,
 			XmlNode objectsData,
 			Dictionary<string, BoardCellTerrain> terrainTypes,
-			Dictionary<string, BoardLayout.SpawnInformation> spawnTypes,
-			string defaultTerrainId="1")
+			Dictionary<string, BoardLayout.SpawnInformation> spawnTypes)
 		{
 			var terrainCsv = terrainData.InnerText;
 			var terrainMatrix = CsvReader
@@ -51,13 +50,24 @@ namespace HexesOfMortvell.Core.Grid.Loading
 				.Select(row => row.ToList())
 				.ToList();
 
+			var terrainStartId = terrainMatrix
+				.SelectMany(row => row)
+				.Select(x => Convert.ToInt32(x))
+				.Where(x => x != 0)
+				.Min();
+			var objectStartId = objectsMatrix
+				.SelectMany(row => row)
+				.Select(x => Convert.ToInt32(x))
+				.Where(x => x != 0)
+				.Min();
+
 			int csvNRows = terrainMatrix.Count;
 			int csvNCols = terrainMatrix[0].Count;
 
 			layout.NumRows = csvNRows;
 			layout.NumCols = csvNCols - csvNRows/2;
 
-			layout.defaultTerrain = terrainTypes[defaultTerrainId];
+			layout.defaultTerrain = terrainTypes[terrainStartId.ToString()];
 
 			layout.nonDefaultTerrainPositions = new List<BoardPosition>();
 			layout.nonDefaultTerrains = new List<BoardCellTerrain>();
@@ -75,13 +85,15 @@ namespace HexesOfMortvell.Core.Grid.Loading
 				foreach (var positionInfo in
 					terrainRow.Zip(objectsRow, Tuple.Create))
 				{
-					var terrainId = positionInfo.Item1;
-					var objectId = positionInfo.Item2;
+					var terrainId =
+						Convert.ToInt32(positionInfo.Item1) - terrainStartId + 1;
+					var objectId =
+						Convert.ToInt32(positionInfo.Item2) - objectStartId + 1;
 					BoardCellTerrain terrain = null;
 					BoardLayout.SpawnInformation spawnInfo = null;
 
-					terrainTypes.TryGetValue(terrainId, out terrain);
-					spawnTypes.TryGetValue(objectId, out spawnInfo);
+					terrainTypes.TryGetValue(terrainId.ToString(), out terrain);
+					spawnTypes.TryGetValue(objectId.ToString(), out spawnInfo);
 
 					UpdateLayout(
 						layout,
@@ -91,7 +103,7 @@ namespace HexesOfMortvell.Core.Grid.Loading
 						csvNCols,
 						terrain,
 						spawnInfo,
-						terrainId == defaultTerrainId);
+						terrainId < 0);
 
 					colIndex++;
 				}
