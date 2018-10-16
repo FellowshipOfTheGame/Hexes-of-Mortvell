@@ -21,7 +21,6 @@ namespace HexesOfMortvell.Core.Units.Teams
 
 		void AttributeTeams(Board board, BoardLayout layout)
 		{
-			Debug.Log("Doing team assignment stuff");
 			var spawns = layout.spawnPositions
 				.Zip(
 					layout.spawnInfo,
@@ -35,7 +34,6 @@ namespace HexesOfMortvell.Core.Units.Teams
 					this.teamGroup.teams[spawnInfo.teamIndex]
 						.Add(content.gameObject);
 			}
-			Debug.Log("Done assigning teams");
 			this.doneAssigningTeams = true;
 			this.doneAssigningTeamsEvent?.Invoke();
 			this.doneAssigningTeamsEvent = null;

@@ -109,7 +109,6 @@ namespace HexesOfMortvell.Core.Grid
 			for (int i = 0; i < NumRows; i++)
 				for (int j = 0; j < NumCols; j++)
 					CreateCell(layout, i, j);
-			Debug.Log("Done loading");
 			this.doneLoadingEvent?.Invoke(this, layout);
 			this.doneLoadingEvent = null;
 		}

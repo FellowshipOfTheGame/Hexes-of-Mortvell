@@ -11,7 +11,6 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 
 		public override void Enter()
 		{
-			Debug.Log("Enter setup");
 			if (this.teamAssigner.doneAssigningTeams)
 				StartFirstTurn();
 			else
@@ -20,13 +19,11 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 
 		public override void Exit()
 		{
-			Debug.Log("Exit setup");
 			this.teamAssigner.doneAssigningTeamsEvent -= StartFirstTurn;
 		}
 
 		void StartFirstTurn()
 		{
-			Debug.Log("Done assigning notification");
 			this.fsm.Transition<BattleStartTurnState>();
 		}
 	}
