@@ -13,10 +13,20 @@ namespace HexesOfMortvell.Core.Units.Teams
 		[Tooltip("The team the object belongs to.")]
 		public Team team;
 
-		void Awake()
+		private bool wasAddedToTeam;
+
+		void Awake() => TryRegisterTeamIfNotAlreadyIn();
+
+		void Start() => TryRegisterTeamIfNotAlreadyIn();
+
+		void TryRegisterTeamIfNotAlreadyIn()
 		{
-			if (this.team != null)
-				this.team.Add(this.gameObject);
+			if (this.wasAddedToTeam)
+				return;
+			if (this.team == null)
+				return;
+			this.wasAddedToTeam = true;
+			this.team.Add(this.gameObject);
 		}
 
 		void OnDestroy()
