@@ -11,16 +11,22 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 
 		public override void Enter()
 		{
-			this.teamAssigner.doneAssigningTeams += StartFirstTurn;
+			Debug.Log("Enter setup");
+			if (this.teamAssigner.doneAssigningTeams)
+				StartFirstTurn();
+			else
+				this.teamAssigner.doneAssigningTeamsEvent += StartFirstTurn;
 		}
 
 		public override void Exit()
 		{
-			this.teamAssigner.doneAssigningTeams -= StartFirstTurn;
+			Debug.Log("Exit setup");
+			this.teamAssigner.doneAssigningTeamsEvent -= StartFirstTurn;
 		}
 
 		void StartFirstTurn()
 		{
+			Debug.Log("Done assigning notification");
 			this.fsm.Transition<BattleStartTurnState>();
 		}
 	}

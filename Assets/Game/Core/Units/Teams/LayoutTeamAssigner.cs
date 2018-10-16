@@ -11,7 +11,8 @@ namespace HexesOfMortvell.Core.Units.Teams
 		public TeamGroup teamGroup;
 		public Board board;
 
-		public event Action doneAssigningTeams;
+		public event Action doneAssigningTeamsEvent;
+		public bool doneAssigningTeams = false;
 
 		void Awake()
 		{
@@ -20,6 +21,7 @@ namespace HexesOfMortvell.Core.Units.Teams
 
 		void AttributeTeams(Board board, BoardLayout layout)
 		{
+			Debug.Log("Doing team assignment stuff");
 			var spawns = layout.spawnPositions
 				.Zip(
 					layout.spawnInfo,
@@ -33,7 +35,10 @@ namespace HexesOfMortvell.Core.Units.Teams
 					this.teamGroup.teams[spawnInfo.teamIndex]
 						.Add(content.gameObject);
 			}
-			this.doneAssigningTeams?.Invoke();
+			Debug.Log("Done assigning teams");
+			this.doneAssigningTeams = true;
+			this.doneAssigningTeamsEvent?.Invoke();
+			this.doneAssigningTeamsEvent = null;
 		}
 	}
 }
