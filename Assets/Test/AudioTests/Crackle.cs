@@ -5,15 +5,14 @@ using UnityEngine;
 public class Crackle : MonoBehaviour
 {
     public int chance;
+    public double amp;
 
     private bool sounding;
-    private int amp;
     System.Random rand;
 
     private void Start()
     {
         sounding = false;
-        amp = 0;
         rand = new System.Random();
     }
 
@@ -21,18 +20,16 @@ public class Crackle : MonoBehaviour
     {
         float r;
         int dur = (int)(rand.NextDouble() * 100);
-        for(int i = 0; i < data.Length ; i++)
+        for(int i = 0; i < data.Length && sounding ; i++)
         {
-            r = (float)(rand.NextDouble() * 2 - 1) * amp;
-            if (dur > chance) ;
-//                data[i] = (float) (0.95 * data[i] + 0.05 * Mathf.Pow(r, 5));
+            r = (float)(rand.NextDouble() * 2 - 1);
+            if (dur > chance) 
+                data[i] = (float) ((1-amp) * data[i] + amp * Mathf.Pow(r, 5));
         }
     }
 
     public void toggleSound()
     {
         sounding = !sounding;
-        if (sounding) amp = 1;
-        else amp = 0;
     }
 }

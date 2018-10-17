@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chance: 98
+  amp: 0
 --- !u!82 &162488551
 AudioSource:
   m_ObjectHideFlags: 0
@@ -586,6 +587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chance: 98
+  amp: 0.005
 --- !u!114 &269420691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,8 +1018,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 1
-  upDuration: 0.1
-  downDuration: 0.2
+  upDuration: 0.4
+  downDuration: 0.1
   HighFilterBase: 700
   HighFilterRange: 100
   LowFilterFrequency: 900
