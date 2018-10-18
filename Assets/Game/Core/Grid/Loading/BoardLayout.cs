@@ -57,6 +57,18 @@ namespace HexesOfMortvell.Core.Grid.Loading
 		[Tooltip("Positions of spawn points.")]
 		public List<BoardPosition> spawnPositions;
 
+		/// <summary>
+		/// Weather types for the positions given in weatherPositions.
+		/// </summary>
+		[Tooltip("Weather types for the positions given in weatherPositions.")]
+		public List<GameObject> weather;
+
+		/// <summary>
+		/// Positions of cells with starting weather.
+		/// </summary>
+		[Tooltip("Positions of cells with starting weather.")]
+		public List<BoardPosition> weatherPositions;
+
 		[Serializable]
 		public class SpawnInformation
 		{

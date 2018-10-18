@@ -36,11 +36,78 @@ namespace HexesOfMortvell.Core.Grid.Loading
 
 		public BoardLayout ToBoardLayout()
 		{
+			var defaultTerrain = this.terrainTypes.First();
 			var terrainMatrix = FindLayerMatrix("Terrain", this.terrainTypes);
 			var objectMatrix = FindLayerMatrix("Objects", this.spawnTypes);
 			var weatherMatrix = FindLayerMatrix("Weather", this.weatherTypes);
 			BoardLayout layout = ScriptableObject.CreateInstance<BoardLayout>();
+			FillLayout(
+				layout,
+				terrainMatrix.GetLength(0),
+				terrainMatrix.GetLength(1),
+				defaultTerrain,
+				terrainMatrix,
+				objectMatrix,
+				weatherMatrix);
 			return layout;
+		}
+
+		void FillLayout(
+			BoardLayout layout,
+			int nrows, int ncols,
+			BoardCellTerrain defaultTerrain,
+			BoardCellTerrain[,] terrainMatrix,
+			BoardLayout.SpawnInformation[,] objectMatrix,
+			GameObject[,] weatherMatrix)
+		{
+			layout.NumRows = nrows;
+			layout.NumCols = ncols;
+			layout.defaultTerrain = defaultTerrain;
+
+			for (int i = 0; i < layout.NumRows; i++)
+			{
+				for (int j = 0; j < layout.NumCols; j++)
+				{
+					var nullablePos = CsvCoordsToBoardPosition(layout, i, j);
+					if (!nullablePos.HasValue)
+						continue;
+					var pos = nullablePos.Value;
+					if (terrainMatrix[i, j] != defaultTerrain)
+					{
+						layout.nonDefaultTerrainPositions.Add(pos);
+						layout.nonDefaultTerrains.Add(terrainMatrix[i, j]);
+					}
+
+					if (objectMatrix[i, j] != null)
+					{
+						layout.spawnPositions.Add(pos);
+						layout.spawnInfo.Add(objectMatrix[i, j]);
+					}
+
+					if (weatherMatrix[i, j] != null)
+					{
+						layout.weatherPositions.Add(pos);
+						layout.weather.Add(weatherMatrix[i, j]);
+					}
+				}
+			}
+		}
+
+		BoardPosition? CsvCoordsToBoardPosition(
+			BoardLayout layout, int row, int col)
+		{
+			int centerRow = layout.NumRows / 2;
+			int centerCol = layout.NumCols / 2;
+			int distFromBottomEdge = layout.NumRows - row - 1;
+
+			int actualFirstCol = distFromBottomEdge / 2;
+			int distFromLeftEdge = col - actualFirstCol;
+			if (distFromLeftEdge < 0 || distFromLeftEdge >= layout.NumCols)
+				return null;
+
+			int x = distFromLeftEdge - centerCol;
+			int y = distFromBottomEdge - centerRow;
+			return new BoardPosition(x, y);
 		}
 
 		T[,] FindLayerMatrix<T>(string layerName, List<T> elementTypes)
