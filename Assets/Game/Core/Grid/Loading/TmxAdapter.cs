@@ -151,7 +151,6 @@ namespace HexesOfMortvell.Core.Grid.Loading
 				{
 					var distFromBottom = matrixHeight - csvRow - 1;
 					var csvCol = realCol + distFromBottom/2;
-					Debug.Log($"{csvRow}, {csvCol} => {csvRow}, {realCol}");
 					int elementIndex = layerIndexArray[csvRow][csvCol] - minIndex;
 					var e = elementTypes.ElementAtOrDefault(elementIndex);
 					layerElementMatrix[csvRow, realCol] = e;
