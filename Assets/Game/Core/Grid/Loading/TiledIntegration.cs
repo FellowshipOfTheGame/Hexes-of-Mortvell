@@ -40,12 +40,12 @@ namespace HexesOfMortvell.Core.Grid.Loading
 			Dictionary<string, BoardLayout.SpawnInformation> spawnTypes)
 		{
 			var terrainCsv = terrainData.InnerText;
-			var terrainMatrix = CsvReader
+			var terrainMatrix = CsvReaderOld
 				.FromText(terrainCsv, new[] { ',' })
 				.Select(row => row.ToList())
 				.ToList();
 			var objectsCsv = objectsData.InnerText;
-			var objectsMatrix = CsvReader
+			var objectsMatrix = CsvReaderOld
 				.FromText(objectsCsv, new[] { ',' })
 				.Select(row => row.ToList())
 				.ToList();

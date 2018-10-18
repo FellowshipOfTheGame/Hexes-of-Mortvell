@@ -1,44 +1,69 @@
 using System;
-using System.IO;
+using System.Text;
 using System.Linq;
+using System.IO;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace HexesOfMortvell.Util
 {
-	public static class CsvReader
+	public class CsvReader<T>
 	{
-		public static IEnumerable<IEnumerable<T>> FromText<T>(
+		private StringReader reader;
+		private string lineSeparator;
+		private HashSet<char> entrySeparators;
+		private Func<string, T> conversor;
+
+		public CsvReader(
 			string text,
-			char[] separators,
-			Func<string, T> evalFunction)
+			Func<string, T> conversor,
+			char entrySeparator=',',
+			string lineSeparator=null)
 		{
-			var wordMatrix = FromText(text, separators);
-			return wordMatrix
-				.Select(row => ConvertRow(row, evalFunction));
+			this.reader = new StringReader(text);
+			this.conversor = conversor;
+			this.lineSeparator = lineSeparator ?? Environment.NewLine;
+
+			this.entrySeparators = new HashSet<char>();
+			foreach (var newLineChar in this.lineSeparator)
+				this.entrySeparators.Add(newLineChar);
+			this.entrySeparators.Add(entrySeparator);
 		}
 
-		public static IEnumerable<IEnumerable<string>> FromText(
-			string text,
-			char[] separators)
+		public List<List<T>> ToMatrix()
 		{
-			using (var reader = new StringReader(text.TrimStart()))
-			{
-				string row;
-				while ((row = reader.ReadLine()) != null && row.Length > 0)
-				{
-					yield return row
-						.Split(separators)
-						.TakeWhile(s => s.Length > 0);
-				}
-			}
+			return GetRows()
+				.Select(row => row.ToList())
+				.ToList();
 		}
 
-		private static IEnumerable<T> ConvertRow<T>(
-			IEnumerable<string> row,
-			Func<string, T> evalFunction)
+		IEnumerable<IEnumerable<T>> GetRows()
 		{
-			return row.Select(evalFunction);
+			IEnumerable<T> row;
+			while ((row = NextRow()) != null)
+				yield return row;
 		}
+
+		IEnumerable<T> NextRow()
+		{
+			var line = NextLine();
+			return line?.Select(this.conversor);
+		}
+
+		IEnumerable<string> NextLine()
+		{
+			var line = this.reader.ReadLine();
+			var separators = this.entrySeparators.ToArray();
+			var entries = line?.Split(separators);
+			return entries;
+		}
+	}
+
+	public class CsvReader : CsvReader<string>
+	{
+		public CsvReader(
+			string text,
+			string lineSeparator=null,
+			char entrySeparator=',')
+		: base(text, s => s, entrySeparator, lineSeparator) {}
 	}
 }
