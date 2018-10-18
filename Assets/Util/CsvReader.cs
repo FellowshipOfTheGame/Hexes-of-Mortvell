@@ -54,7 +54,8 @@ namespace HexesOfMortvell.Util
 			var line = this.reader.ReadLine();
 			var separators = this.entrySeparators.ToArray();
 			var entries = line?.Split(separators);
-			return entries;
+			var nonemptyEntries = entries?.TakeWhile(s => s.Length > 0);
+			return nonemptyEntries;
 		}
 	}
 

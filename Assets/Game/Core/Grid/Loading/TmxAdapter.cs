@@ -1,7 +1,9 @@
-﻿using System.Xml;
+﻿using System;
+using System.Xml;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using HexesOfMortvell.Util;
 
 namespace HexesOfMortvell.Core.Grid.Loading
 {
@@ -44,7 +46,33 @@ namespace HexesOfMortvell.Core.Grid.Loading
 		T[,] FindLayerMatrix<T>(string layerName, List<T> elementTypes)
 		{
 			var layer = FindLayer(layerName);
-			return null;
+			var layerData = layer.SelectSingleNode("data");
+			var layerMatrixText = layerData.InnerText.Trim();
+			var layerMatrixReader = new CsvReader<int>(
+				layerMatrixText,
+				Convert.ToInt32);
+			var layerIndexArray = layerMatrixReader.ToMatrix();
+
+			var minIndex = layerIndexArray
+				.Select(row => row.Min())
+				.Min();
+			var matrixWidth = layerIndexArray.Count;
+			var matrixHeight = layerIndexArray[0].Count;
+			var layerElementMatrix = new T[matrixWidth, matrixHeight];
+
+			for (int i = 0; i < matrixHeight; i++)
+			{
+				for (int j = 0; j < matrixWidth; j++)
+				{
+					int elementIndex = layerIndexArray[i][j] - minIndex;
+					if (elementIndex >= elementTypes.Count)
+						layerElementMatrix[i, j] = default(T);
+					else
+						layerElementMatrix[i, j] = elementTypes[elementIndex];
+				}
+			}
+
+			return layerElementMatrix;
 		}
 
 		XmlNode FindLayer(string layerName)
