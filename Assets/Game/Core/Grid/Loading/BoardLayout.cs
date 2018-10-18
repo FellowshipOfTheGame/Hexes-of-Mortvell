@@ -93,5 +93,13 @@ namespace HexesOfMortvell.Core.Grid.Loading
 				return this.defaultTerrain;
 			return this.nonDefaultTerrains[positionIndex];
 		}
+
+		public GameObject FindWeather(BoardPosition position)
+		{
+			var positionIndex = this.weatherPositions.IndexOf(position);
+			if (positionIndex < 0)
+				return null;
+			return this.weather[positionIndex];
+		}
 	}
 }

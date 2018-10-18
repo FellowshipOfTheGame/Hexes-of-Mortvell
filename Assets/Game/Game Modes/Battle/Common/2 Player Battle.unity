@@ -1082,7 +1082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 2088358389}
-  tmxLayout: {fileID: 11400000, guid: 5059f02c116101e41a1e20dbf609754c, type: 2}
+  tmxLayout: {fileID: 11400000, guid: 6834b14305bb3b345ae8ee064803b662, type: 2}
 --- !u!1 &1884063499
 GameObject:
   m_ObjectHideFlags: 0

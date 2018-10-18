@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace HexesOfMortvell.Core.Grid.Loading
 {
-	[CreateAssetMenu(
-		fileName="New TMX Spawn Set",
-		menuName="HexesOfMortvell/TMX Spawn Set")]
-	public class TmxSpawnSet : ScriptableObject
+	// [CreateAssetMenu(
+	// 	fileName="New TMX Spawn Set",
+	// 	menuName="HexesOfMortvell/TMX Spawn Set")]
+	public class TmxSpawnSetOld : ScriptableObject
 	{
 		[Serializable]
 		public struct TmxSpawnInfo

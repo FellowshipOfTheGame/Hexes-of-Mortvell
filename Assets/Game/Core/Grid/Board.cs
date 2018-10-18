@@ -120,6 +120,9 @@ namespace HexesOfMortvell.Core.Grid
 			var newCellPosition = MatrixIndicesToBoardPosition(row, col);
 			newCell.Position = newCellPosition;
 			newCell.Terrain = layout.FindTerrainType(newCellPosition);
+			var weather = layout.FindWeather(newCellPosition);
+			if (weather != null)
+				newCell.ChangeWeather(weather);
 			this.cells[row, col] = newCell;
 		}
 

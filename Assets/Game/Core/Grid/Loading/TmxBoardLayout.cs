@@ -1,21 +1,24 @@
-﻿using UnityEngine;
-using HexesOfMortvell.Util;
+using UnityEngine;
 
 namespace HexesOfMortvell.Core.Grid.Loading
 {
-	[CreateAssetMenu(
-		fileName="New TMX Layout",
-		menuName="HexesOfMortvell/TMX Layout")]
+	[CreateAssetMenu(menuName="HexesOfMortvell/TMX Board Layout")]
 	public class TmxBoardLayout : ScriptableObject
 	{
 		public TextAsset tmxFile;
 		public TmxTerrainSet terrainSet;
 		public TmxSpawnSet spawnSet;
+		public TmxWeatherSet weatherSet;
 
 		public BoardLayout ToBoardLayout()
 		{
-			return TiledIntegration.TmxToBoardLayout(
-				tmxFile.text, terrainSet.AsDict(), spawnSet.AsDict());
+			var tmxContent = tmxFile.text;
+			var tmxAdapter = new TmxAdapter(
+				tmxContent,
+				this.terrainSet.elements,
+				this.spawnSet.elements,
+				this.weatherSet.elements);
+			return tmxAdapter.ToBoardLayout();
 		}
 	}
 }

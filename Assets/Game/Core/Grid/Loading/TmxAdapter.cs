@@ -62,6 +62,16 @@ namespace HexesOfMortvell.Core.Grid.Loading
 		{
 			layout.NumRows = nrows;
 			layout.NumCols = ncols;
+
+			layout.nonDefaultTerrainPositions = new List<BoardPosition>();
+			layout.nonDefaultTerrains = new List<BoardCellTerrain>();
+
+			layout.spawnPositions = new List<BoardPosition>();
+			layout.spawnInfo = new List<BoardLayout.SpawnInformation>();
+
+			layout.weatherPositions = new List<BoardPosition>();
+			layout.weather = new List<GameObject>();
+
 			layout.defaultTerrain = defaultTerrain;
 
 			for (int i = 0; i < layout.NumRows; i++)
@@ -72,7 +82,7 @@ namespace HexesOfMortvell.Core.Grid.Loading
 					if (!nullablePos.HasValue)
 						continue;
 					var pos = nullablePos.Value;
-					if (terrainMatrix[i, j] != defaultTerrain)
+					if (terrainMatrix[i, j] != null)
 					{
 						layout.nonDefaultTerrainPositions.Add(pos);
 						layout.nonDefaultTerrains.Add(terrainMatrix[i, j]);
@@ -96,16 +106,14 @@ namespace HexesOfMortvell.Core.Grid.Loading
 		BoardPosition? CsvCoordsToBoardPosition(
 			BoardLayout layout, int row, int col)
 		{
+			if (col < 0 || col >= layout.NumCols)
+				return null;
+
 			int centerRow = layout.NumRows / 2;
 			int centerCol = layout.NumCols / 2;
 			int distFromBottomEdge = layout.NumRows - row - 1;
 
-			int actualFirstCol = distFromBottomEdge / 2;
-			int distFromLeftEdge = col - actualFirstCol;
-			if (distFromLeftEdge < 0 || distFromLeftEdge >= layout.NumCols)
-				return null;
-
-			int x = distFromLeftEdge - centerCol;
+			int x = col - centerCol;
 			int y = distFromBottomEdge - centerRow;
 			return new BoardPosition(x, y);
 		}
@@ -120,22 +128,33 @@ namespace HexesOfMortvell.Core.Grid.Loading
 				Convert.ToInt32);
 			var layerIndexArray = layerMatrixReader.ToMatrix();
 
-			var minIndex = layerIndexArray
-				.Select(row => row.Min())
-				.Min();
-			var matrixWidth = layerIndexArray.Count;
-			var matrixHeight = layerIndexArray[0].Count;
-			var layerElementMatrix = new T[matrixWidth, matrixHeight];
+			var maxIndex = layerIndexArray
+				.Select(row => row.Max())
+				.Max();
 
-			for (int i = 0; i < matrixHeight; i++)
+			int minIndex;
+			if (maxIndex == 0)
+				minIndex = 1;
+			else
+				minIndex = layerIndexArray
+					.Where(row => row.Max() != 0)
+					.Select(row => row.Where(id => id != 0).Min())
+					.Min();
+			var matrixHeight = layerIndexArray.Count;
+			var matrixWidth = layerIndexArray[0].Count;
+			var realWidth = matrixWidth - matrixHeight/2;
+			var layerElementMatrix = new T[matrixHeight, realWidth];
+
+			for (int csvRow = 0; csvRow < matrixHeight; csvRow++)
 			{
-				for (int j = 0; j < matrixWidth; j++)
+				for (int realCol = 0; realCol < realWidth; realCol++)
 				{
-					int elementIndex = layerIndexArray[i][j] - minIndex;
-					if (elementIndex >= elementTypes.Count)
-						layerElementMatrix[i, j] = default(T);
-					else
-						layerElementMatrix[i, j] = elementTypes[elementIndex];
+					var distFromBottom = matrixHeight - csvRow - 1;
+					var csvCol = realCol + distFromBottom/2;
+					Debug.Log($"{csvRow}, {csvCol} => {csvRow}, {realCol}");
+					int elementIndex = layerIndexArray[csvRow][csvCol] - minIndex;
+					var e = elementTypes.ElementAtOrDefault(elementIndex);
+					layerElementMatrix[csvRow, realCol] = e;
 				}
 			}
 
