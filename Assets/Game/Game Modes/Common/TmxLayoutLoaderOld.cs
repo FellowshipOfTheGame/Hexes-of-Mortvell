@@ -4,7 +4,7 @@ using HexesOfMortvell.Core.Grid.Loading;
 
 namespace HexesOfMortvell.GameModes.Common
 {
-	public class TmxLayoutLoader : MonoBehaviour
+	public class TmxLayoutLoaderOld : MonoBehaviour
 	{
 		public Board board;
 		public TmxBoardLayout tmxLayout;
