@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HexesOfMortvell.Core.Grid
+namespace HexesOfMortvell.Core.Grid.Loading
 {
 	/// <summary>
 	/// Represents a board's initial layout, which can be loaded.
@@ -57,6 +57,18 @@ namespace HexesOfMortvell.Core.Grid
 		[Tooltip("Positions of spawn points.")]
 		public List<BoardPosition> spawnPositions;
 
+		/// <summary>
+		/// Weather types for the positions given in weatherPositions.
+		/// </summary>
+		[Tooltip("Weather types for the positions given in weatherPositions.")]
+		public List<GameObject> weather;
+
+		/// <summary>
+		/// Positions of cells with starting weather.
+		/// </summary>
+		[Tooltip("Positions of cells with starting weather.")]
+		public List<BoardPosition> weatherPositions;
+
 		[Serializable]
 		public class SpawnInformation
 		{
@@ -80,6 +92,14 @@ namespace HexesOfMortvell.Core.Grid
 			if (positionIndex < 0)
 				return this.defaultTerrain;
 			return this.nonDefaultTerrains[positionIndex];
+		}
+
+		public GameObject FindWeather(BoardPosition position)
+		{
+			var positionIndex = this.weatherPositions.IndexOf(position);
+			if (positionIndex < 0)
+				return null;
+			return this.weather[positionIndex];
 		}
 	}
 }

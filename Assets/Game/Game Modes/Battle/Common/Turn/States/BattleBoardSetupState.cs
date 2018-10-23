@@ -11,12 +11,15 @@ namespace HexesOfMortvell.GameModes.Battle.Common
 
 		public override void Enter()
 		{
-			this.teamAssigner.doneAssigningTeams += StartFirstTurn;
+			if (this.teamAssigner.doneAssigningTeams)
+				StartFirstTurn();
+			else
+				this.teamAssigner.doneAssigningTeamsEvent += StartFirstTurn;
 		}
 
 		public override void Exit()
 		{
-			this.teamAssigner.doneAssigningTeams -= StartFirstTurn;
+			this.teamAssigner.doneAssigningTeamsEvent -= StartFirstTurn;
 		}
 
 		void StartFirstTurn()

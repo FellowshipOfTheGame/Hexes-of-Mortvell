@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Grid.Loading;
 
 namespace HexesOfMortvell.Testing.BoardTest
 {

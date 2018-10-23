@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using HexesOfMortvell.Core.Grid;
+using HexesOfMortvell.Core.Grid.Loading;
 using HexesOfMortvell.GameModes.Common;
 
 namespace HexesOfMortvell.GameModes.Common
