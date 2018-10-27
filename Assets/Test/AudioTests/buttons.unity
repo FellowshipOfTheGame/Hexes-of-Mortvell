@@ -874,7 +874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 1
   upDuration: 0.4
-  downDuration: 0.1
+  downDuration: 0.2
   HighFilterBase: 700
   HighFilterRange: 100
   LowFilterFrequency: 900
