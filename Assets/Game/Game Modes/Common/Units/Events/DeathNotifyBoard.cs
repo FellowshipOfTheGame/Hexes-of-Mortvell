@@ -18,8 +18,8 @@ namespace HexesOfMortvell.GameModes.Common
 			var handler = new ValueObserver<int>(NotifyBoardIfZeroHp);
 			this.hp = GetComponent<HP>();
 			this.hpSubscription = this.hp.AsObservable.Subscribe(handler);
-			var asUnit = GetComponent<Unit>();
-			var board = asUnit.AsCellContent.Cell.board;
+			var asContent = GetComponent<BoardCellContent>();
+			var board = asContent.Cell.board;
 			this.deathListener = board.GetComponent<DeathListener>();
 		}
 
