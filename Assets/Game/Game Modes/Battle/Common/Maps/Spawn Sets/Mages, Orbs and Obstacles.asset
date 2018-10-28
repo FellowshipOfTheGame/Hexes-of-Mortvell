@@ -23,9 +23,9 @@ MonoBehaviour:
   - prefab: {fileID: 5465037059586018015, guid: 6248241616510c54f832f1497f7eb8e8,
       type: 3}
     teamIndex: 1
-  - prefab: {fileID: 3833367804969464524, guid: c6cee6316d1edb14c9da2a6dea195c7c,
+  - prefab: {fileID: 6843483553531873066, guid: ef481b020f17f2446bcf0f711fdbb70b,
       type: 3}
     teamIndex: -1
-  - prefab: {fileID: 6843483553531873066, guid: ef481b020f17f2446bcf0f711fdbb70b,
+  - prefab: {fileID: 3833367804969464524, guid: c6cee6316d1edb14c9da2a6dea195c7c,
       type: 3}
     teamIndex: -1
