@@ -15,7 +15,7 @@ public class VolumeSetScript : MonoBehaviour
 		Sl.value = PlayerPrefs.GetFloat(Param);
     }
 
-    void onValueChange()
+    public void changeVolume()
     {
         PlayerPrefs.SetFloat(Param,Sl.value);
     }
