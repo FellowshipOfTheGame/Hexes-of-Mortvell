@@ -4,19 +4,12 @@ using UnityEngine;
 
 public class VolumeControl : MonoBehaviour
 {
-    private AudioSource AS;
     private float vol;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        AS = GetComponent<AudioSource>();
-        vol = AS.volume;
-    }
 
     void Update()
     {
-        vol = AS.volume;
+        vol = PlayerPrefs.GetFloat("SFX");
     }
 
     // Update is called once per frame
