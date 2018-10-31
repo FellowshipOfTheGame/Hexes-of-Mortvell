@@ -17,6 +17,6 @@ public class VolumeSetScript : MonoBehaviour
 
     public void changeVolume()
     {
-        PlayerPrefs.SetFloat(Param,Sl.value);
+        PlayerPrefs.SetFloat(Param,Mathf.Exp(Sl.value*Mathf.Log(2))-1);
     }
 }
