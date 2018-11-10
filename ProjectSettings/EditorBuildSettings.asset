@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Game/HUD/Menus/Main Menu.unity
     guid: 512465448c29e854fa732f9bca56ac10
   - enabled: 1
-    path: Assets/Game/Game Modes/Battle/Common/2 Player Battle.unity
+    path: Assets/Game/Game Modes/Battle/Common/Battle Game Mode.unity
     guid: e5cef844c2136064ba09ab714587834f
   - enabled: 1
     path: Assets/Game/HUD/Menus/In Game Menu.unity
