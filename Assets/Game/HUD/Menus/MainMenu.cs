@@ -7,6 +7,6 @@ public class MainMenu : MonoBehaviour
 {
 	public void PlayGame() {
 		// TODO
-		SceneManager.LoadScene("2 Player Battle");
+		SceneManager.LoadScene("Battle Base Scene");
 	}
 }

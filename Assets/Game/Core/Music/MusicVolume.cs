@@ -25,7 +25,6 @@ public class MusicVolume : MonoBehaviour
     void Update()
     {
 		var vol = PlayerPrefs.GetFloat("BGM");
-		Debug.Log(vol);
         AS.volume = vol;
     }
 }
