@@ -6,43 +6,56 @@ public class RockColision : MonoBehaviour
 {
 	public int duration;
 	
-	private int state;
+	public int state { get; private set; }
+	
+	public bool donePlaying {
+		get { return this.state == 0; }
+	}
 	private int amp;
+	private float[] dados;
+	
+	public RockColision()
+	{
+		this.state = -1;
+	}
+	
     // Start is called before the first frame update
     void Start()
     {
-        
+        dados = new float[1024];
     }
 
     // Update is called once per frame
     void Update()
     {
+		if(state > 0){
+			//for(int i=0;i<1024; i++) Debug.Log(dados[i]);
+		}
     }
 	
 	void OnAudioFilterRead(float[] data, int channels){
 		int dataLen = data.Length / channels;
 		int SampleNeeded,position;
-		float toAdd,amp;
+		float toAdd,amp,SamplePerSecond;
+		SamplePerSecond = dataLen/0.02f;
+		SampleNeeded = (int)(SamplePerSecond / 10);
+		//Debug.Log(SamplePerSecond);
 		if(state > 0){
+			Debug.Log(state);
 			for(int i=0;i<dataLen;i+=channels){
-				position = dataLen*(duration-state);
-				amp = 1 - (position + i)/(duration*dataLen);
+				position = dataLen*(duration-state) + i;
+				amp = 1 - (position)/(duration*dataLen);
 				
-				SampleNeeded = (int)(/*freq*/ 1000.0/20 * dataLen/20 /*length till next call*/);
-				toAdd=1 - (position % SampleNeeded - SampleNeeded/2)/SampleNeeded;
-			
-				SampleNeeded = (int)(/*freq*/ 1000.0/40 * dataLen/ /*length till next call*/20);
-				toAdd=1 - (position % SampleNeeded - SampleNeeded/2)/(float)(2*SampleNeeded);
+				//toAdd=((position % (SampleNeeded)) - SampleNeeded/2)/(SampleNeeded/2);
 				
-				SampleNeeded = (int)(/*freq*/ 1000.0/60 * dataLen/ /*length till next call*/20);
-				toAdd=1 - (position % (SampleNeeded - SampleNeeded/2))/(3*SampleNeeded);
+				toAdd = Mathf.Sin(position/1000f);
 				
-				SampleNeeded = (int)(/*freq*/ 1000.0/80 * dataLen/ /*length till next call*/20);
-				toAdd+=1 - (position % SampleNeeded - SampleNeeded/2)/(4*SampleNeeded);
+				//Debug.Log(toAdd);
 				
-				toAdd*=5;
+				//toAdd*=5;
+				dados[i] = toAdd* 5;
 				//toAdd*= (amp*amp*amp*amp);
-				for(int j=0;j<channels;j++) data[channels*i+j] += toAdd;
+				for(int j=0;j<channels;j++) data[channels*i+j] += toAdd* amp* 100;
 			}
 			state --;
 		}
