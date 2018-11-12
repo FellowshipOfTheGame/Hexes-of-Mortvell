@@ -11,6 +11,9 @@ public class ToggleWhiteNoise : MonoBehaviour
     public float LowPassFrequency;
     public AudioHighPassFilter HighFilter;
     public AudioLowPassFilter LowFilter;
+	public float probMov;
+	public float variation;
+	public float range;
 
     private bool sounding;
     private float upTimeLeft;
@@ -40,6 +43,21 @@ public class ToggleWhiteNoise : MonoBehaviour
             downTimeLeft -= Time.deltaTime;
         }
         else if(!sounding) amp = 0;
+		else{
+			double val = rand.NextDouble(),probUp,probDn;
+			if(val<probMov){
+				val = rand.NextDouble();
+				probDn = (HighFilter.cutoffFrequency - HighPassBase)/range;
+				probUp = 1 - probDn;
+				if(val<probUp){
+					Debug.Log("up");
+					HighFilter.cutoffFrequency += variation;
+				}else {	
+					Debug.Log("down");
+					HighFilter.cutoffFrequency -= variation;
+				}
+			}
+		}
     }
 
     void OnAudioFilterRead(float[] data, int channels)
