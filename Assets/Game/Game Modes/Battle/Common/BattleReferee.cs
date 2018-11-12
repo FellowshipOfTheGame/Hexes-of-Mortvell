@@ -10,11 +10,13 @@ namespace HexesOfMortvell.GameModes.Common
 {
 	public class BattleReferee : GameModeReferee
 	{
-		public DeathListener deathListener;
-		public BattleTurn turn;
+		DeathListener deathListener;
+		BattleTurn turn;
 
 		void Awake()
 		{
+			this.turn = GameObject.FindObjectOfType<BattleTurn>();
+			this.deathListener = GameObject.FindObjectOfType<DeathListener>();
 			this.deathListener.deathEvent += CheckVictory;
 		}
 
