@@ -12,7 +12,6 @@ public class RockColision : MonoBehaviour
 		get { return this.state == 0; }
 	}
 	private int amp;
-	private float[] dados;
 	
 	public RockColision()
 	{
@@ -20,18 +19,10 @@ public class RockColision : MonoBehaviour
 	}
 	
     // Start is called before the first frame update
-    void Start()
-    {
-        dados = new float[1024];
-    }
+    void Start(){}
 
     // Update is called once per frame
-    void Update()
-    {
-		if(state > 0){
-			//for(int i=0;i<1024; i++) Debug.Log(dados[i]);
-		}
-    }
+    void Update(){}
 	
 	void OnAudioFilterRead(float[] data, int channels){
 		int dataLen = data.Length / channels;
@@ -41,7 +32,6 @@ public class RockColision : MonoBehaviour
 		SampleNeeded = (int)(SamplePerSecond / 10);
 		//Debug.Log(SamplePerSecond);
 		if(state > 0){
-			Debug.Log(state);
 			for(int i=0;i<dataLen;i+=channels){
 				position = dataLen*(duration-state) + i;
 				amp = 1 - (position)/(duration*dataLen);
@@ -53,7 +43,6 @@ public class RockColision : MonoBehaviour
 				//Debug.Log(toAdd);
 				
 				//toAdd*=5;
-				dados[i] = toAdd* 5;
 				//toAdd*= (amp*amp*amp*amp);
 				for(int j=0;j<channels;j++) data[channels*i+j] += toAdd* amp* 100;
 			}
