@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 61964330}
   - component: {fileID: 61964333}
+  - component: {fileID: 61964334}
   - component: {fileID: 61964332}
   - component: {fileID: 61964331}
   m_Layer: 5
@@ -190,7 +191,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 61964332}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 61964334}
+        m_MethodName: Load
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &61964332
@@ -230,6 +242,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61964329}
   m_CullTransparentMesh: 0
+--- !u!114 &61964334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61964329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52f5d69729e91814cab96d39342b07fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSceneName: Battle Base Scene
+  layout: {fileID: 11400000, guid: bb8d1b4f72b91f54bbba18da50d74c3c, type: 2}
+  referee: {fileID: 105172776962559708, guid: 26c5761317a204c46a51413b9ce1dcaf, type: 3}
 --- !u!1 &414133707
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +473,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1394897696}
   - component: {fileID: 1394897699}
+  - component: {fileID: 1394897700}
   - component: {fileID: 1394897698}
   - component: {fileID: 1394897697}
   m_Layer: 5
@@ -514,7 +542,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1394897698}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1394897700}
+        m_MethodName: Load
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1394897698
@@ -554,6 +593,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394897695}
   m_CullTransparentMesh: 0
+--- !u!114 &1394897700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394897695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52f5d69729e91814cab96d39342b07fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSceneName: Battle Base Scene
+  layout: {fileID: 11400000, guid: 2395ed52d76625a4a8bb9f47aa919282, type: 2}
+  referee: {fileID: 105172776962559708, guid: 26c5761317a204c46a51413b9ce1dcaf, type: 3}
 --- !u!1 &1656505546
 GameObject:
   m_ObjectHideFlags: 0

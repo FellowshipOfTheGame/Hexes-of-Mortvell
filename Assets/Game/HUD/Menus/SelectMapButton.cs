@@ -1,18 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using HexesOfMortvell.Core.Grid.Loading;
 
-public class SelectMapButton : MonoBehaviour
+namespace HexesOfMortvell.GameModes
 {
-	// Start is called before the first frame update
-	void Start()
+	public class SelectMapButton : MonoBehaviour
 	{
-		
-	}
+		public string baseSceneName;
+		public TmxBoardLayout layout;
+		public GameObject referee;
 
-	// Update is called once per frame
-	void Update()
-	{
-		
+		public void Load()
+		{
+			var loader = GameLoader.CreateLoader();
+			loader.Load(
+				this.baseSceneName,
+				this.layout.ToBoardLayout(),
+				this.referee);
+		}
 	}
 }

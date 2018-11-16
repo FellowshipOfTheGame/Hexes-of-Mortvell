@@ -29,6 +29,12 @@ namespace HexesOfMortvell.GameModes
 			SceneManager.LoadScene(sceneName);
 		}
 
+		public static GameLoader CreateLoader()
+		{
+			var gameObj = new GameObject();
+			return gameObj.AddComponent<GameLoader>();
+		}
+
 		void InstantiateGame(Scene scene, LoadSceneMode loadSceneMode)
 		{
 			SceneManager.sceneLoaded -= InstantiateGame;
