@@ -5,7 +5,7 @@ using HexesOfMortvell.Core.Grid;
 using HexesOfMortvell.Core.Units;
 using HexesOfMortvell.DesignPatterns.Fsm;
 
-namespace HexesOfMortvell.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle
 {
 	public class BattleStartTurnState : FsmState
 	{

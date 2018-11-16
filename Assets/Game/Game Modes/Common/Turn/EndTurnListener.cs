@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace HexesOfMortvell.GameModes.Common
+namespace HexesOfMortvell.GameModes
 {
 	public class EndTurnListener : MonoBehaviour
 	{

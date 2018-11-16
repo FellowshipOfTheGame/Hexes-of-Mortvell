@@ -2,7 +2,7 @@
 using UnityEngine;
 using HexesOfMortvell.Core.Units.Teams;
 
-namespace HexesOfMortvell.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle
 {
 	public class BattleTurn : MonoBehaviour
 	{

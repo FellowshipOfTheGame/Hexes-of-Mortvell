@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using HexesOfMortvell.Core.Grid.Loading;
-using HexesOfMortvell.GameModes.Common;
 
 namespace HexesOfMortvell.GameModes.Battle.Test
 {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using HexesOfMortvell.DesignPatterns.Fsm;
 
-namespace HexesOfMortvell.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle
 {
 	public class BattleMoveUnitState : FsmState
 	{

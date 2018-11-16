@@ -5,9 +5,8 @@ using HexesOfMortvell.DesignPatterns.Fsm;
 using HexesOfMortvell.Core.Grid;
 using HexesOfMortvell.Hud;
 using HexesOfMortvell.Hud.Grid;
-using HexesOfMortvell.GameModes.Common;
 
-namespace HexesOfMortvell.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle
 {
 	public class BattleSelectMovementDestinationState : FsmState
 	{

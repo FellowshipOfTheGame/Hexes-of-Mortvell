@@ -1,7 +1,6 @@
 ﻿using HexesOfMortvell.DesignPatterns.Fsm;
-using HexesOfMortvell.GameModes.Common;
 
-namespace HexesOfMortvell.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle
 {
 	public class BattleEndTurnState : FsmState
 	{

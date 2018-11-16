@@ -6,11 +6,10 @@ using HexesOfMortvell.DesignPatterns.Fsm;
 using HexesOfMortvell.Core.Units.Teams;
 using HexesOfMortvell.Core.Grid;
 using HexesOfMortvell.Core.Units;
-using HexesOfMortvell.GameModes.Common;
 using HexesOfMortvell.Hud;
 using HexesOfMortvell.Hud.Grid;
 
-namespace HexesOfMortvell.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle
 {
 	public class BattleOverviewState : FsmState
 	{

@@ -5,7 +5,7 @@ using HexesOfMortvell.Core.Grid.Regions;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HexesOfMortvell.GameModes.Common
+namespace HexesOfMortvell.GameModes
 {
 	public class WeatherConnectedComponentAoe : ActionAoe
 	{

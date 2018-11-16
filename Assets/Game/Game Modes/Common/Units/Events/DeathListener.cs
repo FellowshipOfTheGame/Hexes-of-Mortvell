@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using HexesOfMortvell.Core.Units;
 
-namespace HexesOfMortvell.GameModes.Common
+namespace HexesOfMortvell.GameModes
 {
 	public class DeathListener : MonoBehaviour
 	{

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using HexesOfMortvell.Core.Grid;
 using HexesOfMortvell.Core.Actions;
 
-namespace HexesOfMortvell.GameModes.Common
+namespace HexesOfMortvell.GameModes
 {
 	public class KnockbackActivation : DamageActivation
 	{

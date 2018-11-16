@@ -5,12 +5,11 @@ using UnityEngine;
 using HexesOfMortvell.DesignPatterns.Fsm;
 using HexesOfMortvell.Core.Actions;
 using HexesOfMortvell.Core.Grid;
-using HexesOfMortvell.GameModes.Common;
 using HexesOfMortvell.Hud;
 using HexesOfMortvell.Hud.Grid;
 using HexesOfMortvell.Hud.Actions;
 
-namespace HexesOfMortvell.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle
 {
 	public class BattleSelectUnitActionTargetsState : FsmState
 	{

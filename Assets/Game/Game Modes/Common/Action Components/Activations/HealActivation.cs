@@ -4,7 +4,7 @@ using HexesOfMortvell.Core.Units;
 using HexesOfMortvell.Core.Actions;
 using HexesOfMortvell.Core.Grid;
 
-namespace HexesOfMortvell.GameModes.Common
+namespace HexesOfMortvell.GameModes
 {
 	public class HealActivation : ActionActivation
 	{

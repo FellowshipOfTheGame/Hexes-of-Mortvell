@@ -4,9 +4,9 @@ using UnityEngine;
 using HexesOfMortvell.Core.Units;
 using HexesOfMortvell.Core.Units.Teams;
 using HexesOfMortvell.Core.VictoryConditions;
-using HexesOfMortvell.GameModes.Battle.Common;
+using HexesOfMortvell.GameModes.Battle;
 
-namespace HexesOfMortvell.GameModes.Common
+namespace HexesOfMortvell.GameModes.Battle
 {
 	public class BattleReferee : GameModeReferee
 	{

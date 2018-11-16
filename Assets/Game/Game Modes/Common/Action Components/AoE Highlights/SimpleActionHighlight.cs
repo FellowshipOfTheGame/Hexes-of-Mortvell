@@ -3,7 +3,7 @@ using HexesOfMortvell.Hud;
 using HexesOfMortvell.Hud.Actions;
 using HexesOfMortvell.Core.Grid;
 
-namespace HexesOfMortvell.GameModes.Common
+namespace HexesOfMortvell.GameModes
 {
 	public class SimpleActionHighlight : ActionHighlight
 	{

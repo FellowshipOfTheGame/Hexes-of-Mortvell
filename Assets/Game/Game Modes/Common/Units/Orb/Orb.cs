@@ -5,7 +5,7 @@ using HexesOfMortvell.Core.Units.Teams;
 using HexesOfMortvell.Core.Grid;
 using HexesOfMortvell.Core.Grid.Regions;
 
-namespace HexesOfMortvell.GameModes.Common
+namespace HexesOfMortvell.GameModes
 {
 	[RequireComponent(typeof(BoardCellContent), typeof(TeamMember))]
 	public class Orb : MonoBehaviour

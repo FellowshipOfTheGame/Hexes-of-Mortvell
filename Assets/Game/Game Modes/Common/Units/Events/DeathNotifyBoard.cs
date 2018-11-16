@@ -4,7 +4,7 @@ using HexesOfMortvell.DesignPatterns.Observer;
 using HexesOfMortvell.Core.Units;
 using HexesOfMortvell.Core.Grid;
 
-namespace HexesOfMortvell.GameModes.Common
+namespace HexesOfMortvell.GameModes
 {
 	[RequireComponent(typeof(HP), typeof(BoardCellContent))]
 	public class DeathNotifyBoard : MonoBehaviour
