@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSceneName: Battle Base Scene
-  layout: {fileID: 11400000, guid: 2395ed52d76625a4a8bb9f47aa919282, type: 2}
+  layout: {fileID: 11400000, guid: bb8d1b4f72b91f54bbba18da50d74c3c, type: 2}
   referee: {fileID: 105172776962559708, guid: 26c5761317a204c46a51413b9ce1dcaf, type: 3}
 --- !u!1 &2108094715
 GameObject:
