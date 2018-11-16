@@ -39,7 +39,7 @@ namespace HexesOfMortvell.GameModes.Common
 		{
 			yield return null;
 			InstantiateGame();
-			Destroy(this);
+			Destroy(this.gameObject);
 		}
 
 		void InstantiateGame()
