@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="hexagonal" renderorder="right-down" width="9" height="6" tilewidth="64" tileheight="64" infinite="0" hexsidelength="29" staggeraxis="y" staggerindex="odd" nextlayerid="4" nextobjectid="1">
- <tileset firstgid="1" source="Smooth and Rough terrains.tsx"/>
- <tileset firstgid="3" source="Mages and Orbs.tsx"/>
- <tileset firstgid="14" source="Weathers.tsx"/>
- <layer id="1" name="Terrain" width="9" height="6">
+<map version="1.0" tiledversion="1.1.5" orientation="hexagonal" renderorder="right-down" width="9" height="6" tilewidth="64" tileheight="64" infinite="0" hexsidelength="29" staggeraxis="y" staggerindex="odd" nextobjectid="1">
+ <tileset firstgid="1" source="C:/Users/wqfer/Documents/Smooth and Rough terrains.tsx"/>
+ <tileset firstgid="3" source="C:/Users/wqfer/Documents/Mages and Orbs.tsx"/>
+ <tileset firstgid="14" source="C:/Users/wqfer/Documents/Weathers.tsx"/>
+ <layer name="Terrain" width="9" height="6">
   <data encoding="csv">
-0,0,0,1,1,1,1,1,1,
+15,0,0,1,1,1,1,1,1,
 0,0,1,1,1,1,1,1,0,
 0,0,1,1,1,1,1,1,0,
 0,1,1,1,1,1,1,0,0,
@@ -13,7 +13,7 @@
 1,1,1,1,1,1,0,0,0
 </data>
  </layer>
- <layer id="2" name="Objects" width="9" height="6">
+ <layer name="Objects" width="9" height="6">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,8,0,
@@ -23,7 +23,7 @@
 0,0,9,9,0,0,0,0,0
 </data>
  </layer>
- <layer id="3" name="Weather" width="9" height="6">
+ <layer name="Weather" width="9" height="6">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,
