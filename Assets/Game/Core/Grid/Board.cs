@@ -153,6 +153,9 @@ namespace HexesOfMortvell.Core.Grid
 		public BoardCell GetCell(BoardPosition position)
 		{
 			var matrixCoords = BoardPositionToMatrixIndices(position);
+			print(position);
+			print(matrixCoords);
+			print("===");
 			return this.cells[matrixCoords.Item1, matrixCoords.Item2];
 		}
 

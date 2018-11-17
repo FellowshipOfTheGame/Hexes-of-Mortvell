@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f72cb167daf77114bba81242ee08231b, type: 3}
-  m_Name: Fortress Layout
+  m_Name: Challenge 1 Layout
   m_EditorClassIdentifier: 
-  tmxFile: {fileID: 4900000, guid: 217bacb2be1898f46a05d042e0df631d, type: 3}
+  tmxFile: {fileID: 4900000, guid: af0fa829865fa024aa3cd173f9465405, type: 3}
   terrainSet: {fileID: 11400000, guid: 32b2f263b9dbdaf41a768f2918084eb8, type: 2}
   spawnSet: {fileID: 11400000, guid: 6960698a2bf398b43893fb51de9caba4, type: 2}
   weatherSet: {fileID: 11400000, guid: 8028319c81f68bb4bb16c832651ea3ab, type: 2}

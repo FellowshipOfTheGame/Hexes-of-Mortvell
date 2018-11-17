@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tmxFile: {fileID: 4900000, guid: a0645a6d6f7c3cc48b3106456818686e, type: 3}
   terrainSet: {fileID: 11400000, guid: 32b2f263b9dbdaf41a768f2918084eb8, type: 2}
-  spawnSet: {fileID: 11400000, guid: cc6a8598b750805478bf58970df238c6, type: 2}
+  spawnSet: {fileID: 11400000, guid: 6960698a2bf398b43893fb51de9caba4, type: 2}
   weatherSet: {fileID: 11400000, guid: 8028319c81f68bb4bb16c832651ea3ab, type: 2}
