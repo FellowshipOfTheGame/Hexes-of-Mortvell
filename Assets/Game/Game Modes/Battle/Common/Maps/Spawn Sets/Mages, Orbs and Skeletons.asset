@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: Mages, Orbs and Obstacles
+  m_Name: Mages, Orbs and Skeletons
   m_EditorClassIdentifier: Assembly-CSharp:HexesOfMortvell.Core.Grid.Loading:TmxSpawnSet
   elements:
   - prefab: {fileID: 1009992586163188, guid: 631f041d42a22fe4881bc85f54609738, type: 3}
