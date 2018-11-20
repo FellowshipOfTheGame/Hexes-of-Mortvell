@@ -4,18 +4,17 @@ using UnityEngine;
 using HexesOfMortvell.Core.Units;
 using HexesOfMortvell.Core.Units.Teams;
 using HexesOfMortvell.Core.VictoryConditions;
-using HexesOfMortvell.GameModes.Battle;
 
 namespace HexesOfMortvell.GameModes.Battle
 {
 	public class BattleReferee : GameModeReferee
 	{
 		DeathListener deathListener;
-		BattleTurn turn;
+		Turn turn;
 
 		void Awake()
 		{
-			this.turn = GameObject.FindObjectOfType<BattleTurn>();
+			this.turn = GameObject.FindObjectOfType<Turn>();
 			this.deathListener = GameObject.FindObjectOfType<DeathListener>();
 			this.deathListener.deathEvent += CheckVictory;
 		}

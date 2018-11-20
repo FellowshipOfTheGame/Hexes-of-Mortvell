@@ -4,7 +4,7 @@ namespace HexesOfMortvell.GameModes.Battle
 {
 	public class BattleEndTurnState : FsmState
 	{
-		public BattleTurn turn;
+		public Turn turn;
 		public EndTurnNotifyCells cellEndTurnNotifier;
 
 		public override void Enter()

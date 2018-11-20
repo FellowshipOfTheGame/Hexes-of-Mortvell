@@ -535,7 +535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSceneName: Battle Base Scene
   layout: {fileID: 11400000, guid: 16e37ea42b6332b4d816bb9152d0b29f, type: 2}
-  referee: {fileID: 105172776962559708, guid: 26c5761317a204c46a51413b9ce1dcaf, type: 3}
+  referee: {fileID: 7650341299950054522, guid: 4868e4f7081980f44b6c7a698a13ea70, type: 3}
 --- !u!114 &601764063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -838,7 +838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSceneName: Battle Base Scene
   layout: {fileID: 11400000, guid: 51eba935b7b233045a9589c8293fca84, type: 2}
-  referee: {fileID: 105172776962559708, guid: 26c5761317a204c46a51413b9ce1dcaf, type: 3}
+  referee: {fileID: 7650341299950054522, guid: 4868e4f7081980f44b6c7a698a13ea70, type: 3}
 --- !u!114 &987205670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -983,7 +983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSceneName: Battle Base Scene
   layout: {fileID: 11400000, guid: 31306949a097c2041b4cbeb47f70b24a, type: 2}
-  referee: {fileID: 105172776962559708, guid: 26c5761317a204c46a51413b9ce1dcaf, type: 3}
+  referee: {fileID: 7650341299950054522, guid: 4868e4f7081980f44b6c7a698a13ea70, type: 3}
 --- !u!114 &995868422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1207,7 +1207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSceneName: Battle Base Scene
   layout: {fileID: 11400000, guid: f47eacb372fbff24e843f5107f861893, type: 2}
-  referee: {fileID: 105172776962559708, guid: 26c5761317a204c46a51413b9ce1dcaf, type: 3}
+  referee: {fileID: 7650341299950054522, guid: 4868e4f7081980f44b6c7a698a13ea70, type: 3}
 --- !u!114 &1239893618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1508,7 +1508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSceneName: Battle Base Scene
   layout: {fileID: 11400000, guid: 0e1544d26c3a6f34e845ee2366f976d1, type: 2}
-  referee: {fileID: 105172776962559708, guid: 26c5761317a204c46a51413b9ce1dcaf, type: 3}
+  referee: {fileID: 7650341299950054522, guid: 4868e4f7081980f44b6c7a698a13ea70, type: 3}
 --- !u!1 &1394897695
 GameObject:
   m_ObjectHideFlags: 0

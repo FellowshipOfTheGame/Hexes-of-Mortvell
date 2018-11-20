@@ -10,7 +10,7 @@ namespace HexesOfMortvell.GameModes.Battle
 	public class BattleStartTurnState : FsmState
 	{
 		public Board board;
-		public BattleTurn turn;
+		public Turn turn;
 
 		public override void Enter()
 		{

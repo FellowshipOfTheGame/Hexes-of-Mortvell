@@ -13,7 +13,7 @@ namespace HexesOfMortvell.GameModes.Battle
 {
 	public class BattleOverviewState : FsmState
 	{
-		public BattleTurn turn;
+		public Turn turn;
 		public CellClickListener cellClickListener;
 		public BattlePlayerOrders playerOrders;
 		public Button endTurn;
