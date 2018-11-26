@@ -636,7 +636,7 @@ MonoBehaviour:
   downDuration: 0.2
   HighPassBase: 1000
   HighPassRange: 100
-  LowPassFrequency: 800
+  LowPassFrequency: 700
   HighFilter: {fileID: 537030656}
   LowFilter: {fileID: 537030657}
   probMov: 0.2
