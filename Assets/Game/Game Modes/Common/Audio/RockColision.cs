@@ -38,7 +38,7 @@ public class RockColision : MonoBehaviour
 				
 				//toAdd=((position % (SampleNeeded)) - SampleNeeded/2)/(SampleNeeded/2);
 				
-				toAdd = Mathf.Sin(position/1000f);
+				toAdd = Mathf.Sin(position/10000f);
 				
 				//Debug.Log(toAdd);
 				
