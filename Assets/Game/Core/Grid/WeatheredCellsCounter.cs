@@ -8,18 +8,19 @@ namespace HexesOfMortvell.Core.Grid
 	{
 		[Header("Values")]
 		public List<WeatheredCellCount> cellsCount;
+		
 		private int cellCount;
+		private Board board;
 
-		void Start()
+		void Awake()
 		{
-			var board = GameObject.FindObjectOfType<Board>();
-			CountWeatheredCells();
-			cellCount = (board.MaxX - board.MinX)*(board.MaxY-board.MinY);
+			board = GameObject.FindObjectOfType<Board>().GetComponent<Board>();
+			cellCount = (board.NumRows)*(board.NumCols);
+			cellsCount = new List<WeatheredCellCount>();
 		}
-
+		
 		void Update()
 		{
-			CountWeatheredCells();
 		}
 
 		/// <summary>
@@ -27,9 +28,11 @@ namespace HexesOfMortvell.Core.Grid
 		/// </summary>
 		public void CountWeatheredCells()
 		{
-			var board = GameObject.FindObjectOfType<Board>();
 			string weatherName;
 			bool alreadyExists;
+			foreach(var w in this.cellsCount){
+				w.count = 0;
+			}
 			for (int x = board.MinX; x <= board.MaxX; x++)
 				for (int y = board.MinY; y <= board.MaxY; y++)
 				{
@@ -38,10 +41,10 @@ namespace HexesOfMortvell.Core.Grid
 					if (weatherName != null)
 					{
 						alreadyExists = false;
-						foreach (var w in this.cellsCount)
-							if (w.weatherType.Equals(weatherName))
+						for(int i=0; i <this.cellsCount.Count; i++)
+							if (cellsCount[i].weatherType.Equals(weatherName))
 							{
-								w.count++;
+								cellsCount[i].count++;
 								alreadyExists = true;
 							}
 						if (!alreadyExists)
@@ -55,16 +58,25 @@ namespace HexesOfMortvell.Core.Grid
 		/// Calculates which weather is more common, and returns the percentage of cells that have such condition
 		/// </summary>
 		public float GetMostCommon(){
-			int type = -1;
+			bool thisWeather = false;
 			float brute = 0;
+			var name = GetComponent<BoardWeather>().uniqueName;
+			CountWeatheredCells();
 			foreach (var w in this.cellsCount){
-				if(brute < w.count)
+				if(brute < w.count){
 					brute = w.count;
-					if(w.weatherType.Equals("Fire")) type = 0;
-					else if(w.weatherType.Equals("Rain")) type = 1;
-					else if(w.weatherType.Equals("Snow")) type = 2;
+					if(w.weatherType.Equals(name)){
+						Debug.Log("entrou");
+						thisWeather = true;
+					}else{ 
+						thisWeather = false;
+					}
+				}
 			}
-			return brute/cellCount + type;
+			if(thisWeather)
+				return (brute)/cellCount;
+			else
+				return 0;
 		}
 	}
 }
