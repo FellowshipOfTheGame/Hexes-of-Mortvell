@@ -1421,8 +1421,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d167fec5a988443809f1d50fc31294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 500
-  perc: 150
+  multiplier: 250
+  perc: 75
 --- !u!165 &1212146640
 AudioHighPassFilter:
   m_ObjectHideFlags: 0
@@ -1477,9 +1477,9 @@ MonoBehaviour:
   LowPassFrequency: 300
   HighFilter: {fileID: 1212146640}
   LowFilter: {fileID: 1212146641}
-  probMov: 0
-  variation: 0
-  range: 0
+  probMov: 30
+  variation: 20
+  range: 100
 --- !u!82 &1212146643
 AudioSource:
   m_ObjectHideFlags: 0
