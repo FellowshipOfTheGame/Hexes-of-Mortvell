@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6e1f9103666e741bbc732e634673f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 1
+  duration: 5
 --- !u!114 &3227031890878792064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,3 +212,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5112c2131052471428912de7b4ea525e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colSound: {fileID: 3227031890878792065}

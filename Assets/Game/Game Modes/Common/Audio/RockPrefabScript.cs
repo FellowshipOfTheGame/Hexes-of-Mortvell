@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RockPrefabScript : MonoBehaviour
 {
+	public RockColision colSound;
+	
     // Start is called before the first frame update
     void Start()
     {
@@ -12,8 +14,13 @@ public class RockPrefabScript : MonoBehaviour
     }
 
 	public void colide(){
-		var colSound = GetComponent<RockColision>();
 		colSound.play();
-		Destroy(this.gameObject, 0.02f);
+		StartCoroutine(DestroyAfterPlaying());
+	}
+	
+	IEnumerator DestroyAfterPlaying() {
+		while (!colSound.donePlaying)
+			yield return null;
+		Destroy(this.gameObject);
 	}
 }
