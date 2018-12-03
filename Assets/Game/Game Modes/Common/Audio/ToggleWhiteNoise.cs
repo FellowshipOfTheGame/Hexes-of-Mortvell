@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ToggleWhiteNoise : MonoBehaviour
 {
-	public int SoundType;//type 0: fire; 1: rain; 2: Snow
     public float upDuration;
     public float downDuration;
     public float HighPassBase;
@@ -50,6 +49,9 @@ public class ToggleWhiteNoise : MonoBehaviour
         }
         else if(!sounding) amp = 0;
 		else{
+			float weather = counter.GetMostCommon();
+			amp = weather;
+			Debug.Log(amp);
 			double val = rand.NextDouble(),probUp,probDn;
 			if(val<probMov){
 				val = rand.NextDouble();
@@ -65,9 +67,6 @@ public class ToggleWhiteNoise : MonoBehaviour
 			}
 		}
 		
-		float weather = counter.GetMostCommon();
-		amp *= weather;
-		Debug.Log(amp);
 		
     }
 

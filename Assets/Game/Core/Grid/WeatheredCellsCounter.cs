@@ -8,15 +8,18 @@ namespace HexesOfMortvell.Core.Grid
 	{
 		[Header("Values")]
 		public List<WeatheredCellCount> cellsCount;
+		public GameObject weather;
 		
 		private int cellCount;
 		private Board board;
+		private string weatherName;
 
 		void Awake()
 		{
 			board = GameObject.FindObjectOfType<Board>().GetComponent<Board>();
-			cellCount = (board.NumRows)*(board.NumCols);
+			cellCount = -1;
 			cellsCount = new List<WeatheredCellCount>();
+			weatherName = weather.GetComponent<HexesOfMortvell.Core.Grid.BoardWeather>().uniqueName;
 		}
 		
 		void Update()
@@ -60,12 +63,15 @@ namespace HexesOfMortvell.Core.Grid
 		public float GetMostCommon(){
 			bool thisWeather = false;
 			float brute = 0;
-			var name = GetComponent<BoardWeather>().uniqueName;
+			if(cellCount < 0){
+				cellCount = (board.NumRows)*(board.NumCols);
+			}
 			CountWeatheredCells();
+			Debug.Log(weatherName);
 			foreach (var w in this.cellsCount){
 				if(brute < w.count){
 					brute = w.count;
-					if(w.weatherType.Equals(name)){
+					if(w.weatherType.Equals(weatherName)){
 						Debug.Log("entrou");
 						thisWeather = true;
 					}else{ 
