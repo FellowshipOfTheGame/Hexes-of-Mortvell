@@ -8,10 +8,13 @@ namespace HexesOfMortvell.Core.Grid
 	{
 		[Header("Values")]
 		public List<WeatheredCellCount> cellsCount;
+		private int cellCount;
 
 		void Start()
 		{
+			var board = GameObject.FindObjectOfType<Board>();
 			CountWeatheredCells();
+			cellCount = (board.MaxX - board.MinX)*(board.MaxY-board.MinY);
 		}
 
 		void Update()
@@ -46,6 +49,22 @@ namespace HexesOfMortvell.Core.Grid
 								new WeatheredCellCount(weatherName, 1));
 					}
 				}
+		}
+		
+		/// <summary>
+		/// Calculates which weather is more common, and returns the percentage of cells that have such condition
+		/// </summary>
+		public float GetMostCommon(){
+			int type = -1;
+			float brute = 0;
+			foreach (var w in this.cellsCount){
+				if(brute < w.count)
+					brute = w.count;
+					if(w.weatherType.Equals("Fire")) type = 0;
+					else if(w.weatherType.Equals("Rain")) type = 1;
+					else if(w.weatherType.Equals("Snow")) type = 2;
+			}
+			return brute/cellCount + type;
 		}
 	}
 }

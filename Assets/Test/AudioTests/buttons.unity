@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eab9689032eff24ea17b3e3503dfce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoundType: 0
   upDuration: 0.2
   downDuration: 0.2
   HighPassBase: 30
@@ -632,6 +633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eab9689032eff24ea17b3e3503dfce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoundType: 2
   upDuration: 0.2
   downDuration: 0.2
   HighPassBase: 1000

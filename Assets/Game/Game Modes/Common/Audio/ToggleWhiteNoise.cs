@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ToggleWhiteNoise : MonoBehaviour
 {
+	public int SoundType;//type 0: fire; 1: rain; 2: Snow
     public float upDuration;
     public float downDuration;
     public float HighPassBase;
@@ -26,6 +27,7 @@ public class ToggleWhiteNoise : MonoBehaviour
         rand = new System.Random();
         sounding = false;
         LowFilter.cutoffFrequency = LowPassFrequency;
+		//counter = GameObject.FindObjectOfType<WeatheredCellsCounter>();
     }
 
     private void Update()
@@ -58,6 +60,12 @@ public class ToggleWhiteNoise : MonoBehaviour
 				}
 			}
 		}
+		/*
+		float weather = counter.GetMostCommon();
+		if(((int)weather) == type){
+			amp *= (weather - (int)weather);
+		}
+		*/
     }
 
     void OnAudioFilterRead(float[] data, int channels)
