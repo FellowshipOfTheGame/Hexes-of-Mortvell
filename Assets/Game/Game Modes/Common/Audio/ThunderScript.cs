@@ -34,7 +34,7 @@ public class ThunderScript : MonoBehaviour
 				//env = state % 2 - env * env * env * env;
 				env = state % 2 - i*i*i*i;
 				for(int j=0; j<channels; j++)
-					data[channels*i + j] = env * (data.Length/channels - i)/(data.Length/channels);
+					data[channels*i + j] = env * state/(maxState-5);
 			}
 			state --;
 		}
