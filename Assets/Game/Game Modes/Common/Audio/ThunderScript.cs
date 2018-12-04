@@ -19,28 +19,22 @@ public class ThunderScript : MonoBehaviour
 		sawtooth /= data.Length;
 		if(state > 5){
 			for(int i = 0; i<data.Length/channels; i++){
-				env = 1 - (x+i)*(x+i)/10000.0f;
+				env = i;
+				env /= data.Length/channels;
+				env = 1 - (env)*(env);
+				//Debug.Log(env);
 				for(int j=0; j<channels; j++)
 					data[channels * i + j] = sawtooth * i * env;
 			}
 			state --;
-		}else if(state > 3){
+		}else if (state > 0){
 			for(int i = 0; i<data.Length/channels; i++){
 				env = i;
 				//env /=data.Length/channels;
-				env = 1 - env * env * env * env;
+				//env = state % 2 - env * env * env * env;
+				env = state % 2 - i*i*i*i;
 				for(int j=0; j<channels; j++)
-					data[channels*i + j] = env;
-			}
-			state --;
-		}else if(state > 0){
-			for(int i=0; i<data.Length/channels; i++){
-				//env = i;
-				//env /= data.Length/channels;
-				sawtooth = -i*i*i*i;
-				env = i / (float)data.Length;
-				for(int j=0;j<channels;j++)
-					data[channels*i + j] = env * sawtooth;
+					data[channels*i + j] = env * (data.Length/channels - i)/(data.Length/channels);
 			}
 			state --;
 		}
