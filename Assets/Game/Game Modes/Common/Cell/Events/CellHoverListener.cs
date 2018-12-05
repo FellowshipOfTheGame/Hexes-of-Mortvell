@@ -1,7 +1,7 @@
 using UnityEngine;
 using HexesOfMortvell.Core.Grid;
 
-namespace HexesOfMortvell.GameModes.Common
+namespace HexesOfMortvell.GameModes
 {
 	public class CellHoverListener : MonoBehaviour
 	{

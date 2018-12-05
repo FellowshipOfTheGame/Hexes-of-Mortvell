@@ -5,7 +5,7 @@ using HexesOfMortvell.Core.Grid;
 using HexesOfMortvell.Core.Grid.Regions;
 using LineRegion = HexesOfMortvell.Core.Grid.Regions.BoardLineRegionExtension;
 
-namespace HexesOfMortvell.GameModes.Common
+namespace HexesOfMortvell.GameModes
 {
 	public class LineFromLastClick : ActionTargetFilter
 	{

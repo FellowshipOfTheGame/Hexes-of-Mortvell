@@ -4,7 +4,7 @@ using HexesOfMortvell.Core.Actions;
 using HexesOfMortvell.Core.Grid;
 using HexesOfMortvell.Core.Grid.Regions;
 
-namespace HexesOfMortvell.GameModes.Common
+namespace HexesOfMortvell.GameModes
 {
 	public class RadiusAroundEachTargetAoe : ActionAoe
 	{

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using HexesOfMortvell.Core.Grid;
 
-namespace HexesOfMortvell.GameModes.Common
+namespace HexesOfMortvell.GameModes
 {
 	public class CellHoverNotifyBoard : MonoBehaviour
 	{

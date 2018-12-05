@@ -1,11 +1,10 @@
 ﻿using HexesOfMortvell.DesignPatterns.Fsm;
-using HexesOfMortvell.GameModes.Common;
 
-namespace HexesOfMortvell.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle
 {
 	public class BattleEndTurnState : FsmState
 	{
-		public BattleTurn turn;
+		public Turn turn;
 		public EndTurnNotifyCells cellEndTurnNotifier;
 
 		public override void Enter()

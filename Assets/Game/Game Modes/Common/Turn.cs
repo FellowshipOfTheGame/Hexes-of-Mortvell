@@ -2,15 +2,16 @@
 using UnityEngine;
 using HexesOfMortvell.Core.Units.Teams;
 
-namespace HexesOfMortvell.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes
 {
-	public class BattleTurn : MonoBehaviour
+	public class Turn : MonoBehaviour
 	{
 		[Tooltip("Teams which have turns to act.")]
 		public TeamGroup teamsWithTurns;
 
 		[SerializeField]
 		private int currentTeamIndex;
+		public int CurrentTeamIndex { get { return this.currentTeamIndex; } }
 
 		public Team CurrentTeam
 		{

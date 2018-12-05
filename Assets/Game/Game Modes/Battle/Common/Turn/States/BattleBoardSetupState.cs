@@ -3,7 +3,7 @@ using HexesOfMortvell.DesignPatterns.Fsm;
 using HexesOfMortvell.Core.Grid;
 using HexesOfMortvell.Core.Units.Teams;
 
-namespace HexesOfMortvell.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle
 {
 	public class BattleBoardSetupState : FsmState
 	{

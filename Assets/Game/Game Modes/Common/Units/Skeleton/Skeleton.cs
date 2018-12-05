@@ -5,7 +5,7 @@ using HexesOfMortvell.Core.Grid.Regions;
 using HexesOfMortvell.Core.Units;
 using HexesOfMortvell.Core.Units.Teams;
 
-namespace HexesOfMortvell.GameModes.Common
+namespace HexesOfMortvell.GameModes
 {
 	[RequireComponent(typeof(BoardCellContent), typeof(TeamMember), typeof(HP))]
 	public class Skeleton : MonoBehaviour

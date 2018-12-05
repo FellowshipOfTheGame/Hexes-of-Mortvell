@@ -2,7 +2,7 @@
 using HexesOfMortvell.Core.Grid;
 using HexesOfMortvell.Core.Grid.Loading;
 
-namespace HexesOfMortvell.GameModes.Common
+namespace HexesOfMortvell.GameModes
 {
 	public class TmxLayoutLoaderOld : MonoBehaviour
 	{

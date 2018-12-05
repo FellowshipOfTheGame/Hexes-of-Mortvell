@@ -4,7 +4,7 @@ using HexesOfMortvell.Core.Grid;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace HexesOfMortvell.GameModes.Common
+namespace HexesOfMortvell.GameModes
 {
 	public class ApplyWeatherActivation : ActionActivation
 	{

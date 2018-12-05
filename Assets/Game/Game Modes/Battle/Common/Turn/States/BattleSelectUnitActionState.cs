@@ -7,7 +7,7 @@ using UnityEngine;
 using HexesOfMortvell.DesignPatterns.Fsm;
 using HexesOfMortvell.Core.Actions;
 
-namespace HexesOfMortvell.GameModes.Battle.Common
+namespace HexesOfMortvell.GameModes.Battle
 {
 	public class BattleSelectUnitActionState : FsmState
 	{
