@@ -27,7 +27,7 @@ public class ThunderScript : MonoBehaviour
 					data[channels * i + j] = sawtooth * i * env;
 			}
 			state --;
-		}else if (state > 0){
+		}else if (state > 1){
 			for(int i = 0; i<data.Length/channels; i++){
 				env = i;
 				//env /=data.Length/channels;
@@ -35,6 +35,21 @@ public class ThunderScript : MonoBehaviour
 				env = state % 2 - i*i*i*i;
 				for(int j=0; j<channels; j++)
 					data[channels*i + j] = env * state/(maxState-5);
+			}
+			state --;
+		}else if(state>0){
+			int mid = data.Length/(2*channels);
+			mid -= mid%channels; //clip to a certain sample, not between channels;
+			for(int i = 0; i<mid; i++){
+				for(int j = 0; j < channels; j++)
+					data[channels*i + j] = 1 - i*i*i*i;
+			}
+			for(int i = mid; i<data.Length/channels; i++){
+				env = i;
+				env /=data.Length / channels - mid;
+				for(int j = 0; j<channels;j++){
+					data[channels*i + j] = env * env * env * env;
+				}
 			}
 			state --;
 		}
