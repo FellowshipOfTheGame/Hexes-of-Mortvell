@@ -28,6 +28,9 @@ public class SimpleOscilator : MonoBehaviour
 					data[channels*i + j] = Mathf.Cos(norm * constant)*perc + data[channels*i + j]*(1-perc);
 				}
 			}
+			for(int i=10; i<data.Length; i++){
+				data[i] = 0.9f*data[i] + 0.1f*data[i-10];
+			}
 			state--;
 		}
     }
