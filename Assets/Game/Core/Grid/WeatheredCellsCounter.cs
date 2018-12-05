@@ -33,9 +33,7 @@ namespace HexesOfMortvell.Core.Grid
 		{
 			string weatherName;
 			bool alreadyExists;
-			foreach(var w in this.cellsCount){
-				w.count = 0;
-			}
+			cellsCount.Clear();
 			for (int x = board.MinX; x <= board.MaxX; x++)
 				for (int y = board.MinY; y <= board.MaxY; y++)
 				{
