@@ -67,20 +67,19 @@ namespace HexesOfMortvell.Core.Grid
 				cellCount = (board.NumRows)*(board.NumCols);
 			}
 			CountWeatheredCells();
-			Debug.Log(weatherName);
 			foreach (var w in this.cellsCount){
 				if(brute < w.count){
 					brute = w.count;
 					if(w.weatherType.Equals(weatherName)){
-						Debug.Log("entrou");
 						thisWeather = true;
 					}else{ 
 						thisWeather = false;
 					}
 				}
 			}
-			if(thisWeather)
+			if(thisWeather){
 				return (brute)/cellCount;
+			}
 			else
 				return 0;
 		}

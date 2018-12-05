@@ -22,7 +22,7 @@ public class ToggleWhiteNoise : MonoBehaviour
 	private HexesOfMortvell.Core.Grid.WeatheredCellsCounter counter;
     System.Random rand;
 
-    private void Start()
+    private void Awake()
     {
         rand = new System.Random();
 		HighFilter = GetComponent<AudioHighPassFilter>();
@@ -51,17 +51,15 @@ public class ToggleWhiteNoise : MonoBehaviour
 		else{
 			float weather = counter.GetMostCommon();
 			amp = weather;
-			Debug.Log(amp);
+			Debug.Log(name + amp.ToString());
 			double val = rand.NextDouble(),probUp,probDn;
 			if(val<probMov){
 				val = rand.NextDouble();
 				probDn = (HighFilter.cutoffFrequency - HighPassBase)/range;
 				probUp = 1 - probDn;
 				if(val<probUp){
-					Debug.Log("up");
 					HighFilter.cutoffFrequency += variation;
 				}else {	
-					Debug.Log("down");
 					HighFilter.cutoffFrequency -= variation;
 				}
 			}
