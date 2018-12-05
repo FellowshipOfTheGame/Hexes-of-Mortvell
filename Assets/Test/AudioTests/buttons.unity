@@ -1094,9 +1094,6 @@ GameObject:
   - component: {fileID: 854823652}
   - component: {fileID: 854823651}
   - component: {fileID: 854823650}
-  - component: {fileID: 854823649}
-  - component: {fileID: 854823648}
-  - component: {fileID: 854823647}
   - component: {fileID: 854823655}
   - component: {fileID: 854823654}
   m_Layer: 5
@@ -1126,61 +1123,6 @@ RectTransform:
   m_AnchoredPosition: {x: 121, y: -22.000015}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!165 &854823647
-AudioHighPassFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854823645}
-  m_Enabled: 1
-  m_CutoffFrequency: 5000
-  m_HighpassResonanceQ: 1
---- !u!169 &854823648
-AudioLowPassFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854823645}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_LowpassResonanceQ: 1
-  lowpassLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.04059091
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &854823649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854823645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 299376e71e1270b4b9f0e09bb153016d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 0.6
-  upDuration: 0.05
-  downDuration: 0.05
-  HighFilterBase: 1320
-  HighFilterRange: 0
-  LowFilterFrequency: 1320
-  HighFilt: {fileID: 854823647}
-  LowFilt: {fileID: 854823648}
 --- !u!82 &854823650
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1317,7 +1259,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 854823649}
+      - m_Target: {fileID: 0}
         m_MethodName: startSound
         m_Mode: 1
         m_Arguments:
@@ -1402,9 +1344,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8bb9c27e00ebd4aa31744566caac1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frequency: 1320
+  frequency: 3120
   maxState: 30
-  perc: 0.2
+  perc: 0.25
 --- !u!1 &876547888
 GameObject:
   m_ObjectHideFlags: 0
