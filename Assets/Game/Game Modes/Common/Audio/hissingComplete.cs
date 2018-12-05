@@ -11,7 +11,7 @@ public class hissingComplete : MonoBehaviour
     private int amp;
     System.Random rand;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         sounding = false;
         amp = 0;
