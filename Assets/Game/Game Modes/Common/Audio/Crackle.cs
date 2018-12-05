@@ -10,9 +10,9 @@ public class Crackle : MonoBehaviour
     private bool sounding;
     System.Random rand;
 
-    private void Start()
+    private void Awake()
     {
-        sounding = false;
+        sounding = true;
         rand = new System.Random();
     }
 

@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 269420686}
   - component: {fileID: 269420685}
   - component: {fileID: 269420684}
+  - component: {fileID: 269420693}
   - component: {fileID: 269420689}
   - component: {fileID: 269420683}
   - component: {fileID: 269420688}
@@ -249,6 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eab9689032eff24ea17b3e3503dfce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoundType: 0
   upDuration: 0.2
   downDuration: 0.2
   HighPassBase: 30
@@ -542,6 +544,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdac8294014be0943896c4fa49d1814d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &269420693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269420681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 060ba897a66edd9489f174ab66d6bc3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &537030651
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,6 +568,7 @@ GameObject:
   - component: {fileID: 537030662}
   - component: {fileID: 537030661}
   - component: {fileID: 537030660}
+  - component: {fileID: 537030653}
   - component: {fileID: 537030659}
   - component: {fileID: 537030658}
   - component: {fileID: 537030657}
@@ -585,6 +600,18 @@ RectTransform:
   m_AnchoredPosition: {x: 121, y: 27}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &537030653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537030651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 060ba897a66edd9489f174ab66d6bc3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!165 &537030656
 AudioHighPassFilter:
   m_ObjectHideFlags: 0
@@ -632,6 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eab9689032eff24ea17b3e3503dfce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoundType: 2
   upDuration: 0.2
   downDuration: 0.2
   HighPassBase: 1000

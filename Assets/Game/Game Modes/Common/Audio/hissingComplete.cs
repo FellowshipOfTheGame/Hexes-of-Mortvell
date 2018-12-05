@@ -8,15 +8,21 @@ public class hissingComplete : MonoBehaviour
     public int perc;
 
     private bool sounding;
-    private int amp;
+    private float amp;
+	private HexesOfMortvell.Core.Grid.WeatheredCellsCounter counter;
     System.Random rand;
     // Start is called before the first frame update
-    void Start()
+	public void Awake() 
     {
-        sounding = false;
+        sounding = true;
         amp = 0;
         rand = new System.Random();
+		counter = GetComponent<HexesOfMortvell.Core.Grid.WeatheredCellsCounter>();
     }
+	
+	void Update(){
+		amp = counter.GetMostCommon();
+	}
 
     void OnAudioFilterRead(float[] data, int channels)
     {

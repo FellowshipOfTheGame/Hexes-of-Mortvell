@@ -8,15 +8,22 @@ namespace HexesOfMortvell.Core.Grid
 	{
 		[Header("Values")]
 		public List<WeatheredCellCount> cellsCount;
+		public GameObject weather;
+		
+		private int cellCount;
+		private Board board;
+		private string weatherName;
 
-		void Start()
+		void Awake()
 		{
-			CountWeatheredCells();
+			board = GameObject.FindObjectOfType<Board>().GetComponent<Board>();
+			cellCount = -1;
+			cellsCount = new List<WeatheredCellCount>();
+			weatherName = weather.GetComponent<HexesOfMortvell.Core.Grid.BoardWeather>().uniqueName;
 		}
-
+		
 		void Update()
 		{
-			CountWeatheredCells();
 		}
 
 		/// <summary>
@@ -24,9 +31,9 @@ namespace HexesOfMortvell.Core.Grid
 		/// </summary>
 		public void CountWeatheredCells()
 		{
-			var board = GameObject.FindObjectOfType<Board>();
 			string weatherName;
 			bool alreadyExists;
+			cellsCount.Clear();
 			for (int x = board.MinX; x <= board.MaxX; x++)
 				for (int y = board.MinY; y <= board.MaxY; y++)
 				{
@@ -35,10 +42,10 @@ namespace HexesOfMortvell.Core.Grid
 					if (weatherName != null)
 					{
 						alreadyExists = false;
-						foreach (var w in this.cellsCount)
-							if (w.weatherType.Equals(weatherName))
+						for(int i=0; i <this.cellsCount.Count; i++)
+							if (cellsCount[i].weatherType.Equals(weatherName))
 							{
-								w.count++;
+								cellsCount[i].count++;
 								alreadyExists = true;
 							}
 						if (!alreadyExists)
@@ -46,6 +53,33 @@ namespace HexesOfMortvell.Core.Grid
 								new WeatheredCellCount(weatherName, 1));
 					}
 				}
+		}
+		
+		/// <summary>
+		/// Calculates which weather is more common, and returns the percentage of cells that have such condition
+		/// </summary>
+		public float GetMostCommon(){
+			bool thisWeather = false;
+			float brute = 0;
+			if(cellCount < 0){
+				cellCount = (board.NumRows)*(board.NumCols);
+			}
+			CountWeatheredCells();
+			foreach (var w in this.cellsCount){
+				if(brute < w.count){
+					brute = w.count;
+					if(w.weatherType.Equals(weatherName)){
+						thisWeather = true;
+					}else{ 
+						thisWeather = false;
+					}
+				}
+			}
+			if(thisWeather){
+				return (brute)/cellCount;
+			}
+			else
+				return 0;
 		}
 	}
 }
