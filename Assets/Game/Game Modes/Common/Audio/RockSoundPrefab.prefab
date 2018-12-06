@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3227031890878792094}
   - component: {fileID: 3227031890878792065}
   - component: {fileID: 3227031890878792064}
+  - component: {fileID: 1593779299476736578}
   m_Layer: 0
   m_Name: RockSoundPrefab
   m_TagString: Untagged
@@ -213,3 +214,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colSound: {fileID: 3227031890878792065}
+--- !u!114 &1593779299476736578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3227031890878792090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdac8294014be0943896c4fa49d1814d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
