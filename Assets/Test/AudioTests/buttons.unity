@@ -1333,7 +1333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8bb9c27e00ebd4aa31744566caac1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frequency: 3060
+  frequency: 3000
   maxState: 30
   perc: 0.25
 --- !u!1 &876547888
