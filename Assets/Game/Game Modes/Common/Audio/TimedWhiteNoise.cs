@@ -61,5 +61,6 @@ public class TimedWhiteNoise : MonoBehaviour
         timeLeft = duration;
         upTimeLeft = upDuration;
         downTimeLeft = downDuration;
+		Debug.Log("foi");
     }
 }
