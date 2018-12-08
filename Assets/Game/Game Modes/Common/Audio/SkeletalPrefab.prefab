@@ -161,8 +161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 1
-  upDuration: 0.2
-  downDuration: 0.8
+  upDuration: 0
+  downDuration: 0.2
   HighFilterBase: 1700
   HighFilterRange: 500
   LowFilterFrequency: 900
