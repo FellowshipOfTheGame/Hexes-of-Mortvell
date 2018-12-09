@@ -11,11 +11,13 @@ public class SimpleOscilator : MonoBehaviour
 	private float constant;
 	private float beating;
 	private int state;
+	private System.Random rand;
     // Start is called before the first frame update
     void Awake()
     {
         constant = 40 * Mathf.PI * frequency / 1000;
 		beating = 39 * Mathf.PI * frequency / 1000;
+		rand = new System.Random();
     }
 
     // Update is called once per frame
