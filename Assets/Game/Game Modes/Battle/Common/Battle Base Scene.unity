@@ -720,6 +720,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1376773548282562, guid: 2af8ec9ebdd9d064a83768528d65126f, type: 3}
+      propertyPath: m_Name
+      value: Main Camera
+      objectReference: {fileID: 0}
     - target: {fileID: 4641864137781050, guid: 2af8ec9ebdd9d064a83768528d65126f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -751,10 +755,6 @@ PrefabInstance:
     - target: {fileID: 4641864137781050, guid: 2af8ec9ebdd9d064a83768528d65126f, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1376773548282562, guid: 2af8ec9ebdd9d064a83768528d65126f, type: 3}
-      propertyPath: m_Name
-      value: Main Camera
       objectReference: {fileID: 0}
     - target: {fileID: 20532002758274318, guid: 2af8ec9ebdd9d064a83768528d65126f,
         type: 3}
@@ -1023,6 +1023,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 293202965}
     m_Modifications:
+    - target: {fileID: 952064653288880804, guid: d1ed8bef7bb2306428d33502fac729f5,
+        type: 3}
+      propertyPath: m_Name
+      value: WeatherSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 952064653288880804, guid: d1ed8bef7bb2306428d33502fac729f5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 952064653288880807, guid: d1ed8bef7bb2306428d33502fac729f5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1077,11 +1087,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 952064653288880804, guid: d1ed8bef7bb2306428d33502fac729f5,
-        type: 3}
-      propertyPath: m_Name
-      value: WeatherSound
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1ed8bef7bb2306428d33502fac729f5, type: 3}

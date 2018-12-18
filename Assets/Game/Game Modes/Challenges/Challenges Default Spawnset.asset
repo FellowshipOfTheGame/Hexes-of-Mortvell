@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: Mages, Orbs and Skeletons
-  m_EditorClassIdentifier: Assembly-CSharp:HexesOfMortvell.Core.Grid.Loading:TmxSpawnSet
+  m_Script: {fileID: 11500000, guid: 5dca418524069884e95b7a05a131c7f5, type: 3}
+  m_Name: Challenges Default Spawnset
+  m_EditorClassIdentifier: 
   elements:
-  - prefab: {fileID: 1009992586163188, guid: 631f041d42a22fe4881bc85f54609738, type: 3}
+  - prefab: {fileID: 712772046505516539, guid: 45d4af5f10bf61948b33dfcd0076893d, type: 3}
     teamIndex: 0
-  - prefab: {fileID: 1009992586163188, guid: 631f041d42a22fe4881bc85f54609738, type: 3}
+  - prefab: {fileID: 712772046505516539, guid: 45d4af5f10bf61948b33dfcd0076893d, type: 3}
     teamIndex: 1
   - prefab: {fileID: 5465037059586018015, guid: 6248241616510c54f832f1497f7eb8e8,
       type: 3}

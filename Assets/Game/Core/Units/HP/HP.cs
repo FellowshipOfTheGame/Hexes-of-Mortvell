@@ -14,6 +14,12 @@ namespace HexesOfMortvell.Core.Units
 		/// </summary>
 		public int max;
 
+		/// <summary>
+		/// Initial value for HP. If set to 0, HP will be initialized with
+		/// maximum value.
+		/// </summary>
+		public int initial = 0;
+
 		[SerializeField]
 		/// <summary>
 		/// Temporary value which allows for threshold trespassing for
@@ -44,7 +50,10 @@ namespace HexesOfMortvell.Core.Units
 
 		void Awake()
 		{
-			this.commitedValue = new ObservableValue<int>(this.max);
+			var initialValue = this.initial;
+			if (initialValue <= 0)
+				initialValue = this.max;
+			this.commitedValue = new ObservableValue<int>(initialValue);
 			this.uncommitedValue = this.Current;
 		}
 
