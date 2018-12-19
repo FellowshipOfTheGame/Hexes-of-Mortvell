@@ -36,12 +36,11 @@ namespace HexesOfMortvell.GameModes.Challenges
 
 		void CheckDeath(HP unitHP)
 		{
-			// TODO BUG: UNTIS GETTING ADDED TWICE TO TEAM
 			var unitTeam = unitHP.GetComponent<TeamMember>()?.team;
 			if (unitTeam == this.playerTeam)
 				AwardVictoryTo(this.enemyTeam);
 			else if (this.enemyTeam.Members.Count == 0)
-				AwardVictoryTo(this.playerTeam);
+				;// AwardVictoryTo(this.playerTeam); TODO player needs to survive turn (maybe?)
 		}
 
 		void CheckEndTurn()

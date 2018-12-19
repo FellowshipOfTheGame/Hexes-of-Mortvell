@@ -24,8 +24,11 @@ namespace HexesOfMortvell.Core.Units.Teams
 		/// </remarks>
 		public IReadOnlyList<TeamMember> Members
 		{
-			get { return new ReadOnlyCollection<TeamMember>(
-				observableMembers.Value); }
+			get
+			{
+				return new ReadOnlyCollection<TeamMember>(
+					observableMembers.Value);
+			}
 		}
 
 		public IObservable<IList<TeamMember>> AsObservable
@@ -62,6 +65,8 @@ namespace HexesOfMortvell.Core.Units.Teams
 			var teamMembership = GetOrCreateTeamMembership(gameObject);
 			ErrorIfMemberOfOtherTeam(teamMembership);
 			teamMembership.team = this;
+			if (this.members.Contains(teamMembership))
+				return;
 			this.members.Add(teamMembership);
 			this.observableMembers.NotifyValueChange();
 		}
