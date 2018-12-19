@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5dca418524069884e95b7a05a131c7f5, type: 3}
-  m_Name: Challenges Default Spawnset
+  m_Name: Challenges Badly Damaged Enemies
   m_EditorClassIdentifier: 
   elements:
-  - prefab: {fileID: 712772046505516539, guid: 45d4af5f10bf61948b33dfcd0076893d, type: 3}
+  - prefab: {fileID: 712772046505516539, guid: 9fc7ec855a5e4094f85e8ce29ce52a77, type: 3}
     teamIndex: 0
-  - prefab: {fileID: 712772046505516539, guid: 45d4af5f10bf61948b33dfcd0076893d, type: 3}
+  - prefab: {fileID: 712772046505516539, guid: 9fc7ec855a5e4094f85e8ce29ce52a77, type: 3}
     teamIndex: 1
   - prefab: {fileID: 5465037059586018015, guid: 6248241616510c54f832f1497f7eb8e8,
       type: 3}

@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1009992586163188, guid: 631f041d42a22fe4881bc85f54609738, type: 3}
       propertyPath: m_Name
-      value: Damaged Mage
+      value: Badly Damaged Mage
       objectReference: {fileID: 0}
     - target: {fileID: 4432327423087928, guid: 631f041d42a22fe4881bc85f54609738, type: 3}
       propertyPath: m_LocalPosition.x
@@ -58,7 +58,7 @@ PrefabInstance:
     - target: {fileID: 114085495945686108, guid: 631f041d42a22fe4881bc85f54609738,
         type: 3}
       propertyPath: initial
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 631f041d42a22fe4881bc85f54609738, type: 3}
