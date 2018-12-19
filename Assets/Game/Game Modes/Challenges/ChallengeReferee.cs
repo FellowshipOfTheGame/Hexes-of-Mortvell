@@ -20,6 +20,9 @@ namespace HexesOfMortvell.GameModes.Challenges
 
 		public int playerTeamIndex = 0;
 
+		int numOfRemainingEnemies;
+		bool allEnemiesDead;
+
 		void Awake()
 		{
 			this.turn = GameObject.FindObjectOfType<Turn>();
@@ -32,20 +35,40 @@ namespace HexesOfMortvell.GameModes.Challenges
 
 			this.deathListener.deathEvent += CheckDeath;
 			this.endTurnListener.turnEndedEvent += CheckEndTurn;
+
+			this.numOfRemainingEnemies = this.enemyTeam.Members.Count;
+			this.allEnemiesDead = false;
 		}
 
 		void CheckDeath(HP unitHP)
 		{
 			var unitTeam = unitHP.GetComponent<TeamMember>()?.team;
 			if (unitTeam == this.playerTeam)
+			{
 				AwardVictoryTo(this.enemyTeam);
-			else if (this.enemyTeam.Members.Count == 0)
-				;// AwardVictoryTo(this.playerTeam); TODO player needs to survive turn (maybe?)
+			}
+			else
+			{
+				this.numOfRemainingEnemies--;
+				if (this.numOfRemainingEnemies == 0)
+					this.allEnemiesDead = true;
+			}
 		}
 
 		void CheckEndTurn()
 		{
-			// TODO
+			bool endOfPlayerTurn = (this.turn.CurrentTeam == this.playerTeam);
+			if (endOfPlayerTurn)
+				StartCoroutine(AwaitTurnSwapAndCheckVictory());
+		}
+
+		IEnumerator AwaitTurnSwapAndCheckVictory()
+		{
+			yield return null; // Wait for end of turn processing
+			if (this.allEnemiesDead)
+				AwardVictoryTo(this.playerTeam);
+			else
+				AwardVictoryTo(this.enemyTeam);
 		}
 
 		public void ProcessVictory(Team team)
