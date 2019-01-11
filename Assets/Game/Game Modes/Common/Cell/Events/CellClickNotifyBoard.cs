@@ -4,7 +4,7 @@ using HexesOfMortvell.Core.Grid;
 
 namespace HexesOfMortvell.GameModes
 {
-	public class CellClickNotifyBoard : MonoBehaviour
+	public class CellClickNotifyBoard : MonoBehaviour, IPointerClickHandler
 	{
 		public BoardCell cell;
 		private CellClickListener listener;
@@ -15,9 +15,15 @@ namespace HexesOfMortvell.GameModes
 			this.listener = board.GetComponent<CellClickListener>();
 		}
 
-		public void Click()
+		//public void Click()
+		//{
+		//	this.listener.Notify(this.cell);
+		//}
+
+		public void OnPointerClick(PointerEventData eventData)
 		{
-			this.listener.Notify(this.cell);
+			if (eventData.button == PointerEventData.InputButton.Left)
+				this.listener.Notify(this.cell);
 		}
 	}
 }

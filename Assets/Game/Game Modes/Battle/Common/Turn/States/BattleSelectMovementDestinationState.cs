@@ -37,6 +37,24 @@ namespace HexesOfMortvell.GameModes.Battle
 			UnregisterClickHandler();
 		}
 
+		void Update()
+		{
+			if (InputCancel())
+				Undo();
+		}
+
+		bool InputCancel()
+		{
+			return Input.GetKeyDown(KeyCode.Backspace)
+					|| Input.GetKeyDown(KeyCode.Escape)
+					|| Input.GetMouseButtonDown(1);
+		}
+
+		void Undo()
+		{
+			this.fsm.Transition<BattleOverviewState>();
+		}
+
 		void SkipState()
 		{
 			this.fsm.Transition<BattleSelectUnitActionState>();

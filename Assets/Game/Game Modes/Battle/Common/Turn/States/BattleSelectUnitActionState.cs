@@ -27,6 +27,11 @@ namespace HexesOfMortvell.GameModes.Battle
 
 		void Update()
 		{
+			// Undo option
+			if (InputCancel())
+				Undo();
+
+			// Spells choice
 			if (Input.GetKeyDown(KeyCode.Alpha1))
 				Select(0);
 			else if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -43,6 +48,20 @@ namespace HexesOfMortvell.GameModes.Battle
 				Select(6);
 			else if (Input.GetKeyDown(KeyCode.Alpha8))
 				Select(7);
+		}
+
+		bool InputCancel()
+		{
+			return Input.GetKeyDown(KeyCode.Backspace)
+					|| Input.GetKeyDown(KeyCode.Escape)
+					|| Input.GetMouseButtonDown(1);
+		}
+
+		void Undo()
+		{
+			this.playerOrders.movementDestination.MoveContentTo(
+				this.playerOrders.movementOrigin);
+			this.fsm.Transition<BattleSelectMovementDestinationState>();
 		}
 
 		void Select(int actionIdx)
