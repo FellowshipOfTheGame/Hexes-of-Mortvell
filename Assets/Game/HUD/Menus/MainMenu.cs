@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+namespace HexesOfMortvell.Hud.Menus
 {
-	public void PlayGame() {
-		// TODO
-		SceneManager.LoadScene("Battle Base Scene");
+	public class MainMenu : MonoBehaviour
+	{
+		public void PlayGame() {
+			SceneManager.LoadScene("Select Map Menu");
+		}
 	}
 }
