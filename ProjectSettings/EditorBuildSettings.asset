@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Game/HUD/Menus/Main Menu.unity
     guid: 512465448c29e854fa732f9bca56ac10
   - enabled: 1
+    path: Assets/Game/HUD/Menus/Select Map Menu.unity
+    guid: 2dffae2889ca9244a87539953c59e7b1
+  - enabled: 1
     path: Assets/Game/Game Modes/Battle/Common/Battle Base Scene.unity
     guid: e5cef844c2136064ba09ab714587834f
   - enabled: 1
