@@ -3,30 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace HexesOfMortvell.Hud.Menus
+namespace HexesOfMortvell.GameModes
 {
 	public class IngameMenuLoader : MonoBehaviour
 	{
-		public void LoadIngameMenu() {
-			Scene loadedScene = SceneManager.GetSceneByName("In Game Menu");
-			if (loadedScene.isLoaded) {
-				//TODO: hide ingame menu
-				UnloadIngameMenu();
-			}
-			else {
-				//TODO: disable game scene objects
-				StartCoroutine(LoadIngameMenuScene());
-			}
+		public GameObject ingameMenu;
+
+		void Update()
+		{
+			if (Input.GetKeyDown(KeyCode.Escape))
+				ingameMenu.SetActive(!ingameMenu.activeSelf);
 		}
 
-		public void UnloadIngameMenu() {
-			SceneManager.UnloadSceneAsync("In Game Menu");
-		}
-
-		IEnumerator LoadIngameMenuScene() {
-			SceneManager.LoadScene("In Game Menu", LoadSceneMode.Additive);
-			yield return null;
-			SceneManager.SetActiveScene(SceneManager.GetSceneByName("In Game Menu"));
+		public void Quit()
+		{
+			SceneManager.LoadScene("Main Menu");
 		}
 	}
 }
