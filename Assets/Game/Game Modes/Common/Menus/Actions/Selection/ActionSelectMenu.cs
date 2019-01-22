@@ -25,7 +25,9 @@ namespace HexesOfMortvell.GameModes.Menus
 
         void AddAction(GameObject action)
         {
-
+            var buttonObj = Instantiate(this.actionButtonPrefab, this.transform);
+            var button = buttonObj.GetComponent<ActionSelectButton>();
+            button.SetAction(action);
         }
     }
 }
