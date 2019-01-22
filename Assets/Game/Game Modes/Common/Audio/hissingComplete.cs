@@ -12,7 +12,7 @@ public class hissingComplete : MonoBehaviour
 	private HexesOfMortvell.Core.Grid.WeatheredCellsCounter counter;
     System.Random rand;
     // Start is called before the first frame update
-	public void Awake() 
+    void Awake()
     {
         sounding = true;
         amp = 0;
